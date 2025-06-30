@@ -1,0 +1,16 @@
+[
+{
+  "modid": "nevermine",
+  "name": "Advent of Ascension",
+  "description": "A full adventure mod.",
+  "version": "3.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["XolovA - Brendan Wildish", "Tslat"],
+  "credits": "Sonicwave (sound edits), Pixelator (texture edits)",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
