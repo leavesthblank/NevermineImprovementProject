@@ -302,11 +302,22 @@ public class HarvestingTracker {
 							e.drops.add(new ItemStack(Itemizer.IngotSkeletal, 1));
 							break;
 						case "tile.stoneGreckon":
-							e.drops.add(new ItemStack(Itemizer.IngotGhastly, 2));
+                            if(rand.nextBoolean()) {
+                                e.drops.add(new ItemStack(Itemizer.IngotGhastly, 2));
+                            }else {
+                                e.drops.add(new ItemStack(Itemizer.IngotGhoulish, 2));
+                            }
 							break;
 						case "tile.baronStone":
-							e.drops.add(new ItemStack(Itemizer.IngotBaronyte, 1));
-							break;
+                            int a = rand.nextInt(3);
+                            if(a == 0){
+							    e.drops.add(new ItemStack(Itemizer.IngotBaronyte, 1));
+                            } else if (a==1) {
+                                e.drops.add(new ItemStack(Itemizer.IngotVarsium, 1));
+                            } else {
+                                e.drops.add(new ItemStack(Itemizer.IngotElecanium, 1));
+                            }
+                            break;
 						case "tile.barathosHellstone":
 							e.drops.add(new ItemStack(Itemizer.IngotBlazium, 1));
 							break;
@@ -317,9 +328,41 @@ public class HarvestingTracker {
 							e.drops.add(new ItemStack(Itemizer.IngotMystite, 2));
 							break;
 						case "tile.crysteviaRock":
-							e.drops.add(new ItemStack(Itemizer.CrystalsBlue, 4));
-							break;
-						default:
+                            int b = rand.nextInt(6);
+                            if(b==0) {
+                                e.drops.add(new ItemStack(Itemizer.CrystalsBlue, 4));
+                            } else if (b==1) {
+                                e.drops.add(new ItemStack(Itemizer.CrystalsRed, 4));
+                            } else if (b==2) {
+                                e.drops.add(new ItemStack(Itemizer.CrystalsGreen, 4));
+                            } else if (b==3) {
+                                e.drops.add(new ItemStack(Itemizer.CrystalsYellow, 4));
+                            } else if (b==4) {
+                                e.drops.add(new ItemStack(Itemizer.CrystalsWhite, 4));
+                            } else {
+                                e.drops.add(new ItemStack(Itemizer.CrystalsPurple, 4));
+                            }
+                            break;
+                        case "tile.stoneHaven":
+                            e.drops.add(new ItemStack(Itemizer.CrystalliteStone, 4));
+                            break;
+                        case "tile.stoneCreep":
+                            e.drops.add(new ItemStack(Itemizer.Jewelyte, 2));
+                            break;
+                        case "tile.stoneUnstable":
+                            e.drops.add(new ItemStack(Itemizer.Gemenyte, 2));
+                            break;
+                        case "tile.stonePrimed":
+                            e.drops.add(new ItemStack(Itemizer.Ornamyte, 2));
+                            break;
+                        case "tile.stoneShyrelands":
+                            if(rand.nextBoolean()) {
+                                e.drops.add(new ItemStack(Itemizer.IngotShyrestone, 2));
+                            }else {
+                                e.drops.add(new ItemStack(Itemizer.IngotShyregem, 2));
+                            }
+                            break;
+                            default:
 							e.drops.add(new ItemStack(Itemizer.IngotJade, 2));
 							break;
 					}
