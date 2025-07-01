@@ -26,6 +26,7 @@ public class Lunarade extends ItemFood {
 		player.removePotionEffect(Potion.blindness.id);
 		player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 40, 1));
 		player.addPotionEffect(new PotionEffect(Potion.jump.id, 40));
+        player.heal(2.0f);
 
 		return item;
 	}

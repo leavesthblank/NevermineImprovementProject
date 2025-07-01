@@ -768,8 +768,7 @@ public class Recipes {
 		GameRegistry.addRecipe(new ItemStack(Blockizer.stairsShyrewood, 4), new Object[] {"G  ", "GG ", "GGG", Character.valueOf('G'), Blockizer.planksShyre});
 		GameRegistry.addShapelessRecipe(new ItemStack(Blockizer.planksShyre, 4), new Object[] {Blockizer.ShyreWood});
 
-		GameRegistry.addRecipe(new ItemStack(SpecialBlockizer.CraexxeusStatueGold, 1), new Object[] {"XXX", "XXX", "XXX", 'X', SpecialBlockizer.CraexxeusStatue});
-		GameRegistry.addRecipe(new ItemStack(SpecialBlockizer.XxeusStatueGold, 1), new Object[] {"XXX", "XXX", "XXX", 'X', SpecialBlockizer.XxeusStatue});
-        GameRegistry.addRecipe(new ItemStack(Itemizer.AncientTeleporterBlueprint, 1), new Object[] {"XYX", "XZX", "XYX", 'X', Itemizer.AmethystIngot , 'Y', Itemizer.IngotJade, 'Z', Itemizer.IngotSapphire});
+		GameRegistry.addShapelessRecipe(new ItemStack(SpecialBlockizer.CraexxeusStatueGold, 1), new Object[] {SpecialBlockizer.CraexxeusStatue , Items.gold_ingot});
+		GameRegistry.addShapelessRecipe(new ItemStack(SpecialBlockizer.XxeusStatueGold, 1), new Object[] {SpecialBlockizer.XxeusStatue , Items.gold_ingot});
 	}
 }

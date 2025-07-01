@@ -24,6 +24,7 @@ public class EyeCandy extends ItemFood {
 
 		if (!world.isRemote) {
 			energyHelper.getProperties(player).regen(10f);
+            player.heal(3.0f);
 		}
 
 		return item;

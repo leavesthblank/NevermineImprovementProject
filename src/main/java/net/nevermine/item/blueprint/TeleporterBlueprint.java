@@ -9,6 +9,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.assist.StringUtil;
+import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.structures.vanilla.AncientTeleporter;
 
@@ -30,9 +31,25 @@ public class TeleporterBlueprint extends Item {
 			final int posy = MathHelper.floor_double(player.posY);
 			player.worldObj.playSoundAtEntity(player, "nevermine:AncientTeleporter", 1.0f, 1.0f);
 			if (player.canPlayerEdit(posx, posy, posz, 0, par1ItemStack)) {
-				new AncientTeleporter().generate(world, world.rand, posx - 5, posy, posz - 7);
+				world.setBlock(posx,posy,posz, Blockizer.CarvedRune4);
+                world.setBlock(posx-1,posy,posz, Blockizer.AncientRock);
+                world.setBlock(posx-2,posy,posz, Blockizer.AncientRock);
+                world.setBlock(posx+1,posy,posz, Blockizer.AncientRock);
+                world.setBlock(posx+2,posy,posz, Blockizer.AncientRock);
+                world.setBlock(posx-2,posy+1,posz, Blockizer.CarvedRune1);
+                world.setBlock(posx+2,posy+1,posz, Blockizer.CarvedRune2);
+                world.setBlock(posx-2,posy+2,posz, Blockizer.AncientRock);
+                world.setBlock(posx+2,posy+2,posz, Blockizer.AncientRock);
+                world.setBlock(posx-2,posy+3,posz, Blockizer.AncientRock);
+                world.setBlock(posx+2,posy+3,posz, Blockizer.AncientRock);
+                world.setBlock(posx-2,posy+4,posz, Blockizer.CarvedRune3);
+                world.setBlock(posx+2,posy+4,posz, Blockizer.CarvedRune6);
+                world.setBlock(posx-2,posy+5,posz, Blockizer.AncientRock);
+                world.setBlock(posx+2,posy+5,posz, Blockizer.AncientRock);
+                world.setBlock(posx-1,posy+5,posz, Blockizer.AncientRock);
+                world.setBlock(posx+1,posy+5,posz, Blockizer.AncientRock);
+                world.setBlock(posx,posy+5,posz, Blockizer.AncientRock);
 			}
-			player.setPositionAndUpdate(player.posX, player.posY + 5.0, player.posZ);
 		}
 		--par1ItemStack.stackSize;
 		return true;

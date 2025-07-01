@@ -31,7 +31,7 @@ public class BucketHalyconMilk extends ItemFood {
 		super.onEaten(item, world, player);
 
 		if (!world.isRemote) {
-			player.heal(2.0f);
+			player.heal(8.0f);
 			player.curePotionEffects(new ItemStack(Items.milk_bucket));
 			player.addPotionEffect(new PotionEffect(Potion.confusion.id, 100));
 

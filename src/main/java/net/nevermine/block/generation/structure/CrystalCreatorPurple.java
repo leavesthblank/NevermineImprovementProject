@@ -23,7 +23,7 @@ public class CrystalCreatorPurple extends Block {
 	public boolean onBlockActivated(final World w, final int x, final int y, final int z, final EntityPlayer p, final int var6, final float var7, final float var8, final float var9) {
 		if (!w.isRemote && p.getHeldItem() != null && p.getHeldItem().getItem() == Itemizer.GemstonesPurple) {
 			p.inventory.consumeInventoryItem(Itemizer.GemstonesPurple);
-			if (!w.isRemote && rand.nextInt(8) == 2) {
+			if (!w.isRemote) {
 				p.dropItem(Itemizer.CrystalsPurple, 1);
 				w.playSoundAtEntity(p, "nevermine:CrystalMake", 1.85f, 1.0f);
 			}

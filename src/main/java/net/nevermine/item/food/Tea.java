@@ -30,6 +30,7 @@ public class Tea extends ItemFood {
 		super.onEaten(item, world, player);
 
 		if (!world.isRemote) {
+            player.heal(1.0f);
 			player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 50, 1));
 			player.addPotionEffect(new PotionEffect(Potion.resistance.id, 150));
 

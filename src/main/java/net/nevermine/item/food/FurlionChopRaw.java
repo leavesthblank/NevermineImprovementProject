@@ -1,14 +1,13 @@
-package net.nevermine.item.functional;
+package net.nevermine.item.food;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
 
-public class ChimeraChopRaw extends ItemFood {
-    public ChimeraChopRaw() {
+public class FurlionChopRaw extends ItemFood{
+    public FurlionChopRaw() {
         super(4, 0.15f, true);
         setCreativeTab(Itemizer.MiscTab);
     }
@@ -18,3 +17,4 @@ public class ChimeraChopRaw extends ItemFood {
         return item;
     }
 }
+

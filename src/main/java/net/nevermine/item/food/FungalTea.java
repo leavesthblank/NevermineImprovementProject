@@ -30,6 +30,7 @@ public class FungalTea extends ItemFood {
 		super.onEaten(item, world, player);
 
 		if (!world.isRemote) {
+            player.heal(2.0f);
 			player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 75, 3));
 			player.addPotionEffect(new PotionEffect(Potion.resistance.id, 75));
 

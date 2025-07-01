@@ -14,7 +14,7 @@ import java.util.List;
 
 public class FieryChops extends ItemFood {
 	public FieryChops() {
-		super(5, 0.5f, true);
+		super(8, 0.95f, true);
 		setCreativeTab(Itemizer.MiscTab);
 	}
 
