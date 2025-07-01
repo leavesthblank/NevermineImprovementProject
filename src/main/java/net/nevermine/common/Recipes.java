@@ -683,7 +683,7 @@ public class Recipes {
 		GameRegistry.addRecipe(new ItemStack(Blockizer.EnhancerResistance, 1), new Object[] {"GGG", "GXG", "GGG", 'G', Itemizer.RuniumChunk, 'X', Itemizer.IngotSkeletal});
 		GameRegistry.addRecipe(new ItemStack(Blockizer.EnhancerMagical, 1), new Object[] {"GGG", "GXG", "GGG", 'G', Itemizer.RuniumChunk, 'X', Itemizer.AmethystIngot});
 		GameRegistry.addRecipe(new ItemStack(Blockizer.EnhancerSpeed, 1), new Object[] {"GGG", "GXG", "GGG", 'G', Itemizer.RuniumChunk, 'X', Itemizer.IngotSapphire});
-		GameRegistry.addRecipe(new ItemStack(Blockizer.TwinkleFence, 8), new Object[] {"GGG", "G G", 'G', Blockizer.TwinkleStone});
+		GameRegistry.addRecipe(new ItemStack(Blockizer.TwinkleFence, 8), new Object[] {"GGG", "GGG", 'G', Blockizer.TwinkleStone});
 		GameRegistry.addRecipe(new ItemStack(Blockizer.ExtractionDevice, 1), new Object[] {"GGG", "GXG", "GGG", 'G', Blockizer.DarkWashBricks, 'X', Blocks.glass});
 		GameRegistry.addRecipe(new ItemStack(Blockizer.stairsCreep, 4), new Object[] {"G  ", "GG ", "GGG", 'G', Blockizer.planksCreep});
 		GameRegistry.addRecipe(new ItemStack(Blockizer.stairsCelevus, 4), new Object[] {"G  ", "GG ", "GGG", 'G', Blockizer.planksCelevus});

@@ -6,10 +6,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StringTranslate;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.assist.WebRequest;
 import net.nevermine.assist.binding.LoginNoticeBinding;
 import net.nevermine.assist.binding.SkillShowBinding;
 import net.nevermine.common.nevermine;
@@ -194,24 +192,8 @@ public class FrontTextEvent {
 	}
 
 	private static String getTipMsg() {
-		if (WebRequest.isUpdateAvailable()) {
-			return "New update available: " + WebRequest.webVer;
-		}
-
-		int pick = nevermine.rand.nextInt(13);
-
-		switch (pick) {
-			case 12:
-				String randomDonator = WebRequest.getRandomDonator();
-
-				if (randomDonator == null) {
-					return StringUtil.getLocaleString("gui.notice.tip." + 1);
-				}
-				else {
-					return "Thanks for donating, " + randomDonator + "!";
-				}
-			default:
-				return StringUtil.getLocaleString("gui.notice.tip." + pick);
+		int pick = nevermine.rand.nextInt(12);
+        return StringUtil.getLocaleString("gui.notice.tip." + pick);
 		}
 	}
-}
+
