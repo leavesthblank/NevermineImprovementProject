@@ -57,14 +57,6 @@ public class PrimordialShrine extends Block {
 			var10.setLocationAndAngles((double)x, (double)(y + 3), (double)z, 0.0f, 0.0f);
 			w.spawnEntityInWorld(var10);
 
-			w.setBlock(x - 1, y + 1, z - 4, Blockizer.DustopianLampOff);
-			w.setBlock(x - 3, y + 1, z + 5, Blockizer.DustopianLampOff);
-			w.setBlock(x - 3, y + 1, z - 5, Blockizer.DustopianLampOff);
-			w.setBlock(x + 1, y + 3, z - 3, Blockizer.DustopianLampOff);
-			w.setBlock(x + 1, y + 3, z + 3, Blockizer.DustopianLampOff);
-			w.setBlock(x + 1, y + 5, z - 1, Blockizer.DustopianLampOff);
-			w.setBlock(x + 1, y + 5, z + 1, Blockizer.DustopianLampOff);
-
 			IChatComponent msg = StringUtil.getLocaleWithArguments("message.mob.primordialFive.spawn", p.getDisplayName());
 
 			for (final EntityPlayer e : (List<EntityPlayer>)p.worldObj.getEntitiesWithinAABB(EntityPlayer.class, p.boundingBox.expand(50.0, 50.0, 50.0))) {

@@ -44,8 +44,12 @@ public class EntityLottomanLelyetia extends EntityNevermineVillager {
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinsLelyetia, 10, 1), new ItemStack(Totemizer.TotemRoyalGreatblade)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinsLelyetia, 40, 1), new ItemStack(Itemizer.CoinsLelyetia, 35), new ItemStack(Totemizer.TotemSwarmotron, 10)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinsLelyetia, 40, 1), new ItemStack(Itemizer.CoinsLelyetia, 35), new ItemStack(Totemizer.TotemRoyalGreatblade, 10)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 5, 1), new ItemStack(Itemizer.MagicRepairDust, 1)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 50, 1), new ItemStack(Itemizer.MagicRepairDust, 15)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 5, 1), new ItemStack(Itemizer.GemBag, 1)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 50, 1), new ItemStack(Itemizer.GemBag, 13)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 5, 1), new ItemStack(Itemizer.MagicRepairDust, 1)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 25, 1), new ItemStack(Itemizer.GoldCoin, 25), new ItemStack(Itemizer.MagicRepairDust, 15)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.Orbulon, 15, 1), new ItemStack(Itemizer.MagicRepairDust, 2)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 7, 1), new ItemStack(Itemizer.ShinyBox, 1)));
 	}
 
 	@Override

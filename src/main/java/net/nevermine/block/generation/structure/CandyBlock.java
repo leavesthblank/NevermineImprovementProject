@@ -28,9 +28,7 @@ public class CandyBlock extends Block {
 			if (w.difficultySetting == EnumDifficulty.PEACEFUL) {
 				p.addChatMessage(StringUtil.getLocale("message.feedback.spawnBoss.fail"));
 				return false;
-			}
-
-			if (p.inventory.consumeInventoryItem(Itemizer.TreatBag)) {
+			}else {
 				final EntityCottonCandor var10 = new EntityCottonCandor(w);
 				var10.setLocationAndAngles((double)x, (double)(y + 3), (double)z, 0.0f, 0.0f);
 				w.spawnEntityInWorld(var10);

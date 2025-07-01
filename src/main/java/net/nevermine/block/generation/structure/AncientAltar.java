@@ -22,12 +22,12 @@ public class AncientAltar extends Block {
 	public boolean onBlockActivated(World w, int x, int y, int z, EntityPlayer p, int var6, float var7, float var8, float var9) {
 		if ((!p.isSneaking()) && (p.getHeldItem() != null)) {
 			if (p.getHeldItem().getItem() == Itemizer.IngotShyrestone) {
-				if ((p.inventory.consumeInventoryItem(Itemizer.IngotShyrestone)) && (!w.isRemote) && (this.rand.nextInt(8) == 2)) {
+				if ((p.inventory.consumeInventoryItem(Itemizer.IngotShyrestone)) && (!w.isRemote)) {
 					p.dropItem(Itemizer.AncientRing, 1);
 				}
 
 			}
-			else if ((p.getHeldItem().getItem() == Itemizer.IngotShyregem) && (p.inventory.consumeInventoryItem(Itemizer.IngotShyregem)) && (!w.isRemote) && (this.rand.nextInt(4) == 2)) {
+			else if ((p.getHeldItem().getItem() == Itemizer.IngotShyregem) && (p.inventory.consumeInventoryItem(Itemizer.IngotShyregem)) && (!w.isRemote)) {
 				p.dropItem(Itemizer.AncientRing, 1);
 			}
 		}

@@ -44,8 +44,12 @@ public class EntityLottomanNether extends EntityNevermineVillager {
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinsNether, 10, 1), new ItemStack(Totemizer.TotemWartGun)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinsNether, 40, 1), new ItemStack(Itemizer.CoinsNether, 35), new ItemStack(Totemizer.TotemFlamingFury, 10)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinsNether, 40, 1), new ItemStack(Itemizer.CoinsNether, 35), new ItemStack(Totemizer.TotemWartGun, 10)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 5, 1), new ItemStack(Itemizer.MagicRepairDust, 1)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 50, 1), new ItemStack(Itemizer.MagicRepairDust, 15)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 5, 1), new ItemStack(Itemizer.GemBag, 1)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 50, 1), new ItemStack(Itemizer.GemBag, 13)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 5, 1), new ItemStack(Itemizer.MagicRepairDust, 1)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 25, 1), new ItemStack(Itemizer.GoldCoin, 25), new ItemStack(Itemizer.MagicRepairDust, 15)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.Orbulon, 15, 1), new ItemStack(Itemizer.MagicRepairDust, 2)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 7, 1), new ItemStack(Itemizer.ShinyBox, 1)));
 	}
 
 	@Override

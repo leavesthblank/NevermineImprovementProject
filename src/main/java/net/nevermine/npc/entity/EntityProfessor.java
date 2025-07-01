@@ -37,8 +37,8 @@ public class EntityProfessor extends EntityNevermineVillager {
 
 	@Override
 	public void addRecipies(final MerchantRecipeList list) {
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 50, 1), new ItemStack(Itemizer.IngotLyon, 5), new ItemStack(Itemizer.MechaGear, 2)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 1, 1), new ItemStack(Itemizer.IngotLyon, 20), new ItemStack(Itemizer.CoinSilvro, 1)));
+		list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 1, 1), new ItemStack(Itemizer.IngotLyon, 5), new ItemStack(Itemizer.MechaGear, 2)));
+		list.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 1, 1), new ItemStack(Itemizer.IngotLyon, 5), new ItemStack(Itemizer.CoinSilvro, 1)));
 	}
 
 	@Override

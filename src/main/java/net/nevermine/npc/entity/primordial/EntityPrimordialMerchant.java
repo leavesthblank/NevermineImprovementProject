@@ -41,7 +41,7 @@ public class EntityPrimordialMerchant extends EntityNevermineVillager {
 	@Override
 	public void addRecipies(final MerchantRecipeList list) {
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 1, 1), new ItemStack(Items.beef, 2)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.PrimordialSkull, 5, 1), new ItemStack(Itemizer.PrimordialDust, 1)));
+		list.add(new RestockedRecipe(new ItemStack(Itemizer.PrimordialSkull, 2, 1), new ItemStack(Itemizer.PrimordialDust, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 3, 1), new ItemStack(Itemizer.IngotRosite, 1)));
 	}
 

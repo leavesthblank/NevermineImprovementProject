@@ -27,9 +27,7 @@ public class PowerStation extends Block {
 			if (w.difficultySetting == EnumDifficulty.PEACEFUL) {
 				p.addChatMessage(StringUtil.getLocale("message.feedback.spawnBoss.fail"));
 				return false;
-			}
-
-			if (p.inventory.consumeInventoryItem(Itemizer.GiantCrystal)) {
+			}else {
 				final EntityCrystocore var10 = new EntityCrystocore(w);
 				var10.setLocationAndAngles((double)x, (double)(y + 2), (double)z, 0.0f, 0.0f);
 				w.spawnEntityInWorld(var10);

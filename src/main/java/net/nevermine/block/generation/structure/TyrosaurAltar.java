@@ -30,9 +30,7 @@ public class TyrosaurAltar extends Block {
 			if (w.difficultySetting == EnumDifficulty.PEACEFUL) {
 				p.addChatMessage(StringUtil.getLocale("message.feedback.spawnBoss.fail"));
 				return false;
-			}
-
-			if (p.inventory.consumeInventoryItem(Itemizer.Bloodstone)) {
+			}else {
 				EntityTyrosaur var2 = new EntityTyrosaur(w);
 				var2.setLocationAndAngles(x, y + 3, z, 0F, 0.0F);
 				w.spawnEntityInWorld(var2);

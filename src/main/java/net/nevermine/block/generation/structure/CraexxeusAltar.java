@@ -27,9 +27,7 @@ public class CraexxeusAltar extends Block {
 			if (w.difficultySetting == EnumDifficulty.PEACEFUL) {
 				p.addChatMessage(StringUtil.getLocale("message.feedback.spawnBoss.fail"));
 				return false;
-			}
-
-			if (p.inventory.consumeInventoryItem(Itemizer.AncientRing)) {
+			}else {
 				EntityCraexxeus var2 = new EntityCraexxeus(w, x, y, z);
 				var2.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
 				w.spawnEntityInWorld(var2);

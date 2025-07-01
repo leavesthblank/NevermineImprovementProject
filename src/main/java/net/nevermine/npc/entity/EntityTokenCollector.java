@@ -36,19 +36,19 @@ public class EntityTokenCollector extends EntityNevermineVillager {
 
 	@Override
 	public void addRecipies(final MerchantRecipeList var2) {
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 3, 1), new ItemStack(Itemizer.AugmentFire, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 6, 1), new ItemStack(Itemizer.AugmentImpairment, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 10, 1), new ItemStack(Itemizer.AugmentPoison, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 14, 1), new ItemStack(Itemizer.AugmentPower, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 20, 1), new ItemStack(Itemizer.AugmentWither, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 30, 1), new ItemStack(Itemizer.AugmentEquality, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 60, 1), new ItemStack(Itemizer.AugmentBattle, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 2, 1), new ItemStack(Itemizer.AugmentFire, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 4, 1), new ItemStack(Itemizer.AugmentImpairment, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 8, 1), new ItemStack(Itemizer.AugmentPoison, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 10, 1), new ItemStack(Itemizer.AugmentPower, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 15, 1), new ItemStack(Itemizer.AugmentWither, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 20, 1), new ItemStack(Itemizer.AugmentEquality, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 40, 1), new ItemStack(Itemizer.AugmentBattle, 1)));
 		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 10, 1), new ItemStack(Weaponizer.VulcammerSword, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 30, 1), new ItemStack(Weaponizer.EverfightStaff, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 30, 1), new ItemStack(Weaponizer.EvermightStaff, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 40, 1), new ItemStack(Weaponizer.Odious, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 50, 1), new ItemStack(Weaponizer.Deadlock, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 1, 1), new ItemStack(SpecialBlockizer.ImmortalBanner, 3)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 20, 1), new ItemStack(Weaponizer.EverfightStaff, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 20, 1), new ItemStack(Weaponizer.EvermightStaff, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 25, 1), new ItemStack(Weaponizer.Odious, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 40, 1), new ItemStack(Weaponizer.Deadlock, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.DungeonTokens, 1, 1), new ItemStack(SpecialBlockizer.ImmortalBanner, 4)));
 	}
 
 	@Override

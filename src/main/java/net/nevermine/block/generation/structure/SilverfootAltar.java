@@ -43,9 +43,7 @@ public class SilverfootAltar extends Block {
 			if (w.difficultySetting == EnumDifficulty.PEACEFUL) {
 				p.addChatMessage(StringUtil.getLocale("message.feedback.spawnBoss.fail"));
 				return false;
-			}
-
-			if (p.inventory.consumeInventoryItem(Itemizer.CoinSilvro)) {
+			}else {
 				final EntitySilverfoot var10 = new EntitySilverfoot(w);
 				var10.setLocationAndAngles((double)x, (double)(y + 3), (double)z, 0.0f, 0.0f);
 				w.spawnEntityInWorld(var10);

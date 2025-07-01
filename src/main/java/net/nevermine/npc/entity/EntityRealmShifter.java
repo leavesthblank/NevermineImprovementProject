@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
+import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
 
 import java.util.ArrayList;
@@ -37,6 +38,13 @@ public class EntityRealmShifter extends EntityNevermineVillager {
 
 	@Override
 	public void addRecipies(final MerchantRecipeList list) {
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.CopperCoin, 1, 1), new ItemStack(Blockizer.AncientRock, 3)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.CopperCoin, 5, 1), new ItemStack(Itemizer.CopperCoin, 5, 1),new ItemStack(Blockizer.AncientRock, 32)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 1, 1), new ItemStack(Blockizer.AncientRock, 64)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.CopperCoin, 20, 1), new ItemStack(Blockizer.CarvedRune1, 1)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.CopperCoin, 20, 1), new ItemStack(Blockizer.CarvedRune2, 1)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.CopperCoin, 20, 1), new ItemStack(Blockizer.CarvedRune3, 1)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.CopperCoin, 20, 1), new ItemStack(Blockizer.CarvedRune6, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.RealmstoneAbyss, 1, 1), new ItemStack(Itemizer.SilverCoin, 6)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.RealmstoneAncientCavern, 1, 1), new ItemStack(Itemizer.SilverCoin, 9)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.RealmstoneBarathos, 1, 1), new ItemStack(Itemizer.SilverCoin, 8)));

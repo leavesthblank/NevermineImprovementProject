@@ -42,9 +42,7 @@ public class IllusionAltar extends Block {
 			if (w.difficultySetting == EnumDifficulty.PEACEFUL) {
 				p.addChatMessage(StringUtil.getLocale("message.feedback.spawnBoss.fail"));
 				return false;
-			}
-
-			if (p.inventory.consumeInventoryItem(Itemizer.StaringEye)) {
+			}else {
 				final EntityElusive var10 = new EntityElusive(w);
 				var10.setLocationAndAngles((double)x + (Math.signum(p.posX - x) * 6), (double)y + 1, (double)z + (Math.signum(p.posZ - z) * 6), 0.0f, 0.0f);
 				w.spawnEntityInWorld(var10);

@@ -25,23 +25,21 @@ public class ArmyBlock extends Block {
 
 	public boolean onBlockActivated(final World w, final int x, final int y, final int z, final EntityPlayer p, final int var6, final float var7, final float var8, final float var9) {
 		if (!w.isRemote && !p.isSneaking() && p.getHeldItem() != null && p.getHeldItem().getItem() == Itemizer.AncientOrb) {
-			if (w.difficultySetting == EnumDifficulty.PEACEFUL) {
-				p.addChatMessage(StringUtil.getLocale("message.feedback.spawnBoss.fail"));
-				return false;
-			}
+            if (w.difficultySetting == EnumDifficulty.PEACEFUL) {
+                p.addChatMessage(StringUtil.getLocale("message.feedback.spawnBoss.fail"));
+                return false;
+            } else {
+                final EntitySkeleElder var10 = new EntitySkeleElder(w);
+                var10.setLocationAndAngles((double) x, (double) (y + 3), (double) z, 0.0f, 0.0f);
+                w.spawnEntityInWorld(var10);
 
-			if (p.inventory.consumeInventoryItem(Itemizer.AncientOrb)) {
-				final EntitySkeleElder var10 = new EntitySkeleElder(w);
-				var10.setLocationAndAngles((double)x, (double)(y + 3), (double)z, 0.0f, 0.0f);
-				w.spawnEntityInWorld(var10);
+                IChatComponent msg = StringUtil.getLocaleWithArguments("message.mob.skeletalArmy.spawn", p.getDisplayName());
 
-				IChatComponent msg = StringUtil.getLocaleWithArguments("message.mob.skeletalArmy.spawn", p.getDisplayName());
-
-				for (final EntityPlayer e : (List<EntityPlayer>)p.worldObj.getEntitiesWithinAABB(EntityPlayer.class, p.boundingBox.expand(50.0, 50.0, 50.0))) {
-					e.addChatMessage(msg);
-				}
-			}
-		}
+                for (final EntityPlayer e : (List<EntityPlayer>) p.worldObj.getEntitiesWithinAABB(EntityPlayer.class, p.boundingBox.expand(50.0, 50.0, 50.0))) {
+                    e.addChatMessage(msg);
+                }
+            }
+        }
 		return true;
 	}
 

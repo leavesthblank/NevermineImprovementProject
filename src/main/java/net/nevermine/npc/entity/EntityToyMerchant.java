@@ -38,13 +38,13 @@ public class EntityToyMerchant extends EntityNevermineVillager {
 
 	@Override
 	public void addRecipies(final MerchantRecipeList list) {
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 20, 1), new ItemStack(Itemizer.ToyGyrocopter, 1)));
+		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 10, 1), new ItemStack(Itemizer.ToyGyrocopter, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 1, 1), new ItemStack(Itemizer.Balloon, 64)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 5, 1), new ItemStack(Weaponizer.ConfettiCluster, 1)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 20, 1), new ItemStack(Weaponizer.PartyPopper, 1)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 30, 1), new ItemStack(Weaponizer.BalloonBomber, 1)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 45, 1), new ItemStack(Weaponizer.BozoBlaster, 1)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 60, 1), new ItemStack(Weaponizer.ShowStaff, 1)));
+		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 10, 1), new ItemStack(Weaponizer.PartyPopper, 1)));
+		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 12, 1), new ItemStack(Weaponizer.BalloonBomber, 1)));
+		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 20, 1), new ItemStack(Weaponizer.BozoBlaster, 1)));
+		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 30, 1), new ItemStack(Weaponizer.ShowStaff, 1)));
 	}
 
 	@Override
