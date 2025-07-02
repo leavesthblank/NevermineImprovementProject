@@ -35,8 +35,8 @@ public class EntityDungeonKeeper extends EntityNevermineVillager {
 
 	@Override
 	public void addRecipies(final MerchantRecipeList var2) {
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 5, 1), new ItemStack(Itemizer.StartingCoin, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 1, 1), new ItemStack(Weaponizer.Vulcane, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 10, 1), new ItemStack(Itemizer.StartingCoin, 1)));
+		var2.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 1, 1), new ItemStack(Weaponizer.Vulcane, 1)));
 	}
 
 	@Override

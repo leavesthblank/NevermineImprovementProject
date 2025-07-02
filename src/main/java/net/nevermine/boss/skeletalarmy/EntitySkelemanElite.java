@@ -45,11 +45,17 @@ public class EntitySkelemanElite extends EntityMob implements IRangedAttackMob {
 	private Item dropBanner() {
 		return Item.getItemFromBlock(SpecialBlockizer.SkeletalBanner);
 	}
+    private Item dropGildedBanner() {
+        return Item.getItemFromBlock(SpecialBlockizer.GildedSkeletalBanner);
+    }
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		if (rand.nextInt(7) == 0) {
 			dropItem(dropBanner(), 1);
 		}
+        if (rand.nextInt(35) == 0) {
+            dropItem(dropGildedBanner(), 1);
+        }
 	}
 
 	protected Entity findPlayerToAttack() {
