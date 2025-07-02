@@ -29,12 +29,10 @@ public class VulcammerSword extends ItemSword implements SwordInterface {
 	}
 
 	public boolean hitEntity(final ItemStack stack, final EntityLivingBase live, final EntityLivingBase live2) {
-		if (nevermine.rand.nextInt(10) == 2) {
 			for (final EntityMob e : (List<EntityMob>)live.worldObj.getEntitiesWithinAABB(EntityMob.class, live2.boundingBox.expand(7.0, 7.0, 7.0))) {
 				e.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 40, 100));
 				e.addPotionEffect(new PotionEffect(Potion.weakness.id, 40, 100));
 			}
-		}
 		stack.damageItem(1, live2);
 		return true;
 	}
