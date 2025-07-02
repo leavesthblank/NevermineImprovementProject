@@ -101,8 +101,8 @@ public class Weaponizer {
 	public static Item GuardiansSword = new GuardiansSword(Weaponizer.Tier4).setUnlocalizedName("GuardiansSword").setTextureName("nevermine:swordGuardians");
 	public static Item IllusionSword = new IllusionSword(Weaponizer.Tier4).setUnlocalizedName("IllusionSword").setTextureName("nevermine:swordIllusion");
 	public static Item RockPickSword = new RockPickSword(Weaponizer.Tier4).setUnlocalizedName("RockPickSword").setTextureName("nevermine:swordRockPick");
-	public static Item SkeletalSword = new SkeletalSword(Weaponizer.Tier4).setUnlocalizedName("SkeletalSword").setTextureName("nevermine:swordSkeletal");
-	public static Item HarvesterSword = new HarvesterSword(Weaponizer.Tier5).setUnlocalizedName("HarvesterSword").setTextureName("nevermine:swordHarvester");
+	public static Item SkeletalSword = new SkeletalSword(Weaponizer.Tier6).setUnlocalizedName("SkeletalSword").setTextureName("nevermine:swordSkeletal");
+	public static Item HarvesterSword = new HarvesterSword(Weaponizer.TierSuper).setUnlocalizedName("HarvesterSword").setTextureName("nevermine:swordHarvester");
 
 	public static Item ShoeFlinger = new ShoeFlinger(101, "Flinger", 1000, 25, Items.leather).setRecoil(7.0f).setUnlocalizedName("flinger").setTextureName("nevermine:animateditem/flinger");
 	public static Item DischargeCannon = new DischargeCannon(101, "DischargeCannon", 2500, 20, Itemizer.DischargeCapsule).setRecoil(6.0f).setUnlocalizedName("dischargeCannon").setTextureName("nevermine:dischargeCannon");
