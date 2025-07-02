@@ -770,5 +770,6 @@ public class Recipes {
 
         GameRegistry.addRecipe(new ItemStack(SpecialBlockizer.CraexxeusStatueGold, 1), new Object[]{"XXX", "XXX", "XXX", 'X', SpecialBlockizer.CraexxeusStatue});
         GameRegistry.addRecipe(new ItemStack(SpecialBlockizer.XxeusStatueGold, 1), new Object[]{"XXX", "XXX", "XXX", 'X', SpecialBlockizer.XxeusStatue});
+        GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.MagicMendingSolution), new Object[]{Itemizer.MagicRepairDust,Itemizer.MagicRepairDust,Itemizer.MagicRepairDust,Items.lava_bucket,Itemizer.MetalTub});
     }
 }
