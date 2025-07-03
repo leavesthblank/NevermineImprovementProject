@@ -10,15 +10,18 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.assist.ItemUtil;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.skill.extraction.extractionHelper;
 
@@ -100,20 +103,37 @@ public class BlockExtractionDevice extends Block {
 		if (player.getHeldItem() != null && (player.getHeldItem().getItem() == Itemizer.StoneBowl || player.getHeldItem().getItem() == Itemizer.DiamondBowl)) {
 			Random r = new Random();
 
-			for (int i = y - 1; i > 1; i--) {
-				Block b = w.getBlock(x, i, z);
-
-				if (b == Blocks.air) {
 					PlayerContainer cont = PlayerContainer.getProperties(player);
 
 					if (extractionHelper.isExtractionFail(cont.getLevel(Extraction))) {
 						player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.none"));
-						w.setBlock(x, i, z, Blocks.obsidian);
+                        player.dropItem(Item.getItemFromBlock(Blocks.obsidian), 1);
 						w.setBlock(x, y + 1, z, Blocks.air);
 						return true;
 					}
 					else {
 						int loot = extractionHelper.getLootPick(cont.getLevel(Extraction));
+                        player.dropItem(Item.getItemFromBlock(Blocks.obsidian), 1);
+                        if(r.nextInt(800)==0) {
+                            if (!player.inventory.addItemStackToInventory(new ItemStack(Blockizer.CarvedRune1, 1)))
+                                player.dropItem(Item.getItemFromBlock(Blockizer.CarvedRune1), 1);
+                        }
+                        if(r.nextInt(800)==0) {
+                            if (!player.inventory.addItemStackToInventory(new ItemStack(Blockizer.CarvedRune2, 1)))
+                                player.dropItem(Item.getItemFromBlock(Blockizer.CarvedRune2), 1);
+                        }
+                        if(r.nextInt(800)==0) {
+                            if (!player.inventory.addItemStackToInventory(new ItemStack(Blockizer.CarvedRune3, 1)))
+                                player.dropItem(Item.getItemFromBlock(Blockizer.CarvedRune3), 1);
+                        }
+                        if(r.nextInt(800)==0) {
+                            if (!player.inventory.addItemStackToInventory(new ItemStack(Blockizer.CarvedRune6, 1)))
+                                player.dropItem(Item.getItemFromBlock(Blockizer.CarvedRune6), 1);
+                        }
+                        if(r.nextInt(200)==0) {
+                            if (!player.inventory.addItemStackToInventory(new ItemStack(Blockizer.AncientRock, 4)))
+                                player.dropItem(Item.getItemFromBlock(Blockizer.AncientRock), 4);
+                        }
 
 						switch (loot) {
 							case 0:
@@ -136,12 +156,136 @@ public class BlockExtractionDevice extends Block {
 
 								if (!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.ElementalArrow, 8)))
 									player.dropItem(Itemizer.ElementalArrow, 8);
-								break;
+                                if (r.nextBoolean())if(!player.inventory.addItemStackToInventory(new ItemStack(Items.quartz, 4))){
+                                    player.dropItem(Items.quartz,4);
+                                }
+                                if(player.dimension==ConfigurationHelper.deeplands){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RuniumChunkCharged,4))){
+                                        player.dropItem(Itemizer.RuniumChunkCharged,4);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Item.getItemFromBlock(Blockizer.Deepcase),1))){
+                                        player.dropItem(Item.getItemFromBlock(Blockizer.Deepcase),1);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RockBones,2))){
+                                        player.dropItem(Itemizer.RockBones,2);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.UnchargedStone,1))){
+                                        player.dropItem(Itemizer.UnchargedStone,1);
+                                    }
+                                    if (r.nextInt(50)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.BoulderDash,1))){
+                                        player.dropItem(Itemizer.BoulderDash,1);
+                                    }
+                                    break;
+                                }
+                                if (player.dimension==ConfigurationHelper.lunalus){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotLunar,2))) {
+                                        player.dropItem(Itemizer.IngotLunar, 2);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.UnchargedOrb, 1))) {
+                                        player.dropItem(Itemizer.UnchargedOrb, 1);
+                                    }
+                                    break;
+                                }
+                                if (player.dimension==ConfigurationHelper.dustopia){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.PrimordialSkull, 1))) {
+                                        player.dropItem(Itemizer.PrimordialSkull, 1);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.UnchargedOrb, 1))) {
+                                        player.dropItem(Itemizer.UnchargedOrb, 1);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.PrimordialDust, 1))) {
+                                        player.dropItem(Itemizer.PrimordialDust, 1);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.greckon){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RuniumChunkCharged,4))){
+                                        player.dropItem(Itemizer.DarklyPowder,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ghoulasm,2))){
+                                        player.dropItem(Itemizer.Ghoulasm,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.GhoulasmPrimed,2))){
+                                        player.dropItem(Itemizer.GhoulasmPrimed,2);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.runandor){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RunicEnergy,1))){
+                                        player.dropItem(Itemizer.RunicEnergy,1);
+                                    }
+                                    if (r.nextInt(8)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.MegaRuneFragmentB,1))){
+                                        player.dropItem(Itemizer.MegaRuneFragmentB,1);
+                                    }
+                                    if (r.nextInt(8)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.MegaRuneFragmentG,1))){
+                                        player.dropItem(Itemizer.MegaRuneFragmentG,1);
+                                    }
+                                    if (r.nextInt(8)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.MegaRuneFragmentR,1))){
+                                        player.dropItem(Itemizer.MegaRuneFragmentR,1);
+                                    }
+                                    if (r.nextInt(8)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.MegaRuneFragmentY,1))){
+                                        player.dropItem(Itemizer.MegaRuneFragmentY,1);
+                                    }
+                                    if (r.nextInt(30)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.MegaRuneStone,1))){
+                                        player.dropItem(Itemizer.MegaRuneStone,1);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.creeponia){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Items.gunpowder,2))){
+                                        player.dropItem(Items.gunpowder,2);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Jewelyte,2))){
+                                        player.dropItem(Itemizer.Jewelyte,2);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Gemenyte,2))){
+                                        player.dropItem(Itemizer.Gemenyte,2);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ornamyte,2))){
+                                        player.dropItem(Itemizer.Ornamyte,2);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.crystevia){
+                                    if (r.nextInt(3)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsYellow,4))){
+                                            player.dropItem(Itemizer.CrystalsYellow,4);
+                                        }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsGreen,4))){
+                                        player.dropItem(Itemizer.CrystalsGreen,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsWhite,4))){
+                                        player.dropItem(Itemizer.CrystalsWhite,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsRed))){
+                                        player.dropItem(Itemizer.CrystalsRed,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsBlue,4))){
+                                        player.dropItem(Itemizer.CrystalsBlue,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsPurple,4))){
+                                        player.dropItem(Itemizer.CrystalsPurple,4);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ghoulasm,2))){
+                                        player.dropItem(Itemizer.CrystalBox,1);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.barathos){
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.HiveChunk,2))){
+                                        player.dropItem(Itemizer.HiveChunk,2);
+                                    }
+                                    break;
+                                }
 							case 4:
 								player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.blazePowder"));
 
 								if (!player.inventory.addItemStackToInventory(new ItemStack(Items.blaze_powder, 4)))
 									player.dropItem(Items.blaze_powder, 4);
+                                if (r.nextInt(4)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Items.blaze_rod, 4))){
+                                    player.dropItem(Items.blaze_rod,4);
+                                }
+
 								break;
 							case 5:
 								player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.limonite"));
@@ -154,12 +298,33 @@ public class BlockExtractionDevice extends Block {
 
 								if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bone, 8)))
 									player.dropItem(Items.bone, 8);
-								break;
+                                if (r.nextInt(2) == 0)if(!player.inventory.addItemStackToInventory(new ItemStack(Items.gold_ingot, 2))) {
+                                    player.dropItem(Items.gold_ingot, 2);
+                                }
+                                player.dropItem(Itemizer.CopperCoin,4 + r.nextInt(6));
+                                if(player.dimension==ConfigurationHelper.precasia){
+                                    if (r.nextInt(10)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotSkeletal,2))){
+                                        player.dropItem(Itemizer.IngotSkeletal,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.SkullboneFragment,4))){
+                                        player.dropItem(Itemizer.SkullboneFragment,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.ChestboneFragment,4))){
+                                        player.dropItem(Itemizer.ChestboneFragment,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.LegboneFragment,4))){
+                                        player.dropItem(Itemizer.LegboneFragment,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.FootboneFragment,4))){
+                                        player.dropItem(Itemizer.FootboneFragment,4);
+                                    }
+                                    break;
+                                }
 							case 7:
 								player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.coinsSilver"));
 
 								if (!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.SilverCoin, 2)))
-									player.dropItem(Itemizer.SilverCoin, 2);
+									player.dropItem(Itemizer.SilverCoin, 6 + r.nextInt(8));
 								break;
 							case 8:
 								player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.emerald"));
@@ -178,7 +343,93 @@ public class BlockExtractionDevice extends Block {
 
 								if (!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotRosite, 1)))
 									player.dropItem(Itemizer.IngotRosite, 1);
-								break;
+                                player.dropItem(Itemizer.CopperCoin,10 + r.nextInt(14));
+                                if(player.dimension==0){
+                                    if (r.nextInt(4)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotJade,2))) {
+                                            player.dropItem(Itemizer.IngotJade, 2);
+                                        }
+                                    if (r.nextInt(4)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.AmethystIngot,2))){
+                                            player.dropItem(Itemizer.AmethystIngot,2);
+                                        }
+                                    if (r.nextInt(4)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RuniumChunk,4))){
+                                            player.dropItem(Itemizer.RuniumChunk,4);
+                                        }
+                                    if (r.nextInt(4)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotLimonite,4))){
+                                            player.dropItem(Itemizer.IngotLimonite,4);
+                                        }
+                                    if (r.nextInt(4)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotSapphire,2))){
+                                            player.dropItem(Itemizer.IngotSapphire,2);
+                                        }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.iromine){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotLyon,2))){
+                                        player.dropItem(Itemizer.IngotLyon,2);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.barathos){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotBlazium,2))){
+                                        player.dropItem(Itemizer.IngotBlazium,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotBaronyte,2))){
+                                        player.dropItem(Itemizer.IngotBaronyte,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotElecanium,2))){
+                                        player.dropItem(Itemizer.IngotElecanium,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotVarsium,2))){
+                                        player.dropItem(Itemizer.IngotVarsium,2);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.HiveChunk,2))){
+                                        player.dropItem(Itemizer.HiveChunk,2);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.shyrelands){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotShyrestone,2))){
+                                        player.dropItem(Itemizer.IngotShyrestone,2);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotShyregem,2))){
+                                        player.dropItem(Itemizer.IngotShyregem,2);
+                                    }
+                                    if (r.nextInt(12)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.AncientRing,1))){
+                                        player.dropItem(Itemizer.AncientRing,1);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.deeplands){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RuniumChunkCharged,4))){
+                                        player.dropItem(Itemizer.RuniumChunkCharged,4);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Item.getItemFromBlock(Blockizer.Deepcase),1))){
+                                        player.dropItem(Item.getItemFromBlock(Blockizer.Deepcase),1);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RockBones,2))){
+                                        player.dropItem(Itemizer.RockBones,2);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.UnchargedStone,1))){
+                                        player.dropItem(Itemizer.UnchargedStone,1);
+                                    }
+                                    if (r.nextInt(50)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.BoulderDash,1))){
+                                        player.dropItem(Itemizer.BoulderDash,1);
+                                    }
+                                    break;
+                                }
+                                if (player.dimension==ConfigurationHelper.lunalus){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotLunar,2))) {
+                                        player.dropItem(Itemizer.IngotLunar, 2);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.UnchargedOrb, 1))) {
+                                        player.dropItem(Itemizer.UnchargedOrb, 1);
+                                    }
+                                    break;
+                                }
 							case 11:
 								player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.blazeRods"));
 
@@ -196,6 +447,154 @@ public class BlockExtractionDevice extends Block {
 
 								if (!player.inventory.addItemStackToInventory(new ItemStack(Items.dye, 32, r.nextInt(16))))
 									player.entityDropItem(new ItemStack(Items.dye, 32, r.nextInt(16)), 1.0f);
+                                    player.dropItem(Itemizer.CopperCoin,16 + r.nextInt(20));
+                                if(player.dimension==ConfigurationHelper.deeplands){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RuniumChunkCharged,4))){
+                                        player.dropItem(Itemizer.RuniumChunkCharged,4);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Item.getItemFromBlock(Blockizer.Deepcase),1))){
+                                        player.dropItem(Item.getItemFromBlock(Blockizer.Deepcase),1);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RockBones,2))){
+                                        player.dropItem(Itemizer.RockBones,2);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.UnchargedStone,1))){
+                                        player.dropItem(Itemizer.UnchargedStone,1);
+                                    }
+                                    if (r.nextInt(50)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.BoulderDash,1))){
+                                        player.dropItem(Itemizer.BoulderDash,1);
+                                    }
+                                    break;
+                                }
+                                if (player.dimension==ConfigurationHelper.lunalus){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotLunar,2))) {
+                                        player.dropItem(Itemizer.IngotLunar, 2);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.UnchargedOrb, 1))) {
+                                        player.dropItem(Itemizer.UnchargedOrb, 1);
+                                    }
+                                    break;
+                                }
+                                if (player.dimension==ConfigurationHelper.dustopia){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.PrimordialSkull, 1))) {
+                                        player.dropItem(Itemizer.PrimordialSkull, 1);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.UnchargedOrb, 1))) {
+                                        player.dropItem(Itemizer.UnchargedOrb, 1);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.PrimordialDust, 1))) {
+                                        player.dropItem(Itemizer.PrimordialDust, 1);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.greckon){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RuniumChunkCharged,4))){
+                                        player.dropItem(Itemizer.DarklyPowder,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ghoulasm,2))){
+                                        player.dropItem(Itemizer.Ghoulasm,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.GhoulasmPrimed,2))){
+                                        player.dropItem(Itemizer.GhoulasmPrimed,2);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.runandor){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RunicEnergy,1))){
+                                        player.dropItem(Itemizer.RunicEnergy,1);
+                                    }
+                                    if (r.nextInt(8)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.MegaRuneFragmentB,1))){
+                                        player.dropItem(Itemizer.MegaRuneFragmentB,1);
+                                    }
+                                    if (r.nextInt(8)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.MegaRuneFragmentG,1))){
+                                        player.dropItem(Itemizer.MegaRuneFragmentG,1);
+                                    }
+                                    if (r.nextInt(8)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.MegaRuneFragmentR,1))){
+                                        player.dropItem(Itemizer.MegaRuneFragmentR,1);
+                                    }
+                                    if (r.nextInt(8)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.MegaRuneFragmentY,1))){
+                                        player.dropItem(Itemizer.MegaRuneFragmentY,1);
+                                    }
+                                    if (r.nextInt(30)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.MegaRuneStone,1))){
+                                        player.dropItem(Itemizer.MegaRuneStone,1);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.creeponia){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Items.gunpowder,2))){
+                                        player.dropItem(Items.gunpowder,2);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Jewelyte,2))){
+                                        player.dropItem(Itemizer.Jewelyte,2);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Gemenyte,2))){
+                                        player.dropItem(Itemizer.Gemenyte,2);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ornamyte,2))){
+                                        player.dropItem(Itemizer.Ornamyte,2);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.crystevia){
+                                    if (r.nextInt(3)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsYellow,4))){
+                                        player.dropItem(Itemizer.CrystalsYellow,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsGreen,4))){
+                                        player.dropItem(Itemizer.CrystalsGreen,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsWhite,4))){
+                                        player.dropItem(Itemizer.CrystalsWhite,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsRed))){
+                                        player.dropItem(Itemizer.CrystalsRed,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsBlue,4))){
+                                        player.dropItem(Itemizer.CrystalsBlue,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsPurple,4))){
+                                        player.dropItem(Itemizer.CrystalsPurple,4);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ghoulasm,2))){
+                                        player.dropItem(Itemizer.CrystalBox,1);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.barathos){
+                                if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotBlazium,2))){
+                                    player.dropItem(Itemizer.IngotBlazium,2);
+                                }
+                                if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotBaronyte,2))){
+                                    player.dropItem(Itemizer.IngotBaronyte,2);
+                                }
+                                if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotElecanium,2))){
+                                    player.dropItem(Itemizer.IngotElecanium,2);
+                                }
+                                if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotVarsium,2))){
+                                    player.dropItem(Itemizer.IngotVarsium,2);
+                                }
+                                if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.HiveChunk,2))){
+                                    player.dropItem(Itemizer.HiveChunk,2);
+                                }
+                                break;
+                            }
+                                if(player.dimension==ConfigurationHelper.shyrelands){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotShyrestone,2))){
+                                        player.dropItem(Itemizer.IngotShyrestone,2);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotShyregem,2))){
+                                        player.dropItem(Itemizer.IngotShyregem,2);
+                                    }
+                                    if (r.nextInt(12)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.AncientRing,1))){
+                                        player.dropItem(Itemizer.AncientRing,1);
+                                    }
+                                    break;
+                                }
+                                if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotRosite,2))){
+                                    player.dropItem(Itemizer.IngotRosite,2);
+                                    break;
+                                }
+
 								break;
 							case 14:
 								player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.animaStones"));
@@ -205,10 +604,34 @@ public class BlockExtractionDevice extends Block {
 								break;
 							case 15:
 								player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.runes"));
-
 								if (!player.inventory.addItemStackToInventory(new ItemStack(ItemUtil.getRandomRune(), 64)))
 									player.dropItem(ItemUtil.getRandomRune(), 64);
-								break;
+                                player.dropItem(Itemizer.CopperCoin,20 + r.nextInt(24));
+                            if(player.dimension==-1) {
+                                if (r.nextInt(100) == 0)
+                                    if (!player.inventory.addItemStackToInventory(new ItemStack(Armorizer.InfernalHelmet, 1))) {
+                                        player.dropItem(Armorizer.InfernalHelmet, 1);
+                                    }
+                                if (r.nextInt(100) == 0)
+                                    if(!player.inventory.addItemStackToInventory(new ItemStack(Armorizer.InfernalChestplate, 1))) {
+                                        player.dropItem(Armorizer.InfernalChestplate, 1);
+                                    }
+                                if (r.nextInt(100) == 0)
+                                    if(!player.inventory.addItemStackToInventory(new ItemStack(Armorizer.InfernalLeggings, 1))) {
+                                        player.dropItem(Armorizer.InfernalLeggings, 1);
+                                    }
+                                if (r.nextInt(100) == 0)
+                                    if(!player.inventory.addItemStackToInventory(new ItemStack(Armorizer.InfernalBoots, 1))) {
+                                        player.dropItem(Armorizer.InfernalBoots, 1);
+                                    }
+                                if (r.nextInt(4) == 0){
+                                    if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotEmberstone, 2))) {
+                                        player.dropItem(Itemizer.IngotEmberstone, 2);
+                                    }
+                                }
+                                break;
+                            }
+
 							case 16:
 								player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.grenades"));
 
@@ -220,7 +643,111 @@ public class BlockExtractionDevice extends Block {
 
 								if (!player.inventory.addItemStackToInventory(new ItemStack(Items.diamond, 1)))
 									player.dropItem(Items.diamond, 1);
-								break;
+                                player.dropItem(Itemizer.CopperCoin,24 + r.nextInt(28));
+                                if(player.dimension==0){
+                                    if (r.nextInt(4)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotJade,2))) {
+                                            player.dropItem(Itemizer.IngotJade, 2);
+                                        }
+                                    if (r.nextInt(4)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.AmethystIngot,2))){
+                                            player.dropItem(Itemizer.AmethystIngot,2);
+                                        }
+                                    if (r.nextInt(4)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RuniumChunk,4))){
+                                            player.dropItem(Itemizer.RuniumChunk,4);
+                                        }
+                                    if (r.nextInt(4)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotLimonite,4))){
+                                            player.dropItem(Itemizer.IngotLimonite,4);
+                                        }
+                                    if (r.nextInt(4)==0)
+                                        if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotSapphire,2))){
+                                            player.dropItem(Itemizer.IngotSapphire,2);
+                                        }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.iromine){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotLyon,2))){
+                                        player.dropItem(Itemizer.IngotLyon,2);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.barathos){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotBlazium,2))){
+                                        player.dropItem(Itemizer.IngotBlazium,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotBaronyte,2))){
+                                        player.dropItem(Itemizer.IngotBaronyte,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotElecanium,2))){
+                                        player.dropItem(Itemizer.IngotElecanium,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotVarsium,2))){
+                                        player.dropItem(Itemizer.IngotVarsium,2);
+                                    }
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.HiveChunk,2))){
+                                        player.dropItem(Itemizer.HiveChunk,2);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.shyrelands){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotShyrestone,2))){
+                                        player.dropItem(Itemizer.IngotShyrestone,2);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotShyregem,2))){
+                                        player.dropItem(Itemizer.IngotShyregem,2);
+                                    }
+                                    if (r.nextInt(12)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.AncientRing,1))){
+                                        player.dropItem(Itemizer.AncientRing,1);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.deeplands){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RuniumChunkCharged,4))){
+                                        player.dropItem(Itemizer.RuniumChunkCharged,4);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Item.getItemFromBlock(Blockizer.Deepcase),1))){
+                                        player.dropItem(Item.getItemFromBlock(Blockizer.Deepcase),1);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RockBones,2))){
+                                        player.dropItem(Itemizer.RockBones,2);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.UnchargedStone,1))){
+                                        player.dropItem(Itemizer.UnchargedStone,1);
+                                    }
+                                    if (r.nextInt(50)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.BoulderDash,1))){
+                                        player.dropItem(Itemizer.BoulderDash,1);
+                                    }
+                                    break;
+                                }
+                                if (player.dimension==ConfigurationHelper.lunalus){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotLunar,2))) {
+                                        player.dropItem(Itemizer.IngotLunar, 2);
+                                    }
+                                    if (r.nextInt(5)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.UnchargedOrb, 1))) {
+                                        player.dropItem(Itemizer.UnchargedOrb, 1);
+                                    }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.precasia){
+                                    if (r.nextInt(10)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotSkeletal,2))){
+                                        player.dropItem(Itemizer.IngotSkeletal,2);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.SkullboneFragment,4))){
+                                        player.dropItem(Itemizer.SkullboneFragment,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.ChestboneFragment,4))){
+                                        player.dropItem(Itemizer.ChestboneFragment,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.LegboneFragment,4))){
+                                        player.dropItem(Itemizer.LegboneFragment,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.FootboneFragment,4))){
+                                        player.dropItem(Itemizer.FootboneFragment,4);
+                                    }
+                                    break;
+                                }
 							case 18:
 								player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.gemBags"));
 
@@ -253,8 +780,6 @@ public class BlockExtractionDevice extends Block {
 							cont.adjustTribute(Pluton, 2);
 
 						cont.addExperience(cont.getExpRequired(Extraction) / extractionHelper.getExpDenominator(cont.getLevel(Extraction)), Extraction);
-						w.setBlock(x, i, z, Blocks.obsidian);
-						w.setBlock(x, y + 1, z, Blocks.air);
 						w.playSoundAtEntity(player, "nevermine:FiltrationLava", 5.85f, 1.0f);
 					}
 
@@ -263,20 +788,10 @@ public class BlockExtractionDevice extends Block {
 					if (player instanceof EntityPlayerMP)
 						((EntityPlayerMP)player).sendContainerToPlayer(player.inventoryContainer);
 
-					break;
-				}
-				else if (b == Blocks.obsidian) {
-					continue;
-				}
-				else {
-					player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.noSpace"));
-					break;
-				}
+
 			}
 
 			return true;
 		}
-
-		return false;
 	}
-}
+

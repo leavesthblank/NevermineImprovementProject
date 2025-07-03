@@ -72,66 +72,42 @@ public class ArmorEffects {
 
 	@SubscribeEvent
 	public void onPlayerFallEvent(final LivingFallEvent e) {
-		if (e.entity instanceof EntityPlayer && !e.entity.worldObj.isRemote) {
-			final EntityPlayer player = (EntityPlayer)e.entity;
+        if (e.entity instanceof EntityPlayer && !e.entity.worldObj.isRemote) {
+            final EntityPlayer player = (EntityPlayer) e.entity;
 
-			final ItemStack stackBoots = player.inventory.armorItemInSlot(0);
-			final ItemStack stackLegs = player.inventory.armorItemInSlot(1);
-			final ItemStack stackBody = player.inventory.armorItemInSlot(2);
-			final ItemStack stackHelmet = player.inventory.armorItemInSlot(3);
+            final ItemStack stackBoots = player.inventory.armorItemInSlot(0);
+            final ItemStack stackLegs = player.inventory.armorItemInSlot(1);
+            final ItemStack stackBody = player.inventory.armorItemInSlot(2);
+            final ItemStack stackHelmet = player.inventory.armorItemInSlot(3);
 
-			final Item boots = stackBoots != null ? stackBoots.getItem() : null;
-			final Item legs = stackLegs != null ? stackLegs.getItem() : null;
-			final Item body = stackBody != null ? stackBody.getItem() : null;
-			final Item helmet = stackHelmet != null ? stackHelmet.getItem() : null;
+            final Item boots = stackBoots != null ? stackBoots.getItem() : null;
+            final Item legs = stackLegs != null ? stackLegs.getItem() : null;
+            final Item body = stackBody != null ? stackBody.getItem() : null;
+            final Item helmet = stackHelmet != null ? stackHelmet.getItem() : null;
 
-			if (boots != null) {
-				switch (boots.getUnlocalizedName()) {
-					case "item.RockboneBoots":
-                    case "item.RockboneLeggings":
-                    case "item.RockboneChestplate":
-                    case "item.RockboneHelmet":
-                        if (ArmorUtil.isRockboneArmor(boots, legs, body, helmet)) {
-							e.setCanceled(true);
-						}
-						break;
-                    case "item.AmethindBoots":
-                    case "item.AmethindLeggings":
-                    case "item.AmethindChestplate":
-                    case "item.AmethindHelmet":
-						if (ArmorUtil.isAmethindArmor(boots, legs, body, helmet)) {
-							e.setCanceled(true);
-						}
-						break;
-					case "item.AlacrityBoots":
-                    case "item.AlacrityLeggings":
-                    case "item.AlacrityChestplate":
-                    case "item.AlacrityHelmet":
-						if (ArmorUtil.isAlacrityArmor(boots, legs, body, helmet)) {
-							e.setCanceled(true);
-						}
-						break;
-					case "item.LunarBoots":
-                    case "item.LunarLeggings":
-                    case "item.LunarChestplate":
-                    case "item.LunarHelmet":
-						if (ArmorUtil.isLunarArmor(boots, legs, body, helmet)) {
-							e.setCanceled(true);
-						}
-						break;
-					case "item.HunterBoots":
-                    case "item.HunterLeggings":
-                    case "item.HunterChestplate":
-                    case "item.HunterHelmet":
-						if (ArmorUtil.isHunterArmor(boots, legs, body, helmet)) {
-							e.setCanceled(true);
-						}
-					default:
-						break;
-				}
-			}
-		}
-	}
+
+            if (ArmorUtil.isRockboneArmor(boots, legs, body, helmet)) {
+                e.setCanceled(true);
+            }
+
+            if (ArmorUtil.isAmethindArmor(boots, legs, body, helmet)) {
+                e.setCanceled(true);
+            }
+
+            if (ArmorUtil.isAlacrityArmor(boots, legs, body, helmet)) {
+                e.setCanceled(true);
+            }
+
+            if (ArmorUtil.isLunarArmor(boots, legs, body, helmet)) {
+                e.setCanceled(true);
+            }
+
+            if (ArmorUtil.isHunterArmor(boots, legs, body, helmet)) {
+                e.setCanceled(true);
+            }
+        }
+    }
+
 
 	@SubscribeEvent
 	public void onPlayerHurtEvent(final LivingHurtEvent e) {
@@ -150,45 +126,21 @@ public class ArmorEffects {
 			final Item body = stackBody != null ? stackBody.getItem() : null;
 			final Item helmet = stackHelmet != null ? stackHelmet.getItem() : null;
 
-			if (boots != null) {
-				switch (boots.getUnlocalizedName()) {
-					case "item.ExplosiveBoots":
-                    case "item.ExplosiveLeggings":
-                    case "item.ExplosiveChestplate":
-                    case "item.ExplosiveHelmet":
+
 						if (ArmorUtil.isExplosiveArmor(boots, legs, body, helmet) && s.isExplosion())
 							e.setCanceled(true);
-						break;
-					case "item.IceBoots":
-                    case "item.IceLeggings":
-                    case "item.IceChestplate":
-                    case "item.IceHelmet":
+
 						if (ArmorUtil.isIceArmor(boots, legs, body, helmet) && s.getSourceOfDamage() instanceof EntityLivingBase && !s.isProjectile()) {
 							((EntityLivingBase)s.getSourceOfDamage()).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, (int)e.ammount * 10, 1));
 						}
-						break;
-					case "item.OmniBoots":
-                    case "item.OmniLeggings":
-                    case "item.OmniChestplate":
-                    case "item.OmniHelmet":
 						if (ArmorUtil.isOmniArmor(boots, legs, body, helmet) && s.isExplosion())
 							e.setCanceled(true);
-						break;
-					case "item.SpaceKingBoots":
-                    case "item.SpaceKingLeggings":
-                    case "item.SpaceKingChestplate":
-                    case "item.SpaceKingHelmet":
 						if (ArmorUtil.isSpaceKingArmor(boots, legs, body, helmet) && player.getHealth() > 0 && rand.nextInt(5) == 2) {
 							final EntityOrbling var4 = new EntityOrbling(player.worldObj, player);
 
 							var4.setLocationAndAngles(player.posX, player.posY + 1.5, player.posZ, player.rotationYaw, player.rotationPitch);
 							player.worldObj.spawnEntityInWorld(var4);
 						}
-						break;
-					case "item.MercurialBoots":
-                    case "item.MercurialLeggings":
-                    case "item.MercurialChestplate":
-                    case "item.MercurialHelmet":
 						if (ArmorUtil.isMercurialArmor(boots, legs, body, helmet)) {
 							if (e.source.getSourceOfDamage() instanceof EntityMob)
 								--adventPl.mercurialCounter;
@@ -201,27 +153,15 @@ public class ArmorEffects {
 							if (s.isExplosion())
 								e.setCanceled(true);
 						}
-						break;
-					case "item.RunationBoots":
-                    case "item.RunationLeggings":
-                    case "item.RunationChestplate":
-                    case "item.RunationHelmet":
+
 						if (ArmorUtil.isRunationArmor(boots, legs, body, helmet) && (s.isProjectile() || s.damageType.equals("thrown") || s.damageType.equals("mob")))
 							energyHelper.getProperties(player).regen(20.0f);
-						break;
-					case "item.ElecanyteBoots":
-                    case "item.ElecanyteLeggings":
-                    case "item.ElecanyteChestplate":
-                    case "item.ElecanyteHelmet":
+
 						if (ArmorUtil.isElecanyteArmor(boots, legs, body, helmet) && (s.isProjectile() || s.damageType.equals("thrown") || s.damageType.equals("mob"))) {
 							if (!player.worldObj.isRemote && energyHelper.getProperties(player).useBar(25.0f))
 								e.ammount *= 0.4f;
 						}
-						break;
-					case "item.ExoplateBoots":
-                    case "item.ExoplateLeggings":
-                    case "item.ExoplateChestplate":
-                    case "item.ExoplateHelmet":
+
 						if (ArmorUtil.isExoplateArmor(boots, legs, body, helmet) && (s.isProjectile() || s.damageType.equals("thrown") || s.damageType.equals("mob"))) {
 							if (player.getFoodStats().getFoodLevel() > 0) {
 								player.getFoodStats().setFoodLevel((int)(player.getFoodStats().getFoodLevel() - e.ammount * 0.25));
@@ -232,29 +172,17 @@ public class ArmorEffects {
 								e.ammount *= 0.8f;
 							}
 						}
-						break;
-					case "item.PrimordialBoots":
-                    case "item.PrimordialLeggings":
-                    case "item.PrimordialChestplate":
-                    case "item.PrimordialHelmet":
+
 						if (ArmorUtil.isPrimordialArmor(boots, legs, body, helmet) && rand.nextInt(3) == 2) {
 							player.worldObj.playSoundAtEntity(player, "nevermine:Dodge", 3.0f, 1.0f);
 							e.setCanceled(true);
 						}
-						break;
-					case "item.InnervationBoots":
-                    case "item.InnervationLeggings":
-                    case "item.InnervationChestplate":
-                    case "item.InnervationHelmet":
+
 						if (ArmorUtil.isInnervationArmor(boots, legs, body, helmet) && rand.nextInt(2) == 1) {
 							player.worldObj.playSoundAtEntity(player, "nevermine:Dodge", 3.0f, 1.0f);
 							e.setCanceled(true);
 						}
-						break;
-					case "item.HydroplateBoots":
-                    case "item.HydroplateLeggings":
-                    case "item.HydroplateChestplate":
-                    case "item.HydroplateHelmet":
+
 						if (ArmorUtil.isHydroplateArmor(boots, legs, body, helmet)) {
 							--adventPl.hydroplateCounter;
 
@@ -263,11 +191,7 @@ public class ArmorEffects {
 								adventPl.hydroplateCounter = 15;
 							}
 						}
-						break;
-					case "item.KnightBoots":
-                    case "item.KnightLeggings":
-                    case "item.KnightChestplate":
-                    case "item.KnightHelmet":
+
 						if (ArmorUtil.isKnightArmor(boots, legs, body, helmet)) {
 							if (player.getHealth() - e.ammount <= 0 || e.ammount < 1 || e.source == DamageSource.magic || e.source == DamageSource.wither)
 								return;
@@ -290,38 +214,23 @@ public class ArmorEffects {
 									player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 40, 1));
 								}
 
-								adventPl.knightCounter = 2;
+								adventPl.knightCounter = 1;
 							}
 						}
-					case "item.PredatiousBoots":
-                    case "item.PredatiousLeggings":
-                    case "item.PredatiousChestplate":
-                    case "item.PredatiousHelmet":
+
 						if (ArmorUtil.isPredatiousArmor(boots, legs, body, helmet) && (s.isProjectile() || s.damageType.equals("thrown")) && rand.nextInt(5) == 2) {
 							player.worldObj.playSoundAtEntity(player, "nevermine:Dodge", 3.0f, 1.0f);
 							e.setCanceled(true);
 						}
-						break;
-					case "item.PurityBoots":
-                    case "item.PurityLeggings":
-                    case "item.PurityChestplate":
-                    case "item.PurityHelmet":
+
 						if (ArmorUtil.isPurityArmor(boots, legs, body, helmet) && (s.isProjectile() || s.damageType.equals("thrown"))) {
 							e.ammount *= 0.75;
 						}
-						break;
-					case "item.BaronBoots":
-                    case "item.BaronLeggings":
-                    case "item.BaronChestplate":
-                    case "item.BaronHelmet":
+
 						if (ArmorUtil.isBaronArmor(boots, legs, body, helmet) && s.damageType.equals("mob") && !s.isProjectile()) {
 							e.ammount *= 0.75;
 						}
-						break;
-					case "item.SubterraneanBoots":
-                    case "item.SubterraneanLeggings":
-                    case "item.SubterraneanChestplate":
-                    case "item.SubterraneanHelmet":
+
 						if (ArmorUtil.isSubterraneanArmor(boots, legs, body, helmet) && e.source.getEntity() instanceof EntityMob && s.damageType.equals("mob") && !s.isProjectile()) {
 							final EntityMob mob = (EntityMob)e.source.getEntity();
 
@@ -333,27 +242,15 @@ public class ArmorEffects {
 								mob.attackEntityFrom(DamageSource.magic, e.ammount);
 							}
 						}
-						break;
-					case "item.EmbrodiumBoots":
-                    case "item.EmbrodiumLeggings":
-                    case "item.EmbrodiumChestplate":
-                    case "item.EmbrodiumHelmet":
+
 						if (ArmorUtil.isEmbrodiumArmor(boots, legs, body, helmet) && e.source.getEntity() instanceof EntityMob && s.damageType.equals("mob") && !s.isProjectile()) {
 							(e.source.getEntity()).setFire(5);
 						}
-						break;
-					case "item.GhastlyBoots":
-                    case "item.GhastlyLeggings":
-                    case "item.GhastlyChestplate":
-                    case "item.GhastlyHelmet":
+
 						if (ArmorUtil.isGhastlyArmor(boots, legs, body, helmet) && e.source.getEntity() instanceof EntityMob && s.damageType.equals("mob") && !s.isProjectile()) {
 							((EntityMob)e.source.getEntity()).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 4));
 						}
-						break;
-					case "item.FungalBoots":
-                    case "item.FungalLeggings":
-                    case "item.FungalChestplate":
-                    case "item.FungalHelmet":
+
 						if (ArmorUtil.isFungalArmor(boots, legs, body, helmet) && e.source.getEntity() instanceof EntityMob && s.damageType.equals("mob") && !s.isProjectile()) {
 							final EntityMob mob = (EntityMob)e.source.getEntity();
 							final float hp = mob.getHealth();
@@ -362,11 +259,8 @@ public class ArmorEffects {
 							mob.attackEntityFrom(DamageSource.causeIndirectMagicDamage(mob, player), 0.0f);
 							e.ammount *= 1.5;
 						}
-						break;
-					default:
-						break;
-				}
-			}
+
+
 
 			if (!player.worldObj.isRemote && (s.getSourceOfDamage() instanceof EntityMob || s.getEntity() instanceof EntityMob) && rand.nextInt(10) == 2) {
 				adventPl.beginRevenge();
@@ -397,35 +291,18 @@ public class ArmorEffects {
 			final Item body = stackBody != null ? stackBody.getItem() : null;
 			final Item helmet = stackHelmet != null ? stackHelmet.getItem() : null;
 
-			if (boots == null)
-				return;
+            if(boots==null&legs==null&body==null&helmet==null)
+                return;
 
-			switch (boots.getUnlocalizedName()) {
-				case "item.PurityBoots":
-                case "item.PurityLeggings":
-                case "item.PurityChestplate":
-                case "item.PurityHelmet":
 					if (ArmorUtil.isPurityArmor(boots, legs, body, helmet) && s.isProjectile())
 						e.ammount *= 1.25;
-					break;
-				case "item.BaronBoots":
-                case "item.BaronLeggings":
-                case "item.BaronChestplate":
-                case "item.BaronHelmet":
+
 					if (ArmorUtil.isBaronArmor(boots, legs, body, helmet) && !s.isProjectile() && !s.isMagicDamage())
 						e.ammount *= 1.25;
-					break;
-				case "item.BoreicChestplate":
-                case "item.BoreicLeggings":
-                case "item.BoreicHelmet":
-                case "item.BoreicBoots":
+
 					if (ArmorUtil.isBoreicArmor(boots, legs, body, helmet) && !s.isProjectile() && !s.isMagicDamage() && rand.nextInt(100) <= 33)
 						e.ammount *= 1.25;
-					break;
-				case "item.CrystallisBoots":
-                case "item.CrystallisHelmet":
-                case "item.CrystallisChestplate":
-                case "item.CrystallisLeggings":
+
 					if (ArmorUtil.isCrystallisArmor(boots, legs, body, helmet) && !s.isProjectile() && !s.isMagicDamage()) {
 						if (rand.nextInt(5) == 2) {
 							s.getEntity().attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)s.getEntity()), e.ammount * 0.45f);
@@ -434,11 +311,7 @@ public class ArmorEffects {
 							e.ammount *= 2.0;
 						}
 					}
-					break;
-				case "item.LyonicLeggings":
-                case "item.LyonicHelmet":
-                case "item.LyonicChestplate":
-                case "item.LyonicBoots":
+
 					if (ArmorUtil.isLyonicArmor(boots, legs, body, helmet) && !s.isProjectile() && !s.isMagicDamage()) {
 						final int healthPercent = EntityUtil.getPercentageOfMaxHealth((EntityPlayer)s.getEntity());
 
@@ -458,17 +331,10 @@ public class ArmorEffects {
 							e.ammount *= 2.0;
 						}
 					}
-					break;
-				case "item.PredatiousLeggings":
-                case "item.PredatiousHelmet":
-                case "item.PredatiousChestplate":
-                case "item.PredatiousBoots":
+
 					if (ArmorUtil.isPredatiousArmor(boots, legs, body, helmet) && s.getSourceOfDamage() instanceof EntityElementalArrow)
 						e.ammount *= 1.7;
-					break;
-				default:
-					break;
-			}
+
 		}
 	}
 
@@ -493,12 +359,6 @@ public class ArmorEffects {
 
 		pl.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.0);
 
-		if (boots != null) {
-			switch (boots.getUnlocalizedName()) {
-				case "item.VulcanismLeggings":
-                case "item.VulcanismHelmet":
-                case "item.VulcanismChestplate":
-                case "item.VulcanismBoots":
 					if (ArmorUtil.isVulcanismArmor(boots, legs, body, helmet) && adventPl.revengeActive()) {
 						InventoryPlayer invent = pl.inventory;
 
@@ -510,19 +370,11 @@ public class ArmorEffects {
 							}
 						}
 					}
-					break;
-				case "item.AlacrityLeggings":
-                case "item.AlacrityHelmet":
-                case "item.AlacrityChestplate":
-                case "item.AlacrityBoots":
+
 					if (ArmorUtil.isAlacrityArmor(boots, legs, body, helmet)) {
 						pl.addPotionEffect(new PotionEffect(8, -1, 4));
 					}
-					break;
-				case "item.HaulingLeggings":
-                case "item.HaulingHelmet":
-                case "item.HaulingChestplate":
-                case "item.HaulingBoots":
+
 					if (ArmorUtil.isHaulingArmor(boots, legs, body, helmet) && pl.isInWater()) {
 
 						pl.setAir(10);
@@ -554,46 +406,26 @@ public class ArmorEffects {
 							ev.player.motionY = 0.4000000059604645;
 
 					}
-					break;
-				case "item.InfusionLeggings":
-                case "item.InfusionHelmet":
-                case "item.InfusionChestplate":
-                case "item.InfusionBoots":
+
 					if (ArmorUtil.isInfusionArmor(boots, legs, body, helmet) && pl.getHealth() < pl.getMaxHealth() && energyHelper.getProperties(pl).useBar(5.0f)) {
 						if (pl instanceof EntityPlayerMP)
 							AddPackets.network.sendTo(new HealthMessage(pl.getHealth() + 0.5f), (EntityPlayerMP)pl);
 
 						pl.setHealth(pl.getHealth() + 0.5f);
 					}
-					break;
-				case "item.AuguryLeggings":
-                case "item.AuguryHelmet":
-                case "item.AuguryChestplate":
-                case "item.AuguryBoots":
+
 					if (ArmorUtil.isAuguryArmor(boots, legs, body, helmet)) {
 						soulPowerHelper.getProperties(pl).regen(1.5f);
 					}
-					break;
-				case "item.VitalityLeggings":
-                case "item.VitalityHelmet":
-                case "item.VitalityChestplate":
-                case "item.VitalityBoots":
+
 					if (ArmorUtil.isVitalityArmor(boots, legs, body, helmet)) {
 						pl.addPotionEffect(new PotionEffect(Potion.digSpeed.id, -1, 5));
 					}
-					break;
-				case "item.CreationLeggings":
-                case "item.CreationHelmet":
-                case "item.CreationChestplate":
-                case "item.CreationBoots":
+
 					if (ArmorUtil.isCreationArmor(boots, legs, body, helmet)) {
 						creationHelper.getProperties(pl).regen(1.5f);
 					}
-					break;
-				case "item.HunterLeggings":
-                case "item.HunterHelmet":
-                case "item.HunterChestplate":
-                case "item.HunterBoots":
+
 					if (ArmorUtil.isHunterArmor(boots, legs, body, helmet)) {
 						if (pl.isPotionActive(Potion.jump.id))
 							pl.removePotionEffect(Potion.jump.id);
@@ -614,19 +446,11 @@ public class ArmorEffects {
 
 						pl.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, -1, 2));
 					}
-					break;
-				case "item.ExoplateLeggings":
-                case "item.ExoplateHelmet":
-                case "item.ExoplateChestplate":
-                case "item.ExoplateBoots":
+
 					if (ArmorUtil.isExoplateArmor(boots, legs, body, helmet) && pl.getFoodStats().getFoodLevel() <= 0) {
 						pl.addPotionEffect(new PotionEffect(Potion.poison.id, 60, 0));
 					}
-					break;
-				case "item.RosidianLeggings":
-                case "item.RosidianHelmet":
-                case "item.RosidianChestplate":
-                case "item.RosidianBoots":
+
 					if (!world.isRemote && ArmorUtil.isRosidianArmor(boots, legs, body, helmet)) {
 						--adventPl.rosidCounter;
 
@@ -638,11 +462,7 @@ public class ArmorEffects {
 							ev.player.worldObj.spawnEntityInWorld(var4);
 						}
 					}
-					break;
-				case "item.HydrangicLeggings":
-                case "item.HydrangicHelmet":
-                case "item.HydrangicChestplate":
-                case "item.HydrangicBoots":
+
 					if (ArmorUtil.isHydrangicArmor(boots, legs, body, helmet)) {
 						HashMap<ItemRune, Integer> runes = new HashMap<ItemRune, Integer>();
 						runes.put((ItemRune)Itemizer.LifeRune, 1);
@@ -660,11 +480,7 @@ public class ArmorEffects {
 							stackLegs.damageItem(30, pl);
 						}
 					}
-					break;
-				case "item.ThermalLeggings":
-                case "item.ThermalHelmet":
-                case "item.ThermalChestplate":
-                case "item.ThermalBoots":
+
 					if (ArmorUtil.isThermalArmor(boots, legs, body, helmet)) {
 						rageHelper.getProperties(pl).regen(0.2f);
 
@@ -676,11 +492,7 @@ public class ArmorEffects {
 							adventPl.battlebornCounter = 300;
 						}
 					}
-					break;
-				case "item.ArchaicLeggings":
-                case "item.ArchaicHelmet":
-                case "item.ArchaicChestplate":
-                case "item.ArchaicBoots":
+
 					if (ArmorUtil.isArchaicArmor(boots, legs, body, helmet)) {
 						if (adventPl.archaicCounter > 0)
 							--adventPl.archaicCounter;
@@ -696,11 +508,7 @@ public class ArmorEffects {
 							}
 						}
 					}
-					break;
-				case "item.NethengeicLeggings":
-                case "item.NethengeicHelmet":
-                case "item.NethengeicChestplate":
-                case "item.NethengeicBoots":
+
 					if (ArmorUtil.isNethengeicArmor(boots, legs, body, helmet)) {
 						if (EntityUtil.getPercentageOfMaxHealth(pl) < 51) {
 							if (pl.getHealth() > 0.0f) {
@@ -714,11 +522,7 @@ public class ArmorEffects {
 							ev.player.addPotionEffect(new PotionEffect(5, -1, 0, true));
 						}
 					}
-					break;
-				case "item.BiogenicLeggings":
-                case "item.BiogenicHelmet":
-                case "item.BiogenicChestplate":
-                case "item.BiogenicBoots":
+
 					if (ArmorUtil.isBiogenicArmor(boots, legs, body, helmet)) {
 						if (pl.worldObj.getBlockLightValue((int)pl.posX, (int)pl.posY, (int)pl.posZ) < 7) {
 							PotionEffect nVision = pl.getActivePotionEffect(Potion.nightVision);
@@ -735,11 +539,7 @@ public class ArmorEffects {
 							pl.addPotionEffect(new PotionEffect(Potion.damageBoost.id, -1, 0, true));
 						}
 					}
-					break;
-				case "item.LunarHelmet":
-                case "item.LunarChestplate":
-                case "item.LunarLeggings":
-                case "item.LunarBoots":
+
 					if (ArmorUtil.isLunarArmor(boots, legs, body, helmet)) {
 						pl.addPotionEffect(new PotionEffect(8, -1, 4, true));
 
@@ -750,19 +550,11 @@ public class ArmorEffects {
 								pl.addPotionEffect(new PotionEffect(16, 300, 10, true));
 						}
 					}
-					break;
-				case "item.SpeedHelmet":
-                case "item.SpeedChestplate":
-                case "item.SpeedLeggings":
-                case "item.SpeedBoots":
+
 					if (ArmorUtil.isSpeedArmor(boots, legs, body, helmet)) {
 						pl.addPotionEffect(new PotionEffect(1, -1, 1, true));
 					}
-					break;
-				case "item.OmniLeggings":
-                case "item.OmniChestplate":
-                case "item.OmniHelmet":
-                case "item.OmniBoots":
+
 					if (ArmorUtil.isOmniArmor(boots, legs, body, helmet)) {
 						--adventPl.omniCounter;
 
@@ -781,19 +573,11 @@ public class ArmorEffects {
 							adventPl.omniCounter = 120;
 						}
 					}
-					break;
-				case "item.ExpeditionLeggings":
-                case "item.ExpeditionChestplate":
-                case "item.ExpeditionHelmet":
-                case "item.ExpeditionBoots":
+
 					if (ArmorUtil.isExpeditionArmor(boots, legs, body, helmet)) {
 						pl.addPotionEffect(new PotionEffect(1, -1, 10, true));
 					}
-					break;
-				case "item.ZargoniteLeggings":
-                case "item.ZargoniteChestplate":
-                case "item.ZargoniteHelmet":
-                case "item.ZargoniteBoots":
+
 					if (ArmorUtil.isZargoniteArmor(boots, legs, body, helmet)) {
 						int hunterLvl = PlayerContainer.getProperties(pl).getLevel(Hunter);
 
@@ -809,11 +593,7 @@ public class ArmorEffects {
 							}
 						}
 					}
-					break;
-				case "item.RockboneLeggings":
-                case "item.RockboneChestplate":
-                case "item.RockboneHelmet":
-                case "item.RockboneBoots":
+
 					if (ArmorUtil.isRockboneArmor(boots, legs, body, helmet)) {
 						if (!pl.capabilities.isCreativeMode) {
 							if (!pl.isInWater()) {
@@ -825,19 +605,11 @@ public class ArmorEffects {
 						}
 						pl.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0);
 					}
-					break;
-				case "item.WeakenLeggings":
-                case "item.WeakenChestplate":
-                case "item.WeakenHelmet":
-                case "item.WeakenBoots":
+
 					if (ArmorUtil.isWeakenArmor(boots, legs, body, helmet)) {
 						pl.addPotionEffect(new PotionEffect(11, -1, 0, true));
 					}
-					break;
-				case "item.CommanderHelmet":
-                case "item.CommanderChestplate":
-                case "item.CommanderLeggings":
-                case "item.CommanderBoots":
+
 					if (ArmorUtil.isCommanderArmor(boots, legs, body, helmet)) {
 						if (pl.getHealth() > 0.0f) {
 							if (pl instanceof EntityPlayerMP)
@@ -846,29 +618,17 @@ public class ArmorEffects {
 							pl.setHealth(pl.getHealth() + 0.025f);
 						}
 					}
-					break;
-				case "item.NecroChestplate":
-                case "item.NecroHelmet":
-                case "item.NecroLeggings":
-                case "item.NecroBoots":
+
 					if (ArmorUtil.isNecroArmor(boots, legs, body, helmet)) {
 						pl.addPotionEffect(new PotionEffect(3, -1, 0, true));
 					}
-					break;
-				case "item.SkeletalChestplate":
-                case "item.SkeletalHelmet":
-                case "item.SkeletalLeggings":
-                case "item.SkeletalBoots":
+
 					if (ArmorUtil.isSkeletalArmor(boots, legs, body, helmet)) {
 						if (pl.getFoodStats().needFood()) {
 							pl.getFoodStats().addStats(1, 0.0f);
 						}
 					}
-					break;
-				case "item.CandyChestplate":
-                case "item.CandyHelmet":
-                case "item.CandyLeggings":
-                case "item.CandyBoots":
+
 					if (ArmorUtil.isCandyArmor(boots, legs, body, helmet)) {
 						--adventPl.candyCounter;
 
@@ -883,11 +643,7 @@ public class ArmorEffects {
 							adventPl.candyCounter = 1800;
 						}
 					}
-					break;
-				case "item.PhantasmChestplate":
-                case "item.PhantasmHelmet":
-                case "item.PhantasmLeggings":
-                case "item.PhantasmBoots":
+
 					if (ArmorUtil.isPhantasmArmor(boots, legs, body, helmet)) {
 						final int healthPercent = EntityUtil.getPercentageOfMaxHealth(pl);
 
@@ -904,11 +660,7 @@ public class ArmorEffects {
 							pl.addPotionEffect(new PotionEffect(1, -1, 4, true));
 						}
 					}
-					break;
-				case "item.RunicChestplate":
-                case "item.RunicHelmet":
-                case "item.RunicLeggings":
-                case "item.RunicBoots":
+
 					if (ArmorUtil.isRunicArmor(boots, legs, body, helmet)) {
 						final int healthPercent = EntityUtil.getPercentageOfMaxHealth(pl);
 
@@ -923,11 +675,7 @@ public class ArmorEffects {
 							adventPl.runicCounter = 600;
 						}
 					}
-					break;
-				case "item.UtopianChestplate":
-                case "item.UtopianHelmet":
-                case "item.UtopianLeggings":
-                case "item.UtopianBoots":
+
 					if (ArmorUtil.isUtopianArmor(boots, legs, body, helmet) && ev.player.isInsideOfMaterial(Material.water)) {
 						final int healthPercent = EntityUtil.getPercentageOfMaxHealth(pl);
 
@@ -938,11 +686,7 @@ public class ArmorEffects {
 							pl.setHealth(pl.getHealth() + 0.2f);
 						}
 					}
-					break;
-				default:
-					break;
-			}
-		}
+
 
 		if (pl.dimension == ConfigurationHelper.voxponds && !pl.capabilities.isCreativeMode) {
 			if (!(ArmorUtil.isHazmatArmor(boots, legs, body, helmet) || helmet == Armorizer.FaceMask)) {

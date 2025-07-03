@@ -35,7 +35,7 @@ public class PlayerContainer implements IExtendedEntityProperties {
 	public int mercurialCounter = 10;
 	public int battlebornCounter = 300;
 	public int omniCounter = 120;
-	public int knightCounter = 2;
+	public int knightCounter = 1;
 
 	private int revengeCounter = 0;
 	private EntityMob revengeTarget = null;

@@ -40,10 +40,7 @@ public class EntityElusive extends EntityMob implements EntityBoss {
 
 	protected String getLivingSound() {
 		switch (rand.nextInt(3)) {
-			case 0: {
-				return "nevermine:ElusiveLiving1";
-			}
-			case 1: {
+            case 1: {
 				return "nevermine:ElusiveLiving2";
 			}
 			case 2: {
@@ -59,18 +56,12 @@ public class EntityElusive extends EntityMob implements EntityBoss {
         return super.attackEntityFrom(par1DamageSource, par2);
     }
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.IllusionBanner);
-	}
-
-	private Item dropStatue() {
+    private Item dropStatue() {
 		return Item.getItemFromBlock(SpecialBlockizer.ElusiveStatue);
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(dropStatue(), 1);
-		dropItem(dropBanner(), 9 + rand.nextInt(10));
-
 		final int wep = rand.nextInt(4);
 
 		if (wep == 1) {
@@ -96,12 +87,7 @@ public class EntityElusive extends EntityMob implements EntityBoss {
 		return "nevermine:ElusiveHit";
 	}
 
-	protected Entity findPlayerToAttack() {
-		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
-		return ((entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null);
-	}
-
-	public void applyEntityAttributes() {
+    public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(15.0);
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(52.0);
@@ -162,20 +148,20 @@ public class EntityElusive extends EntityMob implements EntityBoss {
 		return false;
 	}
 
-	protected boolean teleportToEntity(final Entity par1Entity) {
+	protected void teleportToEntity(final Entity par1Entity) {
 		Vec3 vec3 = Vec3.createVectorHelper(posX - par1Entity.posX, boundingBox.minY + height / 2.0f - par1Entity.posY + par1Entity.getEyeHeight(), posZ - par1Entity.posZ);
 		vec3 = vec3.normalize();
 		final double d0 = 16.0;
 		final double d2 = posX + (rand.nextDouble() - 0.5) * 8.0 - vec3.xCoord * d0;
 		final double d3 = posY + (rand.nextInt(16) - 8) - vec3.yCoord * d0;
 		final double d4 = posZ + (rand.nextDouble() - 0.5) * 8.0 - vec3.zCoord * d0;
-		return teleportTo(d2, d3, d4);
-	}
+        teleportTo(d2, d3, d4);
+    }
 
-	protected boolean teleportTo(final double par1, final double par3, final double par5) {
+	protected void teleportTo(final double par1, final double par3, final double par5) {
 		final EnderTeleportEvent event = new EnderTeleportEvent(this, par1, par3, par5, 0.0f);
 		if (MinecraftForge.EVENT_BUS.post(event)) {
-			return false;
+			return;
 		}
 		final double d3 = posX;
 		final double d4 = posY;
@@ -208,7 +194,7 @@ public class EntityElusive extends EntityMob implements EntityBoss {
 		}
 		if (!flag) {
 			setPosition(d3, d4, d5);
-			return false;
+			return;
 		}
 		final short short1 = 128;
 		for (int l = 0; l < short1; ++l) {
@@ -223,8 +209,7 @@ public class EntityElusive extends EntityMob implements EntityBoss {
 		}
 		worldObj.playSoundEffect(d3, d4, d5, "mob.endermen.portal", 1.0f, 1.0f);
 		playSound("mob.endermen.portal", 1.0f, 1.0f);
-		return true;
-	}
+    }
 
 	public void onDeath(final DamageSource d) {
 		super.onDeath(d);
