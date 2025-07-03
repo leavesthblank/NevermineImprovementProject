@@ -10,15 +10,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityBoneback extends EntityMob implements EntityHunter {
-	public int getLevReq() {
-		return 12;
-	}
+public class EntityBoneback extends EntityMob{
 
 	public EntityBoneback(final World par1World) {
 		super(par1World);
@@ -47,11 +42,6 @@ public class EntityBoneback extends EntityMob implements EntityHunter {
 		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(24.0f, Hunter);
 		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	public boolean getCanSpawnHere() {

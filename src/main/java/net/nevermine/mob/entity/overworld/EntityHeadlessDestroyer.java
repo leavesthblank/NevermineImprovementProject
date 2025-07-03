@@ -11,11 +11,10 @@ import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.event.dimensional.overworld.DeathDayEvent;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityHeadlessDestroyer extends EntityMob implements EntityHunter {
+public class EntityHeadlessDestroyer extends EntityMob{
 	public EntityHeadlessDestroyer(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 1.7f);
@@ -70,9 +69,5 @@ public class EntityHeadlessDestroyer extends EntityMob implements EntityHunter {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.1);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(140.0);
-	}
-
-	public int getLevReq() {
-		return 0;
 	}
 }

@@ -5,20 +5,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityCaneBug extends EntityMob implements EntityHunter {
+public class EntityCaneBug extends EntityMob{
 	public EntityCaneBug(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 1.8f);
@@ -41,13 +37,9 @@ public class EntityCaneBug extends EntityMob implements EntityHunter {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
-	public int getLevReq() {
-		return 55;
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 3);
-
+		dropItem(Itemizer.CopperCoin, 3+rand.nextInt());
+        dropItem(Itemizer.CoinsCandyland, rand.nextInt(2));
 		if (rand.nextInt(15) == 3) {
 			dropItem(Itemizer.CandyCane, 1);
 		}
@@ -56,12 +48,8 @@ public class EntityCaneBug extends EntityMob implements EntityHunter {
 			dropItem(Itemizer.CoinsCandyland, 2);
 		}
 
-		if (rand.nextInt(90) == 31) {
+		if (rand.nextInt(10) == 0) {
 			dropItem(Weaponizer.CandyStaff, 1);
-		}
-
-		if (rand.nextInt(7) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.CandyBanner), 1);
 		}
 	}
 
@@ -70,11 +58,6 @@ public class EntityCaneBug extends EntityMob implements EntityHunter {
 		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(280.0f, Hunter);
 		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {

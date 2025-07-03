@@ -7,9 +7,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.mob.placement.EntityHunter;
 
-public class EntityHidingFungi extends EntityMob implements EntityHunter {
+public class EntityHidingFungi extends EntityMob{
 	public EntityHidingFungi(final World par1World) {
 		super(par1World);
 		setSize(1.0f, 1.0f);
@@ -68,9 +67,5 @@ public class EntityHidingFungi extends EntityMob implements EntityHunter {
 				setDead();
 			}
 		}
-	}
-
-	public int getLevReq() {
-		return 0;
 	}
 }

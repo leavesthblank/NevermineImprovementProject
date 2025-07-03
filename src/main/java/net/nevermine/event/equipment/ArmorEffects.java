@@ -26,13 +26,11 @@ import net.nevermine.assist.*;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.event.player.HealthMessage;
 import net.nevermine.item.ItemRune;
-import net.nevermine.item.armor.advanced.HydrangicArmor;
 import net.nevermine.item.weapon.vulcane.BaseVulcane;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.minion.entity.EntityOrbling;
 import net.nevermine.minion.entity.EntityRosid;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.projectiles.auxillary.EntityElementalArrow;
 import net.nevermine.projectiles.cannon.EntityGrenadeShot;
 import net.nevermine.resource.creation.creationHelper;
@@ -593,12 +591,7 @@ public class ArmorEffects {
 					}
 
 					if (ArmorUtil.isZargoniteArmor(boots, legs, body, helmet)) {
-						int hunterLvl = PlayerContainer.getProperties(pl).getLevel(Hunter);
-
 						for (final EntityMob e3 : (List<EntityMob>)pl.worldObj.getEntitiesWithinAABB(EntityMob.class, pl.boundingBox.expand(4.0, 4.0, 4.0))) {
-							if (e3 instanceof EntityHunter && ((EntityHunter)e3).getLevReq() > hunterLvl)
-								continue;
-
 							if (e3.getHealth() > 0.15f) {
 								e3.setHealth(e3.getHealth() - 0.15f);
 							}

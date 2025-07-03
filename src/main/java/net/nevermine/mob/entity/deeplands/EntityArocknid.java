@@ -11,12 +11,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityArocknid extends EntityMob implements EntityHunter {
+public class EntityArocknid extends EntityMob{
 	public EntityArocknid(final World par1World) {
 		super(par1World);
 		setSize(2.5f, 1.5f);
@@ -24,10 +22,6 @@ public class EntityArocknid extends EntityMob implements EntityHunter {
 
 	private boolean projectileTest(final Entity entity) {
 		return entity instanceof EntityThrowable && ((EntityThrowable)entity).getThrower() instanceof EntityPlayer;
-	}
-
-	public int getLevReq() {
-		return 68;
 	}
 
 	public void onDeath(final DamageSource var1) {
@@ -84,10 +78,5 @@ public class EntityArocknid extends EntityMob implements EntityHunter {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0);
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 }

@@ -14,13 +14,12 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.mob.placement.EntityNoBows;
 import net.nevermine.mob.placement.EntityNoRange;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityGoalby extends EntityMob implements EntityHunter, EntityNoRange, EntityNoBows {
+public class EntityGoalby extends EntityMob implements EntityNoRange, EntityNoBows {
 	public EntityGoalby(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 2.5f);
@@ -91,9 +90,5 @@ public class EntityGoalby extends EntityMob implements EntityHunter, EntityNoRan
 		}
 
 		var1.addPotionEffect(new PotionEffect(Potion.weakness.id, 45, 4));
-	}
-
-	public int getLevReq() {
-		return 0;
 	}
 }

@@ -1,7 +1,6 @@
 package net.nevermine.mob.entity.shyrelands;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -15,16 +14,11 @@ import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.projectiles.enemy.EntityCraexxeusShot;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityArcWizard extends EntityMob implements IRangedAttackMob, EntityHunter {
-	public int getLevReq() {
-		return 66;
-	}
+public class EntityArcWizard extends EntityMob implements IRangedAttackMob{
 
 	private EntityAIArrowAttack aiArrowAttack = new EntityAIArrowAttack(this, getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), 20, 60, 15.0F);
 
@@ -59,15 +53,6 @@ public class EntityArcWizard extends EntityMob implements IRangedAttackMob, Enti
 		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(650.0f, Hunter);
 		}
-	}
-
-	public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
-		Entity entity = par1DamageSource.getSourceOfDamage();
-
-		if (HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource).booleanValue()) {
-			return super.attackEntityFrom(par1DamageSource, par2);
-		}
-		return false;
 	}
 
 	protected boolean isValidLightLevel() {

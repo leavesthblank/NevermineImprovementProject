@@ -16,12 +16,8 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.nevermine.boss.EntityBoss;
 import net.nevermine.boss.cavern.CavernBoss;
-import net.nevermine.container.PlayerContainer;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.mob.placement.EntityNoRange;
 import net.nevermine.mob.placement.EntitySpecialRange;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityUtil {
 	public static int getPercentageOfMaxHealth(EntityLivingBase entity) {
@@ -70,9 +66,8 @@ public class EntityUtil {
 		if (target instanceof EntitySpecialRange && !((EntitySpecialRange)target).canDamage(projectile, target, shooter, dmg))
 			return false;
 
-		if (target instanceof EntityHunter) {
 			if (shooter instanceof EntityPlayer) {
-				if (((EntityPlayer)shooter).capabilities.isCreativeMode || PlayerContainer.getProperties((EntityPlayer)shooter).getLevel(Hunter) >= ((EntityHunter)target).getLevReq()) {
+				if (((EntityPlayer)shooter).capabilities.isCreativeMode) {
 					if (target.getHealth() > dmg) {
 						target.setHealth(target.getHealth() - dmg);
 						target.attackEntityFrom(DamageSource.causeThrownDamage(projectile, shooter), 0.0f);
@@ -83,10 +78,6 @@ public class EntityUtil {
 
 					return true;
 				}
-				else {
-					((EntityPlayer)shooter).addChatMessage(StringUtil.getLocaleWithArguments("message.feedback.hunterRequirement", Integer.toString(((EntityHunter)target).getLevReq())));
-				}
-			}
 		}
 		else {
 			if (target.getHealth() > dmg) {

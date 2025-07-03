@@ -13,15 +13,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityRawbone extends EntityMob implements EntityHunter {
-	public int getLevReq() {
-		return 78;
-	}
+public class EntityRawbone extends EntityMob{
 
 	public EntityRawbone(final World par1World) {
 		super(par1World);
@@ -61,10 +56,6 @@ public class EntityRawbone extends EntityMob implements EntityHunter {
 		}
 	}
 
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
-	}
 
 	protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);

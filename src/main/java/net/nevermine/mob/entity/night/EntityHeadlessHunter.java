@@ -6,20 +6,17 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.structures.vanilla.LunarPortalStructure;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityHeadlessHunter extends EntityMob implements EntityHunter {
+public class EntityHeadlessHunter extends EntityMob{
 	public EntityHeadlessHunter(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 1.7f);
@@ -50,20 +47,13 @@ public class EntityHeadlessHunter extends EntityMob implements EntityHunter {
         }
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.EnergyBanner);
-	}
-
-	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
+    protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("nevermine:VeryHeavyStep", 1.25f, 1.0f);
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		if (rand.nextBoolean()) {
 			dropItem(Itemizer.CopperCoin, 2 + rand.nextInt(3));
-		}
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
 		}
 	}
 
@@ -88,9 +78,5 @@ public class EntityHeadlessHunter extends EntityMob implements EntityHunter {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.1);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(70.0);
-	}
-
-	public int getLevReq() {
-		return 0;
 	}
 }

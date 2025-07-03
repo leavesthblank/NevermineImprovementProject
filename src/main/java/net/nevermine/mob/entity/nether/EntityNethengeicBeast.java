@@ -6,27 +6,18 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.mob.placement.EntityNoFire;
 import net.nevermine.mob.placement.EntityNoRange;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityNethengeicBeast extends EntityMob implements EntityNoRange, EntityHunter, EntityNoFire {
-
-	public int getLevReq() {
-		return 65;
-	}
-
+public class EntityNethengeicBeast extends EntityMob implements EntityNoRange, EntityNoFire {
 	public EntityNethengeicBeast(final World par1World) {
 		super(par1World);
 		setSize(1.0f, 1.35f);
@@ -49,11 +40,7 @@ public class EntityNethengeicBeast extends EntityMob implements EntityNoRange, E
 		playSound("nevermine:HeavyStep", 0.85f, 1.0f);
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.NethengeicBanner);
-	}
-
-	protected void dropFewItems(final boolean par1, final int par2) {
+    protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.SilverCoin, 2);
 
 		if (rand.nextInt(40) == 17) {
@@ -86,10 +73,6 @@ public class EntityNethengeicBeast extends EntityMob implements EntityNoRange, E
 
 		if (rand.nextBoolean()) {
 			dropItem(Itemizer.CoinsNether, 2);
-		}
-
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
 		}
 
 		if (rand.nextInt(20) == 4) {
@@ -127,10 +110,5 @@ public class EntityNethengeicBeast extends EntityMob implements EntityNoRange, E
 			return true;
 		}
 		return false;
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 }

@@ -1,35 +1,26 @@
 package net.nevermine.mob.entity.mysterium;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.mob.placement.EntityNoRange;
 import net.nevermine.projectiles.enemy.EntitySurgeBlue;
 import net.nevermine.projectiles.enemy.EntitySurgeRed;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityUndeadTroll extends EntityMob implements IRangedAttackMob, EntityHunter, EntityNoRange {
+public class EntityUndeadTroll extends EntityMob implements IRangedAttackMob, EntityNoRange {
 	private EntityAIArrowAttack aiArrowAttack;
-
-	public int getLevReq() {
-		return 28;
-	}
 
 	public EntityUndeadTroll(final World par1World) {
 		super(par1World);
@@ -63,17 +54,9 @@ public class EntityUndeadTroll extends EntityMob implements IRangedAttackMob, En
 		if (rand.nextInt(50) == 13) {
 			dropItem(Weaponizer.SurgeStaff, 1);
 		}
-
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
-		}
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.HauntedBanner);
-	}
-
-	protected String getLivingSound() {
+    protected String getLivingSound() {
 		return "nevermine:GoblinLiving";
 	}
 
@@ -130,10 +113,5 @@ public class EntityUndeadTroll extends EntityMob implements IRangedAttackMob, En
 			playSound("nevermine:SurgeBlue", 1.0f, 1.0f / (getRNG().nextFloat() * 0.4f + 0.8f));
 			worldObj.spawnEntityInWorld(var7);
 		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 }

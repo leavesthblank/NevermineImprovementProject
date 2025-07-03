@@ -11,11 +11,10 @@ import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntitySoulscorne extends EntityMob implements EntityHunter {
+public class EntitySoulscorne extends EntityMob{
 	private int count = 0;
 	private int timer = 0;
 
@@ -32,24 +31,11 @@ public class EntitySoulscorne extends EntityMob implements EntityHunter {
 		}
 	}
 
-	public int getLevReq() {
-		return 75;
-	}
-
 	protected void dropFewItems(boolean par1, int par2) {
 		dropItem(Itemizer.CopperCoin, 3 + this.rand.nextInt(5));
 		if (this.rand.nextInt(100) == 42) {
 			dropItem(Weaponizer.Sublimus, 1);
 		}
-	}
-
-	public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
-		Entity entity = par1DamageSource.getSourceOfDamage();
-
-		if (net.nevermine.mob.ai.HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource).booleanValue()) {
-			return super.attackEntityFrom(par1DamageSource, par2);
-		}
-		return false;
 	}
 
 	protected String getLivingSound() {

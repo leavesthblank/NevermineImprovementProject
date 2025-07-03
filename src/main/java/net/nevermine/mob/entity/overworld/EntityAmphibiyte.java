@@ -16,14 +16,12 @@ import net.nevermine.boss.corallus.EntityCorallus;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.SpecialBlockizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import java.util.List;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityAmphibiyte extends EntityMob implements EntityHunter {
+public class EntityAmphibiyte extends EntityMob{
 	private int angerLevel;
 	private int randomSoundDelay;
 
@@ -43,11 +41,6 @@ public class EntityAmphibiyte extends EntityMob implements EntityHunter {
 
 	public boolean canBreatheUnderwater() {
 		return true;
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	private Item dropBanner() {
@@ -172,9 +165,5 @@ public class EntityAmphibiyte extends EntityMob implements EntityHunter {
 				}
 			}
 		}
-	}
-
-	public int getLevReq() {
-		return 30;
 	}
 }

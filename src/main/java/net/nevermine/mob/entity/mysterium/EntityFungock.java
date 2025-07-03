@@ -6,25 +6,17 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Armorizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityFungock extends EntityMob implements EntityHunter {
-	public int getLevReq() {
-		return 90;
-	}
-
+public class EntityFungock extends EntityMob{
 	public EntityFungock(final World par1World) {
 		super(par1World);
 		setSize(1.0f, 1.9f);
@@ -49,17 +41,8 @@ public class EntityFungock extends EntityMob implements EntityHunter {
 		}
 	}
 
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-
-		if (rand.nextInt(7) == 3) {
-			dropItem(dropBanner(), 1);
-		}
 
 		if (rand.nextInt(60) == 25) {
 			dropItem(Armorizer.FungalBoots, 1);
@@ -78,11 +61,7 @@ public class EntityFungock extends EntityMob implements EntityHunter {
 		}
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.FungalBanner);
-	}
-
-	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
+    protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("mob.pig.step", 0.85f, 1.0f);
 	}
 

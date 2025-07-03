@@ -15,20 +15,14 @@ import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.mob.placement.EntityNoBows;
 import net.nevermine.mob.placement.EntityNoRange;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityPincher extends EntityMob implements EntityHunter, EntityNoRange, EntityNoBows {
+public class EntityPincher extends EntityMob implements EntityNoRange, EntityNoBows {
 	private int angerLevel;
 	private int randomSoundDelay;
-
-	public int getLevReq() {
-		return 93;
-	}
 
 	public EntityPincher(final World var1) {
 		super(var1);
@@ -75,11 +69,6 @@ public class EntityPincher extends EntityMob implements EntityHunter, EntityNoRa
 		if (var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(6000.0f, Hunter);
 		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	protected float getSoundVolume() {

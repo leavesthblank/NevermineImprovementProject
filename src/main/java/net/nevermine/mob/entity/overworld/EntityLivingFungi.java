@@ -16,18 +16,12 @@ import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.mob.placement.EntityNoBows;
 import net.nevermine.mob.placement.EntityNoRange;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityLivingFungi extends EntityMob implements EntityNoRange, EntityNoBows, EntityHunter {
-	public int getLevReq() {
-		return 77;
-	}
-
+public class EntityLivingFungi extends EntityMob implements EntityNoRange, EntityNoBows{
 	public EntityLivingFungi(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 2.6f);
@@ -199,10 +193,5 @@ public class EntityLivingFungi extends EntityMob implements EntityNoRange, Entit
 		}
 		limbSwingAmount += (f6 - limbSwingAmount) * 0.4f;
 		limbSwing += limbSwingAmount;
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 }

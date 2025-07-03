@@ -12,15 +12,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityDaysee extends EntityMob implements EntityHunter {
-	public int getLevReq() {
-		return 34;
-	}
+public class EntityDaysee extends EntityMob{
 
 	public EntityDaysee(final World par1World) {
 		super(par1World);
@@ -53,9 +48,6 @@ public class EntityDaysee extends EntityMob implements EntityHunter {
 
 	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
 		final Entity entity = par1DamageSource.getSourceOfDamage();
-
-		if (HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource))
-			return super.attackEntityFrom(par1DamageSource, par2);
 
 		if (entity instanceof EntityThrowable && ((EntityThrowable)entity).getThrower() != null) {
 			((EntityThrowable)entity).getThrower().addVelocity(Math.signum(posX - ((EntityThrowable)entity).posX) * 0.329, 0.0, Math.signum(posZ - ((EntityThrowable)entity).posZ) * 0.329);

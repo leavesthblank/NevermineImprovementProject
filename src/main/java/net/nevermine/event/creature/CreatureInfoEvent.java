@@ -15,44 +15,15 @@ public class CreatureInfoEvent {
 	@SubscribeEvent
 	public void render(final RenderLivingEvent.Specials.Pre evt) {
 		if (KeyPressEvent.cinfo) {
-			int numthings = 0;
-			if (evt.entity instanceof EntityHunter) {
-				++numthings;
-			}
-			if (evt.entity instanceof EntityNoRange) {
-				++numthings;
-			}
-			if (evt.entity instanceof EntityNoBows) {
-				++numthings;
-			}
-			if (evt.entity instanceof EntityNoMelee) {
-				++numthings;
-			}
-			if (evt.entity instanceof EntityNoFire) {
-				++numthings;
-			}
-			if (evt.entity instanceof EntityNoMagic) {
-				++numthings;
-			}
-			if (evt.entity instanceof EntityNoExplosions) {
-				++numthings;
-			}
-			if (evt.entity instanceof EntityBoss || evt.entity instanceof EntityObject) {
-				numthings = 0;
-			}
-			boolean hunter = false;
-			boolean range = false;
+            int numthings = getNumthings(evt);
+            boolean range = false;
 			boolean bows = false;
 			boolean melee = false;
 			boolean fire = false;
 			boolean magic = false;
 			boolean explo = false;
 			for (float size = -numthings * 0.45f / 2.0f + 0.2f; size <= numthings * 0.95f / 2.0f; size += 0.45f) {
-				if (evt.entity instanceof EntityHunter && !hunter) {
-					drawTexture("nevermine:textures/gui/hunterMob.png", size, evt);
-					hunter = true;
-				}
-				else if (evt.entity instanceof EntityNoRange && !range) {
+                if (evt.entity instanceof EntityNoRange && !range) {
 					drawTexture("nevermine:textures/gui/gunImmune.png", size, evt);
 					range = true;
 				}
@@ -80,7 +51,33 @@ public class CreatureInfoEvent {
 		}
 	}
 
-	private void drawTexture(final String texture, final float xoff, final RenderLivingEvent.Specials.Pre evt) {
+    private static int getNumthings(RenderLivingEvent.Specials.Pre evt) {
+        int numthings = 0;
+        if (evt.entity instanceof EntityNoRange) {
+            ++numthings;
+        }
+        if (evt.entity instanceof EntityNoBows) {
+            ++numthings;
+        }
+        if (evt.entity instanceof EntityNoMelee) {
+            ++numthings;
+        }
+        if (evt.entity instanceof EntityNoFire) {
+            ++numthings;
+        }
+        if (evt.entity instanceof EntityNoMagic) {
+            ++numthings;
+        }
+        if (evt.entity instanceof EntityNoExplosions) {
+            ++numthings;
+        }
+        if (evt.entity instanceof EntityBoss || evt.entity instanceof EntityObject) {
+            numthings = 0;
+        }
+        return numthings;
+    }
+
+    private void drawTexture(final String texture, final float xoff, final RenderLivingEvent.Specials.Pre evt) {
 		GL11.glPushMatrix();
 		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(texture));
 		GL11.glEnable(32826);

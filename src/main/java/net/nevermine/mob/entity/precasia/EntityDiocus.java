@@ -13,16 +13,11 @@ import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.mob.placement.EntityNoExplosions;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityDiocus extends EntityMob implements EntityHunter, EntityNoExplosions {
-	public int getLevReq() {
-		return 23;
-	}
+public class EntityDiocus extends EntityMob implements EntityNoExplosions {
 
 	public EntityDiocus(final World par1World) {
 		super(par1World);
@@ -46,11 +41,6 @@ public class EntityDiocus extends EntityMob implements EntityHunter, EntityNoExp
 		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(50.0f, Hunter);
 		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {

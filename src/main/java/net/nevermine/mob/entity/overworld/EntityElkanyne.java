@@ -10,15 +10,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityElkanyne extends EntityMob implements EntityHunter {
-	public int getLevReq() {
-		return 12;
-	}
+public class EntityElkanyne extends EntityMob{
 
 	public EntityElkanyne(final World par1World) {
 		super(par1World);
@@ -50,14 +45,9 @@ public class EntityElkanyne extends EntityMob implements EntityHunter {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(75) == 15) {
+		if (rand.nextInt(15) == 0) {
 			dropItem(Weaponizer.Stampede, 1);
 		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	public boolean getCanSpawnHere() {

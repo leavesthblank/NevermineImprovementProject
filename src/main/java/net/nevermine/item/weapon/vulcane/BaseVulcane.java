@@ -11,12 +11,10 @@ import net.nevermine.assist.StringUtil;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.skill.vulcanism.vulcanismHelper;
 
 import java.util.Random;
 
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 import static net.nevermine.container.PlayerContainer.Skills.Vulcanism;
 
 public abstract class BaseVulcane extends Item {
@@ -70,33 +68,16 @@ public abstract class BaseVulcane extends Item {
 		if (cont.getRevengeTarget() != null) {
 			EntityMob mob = cont.getRevengeTarget();
 
-			if (mob instanceof EntityHunter) {
-				if (cont.getLevel(Hunter) > ((EntityHunter)mob).getLevReq()) {
-					if (mob.getHealth() > dmg * multiplier) {
-						mob.setHealth(mob.getHealth() - dmg * multiplier);
-						mob.attackEntityFrom(DamageSource.causeIndirectMagicDamage(mob, player), 0.0f);
-					}
-					else {
-						mob.attackEntityFrom(DamageSource.causeIndirectMagicDamage(mob, player), dmg * multiplier);
-					}
-
-					fireGun(world, stack, player, multiplier, mob);
-					cont.addExperience(cont.getExpRequired(Vulcanism) / vulcanismHelper.getExpDenominator(cont.getLevel(Vulcanism)), Vulcanism);
-				}
-			}
-			else {
-				if (mob.getHealth() > dmg * multiplier) {
-					mob.setHealth(mob.getHealth() - dmg * multiplier);
-					mob.attackEntityFrom(DamageSource.causeIndirectMagicDamage(mob, player), 0.0f);
-				}
-				else {
-					mob.attackEntityFrom(DamageSource.causeIndirectMagicDamage(mob, player), dmg * multiplier);
-				}
-
-				fireGun(world, stack, player, multiplier, mob);
-				cont.addExperience(cont.getExpRequired(Vulcanism) / vulcanismHelper.getExpDenominator(cont.getLevel(Vulcanism)), Vulcanism);
-			}
-		}
+            if (mob.getHealth() > dmg * multiplier) {
+                mob.setHealth(mob.getHealth() - dmg * multiplier);
+                mob.attackEntityFrom(DamageSource.causeIndirectMagicDamage(mob, player), 0.0f);
+            }
+            else {
+                mob.attackEntityFrom(DamageSource.causeIndirectMagicDamage(mob, player), dmg * multiplier);
+            }
+            fireGun(world, stack, player, multiplier, mob);
+            cont.addExperience(cont.getExpRequired(Vulcanism) / vulcanismHelper.getExpDenominator(cont.getLevel(Vulcanism)), Vulcanism);
+        }
 
 		stack.damageItem(1, player);
 		cont.revengeEnacted();

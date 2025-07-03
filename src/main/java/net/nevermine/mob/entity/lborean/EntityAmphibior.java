@@ -6,23 +6,16 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityAmphibior extends EntityMob implements EntityHunter {
-	public int getLevReq() {
-		return 73;
-	}
+public class EntityAmphibior extends EntityMob{
 
 	public EntityAmphibior(final World par1World) {
 		super(par1World);
@@ -48,11 +41,6 @@ public class EntityAmphibior extends EntityMob implements EntityHunter {
 		}
 	}
 
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
-	}
-
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("mob.pig.step", 0.55f, 1.0f);
 	}
@@ -75,17 +63,9 @@ public class EntityAmphibior extends EntityMob implements EntityHunter {
 		if (rand.nextInt(25) == 20) {
 			dropItem(Itemizer.PureCoralStone, 1);
 		}
-
-		if (rand.nextInt(7) == 2) {
-			dropItem(dropBanner(), 1);
-		}
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.BoreicBanner);
-	}
-
-	protected Entity findPlayerToAttack() {
+    protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return ((entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null);
 	}

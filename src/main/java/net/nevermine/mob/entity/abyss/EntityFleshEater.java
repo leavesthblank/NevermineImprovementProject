@@ -14,18 +14,10 @@ import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityFleshEater extends EntityMob implements EntityHunter {
-
-	@Override
-	public int getLevReq() {
-		return 35;
-	}
-
+public class EntityFleshEater extends EntityMob{
 	public EntityFleshEater(final World par1World) {
 		super(par1World);
 		setSize(0.6f, 1.5f);
@@ -48,11 +40,6 @@ public class EntityFleshEater extends EntityMob implements EntityHunter {
 		if (!worldObj.isRemote && src.getEntity() != null && src.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)src.getEntity()).addExperience(120.0f, Hunter);
 		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource src, final float dmg) {
-		final Entity entity = src.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), src) && super.attackEntityFrom(src, dmg);
 	}
 
 	protected Entity findPlayerToAttack() {

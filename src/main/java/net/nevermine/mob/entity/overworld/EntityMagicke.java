@@ -14,12 +14,11 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.projectiles.enemy.EntityMagickeShot;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityMagicke extends EntityMob implements IRangedAttackMob, EntityHunter {
+public class EntityMagicke extends EntityMob implements IRangedAttackMob{
 	private EntityAIArrowAttack aiArrowAttack;
 
 	public EntityMagicke(final World par1World) {
@@ -107,9 +106,5 @@ public class EntityMagicke extends EntityMob implements IRangedAttackMob, Entity
 		var2.setThrowableHeading(var3, var4 + var6, var5, 1.6f, 12.0f);
 		playSound("nevermine:MagickeFire", 1.0f, 1.0f / (getRNG().nextFloat() * 0.4f + 0.8f));
 		worldObj.spawnEntityInWorld(var2);
-	}
-
-	public int getLevReq() {
-		return 0;
 	}
 }

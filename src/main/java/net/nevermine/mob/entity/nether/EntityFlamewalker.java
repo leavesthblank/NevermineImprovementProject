@@ -12,12 +12,11 @@ import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.mob.placement.EntityNoFire;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityFlamewalker extends EntityMob implements EntityNoFire, EntityHunter {
+public class EntityFlamewalker extends EntityMob implements EntityNoFire{
 	public EntityFlamewalker(final World par1World) {
 		super(par1World);
 		setSize(0.8f, 2.2f);
@@ -89,9 +88,5 @@ public class EntityFlamewalker extends EntityMob implements EntityNoFire, Entity
 				}
 			}
 		}
-	}
-
-	public int getLevReq() {
-		return 0;
 	}
 }

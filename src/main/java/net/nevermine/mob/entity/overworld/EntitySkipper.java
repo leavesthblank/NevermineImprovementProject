@@ -10,14 +10,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import java.util.List;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntitySkipper extends EntityMob implements EntityHunter {
+public class EntitySkipper extends EntityMob{
 	private int angerLevel;
 	private int randomSoundDelay;
 
@@ -37,11 +35,6 @@ public class EntitySkipper extends EntityMob implements EntityHunter {
 
 	public boolean canBreatheUnderwater() {
 		return true;
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
@@ -135,9 +128,5 @@ public class EntitySkipper extends EntityMob implements EntityHunter {
 		entityToAttack = var1;
 		angerLevel = 400 + rand.nextInt(400);
 		randomSoundDelay = rand.nextInt(40);
-	}
-
-	public int getLevReq() {
-		return 5;
 	}
 }

@@ -11,22 +11,15 @@ import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityZarg extends EntityMob implements EntityHunter {
+public class EntityZarg extends EntityMob{
 
 	public EntityZarg(final World par1World) {
 		super(par1World);
 		setSize(0.6f, 2.5f);
 	}
-
-	public int getLevReq() {
-		return 82;
-	}
-
 	protected String getLivingSound() {
 		return "nevermine:ZargLiving";
 	}
@@ -41,11 +34,6 @@ public class EntityZarg extends EntityMob implements EntityHunter {
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("mob.pig.step", 1.0f, 1.0f);
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {

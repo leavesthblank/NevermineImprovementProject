@@ -10,12 +10,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityFishix extends EntityMob implements EntityHunter {
+public class EntityFishix extends EntityMob{
 	public EntityFishix(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 2.18f);
@@ -35,11 +33,6 @@ public class EntityFishix extends EntityMob implements EntityHunter {
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("mob.pig.step", 1.0f, 1.0f);
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	public boolean getCanSpawnHere() {
@@ -70,9 +63,5 @@ public class EntityFishix extends EntityMob implements EntityHunter {
 		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(20.0f, Hunter);
 		}
-	}
-
-	public int getLevReq() {
-		return 6;
 	}
 }

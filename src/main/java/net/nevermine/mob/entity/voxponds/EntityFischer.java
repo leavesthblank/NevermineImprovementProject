@@ -9,18 +9,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityFischer extends EntityMob implements EntityHunter {
+public class EntityFischer extends EntityMob{
 	private int angerLevel;
 	private int randomSoundDelay;
-
-	public int getLevReq() {
-		return 33;
-	}
 
 	public EntityFischer(final World var1) {
 		super(var1);
@@ -53,11 +47,6 @@ public class EntityFischer extends EntityMob implements EntityHunter {
 		if (var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(95.0f, Hunter);
 		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	protected float getSoundVolume() {
@@ -102,7 +91,7 @@ public class EntityFischer extends EntityMob implements EntityHunter {
 			return;
 		}
 
-		if (PlayerContainer.getProperties(var1).getLevel(Hunter) >= 93 && !var1.isInWater()) {
+		if (!var1.isInWater()) {
 			var1.addVelocity(Math.signum(posX - var1.posX) * 0.029, Math.signum(posY - var1.posY) * 0.015, Math.signum(posZ - var1.posZ) * 0.029);
 		}
 

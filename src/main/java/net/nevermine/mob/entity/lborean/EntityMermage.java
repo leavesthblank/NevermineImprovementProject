@@ -1,6 +1,5 @@
 package net.nevermine.mob.entity.lborean;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,19 +12,12 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.projectiles.enemy.EntityMagicBallSeaTroll;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityMermage extends EntityMob implements IRangedAttackMob, EntityHunter {
+public class EntityMermage extends EntityMob implements IRangedAttackMob{
 	private EntityAIArrowAttack aiArrowAttack;
-
-	public int getLevReq() {
-		return 63;
-	}
-
 	public EntityMermage(final World par1World) {
 		super(par1World);
 		aiArrowAttack = new EntityAIArrowAttack(this, getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue(), 20, 60, 15.0f);
@@ -66,11 +58,6 @@ public class EntityMermage extends EntityMob implements IRangedAttackMob, Entity
 		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(700.0f, Hunter);
 		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	protected String getLivingSound() {

@@ -11,21 +11,15 @@ import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.ai.HuntAttempt;
-import net.nevermine.mob.placement.EntityHunter;
 import net.nevermine.mob.placement.EntityNoRange;
 
 import java.util.List;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityJawe extends EntityMob implements EntityNoRange, EntityHunter {
+public class EntityJawe extends EntityMob implements EntityNoRange{
 	private int counter;
 	private boolean pull;
-
-	public int getLevReq() {
-		return 14;
-	}
 
 	public EntityJawe(final World par1World) {
 		super(par1World);
@@ -63,11 +57,6 @@ public class EntityJawe extends EntityMob implements EntityNoRange, EntityHunter
 		if (!worldObj.isRemote && src.getEntity() != null && src.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)src.getEntity()).addExperience(17.0f, Hunter);
 		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return HuntAttempt.Hunt(entity, getLevReq(), par1DamageSource) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
