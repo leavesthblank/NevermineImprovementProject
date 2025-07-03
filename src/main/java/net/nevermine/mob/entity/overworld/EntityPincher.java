@@ -6,14 +6,12 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.mob.placement.EntityNoBows;
 import net.nevermine.mob.placement.EntityNoRange;
@@ -60,11 +58,7 @@ public class EntityPincher extends EntityMob implements EntityNoRange, EntityNoB
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && posY < 55.0 && rand.nextInt(5) == 2 && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty();
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.SeaBanner);
-	}
-
-	public void onDeath(final DamageSource var1) {
+    public void onDeath(final DamageSource var1) {
 		super.onDeath(var1);
 		if (var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(6000.0f, Hunter);
