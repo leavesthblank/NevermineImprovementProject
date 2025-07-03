@@ -54,10 +54,10 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(Armorizer.UtopianBoots, 1), new Object[]{"G G", "X X", 'G', Itemizer.IngotJade, 'X', Itemizer.CrystalliteStone});
         GameRegistry.addRecipe(new ItemStack(Armorizer.UtopianLeggings, 1), new Object[]{"XGX", "G G", "X X", 'G', Itemizer.IngotJade, 'X', Itemizer.CrystalliteStone});
         GameRegistry.addRecipe(new ItemStack(Armorizer.UtopianChestplate, 1), new Object[]{"G G", "XGX", "GXG", 'G', Itemizer.IngotJade, 'X', Itemizer.CrystalliteStone});
-        GameRegistry.addRecipe(new ItemStack(Armorizer.AlacrityHelmet, 1), new Object[]{"GXG", "G G", 'G', Itemizer.CrystalliteStone, 'X', Itemizer.IngotSapphire});
-        GameRegistry.addRecipe(new ItemStack(Armorizer.AlacrityBoots, 1), new Object[]{"G G", "X X", 'G', Itemizer.CrystalliteStone, 'X', Itemizer.IngotSapphire});
-        GameRegistry.addRecipe(new ItemStack(Armorizer.AlacrityLeggings, 1), new Object[]{"XGX", "G G", "X X", 'G', Itemizer.CrystalliteStone, 'X', Itemizer.IngotSapphire});
-        GameRegistry.addRecipe(new ItemStack(Armorizer.AlacrityChestplate, 1), new Object[]{"G G", "XGX", "GXG", 'G', Itemizer.CrystalliteStone, 'X', Itemizer.IngotSapphire});
+        GameRegistry.addRecipe(new ItemStack(Armorizer.AlacrityHelmet, 1), new Object[]{"GXG", "G G", 'G', Itemizer.IngotLimonite, 'X', Itemizer.IngotSapphire});
+        GameRegistry.addRecipe(new ItemStack(Armorizer.AlacrityBoots, 1), new Object[]{"G G", "X X", 'G', Itemizer.IngotLimonite, 'X', Itemizer.IngotSapphire});
+        GameRegistry.addRecipe(new ItemStack(Armorizer.AlacrityLeggings, 1), new Object[]{"XGX", "G G", "X X", 'G', Itemizer.IngotLimonite, 'X', Itemizer.IngotSapphire});
+        GameRegistry.addRecipe(new ItemStack(Armorizer.AlacrityChestplate, 1), new Object[]{"G G", "XGX", "GXG", 'G', Itemizer.IngotLimonite, 'X', Itemizer.IngotSapphire});
         GameRegistry.addRecipe(new ItemStack(Armorizer.SkeletalHelmet, 1), new Object[]{"GGG", "G G", 'G', Itemizer.SkullboneFragment});
         GameRegistry.addRecipe(new ItemStack(Armorizer.SkeletalBoots, 1), new Object[]{"G G", "G G", 'G', Itemizer.FootboneFragment});
         GameRegistry.addRecipe(new ItemStack(Armorizer.SkeletalLeggings, 1), new Object[]{"GGG", "G G", "G G", 'G', Itemizer.LegboneFragment});
