@@ -301,6 +301,9 @@ public class BlockExtractionDevice extends Block {
                                 if (r.nextInt(2) == 0)if(!player.inventory.addItemStackToInventory(new ItemStack(Items.gold_ingot, 2))) {
                                     player.dropItem(Items.gold_ingot, 2);
                                 }
+                                if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ivory,4))){
+                                    player.dropItem(Itemizer.Ivory,4);
+                                }
                                 player.dropItem(Itemizer.CopperCoin,4 + r.nextInt(6));
                                 if(player.dimension==ConfigurationHelper.precasia){
                                     if (r.nextInt(10)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotSkeletal,2))){
@@ -317,6 +320,9 @@ public class BlockExtractionDevice extends Block {
                                     }
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.FootboneFragment,4))){
                                         player.dropItem(Itemizer.FootboneFragment,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ivory,4))){
+                                        player.dropItem(Itemizer.Ivory,4);
                                     }
                                     break;
                                 }
@@ -745,6 +751,9 @@ public class BlockExtractionDevice extends Block {
                                     }
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.FootboneFragment,4))){
                                         player.dropItem(Itemizer.FootboneFragment,4);
+                                    }
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ivory,4))){
+                                        player.dropItem(Itemizer.Ivory,4);
                                     }
                                     break;
                                 }
