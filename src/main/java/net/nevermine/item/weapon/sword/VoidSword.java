@@ -33,7 +33,7 @@ public class VoidSword extends ItemSword implements SwordInterface {
 	public boolean hitEntity(final ItemStack stack, final EntityLivingBase livingBase1, final EntityLivingBase livingBase2) {
 		stack.damageItem(1, livingBase2);
 		if (rand.nextInt(10) == 4) {
-			livingBase1.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 30, 5));
+			livingBase1.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 60, 100));
 		}
 		return true;
 	}

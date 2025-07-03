@@ -26,6 +26,7 @@ import net.nevermine.assist.*;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.event.player.HealthMessage;
 import net.nevermine.item.ItemRune;
+import net.nevermine.item.armor.advanced.HydrangicArmor;
 import net.nevermine.item.weapon.vulcane.BaseVulcane;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
@@ -129,13 +130,19 @@ public class ArmorEffects {
 
 						if (ArmorUtil.isExplosiveArmor(boots, legs, body, helmet) && s.isExplosion())
 							e.setCanceled(true);
+                        if (ArmorUtil.isVoidArmor(boots, legs, body, helmet) && s.getSourceOfDamage() instanceof EntityLivingBase && !s.isProjectile()) {
+                            if(rand.nextInt(5)==0) {
+                                ((EntityLivingBase) s.getSourceOfDamage()).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 40, 60));
+                                ((EntityLivingBase) s.getSourceOfDamage()).addPotionEffect(new PotionEffect(Potion.weakness.id, 40, 100));
+                            }
+                        }
 
 						if (ArmorUtil.isIceArmor(boots, legs, body, helmet) && s.getSourceOfDamage() instanceof EntityLivingBase && !s.isProjectile()) {
 							((EntityLivingBase)s.getSourceOfDamage()).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, (int)e.ammount * 10, 1));
 						}
 						if (ArmorUtil.isOmniArmor(boots, legs, body, helmet) && s.isExplosion())
 							e.setCanceled(true);
-						if (ArmorUtil.isSpaceKingArmor(boots, legs, body, helmet) && player.getHealth() > 0 && rand.nextInt(5) == 2) {
+						if (ArmorUtil.isSpaceKingArmor(boots, legs, body, helmet) && player.getHealth() > 0 && rand.nextInt(3) == 2) {
 							final EntityOrbling var4 = new EntityOrbling(player.worldObj, player);
 
 							var4.setLocationAndAngles(player.posX, player.posY + 1.5, player.posZ, player.rotationYaw, player.rotationPitch);
@@ -470,14 +477,21 @@ public class ArmorEffects {
 						runes.put((ItemRune)Itemizer.EnergyRune, 1);
 
 						if (!pl.capabilities.isCreativeMode && EntityUtil.getPercentageOfMaxHealth(pl) < 20 && ItemUtil.tryConsumeRunes(runes, pl, false, null)) {
-							if (pl instanceof EntityPlayerMP)
-								AddPackets.network.sendTo(new HealthMessage(pl.getHealth() + 10.0f), (EntityPlayerMP)pl);
+                            if (pl instanceof EntityPlayerMP)
+                                AddPackets.network.sendTo(new HealthMessage(pl.getHealth() + 10.0f), (EntityPlayerMP) pl);
 
-							pl.setHealth(pl.getHealth() + 10.0f);
-							stackBoots.damageItem(30, pl);
-							stackHelmet.damageItem(30, pl);
-							stackBody.damageItem(30, pl);
-							stackLegs.damageItem(30, pl);
+                            pl.setHealth(pl.getHealth() + 10.0f);
+                            if (boots == Armorizer.HydrangicBoots) {
+                                stackBoots.damageItem(30, pl);
+                            }
+                            if (helmet == Armorizer.HydrangicHelmet){
+                                stackHelmet.damageItem(30, pl);
+                            }
+                            if (body ==Armorizer.HydrangicChestplate) {
+                                stackBody.damageItem(30, pl);
+                            }
+                            if (legs == Armorizer.HydrangicLeggings)
+                                stackLegs.damageItem(30, pl);
 						}
 					}
 

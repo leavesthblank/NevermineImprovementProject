@@ -73,7 +73,7 @@ public class Weaponizer {
 	public static Item RositeSword = new RositeSword(Weaponizer.Rosite).setUnlocalizedName("RositeSword").setTextureName("nevermine:swordRosite");
 	public static Item EmberstoneSword = new EmberstoneSword(Weaponizer.Emberstone).setUnlocalizedName("EmberstoneSword").setTextureName("nevermine:swordEmberstone");
 	public static Item JadeSword = new JadeSword(Weaponizer.Jade).setUnlocalizedName("JadeSword").setTextureName("nevermine:swordJade");
-	public static Item VoidSword = new VoidSword(Weaponizer.Jade).setUnlocalizedName("VoidSword").setTextureName("nevermine:swordVoid");
+	public static Item VoidSword = new VoidSword(Weaponizer.Tier1).setUnlocalizedName("VoidSword").setTextureName("nevermine:swordVoid");
 	public static Item SapphireSword = new SapphireSword(Weaponizer.Sapphire).setUnlocalizedName("SapphireSword").setTextureName("nevermine:swordSapphire");
 	public static Item FireborneSword = new FireborneSword(Weaponizer.Tier2).setUnlocalizedName("FireborneSword").setTextureName("nevermine:swordFireborne");
 	public static Item HorizonMaul = new HorizonMaul(Weaponizer.Tier1).setUnlocalizedName("HorizonMaul").setTextureName("nevermine:swordHorizonMaul");
@@ -86,13 +86,13 @@ public class Weaponizer {
 	public static Item RosidianSword = new RosidianSword(Weaponizer.Tier3).setUnlocalizedName("RosidianSword").setTextureName("nevermine:swordRosidian");
 	public static Item CrystalMaul = new CrystalMaul(Weaponizer.Tier3).setUnlocalizedName("CrystalMaul").setTextureName("nevermine:swordCrystalMaul");
 	public static Item CreepifiedSword = new CreepifiedSword(Weaponizer.Tier4).setUnlocalizedName("CreepifiedSword").setTextureName("nevermine:swordCreepified");
-	public static Item Bloodfury = new Bloodfury(Weaponizer.Tier3).setUnlocalizedName("Bloodfury").setTextureName("nevermine:bloodFury");
+	public static Item Bloodfury = new Bloodfury(Weaponizer.Tier5).setUnlocalizedName("Bloodfury").setTextureName("nevermine:bloodFury");
 	public static Item BaronSword = new BaronSword(Weaponizer.Tier3).setUnlocalizedName("BaronSword").setTextureName("nevermine:swordBaron");
 	public static Item NethengeicSword = new NethengeicSword(Weaponizer.Tier3).setUnlocalizedName("NethengeicSword").setTextureName("nevermine:swordNethengeic");
 	public static Item TrollBasherAxe = new TrollBasherAxe(Weaponizer.Tier3).setUnlocalizedName("TrollBasherAxe").setTextureName("nevermine:trollBasherAxe");
 	public static Item LegboneSword = new LegboneSword(Weaponizer.Tier3).setUnlocalizedName("LegboneSword").setTextureName("nevermine:swordLegBone");
 	public static Item CoralstormSword = new CoralstormSword(Weaponizer.Tier3).setUnlocalizedName("CoralstormSword").setTextureName("nevermine:swordCoralstorm");
-	public static Item ExplochronSword = new ExplochronSword(Weaponizer.Tier3).setUnlocalizedName("ExplochronSword").setTextureName("nevermine:swordExplochron");
+	public static Item ExplochronSword = new ExplochronSword(Weaponizer.Tier5).setUnlocalizedName("ExplochronSword").setTextureName("nevermine:swordExplochron");
 	public static Item VulcammerSword = new VulcammerSword(Weaponizer.Tier4).setUnlocalizedName("VulcammerSword").setTextureName("nevermine:swordVulcammer");
 	public static Item RunicSword = new RunicSword(Weaponizer.Tier4).setUnlocalizedName("RunicSword").setTextureName("nevermine:swordRunic");
 	public static Item ShadowSword = new ShadowSword(Weaponizer.Tier4).setUnlocalizedName("ShadowSword").setTextureName("nevermine:swordShadow");
@@ -100,7 +100,7 @@ public class Weaponizer {
 	public static Item ShroomusSword = new ShroomusSword(Weaponizer.Tier4).setUnlocalizedName("ShroomusSword").setTextureName("nevermine:swordShroomus");
 	public static Item GuardiansSword = new GuardiansSword(Weaponizer.Tier4).setUnlocalizedName("GuardiansSword").setTextureName("nevermine:swordGuardians");
 	public static Item IllusionSword = new IllusionSword(Weaponizer.Tier4).setUnlocalizedName("IllusionSword").setTextureName("nevermine:swordIllusion");
-	public static Item RockPickSword = new RockPickSword(Weaponizer.Tier4).setUnlocalizedName("RockPickSword").setTextureName("nevermine:swordRockPick");
+	public static Item RockPickSword = new RockPickSword(Weaponizer.Tier5).setUnlocalizedName("RockPickSword").setTextureName("nevermine:swordRockPick");
 	public static Item SkeletalSword = new SkeletalSword(Weaponizer.Tier6).setUnlocalizedName("SkeletalSword").setTextureName("nevermine:swordSkeletal");
 	public static Item HarvesterSword = new HarvesterSword(Weaponizer.TierSuper).setUnlocalizedName("HarvesterSword").setTextureName("nevermine:swordHarvester");
 
