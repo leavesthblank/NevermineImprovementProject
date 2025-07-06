@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class OreBlock extends Block {

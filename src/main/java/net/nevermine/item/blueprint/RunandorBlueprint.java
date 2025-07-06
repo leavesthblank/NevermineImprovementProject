@@ -1,12 +1,12 @@
-/*package net.nevermine.item.blueprint;
+package net.nevermine.item.blueprint;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.structures.vanilla.MysticPortalPlatform;
@@ -43,4 +43,3 @@ public class RunandorBlueprint extends Item {
 		list.add(StringUtil.getLocaleString("item.RunandorBlueprint.desc.3"));
 	}
 }
-*/

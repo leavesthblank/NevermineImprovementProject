@@ -597,7 +597,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(Blockizer.LampIvoryAmethyst, 8), new Object[]{"GGG", "GXG", "GGG", 'G', Blockizer.IvoryBlockAmethyst, 'X', Blocks.glowstone});
         GameRegistry.addRecipe(new ItemStack(Blockizer.LampIvoryRosite, 8), new Object[]{"GGG", "GXG", "GGG", 'G', Blockizer.IvoryBlockRosite, 'X', Blocks.glowstone});
         GameRegistry.addRecipe(new ItemStack(Blockizer.LampIvoryLimonite, 8), new Object[]{"GGG", "GXG", "GGG", 'G', Blockizer.IvoryBlockLimonite, 'X', Blocks.glowstone});
-        GameRegistry.addRecipe(new ItemStack(Itemizer.MetalTub, 1), new Object[]{"G G", "GXG", " G ", 'G', Items.iron_ingot, 'X', Itemizer.IngotEmberstone});
+        GameRegistry.addRecipe(new ItemStack(Itemizer.MetalTub, 1), new Object[]{"G G", "AXA", "   ", 'G', Items.iron_ingot, 'X', Itemizer.IngotEmberstone,'A',Items.clay_ball});
         GameRegistry.addRecipe(new ItemStack(SpecialBlockizer.FiltrationSystemOff, 1), new Object[]{" G ", "XGX", "GGG", 'G', Blocks.iron_block, 'X', Itemizer.IngotEmberstone});
         GameRegistry.addRecipe(new ItemStack(Blockizer.MendingTable, 1), new Object[]{"GGG", "XXX", "XXX", 'G', Itemizer.IngotEmberstone, 'X', Blocks.obsidian});
         GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.MagicMendingCompound, 2), new Object[]{Itemizer.MagicRepairDust, Itemizer.IngotEmberstone, Items.blaze_rod, Items.fermented_spider_eye, Itemizer.IngotRosite});
@@ -650,7 +650,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(Armorizer.MercurialBoots, 1), new Object[]{"G G", "X X", 'G', Itemizer.Jewelyte, 'X', Itemizer.Ornamyte});
         GameRegistry.addRecipe(new ItemStack(Armorizer.MercurialLeggings, 1), new Object[]{"XGX", "G G", "X X", 'G', Itemizer.Jewelyte, 'X', Itemizer.Ornamyte});
         GameRegistry.addRecipe(new ItemStack(Armorizer.MercurialChestplate, 1), new Object[]{"G G", "XGX", "GXG", 'G', Itemizer.Jewelyte, 'X', Itemizer.Ornamyte});
-        GameRegistry.addRecipe(new ItemStack(Itemizer.ExplosiveGem, 1), new Object[]{"G G", "GXG", "GGG", 'G', Itemizer.Ornamyte, 'X', Itemizer.Gemenyte});
+        GameRegistry.addRecipe(new ItemStack(Itemizer.ExplosiveGem, 1), new Object[]{" A ", "GXG", " G ", 'G', Itemizer.Ornamyte, 'X', Itemizer.Gemenyte,'A', Items.gunpowder});
         GameRegistry.addShapelessRecipe(new ItemStack(Weaponizer.HeatWave, 1), new Object[]{Weaponizer.HotShot, Itemizer.MoltenUpgrader});
         GameRegistry.addShapelessRecipe(new ItemStack(Weaponizer.MilleniumGreatblade, 1), new Object[]{Weaponizer.LunarGreatblade, Itemizer.MilleniumUpgrader});
         GameRegistry.addShapelessRecipe(new ItemStack(Weaponizer.FireVulcane, 1), new Object[]{Weaponizer.Vulcane, Itemizer.AugmentFire});
@@ -660,7 +660,7 @@ public class Recipes {
         GameRegistry.addShapelessRecipe(new ItemStack(Weaponizer.ImpairmentVulcane, 1), new Object[]{Weaponizer.Vulcane, Itemizer.AugmentImpairment});
         GameRegistry.addShapelessRecipe(new ItemStack(Weaponizer.EqualityVulcane, 1), new Object[]{Weaponizer.Vulcane, Itemizer.AugmentEquality});
         GameRegistry.addShapelessRecipe(new ItemStack(Weaponizer.BattleVulcane, 1), new Object[]{Weaponizer.Vulcane, Itemizer.AugmentBattle});
-        GameRegistry.addRecipe(new ItemStack(Itemizer.BloodAccumulator, 1), new Object[]{"G G", "GXG", "GGG", 'G', Items.leather, 'X', Itemizer.IngotRosite});
+        GameRegistry.addRecipe(new ItemStack(Itemizer.BloodAccumulator, 1), new Object[]{"   ", "GXG", " G ", 'G', Items.leather, 'X', Itemizer.IngotRosite});
         GameRegistry.addSmelting(Blockizer.oreGemenyte, new ItemStack(Itemizer.Gemenyte), 2.0f);
         GameRegistry.addSmelting(Blockizer.oreJewelyte, new ItemStack(Itemizer.Jewelyte), 2.0f);
         GameRegistry.addSmelting(Blockizer.oreOrnamyte, new ItemStack(Itemizer.Ornamyte), 2.0f);
@@ -722,7 +722,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(Armorizer.EmbrodiumBoots, 1), new Object[]{"G G", "X X", 'G', Itemizer.IngotEmberstone, 'X', Itemizer.IngotLimonite});
         GameRegistry.addRecipe(new ItemStack(Armorizer.EmbrodiumLeggings, 1), new Object[]{"XGX", "G G", "X X", 'G', Itemizer.IngotEmberstone, 'X', Itemizer.IngotLimonite});
         GameRegistry.addRecipe(new ItemStack(Armorizer.EmbrodiumChestplate, 1), new Object[]{"G G", "XGX", "GXG", 'G', Itemizer.IngotEmberstone, 'X', Itemizer.IngotLimonite});
-        GameRegistry.addRecipe(new ItemStack(Weaponizer.HolySword, 1), new Object[]{" G ", " G ", " X ", 'G', Blocks.gold_block, 'X', Items.blaze_rod});
+        GameRegistry.addRecipe(new ItemStack(Weaponizer.HolySword, 1), new Object[]{" G ", " G ", " X ", 'G', Items.gold_ingot, 'X', Items.blaze_rod});
         GameRegistry.addRecipe(new ItemStack(Weaponizer.CandlefireSword, 1), new Object[]{" G ", " G ", " X ", 'G', Itemizer.IngotEmberstone, 'X', Items.blaze_rod});
         GameRegistry.addRecipe(new ItemStack(Weaponizer.SupremecySword, 1), new Object[]{" G ", "GGG", " X ", 'G', Itemizer.AmethystIngot, 'X', Items.stick});
 
@@ -786,5 +786,6 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(Itemizer.GingerbreadCookie, 2), new Object[]{" Z ", "XYX", " Z ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,3),'Z', Items.wheat});
         GameRegistry.addRecipe(new ItemStack(Itemizer.GingerbreadWing, 2), new Object[]{"   ", "XZY", " XZ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,3),'Z', Items.wheat});
         GameRegistry.addRecipe(new ItemStack(Itemizer.GingerbreadWing, 2), new Object[]{"   ", "YZX", "ZX ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,3),'Z', Items.wheat});
+        GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.ShroomStone, 1), new Object[]{Itemizer.HavenShrooms,Blockizer.StoneMysterium});
     }
 }
