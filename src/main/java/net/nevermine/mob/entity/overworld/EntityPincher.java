@@ -130,7 +130,7 @@ public class EntityPincher extends EntityMob implements EntityNoRange, EntityNoB
 			return;
 		}
 
-		if (PlayerContainer.getProperties(var1).getLevel(Hunter) >= 93 && !var1.isInWater()) {
+		if (!var1.isInWater()) {
 			var1.addVelocity(Math.signum(posX - var1.posX) * 0.029, Math.signum(posY - var1.posY) * 0.015, Math.signum(posZ - var1.posZ) * 0.029);
 		}
 

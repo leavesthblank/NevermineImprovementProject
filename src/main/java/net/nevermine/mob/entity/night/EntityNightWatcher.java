@@ -5,7 +5,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -13,7 +12,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.structures.vanilla.LunarPortalStructure;
 
@@ -61,11 +59,7 @@ public class EntityNightWatcher extends EntityMob {
 		return true;
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.SoulBanner);
-	}
-
-	protected Entity findPlayerToAttack() {
+    protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return ((entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null);
 	}
@@ -77,10 +71,6 @@ public class EntityNightWatcher extends EntityMob {
 
 		if (rand.nextInt(50) == 21) {
 			dropItem(Weaponizer.MoonShiner, 1);
-		}
-
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
 		}
 	}
 

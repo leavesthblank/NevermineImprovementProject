@@ -272,7 +272,7 @@ public class Itemizer {
 	public static final Item ToyGyrocopter = new BasicItem().setUnlocalizedName("ToyGyrocopter").setCreativeTab(Itemizer.BossesTab).setTextureName("nevermine:toyGyrocopter");
 	public static final Item UpgradeKitSmiley = new BasicItem().setUnlocalizedName("UpgradeKitSmiley").setTextureName("nevermine:upgradeKitSmiley");
 	public static final Item CoinsCeleve = new BasicItem().setUnlocalizedName("CoinsCeleve").setTextureName("nevermine:celeveGems");
-	public static final Item DiamondBowl = new BasicItem().setUnlocalizedName("DiamondBowl").setTextureName("nevermine:diamondBowl").setMaxDamage(50).setMaxStackSize(1);
+	public static final Item DiamondBowl = new BasicItem().setUnlocalizedName("DiamondBowl").setTextureName("nevermine:diamondBowl").setMaxDamage(1500).setMaxStackSize(1);
 	public static final Item FieryChops = new FieryChops().setUnlocalizedName("FieryChops").setTextureName("nevermine:fieryChops");
 	public static final Item BlindCat = OldBoot;
 	public static final Item GemstonesWhite = new BasicItem().setUnlocalizedName("GemstonesWhite").setTextureName("nevermine:gemstonesWhite");
