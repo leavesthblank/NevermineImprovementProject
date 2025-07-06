@@ -5,6 +5,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.Plantizer;
@@ -187,7 +188,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(Blockizer.Emberium, 4), new Object[]{"XXX", "XXX", "XXX", 'X', Itemizer.IngotEmberstone});
         GameRegistry.addRecipe(new ItemStack(Blockizer.Skeletanium, 4), new Object[]{"XXX", "XXX", "XXX", 'X', Itemizer.IngotSkeletal});
         GameRegistry.addRecipe(new ItemStack(Blockizer.Shadonantium, 4), new Object[]{"XXX", "XXX", "XXX", 'X', Itemizer.Bloodstone});
-        GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.WhitewashingSolution, 16), new Object[]{Items.water_bucket, new ItemStack(Items.dye,1,0), new ItemStack(Items.dye,1,0), new ItemStack(Items.dye,1,0), new ItemStack(Items.dye,1,0), new ItemStack(Items.dye,1,0), new ItemStack(Items.dye,1,0), new ItemStack(Items.dye,1,0), new ItemStack(Items.dye,1,0)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.WhitewashingSolution, 16), new Object[]{Items.water_bucket, new ItemStack(Items.dye,1,15), new ItemStack(Items.dye,1,15), new ItemStack(Items.dye,1,15), new ItemStack(Items.dye,1,15), new ItemStack(Items.dye,1,15), new ItemStack(Items.dye,1,15), new ItemStack(Items.dye,1,15), new ItemStack(Items.dye,1,15)});
         GameRegistry.addRecipe(new ItemStack(Blockizer.WhiteWashTable, 1), new Object[]{"HHH", "XXX", "XXX", 'X', Blocks.obsidian, 'H', Itemizer.WhitewashingSolution});
         GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.EyeCandy, 1), new Object[]{Itemizer.EyeBulb, Items.sugar});
         GameRegistry.addRecipe(new ItemStack(SpecialBlockizer.GildedAncientBanner, 1), new Object[]{"XXX", "XXX", "XXX", 'X', SpecialBlockizer.AncientBanner});
@@ -772,5 +773,18 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(SpecialBlockizer.CraexxeusStatueGold, 1), new Object[]{"XXX", "XXX", "XXX", 'X', SpecialBlockizer.CraexxeusStatue});
         GameRegistry.addRecipe(new ItemStack(SpecialBlockizer.XxeusStatueGold, 1), new Object[]{"XXX", "XXX", "XXX", 'X', SpecialBlockizer.XxeusStatue});
         GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.MagicMendingSolution), new Object[]{Itemizer.MagicRepairDust,Itemizer.MagicRepairDust,Itemizer.MagicRepairDust,Items.lava_bucket,Itemizer.MetalTub});
+        GameRegistry.addRecipe(new ItemStack(Itemizer.PeppermintCandy, 2), new Object[]{"YX ", "XY ", "   ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,1)});
+        GameRegistry.addRecipe(new ItemStack(Itemizer.PeppermintCandy, 2), new Object[]{"XY ", "YX ", "   ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,1)});
+        GameRegistry.addRecipe(new ItemStack(Itemizer.SpearmintCandy, 2), new Object[]{"YX ", "XY ", "   ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,2)});
+        GameRegistry.addRecipe(new ItemStack(Itemizer.SpearmintCandy, 2), new Object[]{"XY ", "YX ", "   ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,2)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.SourGummy, 2), new Object[]{Items.sugar, new ItemStack(Items.dye,1,12),Items.sugar, new ItemStack(Items.dye,1,12)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.CandyCane, 2), new Object[]{Items.sugar, Items.sugar,new ItemStack(Items.dye,1,1)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.SourCandy, 2), new Object[]{Items.sugar, new ItemStack(Items.dye,1,10),Items.sugar, new ItemStack(Items.dye,1,1)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.SourPop, 2), new Object[]{Items.sugar, new ItemStack(Items.dye,1,1),Items.sugar, new ItemStack(Items.dye,1,14)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.CandyCorn, 2), new Object[]{Items.sugar, new ItemStack(Items.dye,1,11),Items.sugar});
+        GameRegistry.addRecipe(new ItemStack(Itemizer.GingerbreadCookie, 2), new Object[]{" X ", "ZYZ", " X ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,3),'Z', Items.wheat});
+        GameRegistry.addRecipe(new ItemStack(Itemizer.GingerbreadCookie, 2), new Object[]{" Z ", "XYX", " Z ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,3),'Z', Items.wheat});
+        GameRegistry.addRecipe(new ItemStack(Itemizer.GingerbreadWing, 2), new Object[]{"   ", "XZY", " XZ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,3),'Z', Items.wheat});
+        GameRegistry.addRecipe(new ItemStack(Itemizer.GingerbreadWing, 2), new Object[]{"   ", "YZX", "ZX ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,3),'Z', Items.wheat});
     }
 }

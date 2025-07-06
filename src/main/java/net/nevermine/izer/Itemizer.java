@@ -2,6 +2,7 @@ package net.nevermine.izer;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.world.Teleporter;
 import net.minecraftforge.oredict.OreDictionary;
 import net.nevermine.common.NevermineGR;
 import net.nevermine.common.Recipes;
@@ -203,7 +204,7 @@ public class Itemizer {
 	public static final Item DarklyPowder = new BasicItem().setUnlocalizedName("DarklyPowder").setTextureName("nevermine:darklyPowder");
 	public static final Item HydroStone = new BasicItem().setUnlocalizedName("HydroStone").setTextureName("nevermine:hydroStone");
 	public static final Item ShinyBox = new ShinyBox().setUnlocalizedName("ShinyBox").setTextureName("nevermine:shinyBox");
-	//public static final Item RunandorBlueprint = new RunandorBlueprint().setUnlocalizedName("RunandorBlueprint").setCreativeTab(Itemizer.BlueprintsTab).setTextureName("nevermine:blueprintMysterium");
+	public static final Item RunandorBlueprint = new TeleporterBlueprint().setUnlocalizedName("RunandorBlueprint").setCreativeTab(Itemizer.MiscTab).setTextureName("nevermine:blueprintMysterium");
 	public static final Item AncientTeleporterBlueprint = new TeleporterBlueprint().setUnlocalizedName("AncientTeleporterBlueprint").setCreativeTab(Itemizer.MiscTab).setTextureName("nevermine:blueprintAncientTeleporter");
 	public static final Item RealmstoneAbyss = new BasicItem().setUnlocalizedName("RealmstoneAbyss").setTextureName("nevermine:realmstoneAbyss");
 	public static final Item RealmstoneHaven = new BasicItem().setUnlocalizedName("RealmstoneHaven").setTextureName("nevermine:realmstoneHaven");
@@ -426,5 +427,15 @@ public class Itemizer {
 		OreDictionary.registerOre("gemJewelyte", Jewelyte);
 		OreDictionary.registerOre("gemGemenyte", Gemenyte);
 		OreDictionary.registerOre("gemOrnamyte", Ornamyte);
+
+        OreDictionary.registerOre("candy", CandyCane);
+        OreDictionary.registerOre("candy", CandyCorn);
+        OreDictionary.registerOre("candy", SourCandy);
+        OreDictionary.registerOre("candy", SourGummy);
+        OreDictionary.registerOre("candy", SourPop);
+        OreDictionary.registerOre("candy", SpearmintCandy);
+        OreDictionary.registerOre("candy", PeppermintCandy);
+        OreDictionary.registerOre("candy", GingerbreadCookie);
+        OreDictionary.registerOre("candy", GingerbreadWing);
 	}
 }

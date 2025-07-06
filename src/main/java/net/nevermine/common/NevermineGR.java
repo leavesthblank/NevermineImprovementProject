@@ -758,7 +758,7 @@ public class NevermineGR {
 		GameRegistry.registerItem(Armorizer.HydroplateLeggings, "HydroplateLeggings");
 		GameRegistry.registerItem(Armorizer.HydroplateHelmet, "HydroplateHelmet");
 		GameRegistry.registerItem(Itemizer.ShinyBox, "ShinyBox");
-		//GameRegistry.registerItem(Itemizer.RunandorBlueprint, "RunandorBlueprint");
+		GameRegistry.registerItem(Itemizer.RunandorBlueprint, "RunandorBlueprint");
 		GameRegistry.registerItem(Armorizer.ElecanyteBoots, "ElecanyteBoots");
 		GameRegistry.registerItem(Armorizer.ElecanyteChestplate, "ElecanyteChestplate");
 		GameRegistry.registerItem(Armorizer.ElecanyteLeggings, "ElecanyteLeggings");

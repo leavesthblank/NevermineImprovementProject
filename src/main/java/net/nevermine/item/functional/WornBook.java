@@ -9,6 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.world.World;
+import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.common.nevermine;
 import net.nevermine.izer.Itemizer;
@@ -27,7 +28,36 @@ public class WornBook extends ItemWritableBook {
 		if (world.isRemote) {
 			player.openGui(nevermine.instance, 42, world, (int)player.posX, (int)player.posY, (int)player.posZ);
 		}
-
+        if (player.dimension==0){
+            player.dropItem(Itemizer.RealmstoneMysterium,1);
+            player.dropItem(Itemizer.RealmstonePrecasia,1);
+            player.dropItem(Itemizer.RealmstoneDeeplands,1);
+            player.dropItem(Itemizer.RealmstoneIromine,1);
+            player.dropItem(Itemizer.RealmstoneImmortallis,1);
+            player.dropItem(Itemizer.RealmstoneAbyss,1);
+            player.dropItem(Itemizer.RealmstoneHaven,1);
+            player.dropItem(Itemizer.RealmstoneLelyetia,1);
+            player.dropItem(Itemizer.RealmstoneCeleve,1);
+            player.dropItem(Itemizer.RealmstoneCreeponia,1);
+            player.dropItem(Itemizer.RealmstoneGardencia,1);
+            player.dropItem(Itemizer.RealmstoneBorean,1);
+        }
+        if (player.dimension == ConfigurationHelper.greckon){
+            player.dropItem(Itemizer.RealmstoneDustopia,1);
+            player.dropItem(Itemizer.RealmstoneShyrelands,1);
+        }
+        if (player.dimension == ConfigurationHelper.runandor){
+            player.dropItem(Itemizer.RealmstoneBarathos,1);
+        }
+        if (player.dimension == ConfigurationHelper.mysterium){
+            player.dropItem(Itemizer.RealmstoneVoxPonds,1);
+        }
+        if (player.dimension == ConfigurationHelper.deeplands){
+            player.dropItem(Itemizer.RealmstoneCrystevia,1);
+        }
+        if (player.dimension == ConfigurationHelper.celeve){
+            player.dropItem(Itemizer.RealmstoneCandyland,1);
+        }
 		return stack;
 	}
 

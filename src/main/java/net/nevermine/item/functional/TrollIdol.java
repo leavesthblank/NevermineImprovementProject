@@ -30,7 +30,6 @@ public class TrollIdol extends Item {
 
 					var5.setPosition((double)x, (double)(y + 1), (double)z);
 					par3World.spawnEntityInWorld(var5);
-					--par1ItemStack.stackSize;
 				}
 
 				IChatComponent msg = StringUtil.getLocaleWithArguments("message.mob.smash.spawn", player.getDisplayName());

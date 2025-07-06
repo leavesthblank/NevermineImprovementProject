@@ -30,7 +30,6 @@ public class ShroomStone extends Item {
 					final EntityKingShroomus var5 = new EntityKingShroomus(par3World);
 					var5.setPosition((double)x, (double)(y + 1), (double)z);
 					par3World.spawnEntityInWorld(var5);
-					--par1ItemStack.stackSize;
 
 					IChatComponent msg = StringUtil.getLocaleWithArguments("message.mob.kingShroomus.spawn", player.getDisplayName());
 

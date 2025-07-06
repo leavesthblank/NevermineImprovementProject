@@ -29,7 +29,6 @@ public class HauntedIdol extends Item {
 				final EntityBane var5 = new EntityBane(par3World);
 				var5.setPosition((double)x, (double)(y + 1), (double)z);
 				par3World.spawnEntityInWorld(var5);
-				--par1ItemStack.stackSize;
 
 				IChatComponent msg = StringUtil.getLocaleWithArguments("message.mob.bane.spawn", player.getDisplayName());
 
