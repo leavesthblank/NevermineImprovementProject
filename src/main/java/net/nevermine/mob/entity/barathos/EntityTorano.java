@@ -37,9 +37,6 @@ public class EntityTorano extends EntityMob {
 		if (rand.nextInt(2) == 0) {
 			dropItem(Itemizer.CopperCoin, 4);
 		}
-		if (rand.nextInt(4) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.FragmentBanner), 1);
-		}
 		if (rand.nextInt(30) == 25) {
 			dropItem(Itemizer.RealmstoneFragment2, 1);
 		}

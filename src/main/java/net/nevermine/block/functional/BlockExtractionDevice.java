@@ -114,23 +114,23 @@ public class BlockExtractionDevice extends Block {
 					else {
 						int loot = extractionHelper.getLootPick(cont.getLevel(Extraction));
                         player.dropItem(Item.getItemFromBlock(Blocks.obsidian), 1);
-                        if(r.nextInt(800)==0) {
+                        if(r.nextInt(400)==0) {
                             if (!player.inventory.addItemStackToInventory(new ItemStack(Blockizer.CarvedRune1, 1)))
                                 player.dropItem(Item.getItemFromBlock(Blockizer.CarvedRune1), 1);
                         }
-                        if(r.nextInt(800)==0) {
+                        if(r.nextInt(400)==0) {
                             if (!player.inventory.addItemStackToInventory(new ItemStack(Blockizer.CarvedRune2, 1)))
                                 player.dropItem(Item.getItemFromBlock(Blockizer.CarvedRune2), 1);
                         }
-                        if(r.nextInt(800)==0) {
+                        if(r.nextInt(400)==0) {
                             if (!player.inventory.addItemStackToInventory(new ItemStack(Blockizer.CarvedRune3, 1)))
                                 player.dropItem(Item.getItemFromBlock(Blockizer.CarvedRune3), 1);
                         }
-                        if(r.nextInt(800)==0) {
+                        if(r.nextInt(400)==0) {
                             if (!player.inventory.addItemStackToInventory(new ItemStack(Blockizer.CarvedRune6, 1)))
                                 player.dropItem(Item.getItemFromBlock(Blockizer.CarvedRune6), 1);
                         }
-                        if(r.nextInt(200)==0) {
+                        if(r.nextInt(100)==0) {
                             if (!player.inventory.addItemStackToInventory(new ItemStack(Blockizer.AncientRock, 4)))
                                 player.dropItem(Item.getItemFromBlock(Blockizer.AncientRock), 4);
                         }
@@ -158,6 +158,9 @@ public class BlockExtractionDevice extends Block {
 									player.dropItem(Itemizer.ElementalArrow, 8);
                                 if (r.nextBoolean())if(!player.inventory.addItemStackToInventory(new ItemStack(Items.quartz, 4))){
                                     player.dropItem(Items.quartz,4);
+                                }
+                                if (r.nextInt(2) == 0)if(!player.inventory.addItemStackToInventory(new ItemStack(Items.gold_ingot, 2))) {
+                                    player.dropItem(Items.gold_ingot, 2);
                                 }
                                 if(player.dimension==ConfigurationHelper.deeplands){
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RuniumChunkCharged,4))){
@@ -233,7 +236,7 @@ public class BlockExtractionDevice extends Block {
                                 }
                                 if(player.dimension==ConfigurationHelper.creeponia){
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Items.gunpowder,2))){
-                                        player.dropItem(Items.gunpowder,2);
+                                        player.dropItem(Items.gunpowder,4);
                                     }
                                     if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Jewelyte,2))){
                                         player.dropItem(Itemizer.Jewelyte,2);
@@ -257,7 +260,7 @@ public class BlockExtractionDevice extends Block {
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsWhite,4))){
                                         player.dropItem(Itemizer.CrystalsWhite,4);
                                     }
-                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsRed))){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsRed,4))){
                                         player.dropItem(Itemizer.CrystalsRed,4);
                                     }
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsBlue,4))){
@@ -266,7 +269,7 @@ public class BlockExtractionDevice extends Block {
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsPurple,4))){
                                         player.dropItem(Itemizer.CrystalsPurple,4);
                                     }
-                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ghoulasm,2))){
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalBox,1))){
                                         player.dropItem(Itemizer.CrystalBox,1);
                                     }
                                     break;

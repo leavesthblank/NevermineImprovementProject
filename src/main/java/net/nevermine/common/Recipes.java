@@ -484,6 +484,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(Blockizer.HeatLamp_15, 1), new Object[]{"ZYZ", "GXG", "GGG", 'G', Items.iron_ingot, 'X', Items.lava_bucket, 'Y', Blocks.glass, 'Z', new ItemStack(Items.dye, 1, 15)});
         GameRegistry.addRecipe(new ItemStack(Blockizer.RuneShrine, 1), new Object[]{"GGG", "GXG", "GGG", 'G', Itemizer.RuniumChunk, 'X', Items.diamond});
         GameRegistry.addSmelting(Itemizer.FurlionChopRaw, new ItemStack(Itemizer.FurlionChop), 3.0f);
+        GameRegistry.addSmelting(Itemizer.IngotRustedIron, new ItemStack(Items.iron_ingot), 3.0f);
         GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.HotRod, 8), new Object[]{Items.blaze_powder, Itemizer.FurlionChop, Itemizer.FurlionChop, Itemizer.FurlionChop, Itemizer.FurlionChop});
         GameRegistry.addRecipe(new ItemStack(Tabletizer.TabletAirhop, 1), new Object[]{"GGG", "GXG", "GGG", 'G', Blocks.cobblestone, 'X', Armorizer.AlacrityHelmet});
         GameRegistry.addRecipe(new ItemStack(Tabletizer.TabletHealth, 1), new Object[]{"GGG", "GXG", "GGG", 'G', Blocks.cobblestone, 'X', Itemizer.EyeCandy});
