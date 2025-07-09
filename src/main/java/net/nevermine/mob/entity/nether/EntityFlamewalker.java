@@ -51,7 +51,9 @@ public class EntityFlamewalker extends EntityMob {
 		if (rand.nextInt(35) == 13) {
 			dropItem(Weaponizer.Ultraflame, 1);
 		}
-
+        if (rand.nextInt(27) == 0) {
+            dropItem(Itemizer.ExplosiveIdol, 1);
+        }
 		if (rand.nextInt(3) == 2) {
 			dropItem(Itemizer.CoinsNether, 3);
 		}

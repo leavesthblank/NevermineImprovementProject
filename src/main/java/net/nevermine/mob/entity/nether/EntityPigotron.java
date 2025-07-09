@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntityPigotron extends EntityMob {
@@ -43,6 +44,9 @@ public class EntityPigotron extends EntityMob {
 		if (rand.nextInt(25) <= 17) {
 			dropItem(Weaponizer.Grandsword, 1);
 		}
+        if (rand.nextInt(27) == 0) {
+            dropItem(Itemizer.ExplosiveIdol, 1);
+        }
 	}
 
 	public void applyEntityAttributes() {

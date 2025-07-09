@@ -29,11 +29,7 @@ public class EntityStimulosus extends EntityMob {
 	}
 
 	protected void dropFewItems(boolean par1, int par2) {
-		dropItem(Itemizer.RealmstoneShyrelands, 1);
-
-		if (this.rand.nextInt(2) == 1) {
-			dropItem(Weaponizer.ShyreBlaster, 1);
-		}
+		dropItem(Weaponizer.ShyreBlaster, 1);
 	}
 
 	protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_) {

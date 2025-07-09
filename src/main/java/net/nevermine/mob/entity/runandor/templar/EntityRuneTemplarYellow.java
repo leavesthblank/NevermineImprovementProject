@@ -8,6 +8,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.equipment.Armorizer;
 
 public class EntityRuneTemplarYellow extends EntityMob {
 	public EntityRuneTemplarYellow(final World par1World) {
@@ -81,6 +82,7 @@ public class EntityRuneTemplarYellow extends EntityMob {
 		if (getHealth() < 2.5f) {
 			if (!worldObj.isRemote) {
 				dropItem(Itemizer.MegaRuneFragmentY, 1);
+                dropItem(Armorizer.CommanderHelmet, 1);
 			}
 			transform();
 		}

@@ -10,6 +10,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.nevermine.izer.Itemizer;
 
 public class EntityRunicLifeformBlue extends EntityMob {
 	public EntityRunicLifeformBlue(final World par1World) {
@@ -52,6 +53,11 @@ public class EntityRunicLifeformBlue extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
+        if (rand.nextInt(10) == 3) {
+            dropItem(Itemizer.RunicEnergy, 1);
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsRunandor, rand.nextInt(8));
 	}
 
 	protected Entity findPlayerToAttack() {

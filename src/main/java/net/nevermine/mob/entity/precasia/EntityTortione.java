@@ -32,13 +32,17 @@ public class EntityTortione extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CoinsPrecasian, 6);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsPrecasian, rand.nextInt(8));
+        if (rand.nextInt(200) == 97) {
+            dropItem(Itemizer.UpgradeKitPrecasian, 1);
+        }
+        if (rand.nextInt(10)==0) {
+            dropItem(Itemizer.JungleThorns, 1);
+        }
 		if (rand.nextInt(30) == 15) {
 			dropItem(Weaponizer.Proton, 1);
 		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
 	}
 
 	public boolean getCanSpawnHere() {
@@ -65,13 +69,5 @@ public class EntityTortione extends EntityMob {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.6);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		if (par1DamageSource.isProjectile() || entity instanceof EntityArrow || entity instanceof EntityThrowable || (!par1DamageSource.isProjectile() && !(entity instanceof EntityArrow) && !(entity instanceof EntityThrowable))) {
-			return (par1DamageSource.isMagicDamage() || par1DamageSource.isFireDamage() || par1DamageSource.isExplosion()) && super.attackEntityFrom(par1DamageSource, par2);
-		}
-		return super.attackEntityFrom(par1DamageSource, par2);
 	}
 }

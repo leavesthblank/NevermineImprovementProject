@@ -34,13 +34,14 @@ public class EntityDyrehorn extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CoinsPrecasian, 1);
-		}
-		if (rand.nextInt(15) == 3) {
-			dropItem(Itemizer.RealmstoneGardencia, 2);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsPrecasian, rand.nextInt(8));
+        if (rand.nextInt(200) == 97) {
+            dropItem(Itemizer.UpgradeKitPrecasian, 1);
+        }
+        if (rand.nextInt(10)==0) {
+            dropItem(Itemizer.JungleThorns, 1);
+        }
 	}
 
 	public boolean getCanSpawnHere() {

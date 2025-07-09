@@ -41,7 +41,11 @@ public class EntitySpectralWizard extends EntityMob implements IRangedAttackMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(10) == 3) {
+            dropItem(Itemizer.RunicEnergy, 1);
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsRunandor, rand.nextInt(8));
 
 		if (rand.nextInt(45) == 25) {
 			dropItem(Weaponizer.SpectralArchergun, 1);
@@ -50,6 +54,15 @@ public class EntitySpectralWizard extends EntityMob implements IRangedAttackMob{
 		if (rand.nextInt(45) == 16) {
 			dropItem(Weaponizer.SpectralBow, 1);
 		}
+        if (rand.nextInt(52) == 16) {
+            dropItem(Weaponizer.WizardsStaff, 1);
+        }
+        if (rand.nextInt(6) == 1) {
+            dropItem(Itemizer.EnergyRune, 2+rand.nextInt(4));
+        }
+        if (rand.nextInt(6) == 1) {
+            dropItem(Itemizer.StrikeRune, 2+rand.nextInt(4));
+        }
 	}
 
 	public void onDeath(final DamageSource var1) {

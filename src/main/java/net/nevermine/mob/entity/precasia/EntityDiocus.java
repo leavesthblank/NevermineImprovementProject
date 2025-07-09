@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -44,10 +45,25 @@ public class EntityDiocus extends EntityMob {
 		if (rand.nextInt(100) >= 83) {
 			dropItem(Weaponizer.PowerRay, 1);
 		}
-
+        dropItem(Itemizer.Ivory,1);
 		if (rand.nextInt(7) == 0) {
 			dropItem(Itemizer.ExplosiveIdol, 1);
 		}
+        if (rand.nextInt(7) == 0) {
+            dropItem(Items.bone, 1+rand.nextInt(3));
+        }
+        if (rand.nextInt(8) == 0) {
+            dropItem(Items.leather, 1+rand.nextInt(3));
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Items.beef, 1+rand.nextInt(2));
+        }
+        if (rand.nextInt(11) == 0) {
+            dropItem(Items.string, 1+rand.nextInt(2));
+        }
+        if (rand.nextInt(60) == 0) {
+            dropItem(Weaponizer.MiniCannon, 1);
+        }
 	}
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {

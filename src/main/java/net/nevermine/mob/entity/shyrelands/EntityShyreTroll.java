@@ -61,9 +61,6 @@ public class EntityShyreTroll extends EntityMob implements IRangedAttackMob {
 	protected void dropFewItems(boolean par1, int par2) {
 		dropItem(Itemizer.WindRune, 4 + this.rand.nextInt(3));
 
-		if (this.rand.nextInt(7) == 2) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.ShinyBanner), 1);
-		}
 		if (this.rand.nextInt(50) == 25) {
 			dropItem(Weaponizer.ShyreStaff, 1);
 		}

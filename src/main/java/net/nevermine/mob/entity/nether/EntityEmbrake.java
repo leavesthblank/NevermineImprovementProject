@@ -40,6 +40,9 @@ public class EntityEmbrake extends EntityMob {
 		if (rand.nextInt(2) == 0) {
 			dropItem(Itemizer.CoinsNether, 3);
 		}
+        if (rand.nextInt(27) == 0) {
+            dropItem(Itemizer.ExplosiveIdol, 1);
+        }
 	}
 
 	protected Entity findPlayerToAttack() {

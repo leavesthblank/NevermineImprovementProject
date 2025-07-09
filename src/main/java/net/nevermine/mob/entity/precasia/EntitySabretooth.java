@@ -43,16 +43,21 @@ public class EntitySabretooth extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(5) == 0) {
-			dropItem(Itemizer.CoinsPrecasian, 2);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsPrecasian, rand.nextInt(8));
+        if (rand.nextInt(200) == 97) {
+            dropItem(Itemizer.UpgradeKitPrecasian, 1);
+        }
+        if (rand.nextInt(10)==0) {
+            dropItem(Itemizer.JungleThorns, 1);
+        }
 		if (rand.nextInt(200) == 192) {
 			dropItem(Itemizer.UpgradeKitAncient, 1);
 		}
-		if (rand.nextInt(500) == 363) {
+		if (rand.nextInt(500) >= 463) {
 			dropItem(Weaponizer.Tommy, 1);
 		}
+        dropItem(Itemizer.Ivory,1);
 	}
 
 	public void onUpdate() {

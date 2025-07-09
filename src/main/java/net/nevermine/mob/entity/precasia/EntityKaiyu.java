@@ -58,19 +58,38 @@ public class EntityKaiyu extends EntityMob implements IRangedAttackMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(80) == 63) {
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsPrecasian, rand.nextInt(8));
+        if (rand.nextInt(200) == 97) {
+            dropItem(Itemizer.UpgradeKitPrecasian, 1);
+        }
+        if (rand.nextInt(10)==0) {
+            dropItem(Itemizer.JungleThorns, 1);
+        }
+		if (rand.nextInt(11) == 0) {
 			dropItem(Weaponizer.KaiyuStaff, 1);
-		}
-		if (rand.nextInt(30) == 27) {
-			dropItem(Itemizer.AncientOrb, 1);
-		}
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
 		}
 		if (rand.nextInt(200) == 199) {
 			dropItem(Itemizer.UpgradeKitAncient, 1);
 		}
+        if (rand.nextInt(14) == 0) {
+            dropItem(Itemizer.SkullboneFragment, 1);
+        }
+        if (rand.nextInt(14) == 0) {
+            dropItem(Itemizer.ChestboneFragment, 1);
+        }
+        if (rand.nextInt(14) == 0) {
+            dropItem(Itemizer.LegboneFragment, 1);
+        }
+        if (rand.nextInt(14) == 0) {
+            dropItem(Itemizer.FootboneFragment, 1);
+        }
+        if (rand.nextInt(33) == 0) {
+            dropItem(Itemizer.Ivory, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.EnergyRune, 1+rand.nextInt(4));
+        }
 	}
 
 	public void onLivingUpdate() {
@@ -134,6 +153,6 @@ public class EntityKaiyu extends EntityMob implements IRangedAttackMob {
 
 	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
 		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return (!par1DamageSource.isProjectile() || !(entity instanceof EntitySkelemanShot)) && super.attackEntityFrom(par1DamageSource, par2);
+		return (!(entity instanceof EntitySkelemanShot)) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 }

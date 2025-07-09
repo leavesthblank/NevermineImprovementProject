@@ -33,9 +33,6 @@ public class EntityLightwalker extends EntityMob {
 	}
 
 	protected void dropFewItems(boolean par1, int par2) {
-		if (this.rand.nextInt(7) == 2) {
-			dropItem(net.minecraft.item.Item.getItemFromBlock(SpecialBlockizer.ShinyBanner), 1);
-		}
 		if (this.rand.nextInt(50) == 25) {
 			dropItem(Weaponizer.ShyreSword, 1);
 		}
@@ -66,17 +63,5 @@ public class EntityLightwalker extends EntityMob {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.7D);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8D);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(70.0D);
-	}
-
-	public boolean attackEntityAsMob(Entity par1) {
-		if (super.attackEntityAsMob(par1)) {
-			if ((par1 instanceof EntityLivingBase)) {
-				((EntityLivingBase)par1).addPotionEffect(new PotionEffect(Potion.blindness.id, 120, 4));
-				if ((!this.worldObj.isRemote) && ((par1 instanceof EntityPlayerMP)))
-					net.nevermine.assist.AddPackets.network.sendTo(new MobHitPacket(120, 13), (EntityPlayerMP)par1);
-			}
-			return true;
-		}
-		return false;
 	}
 }

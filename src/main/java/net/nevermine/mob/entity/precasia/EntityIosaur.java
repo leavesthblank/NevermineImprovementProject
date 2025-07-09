@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -47,19 +48,38 @@ public class EntityIosaur extends EntityMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsPrecasian, rand.nextInt(8));
+        if (rand.nextInt(200) == 97) {
+            dropItem(Itemizer.UpgradeKitPrecasian, 1);
+        }
+        if (rand.nextInt(10)==0) {
+            dropItem(Itemizer.JungleThorns, 1);
+        }
+        if (rand.nextInt(8) == 0) {
+            dropItem(Items.bone, 1+rand.nextInt(3));
+        }
+        if (rand.nextInt(9) == 0) {
+            dropItem(Items.leather, 1+rand.nextInt(4));
+        }
 		if (rand.nextInt(33) == 15) {
 			dropItem(Weaponizer.RejuvenationStaff, 1);
 		}
-
-		if (rand.nextBoolean()) {
-			dropItem(Itemizer.CoinsPrecasian, 3);
-		}
-
-		if (rand.nextInt(200) == 167) {
-			dropItem(Itemizer.UpgradeKitPrecasian, 1);
-		}
+        if (rand.nextInt(40) == 15) {
+            dropItem(Weaponizer.LegboneSword, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.SkullboneFragment, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.ChestboneFragment, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.LegboneFragment, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.FootboneFragment, 1);
+        }
 	}
 
 	public void onLivingUpdate() {

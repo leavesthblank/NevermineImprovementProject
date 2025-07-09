@@ -8,7 +8,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
@@ -17,7 +16,6 @@ import net.nevermine.fx.trail.BlueTrail;
 import net.nevermine.fx.trail.CyanTrail;
 import net.nevermine.fx.trail.WhiteTrail;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 
 public class EntityRunicornRider extends EntityMob {
 	public EntityRunicornRider(final World par1World) {
@@ -41,11 +39,7 @@ public class EntityRunicornRider extends EntityMob {
 		playSound("mob.pig.step", 0.55f, 1.0f);
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.UtopianBanner);
-	}
-
-	public boolean getCanSpawnHere() {
+    public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && rand.nextInt(5) == 2 && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
@@ -60,10 +54,12 @@ public class EntityRunicornRider extends EntityMob {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.RunicEnergy, 1);
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		/*if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.RunandorBlueprint, 1);
-		}*/
+        if (rand.nextInt(10) == 3) {
+            dropItem(Itemizer.RunicEnergy, 1);
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsRunandor, rand.nextInt(8));
+        dropItem(Itemizer.RunandorBlueprint, 1);
 	}
 
 	public void onDeath(final DamageSource var1) {

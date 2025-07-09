@@ -29,12 +29,7 @@ public class EntityArcworm extends EntityMob {
 
 	protected void dropFewItems(boolean par1, int par2) {
 		dropItem(Itemizer.CoinsShyrelands, 2 + this.rand.nextInt(3));
-
 		dropItem(Itemizer.CopperCoin, 2);
-
-		if (this.rand.nextInt(7) == 2) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.ShyreBanner), 1);
-		}
 	}
 
 	protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_) {

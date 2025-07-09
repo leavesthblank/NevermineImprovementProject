@@ -34,7 +34,14 @@ public class EntityTerradon extends EntityMob {
 		dropItem(Itemizer.CoinsPrecasian, 6);
 		dropItem(Itemizer.HeavyBoulder, 1);
 		dropItem(Itemizer.SilverCoin, 5 + rand.nextInt(10));
-		dropItem(Itemizer.RealmstonePrecasia, 3);
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsPrecasian, rand.nextInt(8));
+        if (rand.nextInt(200) == 97) {
+            dropItem(Itemizer.UpgradeKitPrecasian, 1);
+        }
+        if (rand.nextInt(10)==0) {
+            dropItem(Itemizer.JungleThorns, 1);
+        }
 	}
 
 	public boolean getCanSpawnHere() {

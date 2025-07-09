@@ -53,6 +53,9 @@ public class EntityHellspot extends EntityMob {
 		if (rand.nextInt(80) == 34) {
 			dropItem(Weaponizer.LaserBlaster, 1);
 		}
+        if (rand.nextInt(27) == 0) {
+            dropItem(Itemizer.ExplosiveIdol, 1);
+        }
 		dropItem(Itemizer.CopperCoin, 7);
 	}
 
@@ -78,21 +81,5 @@ public class EntityHellspot extends EntityMob {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.1);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 15.0);
-		if (var1 == null) {
-			return;
-		}
-		final Vec3 var2 = var1.getLook(1.0f).normalize();
-		Vec3 var3 = Vec3.createVectorHelper(posX - var1.posX, boundingBox.minY + height / 2.0f - var1.posY + var1.getEyeHeight() / 2, posZ - var1.posZ);
-		final double var4 = var3.lengthVector();
-		var3 = var3.normalize();
-		final double var5 = var2.dotProduct(var3);
-		if (var5 > 1.0 - 0.025 / var4 && var1.canEntityBeSeen(this)) {
-			var1.setPositionAndUpdate(posX, posY, posZ);
-		}
 	}
 }

@@ -37,10 +37,6 @@ public class EntityOmnilight extends EntityAIFlying {
 
 	protected void dropFewItems(boolean par1, int par2) {
 		dropItem(Itemizer.CoinsShyrelands, 2 + this.rand.nextInt(4));
-
-		if (this.rand.nextInt(7) == 2) {
-			dropItem(Item.getItemFromBlock(net.nevermine.izer.SpecialBlockizer.LightBanner), 1);
-		}
 	}
 
 	public boolean getCanSpawnHere() {

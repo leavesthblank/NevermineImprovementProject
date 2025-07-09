@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.equipment.Armorizer;
 
 public class EntityRuneTemplarBlue extends EntityCreature {
 	public EntityRuneTemplarBlue(final World par1World) {
@@ -80,6 +81,7 @@ public class EntityRuneTemplarBlue extends EntityCreature {
 		if (getHealth() < 2.5f) {
 			if (!worldObj.isRemote) {
 				dropItem(Itemizer.MegaRuneFragmentB, 1);
+                dropItem(Armorizer.CommanderBoots, 1);
 			}
 			transform();
 		}

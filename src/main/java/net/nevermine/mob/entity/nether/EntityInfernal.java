@@ -69,10 +69,11 @@ public class EntityInfernal extends EntityMob {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.IngotEmberstone, 4);
-		if (rand.nextInt(1) == 0) {
-			dropItem(Itemizer.CoinsNether, 2);
-		}
-		dropItem(Itemizer.SilverCoin, 15 + rand.nextInt(10));
+        if (rand.nextInt(27) == 0) {
+            dropItem(Itemizer.ExplosiveIdol, 1);
+        }
+        dropItem(Itemizer.CoinsNether, 2);
+        dropItem(Itemizer.SilverCoin, 15 + rand.nextInt(10));
 		if (rand.nextInt(4) == 0) {
 			dropItem(Armorizer.InfernalChestplate, 1);
 		}

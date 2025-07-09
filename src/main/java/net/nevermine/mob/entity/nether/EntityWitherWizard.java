@@ -64,9 +64,9 @@ public class EntityWitherWizard extends EntityMob implements IRangedAttackMob {
 			dropItem(Weaponizer.EmberStaff, 1);
 		}
 		dropItem(Itemizer.WitherRune, 2 + rand.nextInt(3));
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
-		}
+        if (rand.nextInt(27) == 0) {
+            dropItem(Itemizer.ExplosiveIdol, 1);
+        }
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(3));
 	}
 

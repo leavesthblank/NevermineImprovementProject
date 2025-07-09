@@ -41,9 +41,6 @@ public class EntityArcbeast extends EntityMob {
 
 	protected void dropFewItems(boolean par1, int par2) {
 		dropItem(Itemizer.CoinsShyrelands, 2 + this.rand.nextInt(3));
-
-		if (this.rand.nextInt(7) == 2)
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.ShyreBanner), 1);
 	}
 
 	protected net.minecraft.entity.Entity findPlayerToAttack() {

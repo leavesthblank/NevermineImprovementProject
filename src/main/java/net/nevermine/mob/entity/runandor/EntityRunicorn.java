@@ -8,7 +8,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -16,7 +15,6 @@ import net.nevermine.fx.trail.BlueTrail;
 import net.nevermine.fx.trail.CyanTrail;
 import net.nevermine.fx.trail.WhiteTrail;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 
 public class EntityRunicorn extends EntityMob {
 	public EntityRunicorn(final World par1World) {
@@ -54,19 +52,14 @@ public class EntityRunicorn extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsRunandor, 2);
-		}
-		if (rand.nextInt(7) == 2) {
-			dropItem(dropBanner(), 1);
-		}
+        if (rand.nextInt(10) == 3) {
+            dropItem(Itemizer.RunicEnergy, 1);
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsRunandor, rand.nextInt(8));
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.RunicBanner);
-	}
-
-	public void applyEntityAttributes() {
+    public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0);
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(32.0);

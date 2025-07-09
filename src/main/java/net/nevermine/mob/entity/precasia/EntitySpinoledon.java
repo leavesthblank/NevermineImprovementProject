@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -40,27 +41,32 @@ public class EntitySpinoledon extends EntityMob{
 		playSound("nevermine:DinoStep", 0.85f, 1.0f);
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(240.0f, Hunter);
-		}
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsPrecasian, rand.nextInt(8));
+        if (rand.nextInt(200) == 97) {
+            dropItem(Itemizer.UpgradeKitPrecasian, 1);
+        }
+        if (rand.nextInt(10)==0) {
+            dropItem(Itemizer.JungleThorns, 1);
+        }
 
-		if (rand.nextBoolean()) {
-			dropItem(Itemizer.CoinsPrecasian, 2);
-		}
-
-		if (rand.nextInt(200) == 145) {
+		if (rand.nextInt(200) >= 185) {
 			dropItem(Weaponizer.SquadGun, 1);
 		}
 
 		if (rand.nextInt(200) == 43) {
 			dropItem(Itemizer.UpgradeKitPrecasian, 1);
 		}
+        if (rand.nextInt(5) == 0) {
+            dropItem(Items.bone, 1+rand.nextInt(3));
+        }
+        if (rand.nextInt(6) == 0) {
+            dropItem(Items.leather, 1+rand.nextInt(4));
+        }
+        if (rand.nextInt(30) == 0) {
+            dropItem(Weaponizer.NatureStaff, 1);
+        }
 	}
 
 	protected Entity findPlayerToAttack() {

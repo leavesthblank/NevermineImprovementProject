@@ -46,18 +46,8 @@ public class EntityLuxocron extends EntityMob {
 	}
 
 	protected void dropFewItems(boolean par1, int par2) {
-		if (this.rand.nextInt(7) == 2) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.ShinyBanner), 1);
-		}
 		if (this.rand.nextInt(50) == 25) {
 			dropItem(Weaponizer.Amplifier, 1);
-		}
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		for (EntityPlayer e : (List<EntityPlayer>)this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(7.0D, 7.0D, 7.0D))) {
-			e.addPotionEffect(new PotionEffect(Potion.weakness.id, 30, 2));
 		}
 	}
 

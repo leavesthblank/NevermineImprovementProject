@@ -47,14 +47,6 @@ public class EntityArcWizard extends EntityMob implements IRangedAttackMob{
 		}
 	}
 
-	public void onDeath(DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(650.0f, Hunter);
-		}
-	}
-
 	protected boolean isValidLightLevel() {
 		return true;
 	}

@@ -35,10 +35,6 @@ public class EntitySoulvyre extends EntityMob {
 
 	protected void dropFewItems(boolean par1, int par2) {
 		dropItem(Itemizer.CoinsShyrelands, 2 + this.rand.nextInt(2));
-
-		if (this.rand.nextInt(7) == 2) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.ShyreBanner), 1);
-		}
 	}
 
 	protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_) {
@@ -47,37 +43,6 @@ public class EntitySoulvyre extends EntityMob {
 
 	public boolean getCanSpawnHere() {
 		return (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) && (this.worldObj.checkNoEntityCollision(this.boundingBox)) && (this.posY < 35.0D) && (this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()) && (!this.worldObj.isAnyLiquid(this.boundingBox));
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-
-		if (this.count > 0) {
-			this.timer -= 1;
-		}
-		if ((this.timer == 0) && (this.count > 0)) {
-			this.count -= 1;
-		}
-	}
-
-	public boolean attackEntityAsMob(Entity par1Entity) {
-		super.attackEntityAsMob(par1Entity);
-
-		if ((par1Entity instanceof EntityPlayer)) {
-			this.count += 1;
-			this.timer = 80;
-			EntityPlayer pl = (EntityPlayer)par1Entity;
-
-			if (pl.getHealth() - count > 0.0f) {
-				pl.setHealth(pl.getHealth() - count);
-			}
-			else {
-				pl.attackEntityFrom(DamageSource.generic, count);
-			}
-
-			return true;
-		}
-		return false;
 	}
 
 	protected boolean isValidLightLevel() {

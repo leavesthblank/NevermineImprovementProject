@@ -58,35 +58,6 @@ public class EntitySoulscorne extends EntityMob{
 		return (this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL) && (this.worldObj.checkNoEntityCollision(this.boundingBox)) && (this.posY < 35.0D) && (this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty()) && (!this.worldObj.isAnyLiquid(this.boundingBox));
 	}
 
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-
-		if (this.count > 0) {
-			this.timer -= 1;
-		}
-		if ((this.timer == 0) && (this.count > 0)) {
-			this.count -= 1;
-		}
-	}
-
-	public boolean attackEntityAsMob(Entity par1Entity) {
-		super.attackEntityAsMob(par1Entity);
-		if (par1Entity != null) {
-			if ((par1Entity instanceof EntityPlayer)) {
-				this.count += 1;
-				this.timer = 60;
-				if (((EntityPlayer)par1Entity).getHealth() - (2 * count) > 0) {
-					((EntityPlayer)par1Entity).setHealth(((EntityPlayer)par1Entity).getHealth() - 2 * this.count);
-				}
-				else {
-					par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this).setMagicDamage(), 2 * count);
-				}
-			}
-			return true;
-		}
-		return false;
-	}
-
 	protected boolean isValidLightLevel() {
 		return true;
 	}

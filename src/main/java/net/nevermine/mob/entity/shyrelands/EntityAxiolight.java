@@ -51,21 +51,6 @@ public class EntityAxiolight extends EntityMob {
 		return true;
 	}
 
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-
-		for (EntityPlayer e : (List<EntityPlayer>)this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(12.0D, 12.0D, 12.0D))) {
-			if (e.capabilities.isCreativeMode)
-				continue;
-
-			e.addVelocity(Math.signum(e.posX - this.posX) * 0.029D, 0.0D, Math.signum(e.posZ - this.posZ) * 0.029D);
-		}
-
-		int size = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(11.0D, 11.0D, 11.0D)).size();
-		if (size == 0)
-			addPotionEffect(new PotionEffect(Potion.invisibility.id, -1, 1));
-	}
-
 	protected net.minecraft.entity.Entity findPlayerToAttack() {
 		EntityPlayer entityPlayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
 		return (entityPlayer != null) && (canEntityBeSeen(entityPlayer)) ? entityPlayer : null;

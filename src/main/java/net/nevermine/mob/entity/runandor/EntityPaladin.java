@@ -47,13 +47,11 @@ public class EntityPaladin extends EntityMob {
 		if (rand.nextInt(40) == 33) {
 			dropItem(Weaponizer.PurityShotgun, 1);
 		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsRunandor, 4);
-		}
-		if (rand.nextInt(40) == 25) {
-			dropItem(Itemizer.RealmstoneBarathos, 3);
-		}
+        if (rand.nextInt(10) == 3) {
+            dropItem(Itemizer.RunicEnergy, 1);
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsRunandor, rand.nextInt(8));
 	}
 
 	protected Entity findPlayerToAttack() {

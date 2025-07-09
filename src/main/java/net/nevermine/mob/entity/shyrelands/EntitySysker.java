@@ -34,10 +34,6 @@ public class EntitySysker extends EntityMob {
 		dropItem(Itemizer.CoinsShyrelands, 3 + this.rand.nextInt(5));
 
 		dropItem(Itemizer.CopperCoin, 2);
-
-		if (this.rand.nextInt(7) == 2) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.LightBanner), 1);
-		}
 	}
 
 	protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_) {
@@ -50,29 +46,6 @@ public class EntitySysker extends EntityMob {
 
 	protected boolean isValidLightLevel() {
 		return true;
-	}
-
-	public void onLivingUpdate() {
-		for (EntityPlayer e : (List<EntityPlayer>)this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(5.0D, 8.0D, 5.0D))) {
-			if (e.capabilities.isCreativeMode)
-				continue;
-
-			e.addVelocity(this.motionX * 0.05D, 0.0425D, this.motionZ * 0.05D);
-			e.addVelocity(Math.signum(this.posX - e.posX) * 0.029D, 0.0D, Math.signum(this.posZ - e.posZ) * 0.029D);
-			e.fallDistance = 0.0F;
-		}
-
-		if (this.rand.nextInt(150) == 35) {
-			for (EntityPlayer e : (List<EntityPlayer>)this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(8.0D, 8.0D, 8.0D))) {
-				if (e.capabilities.isCreativeMode)
-					continue;
-
-				e.addVelocity(this.motionX * 0.05D, -1.0D, this.motionZ * 0.05D);
-				e.fallDistance = 0.0F;
-			}
-		}
-
-		super.onLivingUpdate();
 	}
 
 	protected net.minecraft.entity.Entity findPlayerToAttack() {

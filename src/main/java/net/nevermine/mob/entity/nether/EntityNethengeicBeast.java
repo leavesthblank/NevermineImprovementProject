@@ -40,7 +40,9 @@ public class EntityNethengeicBeast extends EntityMob {
 
     protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.SilverCoin, 2);
-
+        if (rand.nextInt(27) == 0) {
+            dropItem(Itemizer.ExplosiveIdol, 1);
+        }
 		if (rand.nextInt(40) <= 17) {
 			int pick = rand.nextInt(4);
 			if (pick == 1) {

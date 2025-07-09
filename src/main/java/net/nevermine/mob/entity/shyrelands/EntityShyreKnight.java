@@ -35,13 +35,6 @@ public class EntityShyreKnight extends EntityMob {
 		dropItem(Itemizer.CoinsShyrelands, 3 + this.rand.nextInt(8));
 
 		dropItem(Itemizer.CopperCoin, 4);
-
-		if (this.rand.nextInt(7) == 2) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.LightBanner), 1);
-		}
-		else if (this.rand.nextInt(7) == 2) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.ShyreBanner), 1);
-		}
 	}
 
 	public boolean getCanSpawnHere() {

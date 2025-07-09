@@ -54,6 +54,9 @@ public class EntitySkeletalCowman extends EntityMob implements IRangedAttackMob 
 
     protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(27) == 0) {
+            dropItem(Itemizer.ExplosiveIdol, 1);
+        }
 	}
 
 	public boolean getCanSpawnHere() {
