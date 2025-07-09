@@ -18,7 +18,7 @@ public class OreBlock extends Block {
 		super(OreBlock.OreBlk);
 		setCreativeTab(Itemizer.GenerationTab);
 		setHardness(5.0f);
-		setHarvestLevel("pickaxe", 3);
+		setHarvestLevel("pickaxe", 2);
 	}
 
 	public Item getItemDropped(final int par1, final Random par2, final int par3) {

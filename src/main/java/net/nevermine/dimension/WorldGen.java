@@ -452,41 +452,41 @@ public class WorldGen implements IWorldGenerator {
 	}
 
 	private void generateSurface(final World world, final Random random, final int x, final int z) {
-		for (int i = 0; i < 2; ++i) {
+		for (int i = 0; i < 5; ++i) {
 			final int Xcoord = x + random.nextInt(16);
-			final int Ycoord = random.nextInt(40);
+			final int Ycoord = 13 + random.nextInt(17);
 			final int Zcoord = z + random.nextInt(16);
-			new WorldGenMinable(Blockizer.oreAmethyst, 7).generate(world, random, Xcoord, Ycoord, Zcoord);
+			new WorldGenMinable(Blockizer.oreAmethyst, 9).generate(world, random, Xcoord, Ycoord, Zcoord);
 		}
-		for (int i = 0; i < 1; ++i) {
+		for (int i = 0; i < 5; ++i) {
 			final int Xcoord = x + random.nextInt(16);
-			final int Ycoord = random.nextInt(30);
+			final int Ycoord = 16 + random.nextInt(31);
 			final int Zcoord = z + random.nextInt(16);
-			new WorldGenMinable(Blockizer.oreRosite, 4).generate(world, random, Xcoord, Ycoord, Zcoord);
+			new WorldGenMinable(Blockizer.oreRosite, 10).generate(world, random, Xcoord, Ycoord, Zcoord);
 		}
-		for (int i = 0; i < 3; ++i) {
+		for (int i = 0; i < 8; ++i) {
 			final int Xcoord = x + random.nextInt(16);
-			final int Ycoord = random.nextInt(30);
+			final int Ycoord = 7 + random.nextInt(60);
 			final int Zcoord = z + random.nextInt(16);
 			new WorldGenMinable(Blockizer.oreLimonite, 20).generate(world, random, Xcoord, Ycoord, Zcoord);
 		}
+		for (int i = 0; i < 7; ++i) {
+			final int Xcoord = x + random.nextInt(16);
+			final int Ycoord = 4 + random.nextInt(128);
+			final int Zcoord = z + random.nextInt(16);
+			new WorldGenMinable(Blockizer.oreRunium, 17).generate(world, random, Xcoord, Ycoord, Zcoord);
+		}
+		for (int i = 0; i < 5; ++i) {
+			final int Xcoord = x + random.nextInt(16);
+			final int Ycoord = 6 + random.nextInt(13);
+			final int Zcoord = z + random.nextInt(16);
+			new WorldGenMinable(Blockizer.oreJade, 9).generate(world, random, Xcoord, Ycoord, Zcoord);
+		}
 		for (int i = 0; i < 3; ++i) {
 			final int Xcoord = x + random.nextInt(16);
-			final int Ycoord = random.nextInt(20);
+			final int Ycoord = 3 + random.nextInt(8);
 			final int Zcoord = z + random.nextInt(16);
-			new WorldGenMinable(Blockizer.oreRunium, 14).generate(world, random, Xcoord, Ycoord, Zcoord);
-		}
-		for (int i = 0; i < 1; ++i) {
-			final int Xcoord = x + random.nextInt(16);
-			final int Ycoord = random.nextInt(20);
-			final int Zcoord = z + random.nextInt(16);
-			new WorldGenMinable(Blockizer.oreJade, 4).generate(world, random, Xcoord, Ycoord, Zcoord);
-		}
-		for (int i = 0; i < 1; ++i) {
-			final int Xcoord = x + random.nextInt(16);
-			final int Ycoord = random.nextInt(10);
-			final int Zcoord = z + random.nextInt(16);
-			new WorldGenMinable(Blockizer.oreSapphire, 4).generate(world, random, Xcoord, Ycoord, Zcoord);
+			new WorldGenMinable(Blockizer.oreSapphire, 8).generate(world, random, Xcoord, Ycoord, Zcoord);
 		}
 		if (random.nextInt(100) == 1) {
 			final int Xcoord = x + random.nextInt(16);
@@ -566,11 +566,11 @@ public class WorldGen implements IWorldGenerator {
 		if (randomNum == 13) {
 			StructureGenRare.shouldGen(16, world, random, x, z);
 		}
-		for (int i = 0; i < 2; ++i) {
+		for (int i = 0; i < 15; ++i) {
 			final int Xcoord = x + random.nextInt(16);
-			final int Ycoord = random.nextInt(39) + 4;
+			final int Ycoord = random.nextInt(101) + 9;
 			final int Zcoord = z + random.nextInt(16);
-			new WorldGenMinable(Blockizer.oreEmberstone, 7, Blocks.netherrack).generate(world, random, Xcoord, Ycoord, Zcoord);
+			new WorldGenMinable(Blockizer.oreEmberstone, 8, Blocks.netherrack).generate(world, random, Xcoord, Ycoord, Zcoord);
 		}
 		if (random.nextInt(125) == 26) {
 			x += random.nextInt(16);

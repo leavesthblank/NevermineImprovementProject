@@ -40,51 +40,39 @@ public class RestrictedEnchant extends Enchantment {
 		Item item = stack.getItem();
 		switch (getName()) {
 			case "enchantment.control":
-				if (item instanceof BaseGun)
+            case "enchantment.shell":
+                if (item instanceof BaseGun)
 					return true;
 
 				break;
-			case "enchantment.shell":
-				if (item instanceof BaseGun)
+
+            case "enchantment.recharge":
+            case "enchantment.overpower":
+                if (item instanceof BaseEnergy || item instanceof BaseEnergyRapid)
 					return true;
 
 				break;
-			case "enchantment.recharge":
-				if (item instanceof BaseEnergy || item instanceof BaseEnergyRapid)
+
+            case "enchantment.crush":
+            case "enchantment.sever":
+                if (item instanceof BaseGreatblade)
 					return true;
 
 				break;
-			case "enchantment.overpower":
-				if (item instanceof BaseEnergy || item instanceof BaseEnergyRapid)
-					return true;
 
-				break;
-			case "enchantment.crush":
-				if (item instanceof BaseGreatblade)
-					return true;
-
-				break;
-			case "enchantment.sever":
-				if (item instanceof BaseGreatblade)
-					return true;
-
-				break;
-			case "enchantment.archmage":
+            case "enchantment.archmage":
 				if (item instanceof BaseStaff)
 					return true;
 
 				break;
 			case "enchantment.windfury":
-				if (item instanceof BaseScythe)
+            case "enchantment.slice":
+                if (item instanceof BaseScythe)
 					return true;
 
 				break;
-			case "enchantment.slice":
-				if (item instanceof BaseScythe)
-					return true;
 
-				break;
-			case "enchantment.intervention":
+            case "enchantment.intervention":
 				if (stack.getMaxStackSize() == 1)
 					return true;
 
