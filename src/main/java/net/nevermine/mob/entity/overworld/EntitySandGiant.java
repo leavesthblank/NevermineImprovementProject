@@ -12,7 +12,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.event.dimensional.overworld.BigDayEvent;
 
 public class EntitySandGiant extends EntityMob {
 	public EntitySandGiant(final World par1World) {
@@ -41,20 +40,11 @@ public class EntitySandGiant extends EntityMob {
 	}
 
 	public boolean getCanSpawnHere() {
-		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && BigDayEvent.isBig() && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
+		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
 	public boolean canBePushed() {
 		return false;
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 20.0);
-		if (var1 == null || var1.getDistanceToEntity(this) > 20.0f) {
-			return;
-		}
-		addVelocity(Math.signum(var1.posX - posX) * 0.029, 0.0, Math.signum(var1.posZ - posZ) * 0.029);
 	}
 
 	protected boolean isValidLightLevel() {

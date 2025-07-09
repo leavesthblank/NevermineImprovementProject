@@ -6,13 +6,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 
 public class EntityMechyon extends EntityMob {
 	public EntityMechyon(final World par1World) {
@@ -47,19 +45,13 @@ public class EntityMechyon extends EntityMob {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsIromine, 2);
-		}
-		if (rand.nextInt(7) == 2) {
-			dropItem(dropBanner(), 1);
-		}
+		dropItem(Itemizer.CoinsIromine, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitGolden, 1);
+        }
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.MechaBanner);
-	}
-
-	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
+    protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("mob.pig.step", 0.55f, 1.0f);
 	}
 

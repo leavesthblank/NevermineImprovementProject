@@ -5,21 +5,22 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.assist.AddPackets;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.gui.MobHitPacket;
+import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
-import net.nevermine.mob.placement.EntityNoBows;
-import net.nevermine.mob.placement.EntityNoRange;
+import net.nevermine.izer.equipment.Armorizer;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityFacelessFloater extends EntityMob implements EntityNoRange, EntityNoBows {
+public class EntityFacelessFloater extends EntityMob {
 	public EntityFacelessFloater(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 1.9f);
@@ -45,34 +46,55 @@ public class EntityFacelessFloater extends EntityMob implements EntityNoRange, E
 		return true;
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(240.0f, Hunter);
-		}
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsGreckon, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitHaunted, 1);
+        }
+        if (rand.nextInt(10) == 4) {
+            dropItem(Itemizer.Ghoulasm, 1);
+        }
 
-		if (rand.nextBoolean()) {
-			dropItem(Itemizer.CoinsGreckon, 2);
-		}
-
-		if (rand.nextInt(14) == 4) {
+		if (rand.nextInt(10) == 4) {
 			dropItem(Itemizer.DarklyPowder, 2);
 		}
-
-		if (rand.nextInt(7) == 2) {
-			dropItem(dropBanner(), 1);
-		}
+        if (rand.nextInt(11) == 4) {
+            dropItem(Itemizer.IngotGhoulish, 1);
+        }
+        if (rand.nextInt(15) == 4) {
+            dropItem(Itemizer.SilverCoin, 1);
+        }
+        if (rand.nextInt(7)==0){
+            dropItem(Item.getItemFromBlock(Blockizer.HauntedFlower),1+rand.nextInt(3));
+        }
+        if (rand.nextInt(70)==0){
+            dropItem(Armorizer.PhantasmHelmet,1);
+        }
+        if (rand.nextInt(70)==0){
+            dropItem(Armorizer.PhantasmChestplate,1);
+        }
+        if (rand.nextInt(70)==0){
+            dropItem(Armorizer.PhantasmLeggings,1);
+        }
+        if (rand.nextInt(70)==0){
+            dropItem(Armorizer.PhantasmBoots,1);
+        }
+        if (rand.nextInt(35)==0){
+            dropItem(Armorizer.NecroHelmet,1);
+        }
+        if (rand.nextInt(35)==0){
+            dropItem(Armorizer.NecroChestplate,1);
+        }
+        if (rand.nextInt(35)==0){
+            dropItem(Armorizer.NecroLeggings,1);
+        }
+        if (rand.nextInt(35)==0){
+            dropItem(Armorizer.NecroBoots,1);
+        }
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.GhoulBanner);
-	}
-
-	protected Entity findPlayerToAttack() {
+    protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return ((entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null);
 	}
@@ -84,15 +106,5 @@ public class EntityFacelessFloater extends EntityMob implements EntityNoRange, E
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(70.0);
-	}
-
-	public boolean attackEntityAsMob(final Entity par1) {
-		if (super.attackEntityAsMob(par1)) {
-			if (par1 instanceof EntityPlayer && par1 instanceof EntityPlayerMP) {
-				AddPackets.network.sendTo(new MobHitPacket(300, 7), (EntityPlayerMP)par1);
-			}
-			return true;
-		}
-		return false;
 	}
 }

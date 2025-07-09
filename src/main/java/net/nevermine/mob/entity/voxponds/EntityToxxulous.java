@@ -45,13 +45,24 @@ public class EntityToxxulous extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(100) == 36) {
+		if (rand.nextInt(100) <= 6) {
 			dropItem(Weaponizer.PoisonPlunger, 1);
 		}
 		if (rand.nextInt(10) == 5) {
 			dropItem(Itemizer.SludgeParasite, 1);
 		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsVoxPonds, rand.nextInt(8));
+        if (rand.nextInt(200) == 1) {
+            dropItem(Itemizer.UpgradeKitApoco, 1);
+        }
+        if (rand.nextInt(10) == 1) {
+            dropItem(Itemizer.ToxicLump, 1);
+        }
+        if (rand.nextInt(50) == 1) {
+            dropItem(Itemizer.VileStone, 1);
+        }
+        dropItem(Itemizer.Ivory, rand.nextInt(3));
 	}
 
 	public void onLivingUpdate() {

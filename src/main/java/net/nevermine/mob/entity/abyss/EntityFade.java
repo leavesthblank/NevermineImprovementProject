@@ -38,14 +38,10 @@ public class EntityFade extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CopperCoin, 4);
-		}
+			dropItem(Itemizer.CopperCoin, 4 + rand.nextInt(8));
+
 		if (rand.nextInt(30) == 25) {
 			dropItem(Itemizer.RealmstoneFragment4, 1);
-		}
-		if (rand.nextInt(4) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.FragmentBanner), 1);
 		}
 	}
 
@@ -58,17 +54,6 @@ public class EntityFade extends EntityMob {
 	}
 
 	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float dmg) {
-		if (!worldObj.isRemote && dmg >= 1) {
-			if (rand.nextInt(Math.round((float)(getHealth() / (dmg * 1.2) + 2))) == 0) {
-				if (worldObj.getEntitiesWithinAABB(EntityFade.class, boundingBox.expand(10.0, 5.0, 10.0)).size() < 5) {
-					final EntityFade var2 = new EntityFade(worldObj);
-
-					var2.setLocationAndAngles(posX, posY, posZ, rand.nextFloat() * 360.0f, 0.0f);
-					worldObj.spawnEntityInWorld(var2);
-				}
-			}
-		}
-
 		return super.attackEntityFrom(par1DamageSource, dmg);
 	}
 

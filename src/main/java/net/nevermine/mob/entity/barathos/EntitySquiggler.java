@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.Plantizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntitySquiggler extends EntityMob {
@@ -41,20 +42,18 @@ public class EntitySquiggler extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 1) {
-			dropItem(Weaponizer.UnderworldGreatblade, 1);
-		}
+        dropItem(Weaponizer.UnderworldGreatblade, 1);
 		dropItem(Itemizer.SilverCoin, 5 + rand.nextInt(10));
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 20.0);
-		if (var1 == null || var1.capabilities.isCreativeMode || var1.getDistanceToEntity(this) > 20.0f) {
-			return;
-		}
-
-		var1.setFire(8);
+        dropItem(Itemizer.CoinsBarathos, 3 + rand.nextInt(3));
+        if (rand.nextInt(200) == 0) {
+            dropItem(Itemizer.UpgradeKitRocky, 1);
+        }
+        if (rand.nextInt(4) == 0) {
+            dropItem(Plantizer.ThornyPlantSeeds, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Itemizer.HiveChunk, 1 + rand.nextInt(3));
+        }
 	}
 
 	protected Entity findPlayerToAttack() {

@@ -42,16 +42,6 @@ public class EntityTorano extends EntityMob {
 		}
 	}
 
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		for (final EntityPlayer e : (List<EntityPlayer>)worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(7.0, 7.0, 7.0))) {
-			if (e.capabilities.isCreativeMode)
-				continue;
-
-			e.addVelocity(motionX * 3.5, motionY * 0.5, motionZ * 3.0);
-		}
-	}
-
 	protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return ((entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null);

@@ -41,11 +41,8 @@ public class EntityShade extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(40) == 0) {
+		if (rand.nextInt(10) == 0) {
 			dropItem(Itemizer.BookOfShadows, 1);
-		}
-		if (rand.nextInt(15) == 4) {
-			dropItem(Itemizer.RealmstoneDeeplands, 2);
 		}
 	}
 

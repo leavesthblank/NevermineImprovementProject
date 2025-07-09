@@ -7,9 +7,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.*;
 
-public class EntityRuneTemplarGreen extends EntityCreature implements EntityNoRange, EntityNoBows, EntityNoMelee, EntityNoMagic, EntityNoFire, EntityNoExplosions, EntityObject {
+public class EntityRuneTemplarGreen extends EntityCreature {
 	public EntityRuneTemplarGreen(final World par1World) {
 		super(par1World);
 		setSize(1.79f, 2.2f);

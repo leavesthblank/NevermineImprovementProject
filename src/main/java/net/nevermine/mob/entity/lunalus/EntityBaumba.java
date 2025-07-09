@@ -46,7 +46,7 @@ public class EntityBaumba extends EntityMob {
 		if (rand.nextInt(100) == 35) {
 			dropItem(Itemizer.MoltenUpgrader, 1);
 		}
-		if (rand.nextInt(150) == 35) {
+		if (rand.nextInt(150) < 3) {
 			dropItem(Weaponizer.Revolution, 1);
 		}
 		if (rand.nextInt(30) == 17) {
@@ -64,6 +64,17 @@ public class EntityBaumba extends EntityMob {
 				dropItem(Armorizer.SpaceKingChestplate, 1);
 			}
 		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsLunalus, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLunar, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.Orbulon, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.ObservingEye, 1);
+        }
 	}
 
 	public boolean getCanSpawnHere() {

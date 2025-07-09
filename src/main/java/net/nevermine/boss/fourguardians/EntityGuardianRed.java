@@ -104,7 +104,7 @@ public class EntityGuardianRed extends EntityMob implements IRangedAttackMob, En
 		if (!worldObj.isRemote && d.getEntity() instanceof EntityPlayer) {
 			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)d.getEntity());
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(1000, Hunter);
 		}
 	}

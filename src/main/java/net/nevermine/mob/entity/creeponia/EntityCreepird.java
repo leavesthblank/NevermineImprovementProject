@@ -4,6 +4,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -33,10 +34,9 @@ public class EntityCreepird extends EntityAIFlying {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 2 + rand.nextInt(5));
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsCreeponia, 3);
-		}
+        dropItem(Itemizer.CopperCoin, 2 + rand.nextInt(5));
+        dropItem(Itemizer.CoinsCreeponia, 3 + rand.nextInt(3));
+        dropItem(Items.gunpowder,rand.nextInt(3));
 	}
 
 	public boolean getCanSpawnHere() {

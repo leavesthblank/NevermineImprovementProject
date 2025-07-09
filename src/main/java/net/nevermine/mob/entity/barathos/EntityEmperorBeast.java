@@ -6,13 +6,12 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
+import net.nevermine.izer.Plantizer;
 
 public class EntityEmperorBeast extends EntityMob {
 	public EntityEmperorBeast(final World par1World) {
@@ -32,11 +31,7 @@ public class EntityEmperorBeast extends EntityMob {
 		return "nevermine:EmperorBeastHit";
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.BaronBanner);
-	}
-
-	public boolean getCanSpawnHere() {
+    public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
@@ -50,6 +45,16 @@ public class EntityEmperorBeast extends EntityMob {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsBarathos, 3 + rand.nextInt(3));
+        if (rand.nextInt(200) == 0) {
+            dropItem(Itemizer.UpgradeKitRocky, 1);
+        }
+        if (rand.nextInt(4) == 0) {
+            dropItem(Plantizer.ThornyPlantSeeds, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(3) == 0) {
+            dropItem(Itemizer.HiveChunk, 1 + rand.nextInt(3));
+        }
 	}
 
 	protected Entity findPlayerToAttack() {
@@ -70,7 +75,7 @@ public class EntityEmperorBeast extends EntityMob {
 		super.attackEntityAsMob(par1Entity);
 		if (entityToAttack != null) {
 			if (entityToAttack instanceof EntityPlayer && ((EntityPlayer)entityToAttack).getEntityAttribute(SharedMonsterAttributes.knockbackResistance).getAttributeValue() != 1.0) {
-				entityToAttack.addVelocity(motionX * 10.5, motionY * 0.5, motionZ * 22.0);
+				entityToAttack.addVelocity(motionX * (10.5 + 11.5 * rand.nextFloat()), motionY * 0.5, motionZ * (10.5 + 11.5 * rand.nextFloat()));
 			}
 			if (entityToAttack instanceof EntityLiving) {
 				((EntityLiving)entityToAttack).addPotionEffect(new PotionEffect(Potion.confusion.id, 350, 1));

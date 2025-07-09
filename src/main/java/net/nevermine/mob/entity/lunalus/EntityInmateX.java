@@ -5,11 +5,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.SpecialBlockizer;
+import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntityInmateX extends EntityMob {
 	public EntityInmateX(final World par1World) {
@@ -45,10 +48,29 @@ public class EntityInmateX extends EntityMob {
 		if (rand.nextInt(25) == 3) {
 			dropItem(Itemizer.UnchargedOrb, 1);
 		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(7) == 2) {
-			dropItem(dropBanner(), 1);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsLunalus, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLunar, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.Orbulon, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.ObservingEye, 1);
+        }
+        if (rand.nextInt(30) == 0) {
+            dropItem(Weaponizer.SunStaff, 1);
+        }
+        if (rand.nextInt(12) == 0) {
+            dropItem(Itemizer.IngotLunar, 1);
+        }
+        if (rand.nextInt(9) == 0) {
+            dropItem(Item.getItemFromBlock(Blocks.iron_bars), 1+rand.nextInt(3));
+        }
+        if (rand.nextInt(16) == 0) {
+            dropItem(Item.getItemFromBlock(Blockizer.OrbSunfire), 1);
+        }
 	}
 
 	private Item dropBanner() {

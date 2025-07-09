@@ -18,14 +18,13 @@ import net.nevermine.boss.EntityBoss;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoRange;
 import net.nevermine.projectiles.enemy.EntityClunkheadShot;
 
 import java.util.List;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityClunkhead extends EntityMob implements IRangedAttackMob, EntityNoRange, EntityBoss {
+public class EntityClunkhead extends EntityMob implements IRangedAttackMob, EntityBoss {
 	private int statisCountdown;
 	private int inStatisCountdown;
 	private int musicTick;
@@ -87,7 +86,7 @@ public class EntityClunkhead extends EntityMob implements IRangedAttackMob, Enti
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(12000, Hunter);
 		}
 	}

@@ -5,10 +5,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
+import net.nevermine.izer.Blockizer;
+import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
@@ -37,11 +41,21 @@ public class EntityZarg extends EntityMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(100) == 25) {
+		if (rand.nextInt(65) == 25) {
 			dropItem(Weaponizer.DualSight, 1);
 		}
-
-		if (rand.nextInt(20) == 17) {
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsLunalus, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLunar, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.Orbulon, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.ObservingEye, 1);
+        }
+		if (rand.nextInt(19) == 17) {
 			int pick = rand.nextInt(4);
 
 			if (pick == 1) {
@@ -57,6 +71,15 @@ public class EntityZarg extends EntityMob{
 				dropItem(Armorizer.ZargoniteChestplate, 1);
 			}
 		}
+        if (rand.nextInt(8) == 0) {
+            dropItem(Item.getItemFromBlock(Blockizer.LunarBricks), 3+rand.nextInt(4));
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Item.getItemFromBlock(Blockizer.TwinkleStone), 1+rand.nextInt(3));
+        }
+        if (rand.nextInt(15) == 0) {
+            dropItem(Itemizer.IngotLunar, 1);
+        }
 	}
 
 	public void onLivingUpdate() {

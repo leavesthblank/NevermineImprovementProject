@@ -9,9 +9,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityNoRange;
 
-public class EntityTerradon extends EntityMob implements EntityNoRange {
+public class EntityTerradon extends EntityMob {
 	public static int invulnTicks;
 
 	public EntityTerradon(final World par1World) {

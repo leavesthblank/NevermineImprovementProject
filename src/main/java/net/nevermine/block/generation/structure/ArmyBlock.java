@@ -24,7 +24,7 @@ public class ArmyBlock extends Block {
 	}
 
 	public boolean onBlockActivated(final World w, final int x, final int y, final int z, final EntityPlayer p, final int var6, final float var7, final float var8, final float var9) {
-		if (!w.isRemote && !p.isSneaking() && p.getHeldItem() != null && p.getHeldItem().getItem() == Itemizer.AncientOrb) {
+		if (!w.isRemote && !p.isSneaking()) {
             if (w.difficultySetting == EnumDifficulty.PEACEFUL) {
                 p.addChatMessage(StringUtil.getLocale("message.feedback.spawnBoss.fail"));
                 return false;

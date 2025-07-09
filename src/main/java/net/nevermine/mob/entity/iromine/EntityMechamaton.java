@@ -46,8 +46,12 @@ public class EntityMechamaton extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(50) == 15) {
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsIromine, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitGolden, 1);
+        }
+		if (rand.nextInt(50) < 5) {
 			dropItem(Weaponizer.PowerStaff, 1);
 		}
 	}

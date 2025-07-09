@@ -9,6 +9,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
+import net.nevermine.izer.Itemizer;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
@@ -16,13 +17,6 @@ public class EntityZorp extends EntityMob{
 	public EntityZorp(final World par1World) {
 		super(par1World);
 		setSize(0.6f, 2.3f);
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(40.0f, Hunter);
-		}
 	}
 
 	protected String getLivingSound() {
@@ -44,6 +38,20 @@ public class EntityZorp extends EntityMob{
 	public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
+
+    protected void dropFewItems(final boolean par1, final int par2) {
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsLunalus, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLunar, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.Orbulon, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.ObservingEye, 1);
+        }
+    }
 
 	protected boolean isValidLightLevel() {
 		return true;

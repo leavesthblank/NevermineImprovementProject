@@ -43,14 +43,15 @@ public class EntityBasilisk extends EntityMob {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsDustopia, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitDarkly, 1);
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Itemizer.PrimordialSkull, 1 + rand.nextInt(3));
+        }
 		if (rand.nextInt(25) == 3) {
 			dropItem(Weaponizer.Duster, 1);
-		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsDustopia, 2);
-		}
-		if (rand.nextInt(200) == 135) {
-			dropItem(Itemizer.UpgradeKitDarkly, 1);
 		}
 	}
 

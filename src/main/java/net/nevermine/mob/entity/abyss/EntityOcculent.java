@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
@@ -45,12 +46,20 @@ public class EntityOcculent extends EntityMob {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CoinsAbyss, 1);
-		}
-		if (rand.nextInt(75) == 44) {
+        dropItem(Itemizer.CoinsAbyss, rand.nextInt(8));
+
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitAbyssal, 1);
+        }
+		if (rand.nextInt(75) >= 69) {
 			dropItem(Weaponizer.SoulSpark, 1);
 		}
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.StaringEye, 1);
+        }
+        if (rand.nextInt(40) == 3) {
+            dropItem(Itemizer.BookOfShadows, 1);
+        }
 	}
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
@@ -64,21 +73,5 @@ public class EntityOcculent extends EntityMob {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.3);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 20.0);
-		if (var1 == null) {
-			return;
-		}
-		final Vec3 var2 = var1.getLook(1.0f).normalize();
-		Vec3 var3 = Vec3.createVectorHelper(posX - var1.posX, (boundingBox.minY + height / 2.0f) - (var1.posY + var1.getEyeHeight() / 2.0f), posZ - var1.posZ);
-		final double var4 = var3.lengthVector();
-		var3 = var3.normalize();
-		final double var5 = var2.dotProduct(var3);
-		if (var5 > 0.9 - 0.025 / var4 && var1.canEntityBeSeen(this)) {
-			var1.attackEntityFrom(DamageSource.causeMobDamage(this), 6.0f);
-		}
 	}
 }

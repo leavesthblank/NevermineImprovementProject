@@ -33,12 +33,17 @@ public class EntityLelyetianWarrior extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(75) == 15) {
+		if (rand.nextInt(75) <= 6) {
 			dropItem(Weaponizer.LelyetianGreatblade, 1);
 		}
 		if (rand.nextInt(20) == 15) {
 			dropItem(Itemizer.GuardiansEye, 1);
 		}
+        dropItem(Itemizer.CopperCoin,5+rand.nextInt(10));
+        dropItem(Itemizer.CoinsLelyetia, rand.nextInt(8));
+        if (rand.nextInt(200)==0){
+            dropItem(Itemizer.UpgradeKitLelyetian,1);
+        }
 	}
 
 	public boolean getCanSpawnHere() {

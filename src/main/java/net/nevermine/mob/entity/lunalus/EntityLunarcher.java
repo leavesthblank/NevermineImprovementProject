@@ -14,9 +14,8 @@ import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.mob.ai.EntityAIFlying;
-import net.nevermine.mob.placement.EntityNoFire;
 
-public class EntityLunarcher extends EntityAIFlying implements IRangedAttackMob, EntityNoFire {
+public class EntityLunarcher extends EntityAIFlying implements IRangedAttackMob {
 	private ChunkCoordinates currentFlightTarget;
 	private int flyTimer;
 	private static final ItemStack defaultHeldItem;
@@ -42,12 +41,19 @@ public class EntityLunarcher extends EntityAIFlying implements IRangedAttackMob,
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsLunalus, 2);
-		}
-		if (rand.nextInt(100) == 35) {
+        dropItem(Itemizer.CoinsLunalus, rand.nextInt(8));
+		if (rand.nextInt(200) == 35) {
 			dropItem(Itemizer.UpgradeKitLunar, 1);
 		}
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.Orbulon, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.ObservingEye, 1);
+        }
+        if (rand.nextInt(12)==0){
+            dropItem(Weaponizer.LunarBow,1);
+        }
 	}
 
 	public boolean getCanSpawnHere() {

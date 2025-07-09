@@ -10,9 +10,8 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.mob.placement.EntityNoMelee;
 
-public class EntityGreenFlower extends EntityMob implements EntityNoMelee {
+public class EntityGreenFlower extends EntityMob {
 	public EntityGreenFlower(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 2.1f);

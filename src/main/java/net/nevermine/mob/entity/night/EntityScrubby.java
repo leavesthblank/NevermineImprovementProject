@@ -40,7 +40,7 @@ public class EntityScrubby extends EntityMob {
 	}
 
 	public boolean getCanSpawnHere() {
-		return worldObj.getCurrentMoonPhaseFactor() == 1.0 && !worldObj.isDaytime() && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
+		return !worldObj.isDaytime() && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
 	protected boolean isValidLightLevel() {
@@ -78,10 +78,6 @@ public class EntityScrubby extends EntityMob {
 
 		if (rand.nextInt(50) == 41) {
 			dropItem(Weaponizer.MoonShiner, 1);
-		}
-
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
 		}
 	}
 

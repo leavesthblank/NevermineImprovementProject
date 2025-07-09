@@ -6,16 +6,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-
-import java.util.List;
 
 public class EntityFungung extends EntityMob {
 	public EntityFungung(final World par1World) {
@@ -36,31 +34,30 @@ public class EntityFungung extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.HavenShrooms, 2);
-		dropItem(dropBanner(), 1);
-		dropItem(Itemizer.SilverCoin, 2 + rand.nextInt(3));
+		dropItem(Itemizer.HavenShrooms, 3 + rand.nextInt(3));
+		dropItem(Itemizer.SilverCoin, 3 + rand.nextInt(4));
 		dropItem(Itemizer.ShroomStone, 1);
-		dropItem(Itemizer.RealmstoneMysterium, 2);
-		if (rand.nextInt(2) == 1) {
-			dropItem(Weaponizer.ShroomicGreatblade, 1);
-		}
+        dropItem(Weaponizer.ShroomicGreatblade, 1);
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.HavenShrooms, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(7) == 0) {
+            dropItem(Itemizer.FungalTea, 1);
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Item.getItemFromBlock(Blocks.brown_mushroom), 4+rand.nextInt(6));
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Item.getItemFromBlock(Blocks.red_mushroom), 4+rand.nextInt(6));
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(100) == 13) {
+            dropItem(Itemizer.ShroomStone, 1);
+        }
+        dropItem(Itemizer.CoinsMysterium, rand.nextInt(8));
 	}
 
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		for (final EntityPlayer e : (List<EntityPlayer>)worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(11.0, 11.0, 11.0))) {
-			if (e.capabilities.isCreativeMode)
-				continue;
-
-			e.addVelocity(Math.signum(posX - e.posX) * 0.029, 0.0, Math.signum(posZ - e.posZ) * 0.029);
-		}
-	}
-
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.FungalBanner);
-	}
-
-	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
+    protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("mob.pig.step", 0.85f, 1.0f);
 	}
 

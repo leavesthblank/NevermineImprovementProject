@@ -15,10 +15,8 @@ import net.minecraft.world.World;
 import net.nevermine.event.creature.PixonCollection;
 import net.nevermine.fx.trail.PurpleTrail;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityNoRange;
-import net.nevermine.mob.placement.EntityObject;
 
-public class BloomingPixon extends EntityAnimal implements EntityNoRange, EntityObject {
+public class BloomingPixon extends EntityAnimal {
 	public BloomingPixon(final World par1World) {
 		super(par1World);
 		setSize(0.9f, 1.3f);

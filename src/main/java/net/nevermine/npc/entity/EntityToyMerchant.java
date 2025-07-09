@@ -45,6 +45,7 @@ public class EntityToyMerchant extends EntityNevermineVillager {
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 12, 1), new ItemStack(Weaponizer.BalloonBomber, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 20, 1), new ItemStack(Weaponizer.BozoBlaster, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 30, 1), new ItemStack(Weaponizer.ShowStaff, 1)));
+        list.add(new RestockedRecipe(new ItemStack(Itemizer.CoinCircus, 64, 1), new ItemStack(Itemizer.UpgradeKitSmiley, 1)));
 	}
 
 	@Override

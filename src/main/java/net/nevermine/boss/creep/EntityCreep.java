@@ -123,7 +123,6 @@ public class EntityCreep extends EntityMob implements EntityBoss, IRangedAttackM
 
 			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)d.getEntity());
 
-			if (cont.getLevel(Hunter) >= 30)
 				cont.addExperience(3000, Hunter);
 		}
 	}

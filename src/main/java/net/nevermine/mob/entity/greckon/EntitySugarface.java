@@ -5,12 +5,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntitySugarface extends EntityMob {
@@ -44,23 +41,20 @@ public class EntitySugarface extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(45) == 30) {
+		if (rand.nextInt(45) >= 40) {
 			dropItem(Weaponizer.GhoulCannon, 1);
 		}
-		if (rand.nextInt(20) == 3) {
-			dropItem(Itemizer.Ghoulasm, 1);
-		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(7) == 2) {
-			dropItem(dropBanner(), 1);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsGreckon, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitHaunted, 1);
+        }
+        if (rand.nextInt(10) == 4) {
+            dropItem(Itemizer.Ghoulasm, 1);
+        }
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.GhoulBanner);
-	}
-
-	protected Entity findPlayerToAttack() {
+    protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return (entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null;
 	}
@@ -72,20 +66,5 @@ public class EntitySugarface extends EntityMob {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.7);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
-	}
-
-	public boolean attackEntityAsMob(final Entity par1Entity) {
-		super.attackEntityAsMob(par1Entity);
-		if (entityToAttack != null) {
-			if (entityToAttack instanceof EntityPlayer) {
-				final float playHP = ((EntityPlayer)entityToAttack).getHealth();
-				final float mobHP = getHealth();
-				if (playHP / 20.0f < mobHP / 50.0f) {
-					par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), 10.0f);
-				}
-			}
-			return true;
-		}
-		return false;
 	}
 }

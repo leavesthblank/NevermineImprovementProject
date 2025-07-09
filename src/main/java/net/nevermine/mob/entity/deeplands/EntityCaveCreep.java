@@ -40,10 +40,18 @@ public class EntityCaveCreep extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(4) == 3) {
-			dropItem(Itemizer.RockBones, 1);
-		}
+		dropItem(Itemizer.RockBones, rand.nextInt(4));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitPredator, 1);
+        }
+        if (rand.nextInt(40) == 16) {
+            dropItem(Itemizer.BoulderDash, 1);
+        }
+        dropItem(Itemizer.CoinsDeeplands, rand.nextInt(8));
+        if (rand.nextInt(40) == 16) {
+            dropItem(Itemizer.UnchargedStone, 1);
+        }
 	}
 
 	public void onLivingUpdate() {

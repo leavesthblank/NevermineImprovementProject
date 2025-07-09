@@ -5,12 +5,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.equipment.Weaponizer;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
@@ -47,11 +49,27 @@ public class EntityPhantom extends EntityMob{
 	}
 
     protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.HavenShrooms, 1 + rand.nextInt(3));
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(100) == 13) {
+            dropItem(Itemizer.ShroomStone, 1);
+        }
+        if (rand.nextInt(20) == 13) {
+            dropItem(Weaponizer.PhantomStaff, 1);
+        }
+        if (rand.nextInt(6) == 3) {
+            dropItem(Items.bone, 1+rand.nextInt(3));
+        }
+        dropItem(Itemizer.CoinsMysterium, rand.nextInt(8));
 
 		if (rand.nextInt(3) == 0) {
 			dropItem(Itemizer.Phantasm, 1);
 		}
+        if (rand.nextInt(3) == 1) {
+            dropItem(Itemizer.GhostlyPowder, 1);
+        }
 	}
 
 	public void applyEntityAttributes() {

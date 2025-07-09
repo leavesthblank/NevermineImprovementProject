@@ -7,9 +7,13 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.nevermine.dimension.DimensionOrganizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.projectiles.enemy.EntityMagicBall;
@@ -63,21 +67,29 @@ public class EntityWebReaper extends EntityMob implements IRangedAttackMob {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CoinsAbyss, 1);
-		}
-		if (rand.nextInt(40) == 23) {
+		if (rand.nextInt(40) >= 37) {
 			dropItem(Weaponizer.WebStaff, 1);
 		}
-		if (rand.nextInt(20) == 3) {
+		if (rand.nextInt(20) == 13) {
 			dropItem(Itemizer.BookOfShadows, 1);
 		}
-		if (rand.nextInt(40) == 37) {
+		if (rand.nextInt(40) >= 37) {
 			dropItem(Weaponizer.SpiritShower, 1);
 		}
-		if (rand.nextInt(150) == 22) {
-			dropItem(Itemizer.UpgradeKitAbyssal, 1);
-		}
+        dropItem(Itemizer.CoinsAbyss, rand.nextInt(8));
+
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitAbyssal, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.StaringEye, 1);
+        }
+        if (rand.nextInt(17) == 0) {
+            dropItem(Item.getItemFromBlock(Blocks.web), 1);
+        }
+        if (rand.nextInt(3) == 0) {
+            dropItem(Items.string,1 + rand.nextInt(2));
+        }
 	}
 
 	public void applyEntityAttributes() {

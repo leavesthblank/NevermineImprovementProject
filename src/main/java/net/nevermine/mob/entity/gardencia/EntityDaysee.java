@@ -12,6 +12,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
+import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.Plantizer;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
@@ -38,27 +40,6 @@ public class EntityDaysee extends EntityMob{
 		playSound("mob.pig.step", 0.55f, 1.0f);
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(120.0f, Hunter);
-		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-
-		if (entity instanceof EntityThrowable && ((EntityThrowable)entity).getThrower() != null) {
-			((EntityThrowable)entity).getThrower().addVelocity(Math.signum(posX - ((EntityThrowable)entity).posX) * 0.329, 0.0, Math.signum(posZ - ((EntityThrowable)entity).posZ) * 0.329);
-		}
-		else if (entity instanceof EntityArrow) {
-			par1DamageSource.getEntity().addVelocity(Math.signum(posX - par1DamageSource.getEntity().posX) * 0.329, 0.0, Math.signum(posZ - par1DamageSource.getEntity().posZ) * 0.329);
-		}
-
-		return (par1DamageSource.isProjectile() || entity instanceof EntityArrow || entity instanceof EntityThrowable || par1DamageSource.isMagicDamage()) && super.attackEntityFrom(par1DamageSource, par2);
-	}
-
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 
@@ -80,6 +61,20 @@ public class EntityDaysee extends EntityMob{
 		if (rand.nextInt(4) == 2) {
 			dropItem(Items.emerald, 1);
 		}
+        dropItem(Itemizer.CoinsGardencia, rand.nextInt(8));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(200) == 13) {
+            dropItem(Itemizer.UpgradeKitFloro, 1);
+        }
+        if (rand.nextInt(8) == 0) {
+            dropItem(Itemizer.NatureMelonSlice, 1 + rand.nextInt(2));
+        }
+        if (rand.nextInt(6) == 0) {
+            dropItem(Plantizer.ChiliSeeds, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(4)==0){
+            dropItem(Plantizer.RosidonSeeds,rand.nextInt(4));
+        }
 	}
 
 	protected Entity findPlayerToAttack() {

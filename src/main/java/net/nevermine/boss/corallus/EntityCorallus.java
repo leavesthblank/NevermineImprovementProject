@@ -249,7 +249,6 @@ public class EntityCorallus extends EntityMob implements EntityBoss {
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
 				cont.addExperience(7500, Hunter);
 		}
 	}

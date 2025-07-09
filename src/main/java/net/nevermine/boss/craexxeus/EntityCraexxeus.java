@@ -153,7 +153,7 @@ public class EntityCraexxeus extends EntityAIFlying implements EntityBoss {
 
 			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)d.getEntity());
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(10000, Hunter);
 		}
 

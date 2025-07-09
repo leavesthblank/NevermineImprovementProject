@@ -5,14 +5,12 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
@@ -43,22 +41,23 @@ public class EntityBanshee extends EntityMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-
 		if (rand.nextInt(3) == 1) {
 			dropItem(Itemizer.GhostlyPowder, 1);
 		}
-
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
-		}
+        if (rand.nextInt(3) == 0) {
+            dropItem(Itemizer.Phantasm, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.HavenShrooms, 1 + rand.nextInt(3));
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(100) == 13) {
+            dropItem(Itemizer.ShroomStone, 1);
+        }
+        dropItem(Itemizer.CoinsMysterium, rand.nextInt(8));
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.HauntedBanner);
-	}
-
-	protected Entity findPlayerToAttack() {
+    protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return ((entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null);
 	}

@@ -44,9 +44,15 @@ public class EntityExohead extends EntityMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextBoolean()) {
-			dropItem(Itemizer.DarkBones, 1);
-		}
+        dropItem(Itemizer.DarkBones, rand.nextInt(3));
+        dropItem(Itemizer.CopperCoin,5+rand.nextInt(10));
+        dropItem(Itemizer.CoinsLelyetia, rand.nextInt(8));
+        if (rand.nextInt(200)==0){
+            dropItem(Itemizer.UpgradeKitLelyetian,1);
+        }
+        if (rand.nextInt(40) == 15) {
+            dropItem(Itemizer.GuardiansEye, 1);
+        }
 	}
 
 	public void onDeath(final DamageSource var1) {

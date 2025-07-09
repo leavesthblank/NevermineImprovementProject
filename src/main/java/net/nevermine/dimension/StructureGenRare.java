@@ -19,7 +19,7 @@ import net.nevermine.structures.lborean.AquaticCastleP3;
 import net.nevermine.structures.lelyetia.*;
 import net.nevermine.structures.precasia.*;
 import net.nevermine.structures.shyrelands.*;
-import net.nevermine.structures.vanilla.AmphibiyteCave;
+import net.nevermine.structures.lborean.AmphibiyteCave;
 import net.nevermine.structures.vanilla.NethengeicPit;
 
 import java.util.Random;

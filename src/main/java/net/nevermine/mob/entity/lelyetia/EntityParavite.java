@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -50,6 +51,23 @@ public class EntityParavite extends EntityMob{
 		if (rand.nextInt(110) == 45) {
 			dropItem(Weaponizer.Overshot, 1);
 		}
+        dropItem(Itemizer.CopperCoin,5+rand.nextInt(10));
+        dropItem(Itemizer.CoinsLelyetia, rand.nextInt(8));
+        if (rand.nextInt(200)==0){
+            dropItem(Itemizer.UpgradeKitLelyetian,1);
+        }
+        if (rand.nextInt(40) == 15) {
+            dropItem(Itemizer.GuardiansEye, 1);
+        }
+        if (rand.nextInt(50)==0){
+            dropItem(Weaponizer.WebStaff,1);
+        }
+        if (rand.nextInt(9)==0){
+            dropItem(Itemizer.CopperCoin,1+rand.nextInt(4));
+        }
+        if (rand.nextInt(7)==0){
+            dropItem(Items.string,1+rand.nextInt(2));
+        }
 	}
 
 	public void onDeath(final DamageSource var1) {

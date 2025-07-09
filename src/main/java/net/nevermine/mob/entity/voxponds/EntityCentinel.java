@@ -6,12 +6,10 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.projectiles.enemy.EntityDestructorShot;
 
 public class EntityCentinel extends EntityMob implements IRangedAttackMob {
@@ -50,17 +48,23 @@ public class EntityCentinel extends EntityMob implements IRangedAttackMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(7) == 2) {
-			dropItem(dropBanner(), 1);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsVoxPonds, rand.nextInt(8));
+        if (rand.nextInt(200) == 1) {
+            dropItem(Itemizer.UpgradeKitApoco, 1);
+        }
+        if (rand.nextInt(10) == 1) {
+            dropItem(Itemizer.ToxicLump, 1);
+        }
+        if (rand.nextInt(50) == 1) {
+            dropItem(Itemizer.VileStone, 1);
+        }
+        if (rand.nextInt(10) == 5) {
+            dropItem(Itemizer.SludgeParasite, 1);
+        }
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.VoxBanner);
-	}
-
-	public boolean getCanSpawnHere() {
+    public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 

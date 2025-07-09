@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -39,14 +40,6 @@ public class EntityArkzyne extends EntityMob{
 		playSound("mob.pig.step", 0.55f, 1.0f);
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(1100.0f, Hunter);
-		}
-	}
-
 	public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
@@ -58,9 +51,20 @@ public class EntityArkzyne extends EntityMob{
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.SilverCoin, 1);
 
-		if (rand.nextInt(100) == 45) {
+		if (rand.nextInt(100) < 9) {
 			dropItem(Weaponizer.Sabbath, 1);
 		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsDustopia, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitDarkly, 1);
+        }
+        if (rand.nextInt(5) <= 1) {
+            dropItem(Itemizer.PrimordialSkull, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(5)==0){
+            dropItem(Items.coal,1 + rand.nextInt(5));
+        }
 	}
 
 	protected Entity findPlayerToAttack() {

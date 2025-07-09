@@ -81,7 +81,7 @@ public class EntityMiskel extends EntityMob implements IRangedAttackMob, EntityB
 		if (var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
 			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)var1.getEntity());
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(800, Hunter);
 		}
 

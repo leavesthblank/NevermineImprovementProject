@@ -34,13 +34,6 @@ public class EntityFungock extends EntityMob{
 		return "nevermine:FungiHit";
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(5600.0f, Hunter);
-		}
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
 
@@ -59,6 +52,14 @@ public class EntityFungock extends EntityMob{
 		if (rand.nextInt(60) == 39) {
 			dropItem(Armorizer.FungalLeggings, 1);
 		}
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.HavenShrooms, 1 + rand.nextInt(3));
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(100) == 13) {
+            dropItem(Itemizer.ShroomStone, 1);
+        }
+        dropItem(Itemizer.CoinsMysterium, rand.nextInt(8));
 	}
 
     protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {

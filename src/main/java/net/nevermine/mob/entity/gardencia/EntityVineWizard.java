@@ -6,12 +6,15 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.Plantizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.projectiles.staff.EntityTangleFall;
 
@@ -38,13 +41,41 @@ public class EntityVineWizard extends EntityMob implements IRangedAttackMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(50) == 3) {
+		if (rand.nextInt(50) <= 4) {
 			dropItem(Weaponizer.FlowerCannon, 1);
 		}
-		if (rand.nextInt(40) == 17) {
+		if (rand.nextInt(6) == 0) {
 			dropItem(Itemizer.SmallPedalGreen, 1);
 		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsGardencia, rand.nextInt(8));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(200) == 13) {
+            dropItem(Itemizer.UpgradeKitFloro, 1);
+        }
+        if (rand.nextInt(8) == 0) {
+            dropItem(Itemizer.NatureMelonSlice, 1 + rand.nextInt(2));
+        }
+        if (rand.nextInt(6) == 0) {
+            dropItem(Plantizer.ChiliSeeds, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(20) == 1) {
+            dropItem(Weaponizer.TangleStaff, 1);
+        }
+        if (rand.nextInt(6) == 1) {
+            dropItem(Item.getItemFromBlock(Blocks.vine), 3 + rand.nextInt(5));
+        }
+        if (rand.nextInt(6) == 1) {
+            dropItem(Item.getItemFromBlock(Blocks.red_flower), 3 + rand.nextInt(5));
+        }
+        if (rand.nextInt(6) == 1) {
+            dropItem(Item.getItemFromBlock(Blocks.yellow_flower), 3 + rand.nextInt(5));
+        }
+        if (rand.nextInt(7) == 1) {
+            dropItem(Itemizer.StrikeRune, 2+rand.nextInt(4));
+        }
+        if (rand.nextInt(7) == 1) {
+            dropItem(Itemizer.WaterRune, 2+rand.nextInt(4));
+        }
 	}
 
 	protected boolean isValidLightLevel() {

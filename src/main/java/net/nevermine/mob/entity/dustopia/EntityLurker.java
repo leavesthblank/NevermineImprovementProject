@@ -6,13 +6,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 
 public class EntityLurker extends EntityMob {
 	public EntityLurker(final World par1World) {
@@ -45,20 +43,17 @@ public class EntityLurker extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(7) == 2) {
-			dropItem(dropBanner(), 1);
-		}
-		if (rand.nextInt(200) == 135) {
-			dropItem(Itemizer.UpgradeKitDarkly, 1);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsDustopia, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitDarkly, 1);
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Itemizer.PrimordialSkull, 1 + rand.nextInt(3));
+        }
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.DustopianBanner);
-	}
-
-	protected Entity findPlayerToAttack() {
+    protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return (entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null;
 	}

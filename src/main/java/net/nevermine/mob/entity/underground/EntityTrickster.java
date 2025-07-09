@@ -5,14 +5,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 import java.util.List;
@@ -44,22 +41,9 @@ public class EntityTrickster extends EntityMob {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && posY < 20.0 && isValidLightLevel() && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty();
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.IllusionBanner);
-	}
-
-	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(20) == 13) {
+    protected void dropFewItems(final boolean par1, final int par2) {
+		if (rand.nextInt(20) <= 13) {
 			dropItem(Weaponizer.MiniCannon, 1);
-		}
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
-		}
-		if (rand.nextInt(6) == 4) {
-			dropItem(Itemizer.RealmstoneAbyss, 2);
-		}
-		if (rand.nextInt(5) == 4) {
-			dropItem(Itemizer.RealmstoneDeeplands, 2);
 		}
 	}
 

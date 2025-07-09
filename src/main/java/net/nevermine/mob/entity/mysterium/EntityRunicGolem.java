@@ -10,11 +10,9 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityNoBows;
-import net.nevermine.mob.placement.EntityNoRange;
 import net.nevermine.projectiles.cannon.EntityRunicBomb;
 
-public class EntityRunicGolem extends EntityMob implements EntityNoRange, EntityNoBows {
+public class EntityRunicGolem extends EntityMob {
 	private int shieldCounter;
 	private int form;
 
@@ -42,7 +40,14 @@ public class EntityRunicGolem extends EntityMob implements EntityNoRange, Entity
 		if (rand.nextInt(200) == 155) {
 			dropItem(Itemizer.UpgradeKitRunic, 1);
 		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.HavenShrooms, 1 + rand.nextInt(3));
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(100) == 13) {
+            dropItem(Itemizer.ShroomStone, 1);
+        }
+        dropItem(Itemizer.CoinsMysterium, rand.nextInt(8));
 	}
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {

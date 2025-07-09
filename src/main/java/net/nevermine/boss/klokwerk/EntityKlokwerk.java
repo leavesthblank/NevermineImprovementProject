@@ -55,7 +55,6 @@ public class EntityKlokwerk extends EntityMob implements EntityBoss {
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
 				cont.addExperience(1000, Hunter);
 		}
 	}

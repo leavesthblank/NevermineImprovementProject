@@ -10,9 +10,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityNoFire;
 
-public class EntityEmbrake extends EntityMob implements EntityNoFire {
+public class EntityEmbrake extends EntityMob {
 	public EntityEmbrake(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 1.5f);

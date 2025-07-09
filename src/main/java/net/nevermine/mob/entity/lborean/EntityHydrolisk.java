@@ -6,11 +6,16 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.boss.EntityBoss;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.Plantizer;
+import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Armorizer;
+import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntityHydrolisk extends EntityMob implements EntityBoss {
 	public EntityHydrolisk(final World par1World) {
@@ -36,19 +41,54 @@ public class EntityHydrolisk extends EntityMob implements EntityBoss {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.SilverCoin, 5 + rand.nextInt(10));
-		final int choose = rand.nextInt(4);
-		if (choose == 1) {
-			dropItem(Armorizer.HydroplateBoots, 1);
-		}
-		else if (choose == 2) {
-			dropItem(Armorizer.HydroplateHelmet, 1);
-		}
-		else if (choose == 3) {
-			dropItem(Armorizer.HydroplateLeggings, 1);
-		}
-		else {
-			dropItem(Armorizer.HydroplateChestplate, 1);
-		}
+        dropItem(Armorizer.HydroplateBoots, 1);
+        dropItem(Armorizer.HydroplateHelmet, 1);
+        dropItem(Armorizer.HydroplateLeggings, 1);
+        dropItem(Armorizer.HydroplateChestplate, 1);
+        dropItem(Weaponizer.ReefStaff,1);
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsLborean, rand.nextInt(8));
+        if (rand.nextInt(200) == 0) {
+            dropItem(Itemizer.UpgradeKitSeaside, 1);
+        }
+        if (rand.nextInt(12) == 0) {
+            dropItem(Plantizer.BubbleBerrySeeds, 1);
+        }
+        if (rand.nextInt(15) == 0) {
+            dropItem(Itemizer.PureCoralStone, 1);
+        }
+        if (rand.nextInt(15) == 0) {
+            dropItem(Itemizer.PureRainStone, 1);
+        }
+        if (rand.nextInt(15) == 0) {
+            dropItem(Itemizer.PureWaterStone, 1);
+        }
+        if (rand.nextInt(70) == 43) {
+            dropItem(Itemizer.CoralArchergunWaterlogged, 1);
+        }
+        if (rand.nextInt(70) == 5) {
+            dropItem(Itemizer.CoralCannonWaterlogged, 1);
+        }
+        if (rand.nextInt(70) == 16) {
+            dropItem(Itemizer.ReeferWaterlogged, 1);
+        }
+        if (rand.nextInt(70) == 5) {
+            dropItem(Itemizer.AquaCannonWaterlogged, 1);
+        }
+        if (rand.nextInt(70) == 5) {
+            dropItem(Itemizer.CoralCloggerWaterlogged, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.CoralStone, 1);
+        }
+        dropItem(Itemizer.MagicRepairDust, 1 + rand.nextInt(3));
+        dropItem(Itemizer.SilverCoin, 1 + rand.nextInt(5));
+        dropItem(Itemizer.GoldCoin, 1 + rand.nextInt(2));
+        dropItem(Itemizer.CoinsLborean, 5 + rand.nextInt(28));
+        dropItem(Itemizer.WaterRune, 6 + rand.nextInt(15));
+        dropItem(Itemizer.KineticRune, 6 + rand.nextInt(15));
+        dropItem(Items.fish, 3 + rand.nextInt(3));
+        dropItem(Itemizer.BubbleBerries, 16 + rand.nextInt(17));
 	}
 
 	protected Entity findPlayerToAttack() {
@@ -60,27 +100,6 @@ public class EntityHydrolisk extends EntityMob implements EntityBoss {
 		super.onLivingUpdate();
 		if (isInWater()) {
 			heal(1.0f);
-		}
-		if (rand.nextInt(130) == 43) {
-			final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 20.0);
-			if (var1 == null || var1.getDistanceToEntity(this) > 20.0f) {
-				return;
-			}
-			if (!worldObj.isRemote) {
-				setPosition(var1.posX, var1.posY, var1.posZ);
-			}
-		}
-		if (rand.nextInt(120) == 17 && worldObj.provider.dimensionId != -1) {
-			int var2 = MathHelper.floor_double(posX);
-			int var3 = MathHelper.floor_double(posZ);
-			for (var2 = 0; var2 < 4; ++var2) {
-				var3 = MathHelper.floor_double(posX + (var2 % 2 * 2 - 1) * 0.25f);
-				final int var4 = MathHelper.floor_double(posY);
-				final int var5 = MathHelper.floor_double(posZ + (var2 / 2 % 2 * 2 - 1) * 0.25f);
-				if (worldObj.getBlock(var3, var4, var5) == Blocks.air) {
-					worldObj.setBlock(var3, var4, var5, Blocks.water);
-				}
-			}
 		}
 	}
 

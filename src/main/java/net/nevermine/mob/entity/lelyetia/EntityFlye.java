@@ -32,28 +32,18 @@ public class EntityFlye extends EntityAIFlying {
 		setSize(1.0f, 1.0f);
 	}
 
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 3.0);
-		if (var1 == null || var1.getDistanceToEntity(this) > 3.0f) {
-			return;
-		}
-		var1.setFire(4);
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(40) == 15) {
+		if (rand.nextInt(40) >= 37) {
 			dropItem(Weaponizer.PyroArchergun, 1);
 		}
-		if (rand.nextInt(3) == 2) {
-			dropItem(Itemizer.CoinsLelyetia, 3);
-		}
-		if (rand.nextInt(200) == 135) {
-			dropItem(Itemizer.UpgradeKitLelyetian, 1);
-		}
-		if (rand.nextInt(5) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.LelyetianBanner), 1);
-		}
+        dropItem(Itemizer.CopperCoin,5+rand.nextInt(10));
+        dropItem(Itemizer.CoinsLelyetia, rand.nextInt(8));
+        if (rand.nextInt(200)==0){
+            dropItem(Itemizer.UpgradeKitLelyetian,1);
+        }
+        if (rand.nextInt(20) == 15) {
+            dropItem(Itemizer.GuardiansEye, 1);
+        }
 	}
 
 	public boolean getCanSpawnHere() {

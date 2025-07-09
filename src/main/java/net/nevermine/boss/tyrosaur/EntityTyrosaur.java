@@ -15,14 +15,12 @@ import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.boss.EntityBoss;
 import net.nevermine.container.PlayerContainer;
-import net.nevermine.mob.placement.EntityNoBows;
-import net.nevermine.mob.placement.EntityNoRange;
 
 import java.util.List;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityTyrosaur extends EntityMob implements EntityBoss, EntityNoRange, EntityNoBows {
+public class EntityTyrosaur extends EntityMob implements EntityBoss {
 	private int musictick = 6;
 	private int stomp = 100;
 
@@ -134,7 +132,7 @@ public class EntityTyrosaur extends EntityMob implements EntityBoss, EntityNoRan
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(3000, Hunter);
 		}
 	}

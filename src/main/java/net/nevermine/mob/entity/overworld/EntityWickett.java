@@ -8,11 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.mob.placement.EntityNoExplosions;
-import net.nevermine.mob.placement.EntityNoFire;
-import net.nevermine.mob.placement.EntityNoMagic;
 
-public class EntityWickett extends EntityMob implements EntityNoFire, EntityNoMagic, EntityNoExplosions {
+public class EntityWickett extends EntityMob {
 	public EntityWickett(final World par1World) {
 		super(par1World);
 		setSize(1.0f, 1.0f);
@@ -33,7 +30,7 @@ public class EntityWickett extends EntityMob implements EntityNoFire, EntityNoMa
 
 	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
 		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return !par1DamageSource.isExplosion() && !par1DamageSource.isMagicDamage() && super.attackEntityFrom(par1DamageSource, par2);
+		return super.attackEntityFrom(par1DamageSource, par2);
 	}
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {

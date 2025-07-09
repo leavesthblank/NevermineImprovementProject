@@ -63,6 +63,11 @@ public class EntityLelyetianCaster extends EntityMob implements IRangedAttackMob
 		if (rand.nextInt(20) == 15) {
 			dropItem(Itemizer.GuardiansEye, 1);
 		}
+        dropItem(Itemizer.CopperCoin,5+rand.nextInt(10));
+        dropItem(Itemizer.CoinsLelyetia, rand.nextInt(8));
+        if (rand.nextInt(200)==0){
+            dropItem(Itemizer.UpgradeKitLelyetian,1);
+        }
 	}
 
 	protected void entityInit() {

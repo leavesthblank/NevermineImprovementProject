@@ -46,9 +46,19 @@ public class EntityDawnlight extends EntityMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsHaven, rand.nextInt(8));
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.VoliantHeart, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.HeavyBoulder, 1);
+        }
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLight, 1);
+        }
 
-		if (rand.nextInt(35) == 15) {
+		if (rand.nextInt(35) < 3) {
 			dropItem(Weaponizer.BubbleHorn, 1);
 		}
 	}
@@ -58,14 +68,6 @@ public class EntityDawnlight extends EntityMob{
 		return ((entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null);
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(270.0f, Hunter);
-		}
-	}
-
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0);
@@ -73,16 +75,5 @@ public class EntityDawnlight extends EntityMob{
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
-	}
-
-	public boolean attackEntityAsMob(final Entity par1Entity) {
-		super.attackEntityAsMob(par1Entity);
-		if (entityToAttack != null) {
-			if (par1Entity instanceof EntityLivingBase) {
-				par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), 40.0f - getHealth());
-			}
-			return true;
-		}
-		return false;
 	}
 }

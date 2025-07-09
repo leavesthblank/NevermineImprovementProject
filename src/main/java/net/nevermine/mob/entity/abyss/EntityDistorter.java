@@ -47,21 +47,19 @@ public class EntityDistorter extends EntityMob {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CoinsAbyss, 1);
-		}
-		if (rand.nextInt(40) == 33) {
+        dropItem(Itemizer.CoinsAbyss, rand.nextInt(8));
+
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitAbyssal, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.StaringEye, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.BookOfShadows, 1);
+        }
+		if (rand.nextInt(40) >= 37) {
 			dropItem(Weaponizer.SuperCannon, 1);
-		}
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		for (final EntityPlayer e : (List<EntityPlayer>)worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(11.0, 11.0, 11.0))) {
-			if (e.capabilities.isCreativeMode)
-				continue;
-
-			e.addVelocity(Math.signum(posX - e.posX) * 0.029, 0.0, Math.signum(posZ - e.posZ) * 0.029);
 		}
 	}
 

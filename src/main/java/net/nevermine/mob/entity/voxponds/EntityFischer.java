@@ -9,6 +9,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
+import net.nevermine.izer.Itemizer;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
@@ -29,6 +30,23 @@ public class EntityFischer extends EntityMob{
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.7);
 		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0);
 	}
+
+    protected void dropFewItems(final boolean par1, final int par2) {
+        dropItem(Itemizer.SilverCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsVoxPonds, rand.nextInt(8));
+        if (rand.nextInt(200) == 1) {
+            dropItem(Itemizer.UpgradeKitApoco, 1);
+        }
+        if (rand.nextInt(10) == 1) {
+            dropItem(Itemizer.ToxicLump, 1);
+        }
+        if (rand.nextInt(50) == 1) {
+            dropItem(Itemizer.VileStone, 1);
+        }
+        if (rand.nextInt(10) == 5) {
+            dropItem(Itemizer.SludgeParasite, 1);
+        }
+    }
 
 	public boolean handleWaterMovement() {
 		return false;

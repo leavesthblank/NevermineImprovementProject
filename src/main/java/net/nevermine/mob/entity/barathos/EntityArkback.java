@@ -5,15 +5,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
+import net.nevermine.izer.Plantizer;
 import net.nevermine.izer.equipment.Weaponizer;
-
-import java.util.List;
 
 public class EntityArkback extends EntityMob {
 	public EntityArkback(final World par1World) {
@@ -33,11 +29,7 @@ public class EntityArkback extends EntityMob {
 		return "nevermine:ArkbackHit";
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.UtopianBanner);
-	}
-
-	public boolean getCanSpawnHere() {
+    public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
@@ -50,20 +42,20 @@ public class EntityArkback extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(30) == 14) {
+		if (rand.nextInt(30) <= 2) {
 			dropItem(Weaponizer.BaronGreatblade, 1);
 		}
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsBarathos, 3);
-		}
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		for (EntityPlayer e : (List<EntityPlayer>)this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(4.0D, 4.0D, 4.0D))) {
-			e.attackEntityFrom(DamageSource.causeMobDamage(this), 3.0F);
-		}
+        dropItem(Itemizer.CoinsBarathos, 3 + rand.nextInt(3));
+        if (rand.nextInt(200) == 0) {
+            dropItem(Itemizer.UpgradeKitRocky, 1);
+        }
+        if (rand.nextInt(4) == 0) {
+            dropItem(Plantizer.ThornyPlantSeeds, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Itemizer.HiveChunk, 1 + rand.nextInt(3));
+        }
 	}
 
 	protected Entity findPlayerToAttack() {

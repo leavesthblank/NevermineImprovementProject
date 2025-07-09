@@ -429,7 +429,7 @@ public class EntityShadowlord extends EntityMob implements IRangedAttackMob, Ent
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(1250, Hunter);
 		}
 	}

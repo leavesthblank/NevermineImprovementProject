@@ -12,11 +12,10 @@ import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoFire;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityFlamewalker extends EntityMob implements EntityNoFire{
+public class EntityFlamewalker extends EntityMob {
 	public EntityFlamewalker(final World par1World) {
 		super(par1World);
 		setSize(0.8f, 2.2f);
@@ -70,23 +69,5 @@ public class EntityFlamewalker extends EntityMob implements EntityNoFire{
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.1);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		if (!worldObj.isRemote) {
-			if (getHealth() > 7.0f) {
-				int var1 = MathHelper.floor_double(posX);
-				int var2 = MathHelper.floor_double(posZ);
-				for (var1 = 0; var1 < 4; ++var1) {
-					var2 = MathHelper.floor_double(posX + (var1 % 2 * 2 - 1) * 0.25f);
-					final int var3 = MathHelper.floor_double(posY);
-					final int var4 = MathHelper.floor_double(posZ + (var1 / 2 % 2 * 2 - 1) * 0.25f);
-					if (worldObj.getBlock(var2, var3 - 1, var4) == Blocks.netherrack && worldObj.getBlock(var2, var3, var4) == Blocks.air) {
-						worldObj.setBlock(var2, var3, var4, Blocks.fire);
-					}
-				}
-			}
-		}
 	}
 }

@@ -49,7 +49,7 @@ public class EntityCrystalTrader extends EntityNevermineVillager {
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CrystalsBlue, 20, 1), new ItemStack(Itemizer.CrystalsPurple, 20), new ItemStack(Weaponizer.CrystalCarver, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CrystalsBlue, 20, 1), new ItemStack(Itemizer.CrystalsWhite, 20), new ItemStack(Weaponizer.BlastBarrel, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CrystalsPurple, 20, 1), new ItemStack(Itemizer.CrystalsYellow, 20), new ItemStack(Weaponizer.CrystalGreatblade, 1)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.CrystalsPurple, 10, 1), new ItemStack(Itemizer.CrystalsRed, 10), new ItemStack(Itemizer.GiantCrystal, 2)));
+		list.add(new RestockedRecipe(new ItemStack(Itemizer.CrystalsPurple, 5, 1), new ItemStack(Itemizer.CrystalsRed, 5), new ItemStack(Itemizer.GiantCrystal, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CrystalsGreen, 10, 1), new ItemStack(Itemizer.CrystalsRed, 10), new ItemStack(Armorizer.CrystallisChestplate, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CrystalsBlue, 10, 1), new ItemStack(Itemizer.CrystalsPurple, 10), new ItemStack(Armorizer.CrystallisHelmet, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.CrystalsYellow, 10, 1), new ItemStack(Itemizer.CrystalsWhite, 10), new ItemStack(Armorizer.CrystallisBoots, 1)));

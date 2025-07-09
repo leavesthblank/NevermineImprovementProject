@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
@@ -41,7 +42,23 @@ public class EntityEnforcer extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsIromine, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitGolden, 1);
+        }
+        if (rand.nextInt(25) == 0) {
+            dropItem(Itemizer.IngotLyon, 1);
+        }
+        if (rand.nextInt(15) == 0) {
+            dropItem(Items.iron_ingot, 1);
+        }
+        if (rand.nextInt(20) == 0) {
+            dropItem(Items.gold_ingot, 1);
+        }
+        if (rand.nextInt(11) == 0) {
+            dropItem(Items.redstone, 1+rand.nextInt(4));
+        }
 	}
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {

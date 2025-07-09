@@ -11,11 +11,8 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.SpecialBlockizer;
-import net.nevermine.mob.placement.EntityNoExplosions;
-import net.nevermine.mob.placement.EntityNoFire;
-import net.nevermine.mob.placement.EntityNoMagic;
 
-public class EntityConstructResistance extends EntityMob implements EntityNoFire, EntityNoMagic, EntityNoExplosions {
+public class EntityConstructResistance extends EntityMob {
 	public EntityConstructResistance(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 2.3f);
@@ -55,15 +52,9 @@ public class EntityConstructResistance extends EntityMob implements EntityNoFire
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(3) == 2) {
-			dropItem(Itemizer.CoinsCrystevia, 2);
-		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.GemstonesWhite, 3);
-		}
-		if (rand.nextInt(6) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.CrystalBanner), 1);
-		}
+        dropItem(Itemizer.CoinsCrystevia, rand.nextInt(8));
+        dropItem(Itemizer.CopperCoin, 3 + rand.nextInt(9));
+        dropItem(Itemizer.GemstonesWhite, rand.nextInt(4));
 	}
 
 	public boolean getCanSpawnHere() {

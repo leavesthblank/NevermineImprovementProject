@@ -10,9 +10,8 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityNoFire;
 
-public class EntityHellcat extends EntityMob implements EntityNoFire {
+public class EntityHellcat extends EntityMob {
 	public EntityHellcat(final World par1World) {
 		super(par1World);
 		setSize(2.3f, 2.25f);

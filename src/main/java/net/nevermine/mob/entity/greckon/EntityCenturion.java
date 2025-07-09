@@ -12,10 +12,8 @@ import net.nevermine.assist.AddPackets;
 import net.nevermine.gui.MobHitPacket;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.SpecialBlockizer;
-import net.nevermine.mob.placement.EntityNoBows;
-import net.nevermine.mob.placement.EntityNoRange;
 
-public class EntityCenturion extends EntityMob implements EntityNoRange, EntityNoBows {
+public class EntityCenturion extends EntityMob {
 	public EntityCenturion(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 2.5f);
@@ -44,9 +42,6 @@ public class EntityCenturion extends EntityMob implements EntityNoRange, EntityN
 		if (rand.nextInt(30) == 25) {
 			dropItem(Itemizer.RealmstoneFragment5, 1);
 		}
-		if (rand.nextInt(4) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.FragmentBanner), 1);
-		}
 	}
 
 	protected boolean isValidLightLevel() {
@@ -65,15 +60,5 @@ public class EntityCenturion extends EntityMob implements EntityNoRange, EntityN
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(300.0);
-	}
-
-	public boolean attackEntityAsMob(final Entity par1) {
-		if (super.attackEntityAsMob(par1)) {
-			if (par1 instanceof EntityPlayer && par1 instanceof EntityPlayerMP) {
-				AddPackets.network.sendTo(new MobHitPacket(300, 7), (EntityPlayerMP)par1);
-			}
-			return true;
-		}
-		return false;
 	}
 }

@@ -5,11 +5,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
+import net.nevermine.izer.Plantizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntityNospike extends EntityMob {
@@ -38,28 +37,26 @@ public class EntityNospike extends EntityMob {
 		return true;
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.BaronBanner);
-	}
-
-	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
+    protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("mob.pig.step", 0.55f, 1.0f);
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(40) == 37) {
+		if (rand.nextInt(40) <= 4) {
 			dropItem(Weaponizer.DestructionRifle, 1);
 		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsBarathos, 2);
-		}
-		if (rand.nextInt(200) == 135) {
-			dropItem(Itemizer.UpgradeKitRocky, 1);
-		}
+        dropItem(Itemizer.CoinsBarathos, 3 + rand.nextInt(3));
+        if (rand.nextInt(200) == 0) {
+            dropItem(Itemizer.UpgradeKitRocky, 1);
+        }
+        if (rand.nextInt(4) == 0) {
+            dropItem(Plantizer.ThornyPlantSeeds, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Itemizer.HiveChunk, 1 + rand.nextInt(3));
+        }
+        dropItem(Itemizer.Ivory,rand.nextInt(2));
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(8) == 2) {
-			dropItem(dropBanner(), 1);
-		}
 	}
 
 	protected Entity findPlayerToAttack() {

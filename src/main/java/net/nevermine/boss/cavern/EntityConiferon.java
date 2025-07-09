@@ -19,9 +19,8 @@ import net.nevermine.container.AncientBossesContainer;
 import net.nevermine.gui.MobHitPacket;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoRange;
 
-public class EntityConiferon extends EntityMob implements EntityNoRange, EntityBoss, CavernBoss {
+public class EntityConiferon extends EntityMob implements EntityBoss, CavernBoss {
 	public EntityConiferon(final World par1World) {
 		super(par1World);
 		setSize(4.0f, 5.5f);

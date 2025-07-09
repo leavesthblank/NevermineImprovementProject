@@ -47,17 +47,18 @@ public class EntitySurveyor extends EntityAIFlying {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CoinsHaven, 1);
-		}
-		if (rand.nextInt(30) == 14) {
-			dropItem(Itemizer.RealmstoneLelyetia, 3);
-		}
-		if (rand.nextInt(100) == 35) {
-			dropItem(Itemizer.UpgradeKitLight, 1);
-		}
-		if (rand.nextInt(70) == 41) {
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsHaven, rand.nextInt(8));
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.VoliantHeart, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.HeavyBoulder, 1);
+        }
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLight, 1);
+        }
+		if (rand.nextInt(70) >= 63) {
 			dropItem(Weaponizer.Minigun, 1);
 		}
 	}
@@ -140,18 +141,9 @@ public class EntitySurveyor extends EntityAIFlying {
 	public boolean attackEntityAsMob(final Entity par1Entity) {
 		super.attackEntityAsMob(par1Entity);
 		if (entityToAttack != null) {
-			entityToAttack.addVelocity(motionX * 3.5, motionY * 0.2, motionZ * 4.0);
+			entityToAttack.addVelocity(motionX * (3.5+0.5*rand.nextFloat()), motionY * 0.2, motionZ * (3.5+0.5*rand.nextFloat()));
 			return true;
 		}
 		return false;
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 15.0);
-		if (var1 == null || var1.getDistanceToEntity(this) > 15.0f) {
-			return;
-		}
-		var1.addVelocity(Math.signum(posX - var1.posX) * 0.029, 0.0, Math.signum(posZ - var1.posZ) * 0.029);
 	}
 }

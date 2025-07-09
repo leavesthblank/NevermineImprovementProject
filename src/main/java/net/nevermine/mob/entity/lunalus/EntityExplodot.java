@@ -7,6 +7,7 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.nevermine.izer.Itemizer;
 import net.nevermine.mob.ai.EntityAIFlying;
 
 import java.util.List;
@@ -30,6 +31,17 @@ public class EntityExplodot extends EntityAIFlying {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsLunalus, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLunar, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.Orbulon, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.ObservingEye, 1);
+        }
 	}
 
 	public boolean getCanSpawnHere() {

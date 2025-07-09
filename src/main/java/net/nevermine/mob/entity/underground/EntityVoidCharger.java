@@ -39,14 +39,11 @@ public class EntityVoidCharger extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(6) == 1) {
-			dropItem(Items.feather, 4);
+		if (rand.nextInt(6) >= 1) {
+			dropItem(Items.feather, 4 + rand.nextInt(4));
 		}
-		if (rand.nextInt(35) == 21) {
+		if (rand.nextInt(35) <= 21) {
 			dropItem(Weaponizer.VoidSword, 1);
-		}
-		if (rand.nextInt(5) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.VoidBanner), 1);
 		}
 	}
 

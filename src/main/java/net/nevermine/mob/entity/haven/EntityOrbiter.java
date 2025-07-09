@@ -29,10 +29,17 @@ public class EntityOrbiter extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CoinsHaven, 1);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsHaven, rand.nextInt(8));
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.VoliantHeart, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.HeavyBoulder, 1);
+        }
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLight, 1);
+        }
 	}
 
 	public boolean getCanSpawnHere() {
@@ -46,18 +53,6 @@ public class EntityOrbiter extends EntityMob {
 	protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return ((entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null);
-	}
-
-	public void onLivingUpdate() {
-		for (final EntityPlayer e : (List<EntityPlayer>)worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(8.0, 8.0, 8.0))) {
-			if (e.capabilities.isCreativeMode)
-				continue;
-
-			e.addVelocity(motionX * 0.05, 0.1, motionZ * 0.0);
-			e.fallDistance = 0.0f;
-		}
-
-		super.onLivingUpdate();
 	}
 
 	public void applyEntityAttributes() {

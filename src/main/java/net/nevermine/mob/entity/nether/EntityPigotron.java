@@ -10,9 +10,8 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoFire;
 
-public class EntityPigotron extends EntityMob implements EntityNoFire {
+public class EntityPigotron extends EntityMob {
 	public EntityPigotron(final World par1World) {
 		super(par1World);
 		setSize(0.9f, 2.5f);
@@ -41,7 +40,7 @@ public class EntityPigotron extends EntityMob implements EntityNoFire {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(25) == 17) {
+		if (rand.nextInt(25) <= 17) {
 			dropItem(Weaponizer.Grandsword, 1);
 		}
 	}

@@ -89,7 +89,6 @@ public class EntityGyro extends EntityAIFlying implements IRangedAttackMob, Enti
 
 			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)var1.getEntity());
 
-			if (cont.getLevel(Hunter) >= 30)
 				cont.addExperience(3500, Hunter);
 		}
 	}

@@ -17,10 +17,8 @@ import net.minecraft.world.World;
 import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
-import net.nevermine.mob.placement.EntityNoFire;
-import net.nevermine.mob.placement.EntityNoRange;
 
-public class EntityInfernal extends EntityMob implements EntityNoFire, EntityNoRange {
+public class EntityInfernal extends EntityMob {
 	public EntityInfernal(final World par1World) {
 		super(par1World);
 		setSize(2.3f, 2.5f);

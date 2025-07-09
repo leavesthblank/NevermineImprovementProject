@@ -43,25 +43,24 @@ public class EntityDoubler extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 1) {
-			dropItem(Weaponizer.SkeletalArchergun, 1);
-		}
+		dropItem(Weaponizer.SkeletalArchergun, 1);
 		dropItem(Itemizer.SilverCoin, 5 + rand.nextInt(10));
-		dropItem(Itemizer.RealmstoneDeeplands, 3);
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitPredator, 1);
+        }
+        if (rand.nextInt(40) == 16) {
+            dropItem(Itemizer.BoulderDash, 1);
+        }
+        dropItem(Itemizer.CoinsDeeplands, rand.nextInt(8));
+        if (rand.nextInt(40) == 16) {
+            dropItem(Itemizer.UnchargedStone, 1);
+        }
 	}
 
 	protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return ((entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null);
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 10.0);
-		if (var1 == null || var1.capabilities.isCreativeMode || var1.getDistanceToEntity(this) > 10.0f) {
-			return;
-		}
-		var1.addPotionEffect(new PotionEffect(Potion.blindness.id, 30, 1));
 	}
 
 	public void applyEntityAttributes() {

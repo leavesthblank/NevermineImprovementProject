@@ -12,11 +12,8 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoBows;
-import net.nevermine.mob.placement.EntityNoMelee;
-import net.nevermine.mob.placement.EntityNoRange;
 
-public class EntityTortione extends EntityMob implements EntityNoRange, EntityNoBows, EntityNoMelee {
+public class EntityTortione extends EntityMob {
 	public EntityTortione(final World par1World) {
 		super(par1World);
 		setSize(2.0f, 2.2f);

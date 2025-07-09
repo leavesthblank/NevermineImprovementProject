@@ -5,13 +5,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 
 public class EntityApparition extends EntityMob {
 	public EntityApparition(final World par1World) {
@@ -40,25 +38,22 @@ public class EntityApparition extends EntityMob {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.ShadowBanner);
-	}
-
-	protected boolean isValidLightLevel() {
+    protected boolean isValidLightLevel() {
 		return true;
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CoinsAbyss, 1);
-		}
+        dropItem(Itemizer.CoinsAbyss, rand.nextInt(8));
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(20) == 3) {
+		if (rand.nextInt(20) == 0) {
 			dropItem(Itemizer.BookOfShadows, 1);
 		}
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
-		}
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitAbyssal, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.StaringEye, 1);
+        }
 	}
 
 	public void applyEntityAttributes() {

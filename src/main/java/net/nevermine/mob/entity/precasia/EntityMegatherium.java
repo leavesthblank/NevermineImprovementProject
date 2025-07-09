@@ -11,10 +11,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityNoBows;
-import net.nevermine.mob.placement.EntityNoRange;
 
-public class EntityMegatherium extends EntityMob implements EntityNoRange, EntityNoBows {
+public class EntityMegatherium extends EntityMob {
 	public EntityMegatherium(final World par1World) {
 		super(par1World);
 		setSize(2.5f, 3.9f);

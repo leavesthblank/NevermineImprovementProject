@@ -11,10 +11,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityNoBows;
-import net.nevermine.mob.placement.EntityNoRange;
 
-public class EntitySandGolem extends EntityMob implements EntityNoRange, EntityNoBows {
+public class EntitySandGolem extends EntityMob {
 	public EntitySandGolem(final World par1World) {
 		super(par1World);
 		setSize(1.5f, 2.0f);
@@ -58,10 +56,5 @@ public class EntitySandGolem extends EntityMob implements EntityNoRange, EntityN
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.0);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0);
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return !par1DamageSource.isProjectile() && !(entity instanceof EntityArrow) && !(entity instanceof EntityThrowable) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 }

@@ -41,11 +41,11 @@ public class EntityCherryBarrager extends EntityMob implements IRangedAttackMob 
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.SourCandy, 1);
-		dropItem(Itemizer.RealmstoneCandyland, 2);
-		if (rand.nextInt(3) == 1) {
-			dropItem(Itemizer.CoinsCandyland, 6);
-		}
-		dropItem(Itemizer.SilverCoin, 2);
+        dropItem(Itemizer.CoinsCandyland, rand.nextInt(16));
+		dropItem(Itemizer.SilverCoin, 2 + rand.nextInt(2));
+        if (rand.nextInt(15) == 1) {
+            dropItem(Itemizer.SourGummy, 1);
+        }
 	}
 
 	protected String getLivingSound() {

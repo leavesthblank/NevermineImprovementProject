@@ -5,12 +5,15 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.equipment.Weaponizer;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
@@ -20,11 +23,7 @@ public class EntityArocknid extends EntityMob{
 		setSize(2.5f, 1.5f);
 	}
 
-	private boolean projectileTest(final Entity entity) {
-		return entity instanceof EntityThrowable && ((EntityThrowable)entity).getThrower() instanceof EntityPlayer;
-	}
-
-	public void onDeath(final DamageSource var1) {
+    public void onDeath(final DamageSource var1) {
 		super.onDeath(var1);
 		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
 			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(700.0f, Hunter);
@@ -64,6 +63,29 @@ public class EntityArocknid extends EntityMob{
 		else {
 			dropItem(Itemizer.FireRune, 16);
 		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitPredator, 1);
+        }
+        if (rand.nextInt(40) == 16) {
+            dropItem(Itemizer.BoulderDash, 1);
+        }
+        dropItem(Itemizer.CoinsDeeplands, rand.nextInt(8));
+        if (rand.nextInt(40) == 16) {
+            dropItem(Itemizer.UnchargedStone, 1);
+        }
+        if (rand.nextInt(6) == 0) {
+            dropItem(Items.spider_eye, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(6) == 0) {
+            dropItem(Items.flint, 2 + rand.nextInt(15));
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Item.getItemFromBlock(Blocks.web), 1);
+        }
+        if (rand.nextInt(20) == 0) {
+            dropItem(Weaponizer.RockPickSword, 1);
+        }
 	}
 
 	protected Entity findPlayerToAttack() {

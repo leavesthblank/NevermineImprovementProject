@@ -11,7 +11,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
@@ -61,21 +60,27 @@ public class EntityGrocculate extends EntityMob {
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(160.0);
 	}
 
-	private Item dropblock() {
-		return Item.getItemFromBlock(Blockizer.FireLamp);
-	}
-
-	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(100) == 20) {
+    protected void dropFewItems(final boolean par1, final int par2) {
+		if (rand.nextInt(100) <= 9) {
 			dropItem(Weaponizer.VoxCannon, 1);
 		}
 		if (rand.nextInt(5) == 2) {
 			dropItem(Itemizer.ToxicLump, 1);
 		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsVoxPonds, 2);
-		}
+        if (rand.nextInt(10) == 5) {
+            dropItem(Itemizer.SludgeParasite, 1);
+        }
+        dropItem(Itemizer.SilverCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsVoxPonds, rand.nextInt(8));
+        if (rand.nextInt(200) == 1) {
+            dropItem(Itemizer.UpgradeKitApoco, 1);
+        }
+        if (rand.nextInt(10) == 1) {
+            dropItem(Itemizer.ToxicLump, 1);
+        }
+        if (rand.nextInt(50) == 1) {
+            dropItem(Itemizer.VileStone, 1);
+        }
 	}
 
 	private Item dropBanner() {

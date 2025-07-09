@@ -5,11 +5,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 
 public class EntityHunter extends EntityMob {
 	public EntityHunter(final World par1World) {
@@ -37,23 +35,19 @@ public class EntityHunter extends EntityMob {
 		return true;
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.GhoulBanner);
-	}
-
-	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
+    protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("mob.pig.step", 0.55f, 1.0f);
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsGreckon, 2);
-		}
-		if (rand.nextInt(20) == 3) {
-			dropItem(Itemizer.RealmstoneDustopia, 2);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsGreckon, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitHaunted, 1);
+        }
+        if (rand.nextInt(10) == 4) {
+            dropItem(Itemizer.Ghoulasm, 1);
+        }
 	}
 
 	protected Entity findPlayerToAttack() {

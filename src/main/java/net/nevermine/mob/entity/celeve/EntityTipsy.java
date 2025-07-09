@@ -41,17 +41,11 @@ public class EntityTipsy extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinCircus, 1);
-		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsCeleve, 3);
-		}
+        dropItem(Itemizer.CoinCircus, rand.nextInt(6));
+        dropItem(Itemizer.CoinsCeleve, rand.nextInt(8));
+        dropItem(Itemizer.CopperCoin,rand.nextInt(4));
 		if (rand.nextInt(200) == 135) {
 			dropItem(Itemizer.UpgradeKitClown, 1);
-		}
-		if (rand.nextInt(7) == 2) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.ClownBanner), 1);
 		}
 	}
 

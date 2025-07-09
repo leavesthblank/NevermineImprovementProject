@@ -78,7 +78,7 @@ public class EntityKror extends EntityMob implements EntityBoss {
 
 			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)d.getEntity());
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(5000, Hunter);
 		}
 	}

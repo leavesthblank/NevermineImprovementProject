@@ -10,11 +10,9 @@ import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
 
 public class EntitySkullCreature extends EntityMob {
-	private Boolean invuln;
 
 	public EntitySkullCreature(final World par1World) {
 		super(par1World);
-		invuln = false;
 		setSize(1.2f, 1.9f);
 	}
 
@@ -43,7 +41,14 @@ public class EntitySkullCreature extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsGreckon, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitHaunted, 1);
+        }
+        if (rand.nextInt(10) == 4) {
+            dropItem(Itemizer.Ghoulasm, 1);
+        }
 	}
 
 	protected Entity findPlayerToAttack() {
@@ -58,20 +63,5 @@ public class EntitySkullCreature extends EntityMob {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.4);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		if ((getHealth() < 5.0f && getHealth() > 0.0f) || (getHealth() < 15.0f && getHealth() > 10.0f)) {
-			heal(0.2f);
-			invuln = true;
-		}
-		else {
-			invuln = false;
-		}
-	}
-
-	public boolean isEntityInvulnerable() {
-		return invuln;
 	}
 }

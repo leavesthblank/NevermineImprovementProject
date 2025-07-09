@@ -5,6 +5,7 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntityEeoRunning extends EntityMob {
@@ -28,6 +29,14 @@ public class EntityEeoRunning extends EntityMob {
 		if (rand.nextInt(65) == 32) {
 			dropItem(Weaponizer.DoomBringer, 1);
 		}
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.HavenShrooms, 1 + rand.nextInt(3));
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(100) == 13) {
+            dropItem(Itemizer.ShroomStone, 1);
+        }
+        dropItem(Itemizer.CoinsMysterium, rand.nextInt(8));
 	}
 
 	public boolean isAIEnabled() {

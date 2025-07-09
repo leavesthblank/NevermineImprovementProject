@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.Plantizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntityKeeler extends EntityMob {
@@ -41,22 +42,20 @@ public class EntityKeeler extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(60) == 13) {
+		if (rand.nextInt(60) >= 56) {
 			dropItem(Weaponizer.BaronBow, 1);
 		}
-		if (rand.nextInt(200) == 135) {
-			dropItem(Itemizer.UpgradeKitRocky, 1);
-		}
+        dropItem(Itemizer.CoinsBarathos, 3 + rand.nextInt(3));
+        if (rand.nextInt(200) == 0) {
+            dropItem(Itemizer.UpgradeKitRocky, 1);
+        }
+        if (rand.nextInt(4) == 0) {
+            dropItem(Plantizer.ThornyPlantSeeds, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Itemizer.HiveChunk, 1 + rand.nextInt(3));
+        }
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final float curHp = getHealth();
-		if (curHp > 0.0f && curHp < 8.0f) {
-			setHealth(35.0f);
-			playSound("nevermine:KeelerRevive", 1.25f, 1.0f);
-		}
 	}
 
 	protected Entity findPlayerToAttack() {

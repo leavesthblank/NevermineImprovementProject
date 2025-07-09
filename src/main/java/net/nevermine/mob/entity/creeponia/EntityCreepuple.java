@@ -4,9 +4,11 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.init.Items;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.common.nevermine;
+import net.nevermine.izer.Itemizer;
 
 public class EntityCreepuple extends EntityCreeper {
 	public EntityCreepuple(final World par1World) {
@@ -29,6 +31,12 @@ public class EntityCreepuple extends EntityCreeper {
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("mob.pig.step", 1.0f, 1.0f);
 	}
+
+    protected void dropFewItems(final boolean par1, final int par2) {
+        dropItem(Itemizer.CopperCoin, 2 + rand.nextInt(5));
+        dropItem(Itemizer.CoinsCreeponia, 3 + rand.nextInt(3));
+        dropItem(Items.gunpowder,rand.nextInt(3));
+    }
 
 	public boolean getCanSpawnHere() {
 		final int counter = worldObj.getEntitiesWithinAABB(EntityMob.class, boundingBox.expand(20.0, 10.0, 20.0)).size();

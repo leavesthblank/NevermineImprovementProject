@@ -42,11 +42,13 @@ public class EntityMechachron extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.MechaStaffIncomplete, 1);
-		}
+		dropItem(Itemizer.MechaStaffIncomplete, 1);
 		dropItem(Itemizer.GoldCoin, 1);
-		dropItem(Itemizer.RealmstoneIromine, 3);
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsIromine, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitGolden, 1);
+        }
 	}
 
 	public boolean attackEntityAsMob(final Entity par1) {

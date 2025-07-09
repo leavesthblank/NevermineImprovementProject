@@ -16,12 +16,10 @@ import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoBows;
-import net.nevermine.mob.placement.EntityNoRange;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityLivingFungi extends EntityMob implements EntityNoRange, EntityNoBows{
+public class EntityLivingFungi extends EntityMob {
 	public EntityLivingFungi(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 2.6f);
@@ -41,13 +39,6 @@ public class EntityLivingFungi extends EntityMob implements EntityNoRange, Entit
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("nevermine:HeavyStep", 0.55f, 1.0f);
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(1500.0f, Hunter);
-		}
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {

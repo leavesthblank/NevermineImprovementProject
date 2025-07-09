@@ -5,11 +5,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.equipment.Weaponizer;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
@@ -41,9 +44,21 @@ public class EntityZhinx extends EntityMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(8) == 2) {
-			dropItem(Itemizer.ZhinxDust, 1 + rand.nextInt(5));
-		}
+		dropItem(Itemizer.ZhinxDust, 1 + rand.nextInt(5));
+        dropItem(Itemizer.CopperCoin,5+rand.nextInt(10));
+        dropItem(Itemizer.CoinsLelyetia, rand.nextInt(8));
+        if (rand.nextInt(200)==0){
+            dropItem(Itemizer.UpgradeKitLelyetian,1);
+        }
+        if (rand.nextInt(40) == 15) {
+            dropItem(Itemizer.GuardiansEye, 1);
+        }
+        if(rand.nextInt(40)==0){
+            dropItem(Weaponizer.PowerRay,1);
+        }
+        if (rand.nextInt(10)==0){
+            dropItem(Items.bone,1+rand.nextInt(3));
+        }
 	}
 
 	public void onDeath(final DamageSource var1) {

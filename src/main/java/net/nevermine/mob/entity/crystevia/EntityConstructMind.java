@@ -53,15 +53,10 @@ public class EntityConstructMind extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.RealmstoneCrystevia, 2);
 
-		if (rand.nextInt(3) == 2) {
-			dropItem(Itemizer.CoinsCrystevia, 2);
-		}
-
-		if (rand.nextInt(2) == 1) {
-			dropItem(Weaponizer.Orbocron, 1);
-		}
+        dropItem(Itemizer.CoinsCrystevia, rand.nextInt(8));
+        dropItem(Itemizer.CopperCoin, 3 + rand.nextInt(9));
+        dropItem(Weaponizer.Orbocron, 1);
 	}
 
 	public boolean getCanSpawnHere() {

@@ -261,7 +261,7 @@ public class EntityXxeus extends EntityMob implements EntityBoss {
 
 			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)d.getEntity());
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(20000, Hunter);
 		}
 	}

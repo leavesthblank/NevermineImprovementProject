@@ -12,11 +12,9 @@ import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntityDusteiva extends EntityMob {
-	private int cooldown;
 
 	public EntityDusteiva(final World par1World) {
 		super(par1World);
-		cooldown = 0;
 		setSize(0.6f, 2.1f);
 	}
 
@@ -46,7 +44,14 @@ public class EntityDusteiva extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsDustopia, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitDarkly, 1);
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Itemizer.PrimordialSkull, 1 + rand.nextInt(3));
+        }
 		if (rand.nextInt(20) == 15) {
 			dropItem(Weaponizer.DarkDestroyer, 1);
 		}
@@ -63,25 +68,5 @@ public class EntityDusteiva extends EntityMob {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.3);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(60.0);
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 64.0);
-		if (var1 == null) {
-			return;
-		}
-		final Vec3 var2 = var1.getLook(1.0f).normalize();
-		Vec3 var3 = Vec3.createVectorHelper(posX - var1.posX, boundingBox.minY + height / 2.0f - var1.posY + var1.getEyeHeight(), posZ - var1.posZ);
-		final double var4 = var3.lengthVector();
-		var3 = var3.normalize();
-		final double var5 = var2.dotProduct(var3);
-		if (var5 > 1.0 - 0.025 / var4 && var1.canEntityBeSeen(this) && cooldown == 0) {
-			var1.setPositionAndUpdate(var1.posX, var1.posY + 5.0, var1.posZ);
-			cooldown = 40;
-		}
-		if (cooldown != 0) {
-			--cooldown;
-		}
 	}
 }

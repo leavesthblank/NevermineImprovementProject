@@ -10,6 +10,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.Plantizer;
 
 public class EntityParasect extends EntityMob {
 	public EntityParasect(final World par1World) {
@@ -42,20 +43,15 @@ public class EntityParasect extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(60) == 35) {
-			dropItem(Itemizer.HiveChunk, 1);
-		}
+        dropItem(Itemizer.CoinsBarathos, 3 + rand.nextInt(3));
+        if (rand.nextInt(200) == 0) {
+            dropItem(Itemizer.UpgradeKitRocky, 1);
+        }
+        if (rand.nextInt(4) == 0) {
+            dropItem(Plantizer.ThornyPlantSeeds, 1 + rand.nextInt(3));
+        }
+        dropItem(Itemizer.HiveChunk, 1 + rand.nextInt(3));
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 10.0);
-		if (var1 == null || var1.capabilities.isCreativeMode || var1.getDistanceToEntity(this) > 10.0f) {
-			return;
-		}
-
-		var1.addPotionEffect(new PotionEffect(Potion.confusion.id, 45, 4));
 	}
 
 	protected Entity findPlayerToAttack() {

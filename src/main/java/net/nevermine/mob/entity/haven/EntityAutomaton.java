@@ -6,14 +6,12 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 import java.util.Random;
@@ -46,11 +44,7 @@ public class EntityAutomaton extends EntityMob {
 		}
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.UtopianBanner);
-	}
-
-	public boolean getCanSpawnHere() {
+    public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
@@ -63,17 +57,19 @@ public class EntityAutomaton extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsHaven, rand.nextInt(8));
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.VoliantHeart, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.HeavyBoulder, 1);
+        }
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLight, 1);
+        }
 
-		if (rand.nextInt(40) == 17) {
-			dropItem(Itemizer.RealmstoneAncientCavern, 2);
-		}
-
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
-		}
-
-		if (rand.nextInt(50) == 34) {
+		if (rand.nextInt(50) >= 46) {
 			switch (getClrType()) {
 				case 1:
 					dropItem(Weaponizer.Germinator, 1);
@@ -128,7 +124,7 @@ public class EntityAutomaton extends EntityMob {
 		super.attackEntityAsMob(par1Entity);
 		if (entityToAttack != null) {
 			if (entityToAttack instanceof EntityLivingBase && ((EntityLivingBase)entityToAttack).getEntityAttribute(SharedMonsterAttributes.knockbackResistance).getAttributeValue() != 1.0) {
-				entityToAttack.addVelocity(motionX * 7.5, motionY * 0.5, motionZ * 7.0);
+				entityToAttack.addVelocity(motionX * (7.0+0.5*rand.nextInt()), motionY * 0.5, motionZ * (7.0+0.5*rand.nextInt()));
 			}
 			return true;
 		}

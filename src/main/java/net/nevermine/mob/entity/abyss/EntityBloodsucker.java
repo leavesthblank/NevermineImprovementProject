@@ -47,25 +47,25 @@ public class EntityBloodsucker extends EntityMob {
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
 
-		if (rand.nextInt(40) == 17) {
-			dropItem(Itemizer.RealmstoneAncientCavern, 2);
-		}
-
-		if (rand.nextInt(100) == 98) {
+		if (rand.nextInt(100) <= 18) {
 			dropItem(Weaponizer.BloodDrainer, 1);
 		}
 
-		if (rand.nextInt(100) == 43) {
+		if (rand.nextInt(100) >= 93) {
 			dropItem(Weaponizer.BloodIron, 1);
 		}
 
-		if (rand.nextBoolean()) {
-			dropItem(Itemizer.CoinsAbyss, 1);
-		}
+        dropItem(Itemizer.CoinsAbyss, rand.nextInt(8));
 
-		if (rand.nextInt(150) == 35) {
+		if (rand.nextInt(200) == 35) {
 			dropItem(Itemizer.UpgradeKitAbyssal, 1);
 		}
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.StaringEye, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.BookOfShadows, 1);
+        }
 	}
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {

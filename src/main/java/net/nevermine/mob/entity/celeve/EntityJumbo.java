@@ -6,6 +6,9 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
@@ -42,10 +45,22 @@ public class EntityJumbo extends EntityMob {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CoinCircus, 5);
-		if (rand.nextInt(2) == 1) {
-			dropItem(Weaponizer.JokerStaff, 1);
-		}
-		dropItem(Itemizer.RealmstoneCeleve, 2);
+		dropItem(Weaponizer.JokerStaff, 1);
+        dropItem(Itemizer.CoinCircus, rand.nextInt(6));
+        dropItem(Itemizer.CoinsCeleve, rand.nextInt(8));
+        dropItem(Itemizer.CopperCoin,rand.nextInt(4));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitClown, 1);
+        }
+        if (rand.nextInt(80) <= 6) {
+            dropItem(Weaponizer.Spectacle, 1);
+        }
+        if (rand.nextInt(7) == 0) {
+            dropItem(Item.getItemFromBlock(Blocks.yellow_flower), 1);
+        }
+        if (rand.nextInt(9) == 0) {
+            dropItem(Items.brick, 1 + rand.nextInt(2));
+        }
 	}
 
 	protected boolean isValidLightLevel() {

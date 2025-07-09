@@ -39,15 +39,9 @@ public class EntityConstructFlight extends EntityAIFlying {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(3) == 2) {
-			dropItem(Itemizer.CoinsCrystevia, 2);
-		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.GemstonesBlue, 3);
-		}
-		if (rand.nextInt(6) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.CrystalBanner), 1);
-		}
+        dropItem(Itemizer.CoinsCrystevia, rand.nextInt(8));
+		dropItem(Itemizer.GemstonesBlue, rand.nextInt(4));
+        dropItem(Itemizer.CopperCoin, 3 + rand.nextInt(9));
 	}
 
 	protected void applyEntityAttributes() {

@@ -44,20 +44,17 @@ public class EntityDustStrider extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(30) == 25) {
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsDustopia, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitDarkly, 1);
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Itemizer.PrimordialSkull, 1 + rand.nextInt(3));
+        }
+		if (rand.nextInt(10) == 2) {
 			dropItem(Itemizer.UnchargedOrb, 1);
 		}
-	}
-
-	public boolean attackEntityAsMob(final Entity par1) {
-		if (super.attackEntityAsMob(par1)) {
-			if (par1 instanceof EntityPlayer && par1 instanceof EntityPlayerMP) {
-				AddPackets.network.sendTo(new MobHitPacket(60, 5), (EntityPlayerMP)par1);
-			}
-			return true;
-		}
-		return false;
 	}
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {

@@ -45,12 +45,10 @@ public class EntityAirhead extends EntityFlying implements IMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(15) == 3) {
+		if (rand.nextInt(15) <= 3) {
 			dropItem(Itemizer.SourGummy, 1);
 		}
-		if (rand.nextInt(3) == 2) {
-			dropItem(Itemizer.CoinsCandyland, 3);
-		}
+        dropItem(Itemizer.CoinsCandyland, rand.nextInt(8));
 	}
 
 	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {

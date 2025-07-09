@@ -13,13 +13,12 @@ import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoRange;
 import net.nevermine.projectiles.enemy.EntitySurgeBlue;
 import net.nevermine.projectiles.enemy.EntitySurgeRed;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityUndeadTroll extends EntityMob implements IRangedAttackMob, EntityNoRange {
+public class EntityUndeadTroll extends EntityMob implements IRangedAttackMob {
 	private EntityAIArrowAttack aiArrowAttack;
 
 	public EntityUndeadTroll(final World par1World) {
@@ -45,15 +44,27 @@ public class EntityUndeadTroll extends EntityMob implements IRangedAttackMob, En
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.HavenShrooms, 1 + rand.nextInt(3));
+        }
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(100) == 13) {
+            dropItem(Itemizer.ShroomStone, 1);
+        }
+        dropItem(Itemizer.CoinsMysterium, rand.nextInt(8));
+        dropItem(Itemizer.WaterRune, 3+rand.nextInt(4));
+        dropItem(Itemizer.FireRune, 3+rand.nextInt(4));
 
 		if (rand.nextBoolean()) {
 			dropItem(Itemizer.TrollSkull, 1);
 		}
 
-		if (rand.nextInt(50) == 13) {
+		if (rand.nextInt(40) == 13) {
 			dropItem(Weaponizer.SurgeStaff, 1);
 		}
+        if (rand.nextInt(45) == 13) {
+            dropItem(Itemizer.ScreamShield, 1);
+        }
 	}
 
     protected String getLivingSound() {

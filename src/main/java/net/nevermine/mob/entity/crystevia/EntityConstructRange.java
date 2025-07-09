@@ -42,15 +42,9 @@ public class EntityConstructRange extends EntityMob implements IRangedAttackMob 
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(3) == 2) {
-			dropItem(Itemizer.CoinsCrystevia, 2);
-		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.GemstonesPurple, 3);
-		}
-		if (rand.nextInt(6) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.CrystalBanner), 1);
-		}
+        dropItem(Itemizer.CoinsCrystevia, rand.nextInt(8));
+        dropItem(Itemizer.CopperCoin, 3 + rand.nextInt(9));
+        dropItem(Itemizer.GemstonesPurple, rand.nextInt(4));
 	}
 
 	protected String getLivingSound() {

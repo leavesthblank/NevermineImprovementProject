@@ -8,10 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityNoMelee;
-import net.nevermine.mob.placement.EntityNoRange;
 
-public class EntityHydroliskShield extends EntityMob implements EntityNoRange, EntityNoMelee {
+public class EntityHydroliskShield extends EntityMob {
 	public EntityHydroliskShield(final World par1World) {
 		super(par1World);
 		setSize(1.7f, 3.6f);
@@ -52,15 +50,6 @@ public class EntityHydroliskShield extends EntityMob implements EntityNoRange, E
 			final EntityHydrolon var4 = new EntityHydrolon(worldObj);
 			var4.setLocationAndAngles(posX, posY, posZ, rotationYaw, rotationPitch);
 			worldObj.spawnEntityInWorld(var4);
-		}
-		if (rand.nextInt(200) == 43) {
-			final EntityPlayer var5 = worldObj.getClosestVulnerablePlayerToEntity(this, 20.0);
-			if (var5 == null || var5.getDistanceToEntity(this) > 20.0f) {
-				return;
-			}
-			if (!worldObj.isRemote) {
-				setPosition(var5.posX, var5.posY, var5.posZ);
-			}
 		}
 	}
 

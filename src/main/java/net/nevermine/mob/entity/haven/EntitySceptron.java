@@ -37,9 +37,6 @@ public class EntitySceptron extends EntityMob {
 		if (rand.nextInt(30) == 25) {
 			dropItem(Itemizer.RealmstoneFragment3, 1);
 		}
-		if (rand.nextInt(4) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.FragmentBanner), 1);
-		}
 	}
 
 	public boolean getCanSpawnHere() {
@@ -53,17 +50,6 @@ public class EntitySceptron extends EntityMob {
 	protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return ((entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null);
-	}
-
-	public void onLivingUpdate() {
-		for (final EntityPlayer e : (List<EntityPlayer>)worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(11.0, 11.0, 11.0))) {
-			if (e.capabilities.isCreativeMode)
-				continue;
-
-			e.addVelocity(motionX * 0.05, -0.1, motionZ * 0.0);
-			e.fallDistance = 0.0f;
-		}
-		super.onLivingUpdate();
 	}
 
 	public void applyEntityAttributes() {

@@ -45,7 +45,6 @@ public class EntityVisage extends EntityMob {
 
 			cont.adjustTribute(Erebon, 4);
 
-			if (cont.getTribute(Erebon) == 200)
 				((EntityPlayer)var1.getEntity()).addChatMessage(StringUtil.getLocale("message.feedback.immortallisProgression.evilSpiritsEnd"));
 		}
 	}

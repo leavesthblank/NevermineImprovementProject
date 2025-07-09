@@ -13,12 +13,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoBows;
-import net.nevermine.mob.placement.EntityNoRange;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityPincher extends EntityMob implements EntityNoRange, EntityNoBows {
+public class EntityPincher extends EntityMob {
 	private int angerLevel;
 	private int randomSoundDelay;
 
@@ -56,13 +54,6 @@ public class EntityPincher extends EntityMob implements EntityNoRange, EntityNoB
 
 	public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && posY < 55.0 && rand.nextInt(5) == 2 && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty();
-	}
-
-    public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(6000.0f, Hunter);
-		}
 	}
 
 	protected float getSoundVolume() {

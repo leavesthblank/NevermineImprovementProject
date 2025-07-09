@@ -22,7 +22,7 @@ public class PixonCollection {
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
 			if (stack.getItem() == Itemizer.StoneBowl) {
-				if (cont.getLevel(Infusion) >= req) {
+
 					cont.addExperience(exp, Infusion);
 					stack.damageItem(1, p);
 					e.setHealth(e.getHealth() - 10.0f);
@@ -33,10 +33,10 @@ public class PixonCollection {
 
 					if (p.dimension == 0 && p.worldObj.isDaytime())
 						cont.adjustTribute(Luxon, 5);
-				}
+
 			}
 			else if (stack.getItem() == Itemizer.DiamondBowl) {
-				if (cont.getLevel(Infusion) >= req + 10) {
+
 					final int num = (int)Math.ceil(Math.min(e.getHealth(), 100) / 10.0f);
 					stack.damageItem(1, p);
 					cont.addExperience(exp * num, Infusion);
@@ -50,7 +50,7 @@ public class PixonCollection {
 
 					if (p.dimension == 0 && p.worldObj.isDaytime())
 						cont.adjustTribute(Luxon, 5 * num);
-				}
+
 			}
 
 			if (p instanceof EntityPlayerMP)

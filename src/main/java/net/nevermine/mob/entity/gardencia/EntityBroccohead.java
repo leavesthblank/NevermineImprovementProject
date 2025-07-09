@@ -5,11 +5,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
+import net.nevermine.izer.Plantizer;
 
 public class EntityBroccohead extends EntityMob {
 	public EntityBroccohead(final World par1World) {
@@ -52,17 +51,20 @@ public class EntityBroccohead extends EntityMob {
 		if (rand.nextInt(3) == 1) {
 			dropItem(Itemizer.Rosidons, 1);
 		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(4) == 2) {
-			dropItem(dropBanner(), 1);
-		}
+        dropItem(Itemizer.CoinsGardencia, rand.nextInt(8));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(200) == 13) {
+            dropItem(Itemizer.UpgradeKitFloro, 1);
+        }
+        if (rand.nextInt(8) == 0) {
+            dropItem(Itemizer.NatureMelonSlice, 1 + rand.nextInt(2));
+        }
+        if (rand.nextInt(6) == 0) {
+            dropItem(Plantizer.ChiliSeeds, 1 + rand.nextInt(3));
+        }
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.RosidianBanner);
-	}
-
-	protected Entity findPlayerToAttack() {
+    protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return (entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null;
 	}
@@ -79,7 +81,7 @@ public class EntityBroccohead extends EntityMob {
 	public boolean attackEntityAsMob(final Entity par1Entity) {
 		super.attackEntityAsMob(par1Entity);
 		if (entityToAttack != null) {
-			entityToAttack.addVelocity(motionX * 6.5, motionY * 0.5, motionZ * 7.0);
+			entityToAttack.addVelocity(motionX * (6.5+0.5*rand.nextFloat()), motionY * 0.5, motionZ * (6.5+0.5*rand.nextFloat()));
 			return true;
 		}
 		return false;

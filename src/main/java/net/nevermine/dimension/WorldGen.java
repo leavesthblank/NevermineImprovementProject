@@ -217,6 +217,12 @@ public class WorldGen implements IWorldGenerator {
 				StructureGenRare.shouldGen(19, world, random, x, z);
 			}
 		}
+        if (world.provider.dimensionId == ConfigurationHelper.lborean && random.nextInt(1700) == 656) {
+            final int y = world.getHeightValue(x + 5, z + 5);
+            if (world.getBlock(x, y - 1, z) == Blockizer.GrassBorean || world.getBlock(x, y - 1, z) == Blocks.water) {
+                StructureGenRare.shouldGen(15, world, random, x, z);
+            }
+        }
 	}
 
 	private void generateAbyss(final World world, final Random random, final int x, final int z) {
@@ -446,13 +452,6 @@ public class WorldGen implements IWorldGenerator {
 	}
 
 	private void generateSurface(final World world, final Random random, final int x, final int z) {
-		final BiomeGenBase b = world.getBiomeGenForCoords(x, z);
-		if (b.biomeName.equals("Ocean")) {
-			final int randomNum = random.nextInt(6) + 1;
-			if (randomNum == 3) {
-				StructureGenRare.shouldGen(15, world, random, x, z);
-			}
-		}
 		for (int i = 0; i < 2; ++i) {
 			final int Xcoord = x + random.nextInt(16);
 			final int Ycoord = random.nextInt(40);

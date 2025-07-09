@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -26,12 +27,9 @@ public class EntityBoneCreeper extends EntityCreeper {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 2 + rand.nextInt(5));
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsCreeponia, 3);
-		}
-		if (rand.nextInt(4) == 2) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.CreepoidBanner), 1);
-		}
+		dropItem(Itemizer.CoinsCreeponia, 3 + rand.nextInt(3));
+        dropItem(Items.gunpowder,rand.nextInt(3));
+        dropItem(Items.bone,rand.nextInt(3));
 	}
 
 	protected String getDeathSound() {

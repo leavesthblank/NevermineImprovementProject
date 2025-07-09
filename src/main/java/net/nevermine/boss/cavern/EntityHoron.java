@@ -16,12 +16,11 @@ import net.nevermine.boss.cavern.holder.EntityHolderHoron;
 import net.nevermine.container.AncientBossesContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoRange;
 import net.nevermine.resource.creation.creationHelper;
 import net.nevermine.resource.energy.energyHelper;
 import net.nevermine.resource.soulpower.soulPowerHelper;
 
-public class EntityHoron extends EntityMob implements EntityNoRange, CavernBoss {
+public class EntityHoron extends EntityMob implements CavernBoss {
 	public EntityHoron(final World par1World) {
 		super(par1World);
 		setSize(1.8f, 2.3f);

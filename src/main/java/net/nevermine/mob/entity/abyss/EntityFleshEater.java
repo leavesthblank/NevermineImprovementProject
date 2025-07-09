@@ -49,20 +49,24 @@ public class EntityFleshEater extends EntityMob{
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		dropItem(Items.rotten_flesh, 3);
+		dropItem(Items.rotten_flesh, 3 + rand.nextInt(3));
+        dropItem(Itemizer.CoinsAbyss, rand.nextInt(8));
 
-		if (rand.nextBoolean()) {
-			dropItem(Itemizer.CoinsAbyss, 2);
-		}
-		if (rand.nextInt(4) == 0) {
-			dropItem(Itemizer.EyeBulb, 1);
-		}
-		if (rand.nextInt(19) == 0) {
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitAbyssal, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.StaringEye, 1);
+        }
+        if (rand.nextInt(4) == 0) {
+            dropItem(Itemizer.EyeBulb, 1);
+        }
+		if (rand.nextInt(19) <= 1) {
 			dropItem(Weaponizer.LegboneSword, 1);
 		}
-		if (rand.nextInt(9) == 0) {
-			dropItem(Itemizer.StaringEye, 1);
-		}
+        if (rand.nextInt(80)== 0) {
+            dropItem(Itemizer.BookOfShadows, 1);
+        }
 	}
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {

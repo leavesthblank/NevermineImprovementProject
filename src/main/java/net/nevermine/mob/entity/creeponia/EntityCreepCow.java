@@ -49,12 +49,13 @@ public class EntityCreepCow extends EntityAnimal {
 	public void onDeath(final DamageSource var1) {
 		if (!worldObj.isRemote) {
 			if (var1.isFireDamage() || isBurning()) {
-				dropItem(Itemizer.HalyconBeef, 2);
+				dropItem(Items.cooked_beef, 1 + rand.nextInt(3));
 			}
 			else {
-				dropItem(Itemizer.HalyconBeefRaw, 2);
+				dropItem(Items.beef, 1 + rand.nextInt(3));
 			}
 		}
+        dropItem(Items.leather,rand.nextInt(3));
 		super.onDeath(var1);
 	}
 

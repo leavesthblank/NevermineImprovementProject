@@ -40,14 +40,11 @@ public class EntityGhost extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(9) == 0) {
-			dropItem(Itemizer.IngotLimonite, 5);
+		if (rand.nextInt(9) > 0) {
+			dropItem(Itemizer.IngotLimonite, 5+ rand.nextInt(5));
 		}
-		if (rand.nextInt(33) == 24) {
+		if (rand.nextInt(33) <= 24) {
 			dropItem(Weaponizer.SoulStorm, 1);
-		}
-		if (rand.nextInt(25) == 4) {
-			dropItem(Itemizer.RealmstoneDeeplands, 2);
 		}
 	}
 

@@ -8,16 +8,11 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoExplosions;
 
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
-
-public class EntityDiocus extends EntityMob implements EntityNoExplosions {
+public class EntityDiocus extends EntityMob {
 
 	public EntityDiocus(final World par1World) {
 		super(par1World);
@@ -36,30 +31,22 @@ public class EntityDiocus extends EntityMob implements EntityNoExplosions {
 		return "nevermine:DiocusHit";
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(50.0f, Hunter);
-		}
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsPrecasian, rand.nextInt(8));
+        if (rand.nextInt(200) == 97) {
+            dropItem(Itemizer.UpgradeKitPrecasian, 1);
+        }
+        if (rand.nextInt(10)==0) {
+            dropItem(Itemizer.JungleThorns, 1);
+        }
 
-		if (rand.nextInt(100) == 83) {
+		if (rand.nextInt(100) >= 83) {
 			dropItem(Weaponizer.PowerRay, 1);
 		}
 
 		if (rand.nextInt(7) == 0) {
 			dropItem(Itemizer.ExplosiveIdol, 1);
-		}
-
-		if (rand.nextInt(200) == 97) {
-			dropItem(Itemizer.UpgradeKitPrecasian, 1);
-		}
-
-		if (rand.nextBoolean()) {
-			dropItem(Itemizer.CoinsPrecasian, 1 + rand.nextInt(2));
 		}
 	}
 

@@ -133,29 +133,8 @@ public class BlockRunandorPortal extends Block implements AdventPortalBlock {
 
 	@SideOnly(Side.CLIENT)
 	public boolean shouldSideBeRendered(final IBlockAccess blockAccess, final int xPos, final int yPos, final int zPos, final int side) {
-		return true;
-
-		/*int i1 = 0;
-		if (blockAccess.getBlock(xPos, yPos, zPos) == this) {
-			i1 = getMeta(blockAccess.getBlockMetadata(xPos, yPos, zPos));
-			if (i1 == 0) {
-				return false;
-			}
-			if (i1 == 2 && side != 5 && side != 4) {
-				return false;
-			}
-			if (i1 == 1 && side != 3 && side != 2) {
-				return false;
-			}
-		}
-		final boolean flag = blockAccess.getBlock(xPos - 1, yPos, zPos) == this && blockAccess.getBlock(xPos - 2, yPos, zPos) != this;
-		final boolean flag2 = blockAccess.getBlock(xPos + 1, yPos, zPos) == this && blockAccess.getBlock(xPos + 2, yPos, zPos) != this;
-		final boolean flag3 = blockAccess.getBlock(xPos, yPos, zPos - 1) == this && blockAccess.getBlock(xPos, yPos, zPos - 2) != this;
-		final boolean flag4 = blockAccess.getBlock(xPos, yPos, zPos + 1) == this && blockAccess.getBlock(xPos, yPos, zPos + 2) != this;
-		final boolean flag5 = flag || flag2 || i1 == 1;
-		final boolean flag6 = flag3 || flag4 || i1 == 2;
-		return (flag5 && side == 4) || (flag5 && side == 5) || (flag6 && side == 2) || (flag6 && side == 3);*/
-	}
+        return true;
+    }
 
 	public int quantityDropped(final Random p_149745_1_) {
 		return 0;

@@ -10,9 +10,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityNoMagic;
 
-public class EntityDyrehorn extends EntityMob implements EntityNoMagic {
+public class EntityDyrehorn extends EntityMob {
 	public EntityDyrehorn(final World par1World) {
 		super(par1World);
 		setSize(1.25f, 2.5f);

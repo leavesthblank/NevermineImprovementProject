@@ -12,7 +12,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.event.dimensional.overworld.BigDayEvent;
 
 public class EntityIceGiant extends EntityMob {
 	public EntityIceGiant(final World par1World) {
@@ -42,20 +41,11 @@ public class EntityIceGiant extends EntityMob {
 
 	public boolean getCanSpawnHere() {
 		final Block b = worldObj.getBlock((int)posX, (int)posY - 1, (int)posZ);
-		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && BigDayEvent.isBig() && (b == Blocks.grass || b == Blocks.dirt || b == Blocks.stone || b == Blocks.snow || b == Blocks.snow_layer) && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
+		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && (b == Blocks.grass || b == Blocks.dirt || b == Blocks.stone || b == Blocks.snow || b == Blocks.snow_layer) && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
 	public boolean canBePushed() {
 		return false;
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 20.0);
-		if (var1 == null || var1.getDistanceToEntity(this) > 20.0f) {
-			return;
-		}
-		addVelocity(Math.signum(var1.posX - posX) * 0.029, 0.0, Math.signum(var1.posZ - posZ) * 0.029);
 	}
 
 	protected boolean isValidLightLevel() {

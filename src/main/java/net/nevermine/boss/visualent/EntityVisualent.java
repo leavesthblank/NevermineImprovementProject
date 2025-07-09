@@ -88,7 +88,7 @@ public class EntityVisualent extends EntityAIFlying implements EntityBoss {
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(1100, Hunter);
 		}
 	}

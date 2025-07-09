@@ -5,7 +5,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChunkCoordinates;
@@ -13,7 +12,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.mob.ai.EntityAIFlying;
 
 public class EntityFungat extends EntityAIFlying {
@@ -36,26 +34,17 @@ public class EntityFungat extends EntityAIFlying {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(5) == 0) {
-			dropItem(Itemizer.HavenShrooms, 2);
-		}
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
+		if (rand.nextInt(10) == 0) {
+			dropItem(Itemizer.HavenShrooms, 1 + rand.nextInt(3));
 		}
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
 		if (rand.nextInt(100) == 13) {
 			dropItem(Itemizer.ShroomStone, 1);
 		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsMysterium, 2);
-		}
+		dropItem(Itemizer.CoinsMysterium, rand.nextInt(8));
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.FungalBanner);
-	}
-
-	public boolean getCanSpawnHere() {
+    public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && rand.nextInt(3) == 2 && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 

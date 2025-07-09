@@ -8,16 +8,12 @@ import net.nevermine.skill.expedition.reverseExpeditionMessage;
 
 public class KeyPressEvent {
 	public static boolean skills;
-	public static boolean cinfo;
 	public static int sshow;
 	public static boolean ShowMessage;
 	public static boolean ShowNotice;
 
 	@SubscribeEvent
 	public void onKeyPressed(final InputEvent.KeyInputEvent evt) {
-		if (CreatureInfoBinding.cinfo.isPressed()) {
-			KeyPressEvent.cinfo = !KeyPressEvent.cinfo;
-		}
 		if (SkillShowBinding.skills.isPressed()) {
 			KeyPressEvent.skills = !KeyPressEvent.skills;
 			KeyPressEvent.ShowMessage = false;
@@ -44,7 +40,6 @@ public class KeyPressEvent {
 
 	static {
 		KeyPressEvent.skills = false;
-		KeyPressEvent.cinfo = true;
 		KeyPressEvent.sshow = 0;
 		KeyPressEvent.ShowMessage = true;
 		KeyPressEvent.ShowNotice = true;

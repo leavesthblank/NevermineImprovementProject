@@ -10,11 +10,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.nevermine.fx.trail.CyanTrail;
-import net.nevermine.mob.placement.HardProjectile;
 
 import java.awt.*;
 
-public class EntityCraexxeusBomb extends EntityThrowable implements HardProjectile {
+public class EntityCraexxeusBomb extends EntityThrowable {
 	private Color colour;
 	private EntityLivingBase thrower;
 

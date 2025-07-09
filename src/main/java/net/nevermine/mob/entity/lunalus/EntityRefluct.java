@@ -39,24 +39,6 @@ public class EntityRefluct extends EntityMob {
 		playSound("mob.pig.step", 1.0f, 1.0f);
 	}
 
-	public void onUpdate() {
-		super.onUpdate();
-		if (!worldObj.isRemote) {
-			final AxisAlignedBB box = boundingBox.expand(3.0, 3.0, 3.0);
-			final List<Entity> entities = (List<Entity>)worldObj.getEntitiesWithinAABBExcludingEntity(this, box);
-			for (final Entity e : entities) {
-				if (e instanceof EntityThrowable || e instanceof EntityArrow) {
-					final Entity entity = e;
-					entity.motionX *= -1.0;
-					final Entity entity2 = e;
-					entity2.motionY *= -1.0;
-					final Entity entity3 = e;
-					entity3.motionZ *= -1.0;
-				}
-			}
-		}
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
 		if (rand.nextInt(2) == 0) {
 			dropItem(Itemizer.SilverCoin, 1 + rand.nextInt(1));
@@ -79,6 +61,18 @@ public class EntityRefluct extends EntityMob {
 				dropItem(Armorizer.SpaceKingChestplate, 1);
 			}
 		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsLunalus, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLunar, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.Orbulon, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.ObservingEye, 1);
+        }
+        dropItem(Itemizer.Ivory,rand.nextInt(2));
 	}
 
 	public boolean getCanSpawnHere() {

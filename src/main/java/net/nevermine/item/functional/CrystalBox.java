@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.mob.entity.lborean.EntityAmphibiyte;
 import net.nevermine.mob.entity.overworld.*;
 import net.nevermine.skill.hauling.haulingHelper;
 

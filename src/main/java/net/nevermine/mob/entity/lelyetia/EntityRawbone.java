@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -44,9 +45,16 @@ public class EntityRawbone extends EntityMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.FleshyBones, 1);
-		}
+        dropItem(Itemizer.FleshyBones, rand.nextInt(3));
+        dropItem(Items.bone, rand.nextInt(3));
+        dropItem(Itemizer.CopperCoin,5+rand.nextInt(10));
+        dropItem(Itemizer.CoinsLelyetia, rand.nextInt(8));
+        if (rand.nextInt(200)==0){
+            dropItem(Itemizer.UpgradeKitLelyetian,1);
+        }
+        if (rand.nextInt(40) == 15) {
+            dropItem(Itemizer.GuardiansEye, 1);
+        }
 	}
 
 	public void onDeath(final DamageSource var1) {

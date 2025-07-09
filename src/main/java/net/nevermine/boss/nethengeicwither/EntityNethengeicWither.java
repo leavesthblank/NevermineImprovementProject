@@ -473,7 +473,7 @@ public class EntityNethengeicWither extends EntityMob implements IRangedAttackMo
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(10000, Hunter);
 		}
 		super.onDeath(d);

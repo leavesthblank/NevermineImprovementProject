@@ -10,7 +10,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.nevermine.fx.trail.RedTrail;
-import net.nevermine.mob.entity.night.EntityAnemia;
+import net.nevermine.mob.entity.abyss.EntityAnemia;
 import net.nevermine.resource.rage.rageHelper;
 
 public class EntityAnemiaShot extends EntityThrowable {

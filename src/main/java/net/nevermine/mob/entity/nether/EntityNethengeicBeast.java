@@ -12,12 +12,10 @@ import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoFire;
-import net.nevermine.mob.placement.EntityNoRange;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityNethengeicBeast extends EntityMob implements EntityNoRange, EntityNoFire {
+public class EntityNethengeicBeast extends EntityMob {
 	public EntityNethengeicBeast(final World par1World) {
 		super(par1World);
 		setSize(1.0f, 1.35f);
@@ -43,7 +41,7 @@ public class EntityNethengeicBeast extends EntityMob implements EntityNoRange, E
     protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.SilverCoin, 2);
 
-		if (rand.nextInt(40) == 17) {
+		if (rand.nextInt(40) <= 17) {
 			int pick = rand.nextInt(4);
 			if (pick == 1) {
 				dropItem(Armorizer.NethengeicHelmet, 1);
@@ -59,15 +57,15 @@ public class EntityNethengeicBeast extends EntityMob implements EntityNoRange, E
 			}
 		}
 
-		if (rand.nextInt(100) == 3) {
+		if (rand.nextInt(100) >= 30) {
 			dropItem(Weaponizer.NethengeicSlugger, 1);
 		}
 
-		if (rand.nextInt(100) == 7) {
+		if (rand.nextInt(100) >= 7) {
 			dropItem(Weaponizer.NethengeicSword, 1);
 		}
 
-		if (rand.nextInt(200) == 144) {
+		if (rand.nextInt(200) >= 194) {
 			dropItem(Itemizer.UpgradeKitNether, 1);
 		}
 
@@ -75,7 +73,7 @@ public class EntityNethengeicBeast extends EntityMob implements EntityNoRange, E
 			dropItem(Itemizer.CoinsNether, 2);
 		}
 
-		if (rand.nextInt(20) == 4) {
+		if (rand.nextInt(20) <= 4) {
 			dropItem(Itemizer.NethengeicCallstone, 1);
 		}
 	}

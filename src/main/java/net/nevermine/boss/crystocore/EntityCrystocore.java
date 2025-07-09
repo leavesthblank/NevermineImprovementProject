@@ -18,13 +18,12 @@ import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.mob.ai.EntityAIFlying;
-import net.nevermine.mob.placement.EntityNoRange;
 
 import java.util.List;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityCrystocore extends EntityAIFlying implements EntityBoss, EntityNoRange {
+public class EntityCrystocore extends EntityAIFlying implements EntityBoss {
 	private ChunkCoordinates currentFlightTarget;
 	private int flyTimer;
 	private int musicTick;
@@ -142,7 +141,6 @@ public class EntityCrystocore extends EntityAIFlying implements EntityBoss, Enti
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
 				cont.addExperience(3500, Hunter);
 		}
 	}

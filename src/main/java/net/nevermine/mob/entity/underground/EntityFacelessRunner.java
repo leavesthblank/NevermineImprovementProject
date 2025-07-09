@@ -28,12 +28,6 @@ public class EntityFacelessRunner extends EntityMob {
 		return "nevermine:FacelessRunnerHit";
 	}
 
-	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(15) == 4) {
-			dropItem(Itemizer.RealmstoneDeeplands, 2);
-		}
-	}
-
 	public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && posY < 40.0 && isValidLightLevel() && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty();
 	}

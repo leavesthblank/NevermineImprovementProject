@@ -98,7 +98,7 @@ public class EntitySkeletron extends EntityMob implements EntityBoss {
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(40000, Hunter);
 		}
 	}

@@ -5,16 +5,13 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.assist.AddPackets;
 import net.nevermine.gui.MobHitPacket;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
+import net.nevermine.izer.Plantizer;
 import net.nevermine.izer.equipment.Weaponizer;
-
-import java.util.List;
 
 public class EntityEilosapien extends EntityMob {
 	public EntityEilosapien(final World par1World) {
@@ -43,31 +40,23 @@ public class EntityEilosapien extends EntityMob {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && rand.nextInt(5) == 2 && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.BaronBanner);
-	}
-
-	protected boolean isValidLightLevel() {
+    protected boolean isValidLightLevel() {
 		return true;
 	}
 
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		for (final EntityPlayer e : (List<EntityPlayer>)worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(12.0, 12.0, 12.0))) {
-			if (e.capabilities.isCreativeMode)
-				continue;
-
-			e.setFire(6);
-		}
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 1) {
-			dropItem(Weaponizer.Baronator, 1);
-		}
-		dropItem(dropBanner(), 1);
-		dropItem(Itemizer.RealmstoneBarathos, 3);
+        dropItem(Weaponizer.Baronator, 1);
 		dropItem(Itemizer.SilverCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsBarathos, 3 + rand.nextInt(3));
+        if (rand.nextInt(100) == 0) {
+            dropItem(Itemizer.UpgradeKitRocky, 1);
+        }
+        if (rand.nextInt(4) == 0) {
+            dropItem(Plantizer.ThornyPlantSeeds, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(3) == 0) {
+            dropItem(Itemizer.HiveChunk, 1 + rand.nextInt(3));
+        }
 	}
 
 	public void applyEntityAttributes() {

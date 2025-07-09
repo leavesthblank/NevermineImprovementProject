@@ -36,18 +36,17 @@ public class EntityTracker extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(100) == 45) {
+		if (rand.nextInt(100) >= 90) {
 			dropItem(Weaponizer.GaugeRifle, 1);
 		}
-		if (rand.nextInt(3) == 2) {
-			dropItem(Itemizer.CoinsLelyetia, 3);
-		}
-		if (rand.nextInt(200) == 135) {
-			dropItem(Itemizer.UpgradeKitLelyetian, 1);
-		}
-		if (rand.nextInt(5) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.LelyetianBanner), 1);
-		}
+        dropItem(Itemizer.CopperCoin,5+rand.nextInt(10));
+        dropItem(Itemizer.CoinsLelyetia, rand.nextInt(8));
+        if (rand.nextInt(200)==0){
+            dropItem(Itemizer.UpgradeKitLelyetian,1);
+        }
+        if (rand.nextInt(40) == 15) {
+            dropItem(Itemizer.GuardiansEye, 1);
+        }
 	}
 
 	public boolean getCanSpawnHere() {

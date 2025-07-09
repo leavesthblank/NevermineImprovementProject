@@ -31,9 +31,14 @@ public class EntityDuston extends EntityAIFlying {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CoinsDustopia, 1);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsDustopia, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitDarkly, 1);
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Itemizer.PrimordialSkull, 1 + rand.nextInt(3));
+        }
 	}
 
 	public boolean getCanSpawnHere() {

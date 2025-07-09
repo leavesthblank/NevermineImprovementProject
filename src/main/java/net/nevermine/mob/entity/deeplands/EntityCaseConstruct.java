@@ -58,8 +58,17 @@ public class EntityCaseConstruct extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		dropItem(Itemizer.RealmstoneCrystevia, 2);
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitPredator, 1);
+        }
+        if (rand.nextInt(40) == 16) {
+            dropItem(Itemizer.BoulderDash, 1);
+        }
+        dropItem(Itemizer.CoinsDeeplands, rand.nextInt(8));
+        if (rand.nextInt(40) == 16) {
+            dropItem(Itemizer.UnchargedStone, 1);
+        }
 		dropItem(Item.getItemFromBlock(Blockizer.Deepcase), 1);
 	}
 

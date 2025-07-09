@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.init.Items;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.common.nevermine;
@@ -42,7 +43,9 @@ public class EntityKingCreeper extends EntityCreeper {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.GoldCoin, 1 + rand.nextInt(2));
-		dropItem(Itemizer.RealmstoneCreeponia, 1);
+        dropItem(Itemizer.CopperCoin, 2 + rand.nextInt(5));
+        dropItem(Itemizer.CoinsCreeponia, 3 + rand.nextInt(3));
+        dropItem(Items.gunpowder,rand.nextInt(3));
 	}
 
 	public void applyEntityAttributes() {

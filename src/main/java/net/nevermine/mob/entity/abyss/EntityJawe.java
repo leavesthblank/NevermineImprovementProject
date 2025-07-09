@@ -5,19 +5,19 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoRange;
 
 import java.util.List;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityJawe extends EntityMob implements EntityNoRange{
+public class EntityJawe extends EntityMob {
 	private int counter;
 	private boolean pull;
 
@@ -62,30 +62,29 @@ public class EntityJawe extends EntityMob implements EntityNoRange{
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
 
-		if (rand.nextBoolean()) {
-			dropItem(Itemizer.CoinsAbyss, 2);
-		}
-		if (rand.nextInt(120) == 65) {
+		if (rand.nextInt(120) >= 110) {
 			dropItem(Weaponizer.BombLauncher, 1);
 		}
-	}
+        dropItem(Itemizer.CoinsAbyss, rand.nextInt(8));
 
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		--counter;
-
-		if (pull && counter == 0) {
-			counter = 100;
-		}
-		if (!pull && counter == 0) {
-			counter = 25;
-		}
-		if (pull) {
-			for (final EntityPlayer e : (List<EntityPlayer>)worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(11.0, 11.0, 11.0))) {
-				e.addVelocity(Math.signum(posX - e.posX) * 0.229, 0.0, Math.signum(posZ - e.posZ) * 0.229);
-				playSound("nevermine:JaweYell", 1.55f, 1.0f);
-			}
-		}
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitAbyssal, 1);
+        }
+        if (rand.nextInt(80) == 0) {
+            dropItem(Itemizer.StaringEye, 1);
+        }
+        if (rand.nextInt(80) == 3) {
+            dropItem(Itemizer.BookOfShadows, 1);
+        }
+        if (rand.nextInt(3) > 0) {
+            dropItem(Items.rotten_flesh, 1+rand.nextInt(3));
+        }
+        if (rand.nextInt(10) <= 2) {
+            dropItem(Itemizer.Ivory, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.Bloodstone, 1);
+        }
 	}
 
 	protected Entity findPlayerToAttack() {

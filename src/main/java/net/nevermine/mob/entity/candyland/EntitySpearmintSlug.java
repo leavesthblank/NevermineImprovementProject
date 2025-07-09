@@ -59,21 +59,19 @@ public class EntitySpearmintSlug extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(7) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.CandyBanner), 1);
-		}
-		if (rand.nextInt(15) == 3) {
+		if (rand.nextInt(15) <= 3) {
 			dropItem(Itemizer.SpearmintCandy, 1);
 		}
-		if (rand.nextInt(3) == 1) {
-			dropItem(Itemizer.CoinsCandyland, 2);
-		}
+        dropItem(Itemizer.CopperCoin, 3 + rand.nextInt(5));
+        dropItem(Itemizer.CoinsCandyland, rand.nextInt(8));
 		dropItem(Item.getItemFromBlock(Blockizer.CandylandWhiteCandy), 2);
 		dropItem(Item.getItemFromBlock(Blockizer.CandylandGreenCandy), 2);
-		if (rand.nextInt(105) == 31) {
+		if (rand.nextInt(105) <= 8) {
 			dropItem(Weaponizer.CandyBlade, 1);
 		}
-		dropItem(Itemizer.CopperCoin, 3);
+        if (rand.nextInt(15) == 1) {
+            dropItem(Itemizer.SourGummy, 1);
+        }
 	}
 
 	public void onLivingUpdate() {

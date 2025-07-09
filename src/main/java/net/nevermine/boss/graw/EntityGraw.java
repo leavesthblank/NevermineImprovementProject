@@ -22,14 +22,13 @@ import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoRange;
 import net.nevermine.projectiles.enemy.EntityGrawShot;
 
 import java.util.List;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityGraw extends EntityFlying implements IMob, EntityNoRange, EntityBoss {
+public class EntityGraw extends EntityFlying implements IMob, EntityBoss {
 	public int courseChangeCooldown;
 	public double waypointX;
 	public double waypointY;
@@ -67,8 +66,6 @@ public class EntityGraw extends EntityFlying implements IMob, EntityNoRange, Ent
 			}
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
-
-			if (cont.getLevel(Hunter) >= 30)
 				cont.addExperience(5000.0f, Hunter);
 		}
 	}
@@ -106,20 +103,6 @@ public class EntityGraw extends EntityFlying implements IMob, EntityNoRange, Ent
 			playSound("nevermine:MusicGraw", 3.0f, 1.0f);
 		}
 
-		if (ticksExisted % 17 == 0) {
-			for (int i = (int)posX - 7; i < (int)(posX + 7.0); ++i) {
-				for (int j = (int)posY - 2; j < (int)(posY + 5.0); ++j) {
-					for (int k = (int)posZ - 7; k < (int)(posZ + 7.0); ++k) {
-						if (!worldObj.isRemote) {
-							final Block b = worldObj.getBlock(i, j, k);
-							if (b == Blockizer.WoodAchony || b == Blockizer.WoodChurry || b == Blockizer.LelyetianCore || b == Blockizer.LeavesAchony || b == Blockizer.LeavesChurry) {
-								worldObj.setBlock(i, j, k, Blocks.air);
-							}
-						}
-					}
-				}
-			}
-		}
 		if (posY > 110.0) {
 			motionY -= 4.5;
 			motionX += -1.5f + rand.nextInt(3);

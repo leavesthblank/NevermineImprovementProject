@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 import net.nevermine.assist.EntityUtil;
 import net.nevermine.fx.circular.YellowCircular;
 import net.nevermine.fx.trail.thin.ThinCyanTrail;
-import net.nevermine.mob.placement.HardProjectile;
 
-public class EntityParalyzerShot extends EntityThrowable implements HardProjectile {
+public class EntityParalyzerShot extends EntityThrowable {
 	private float damage;
 	private int knockbackStrength;
 	private int age = 0;

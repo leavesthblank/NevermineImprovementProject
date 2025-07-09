@@ -11,10 +11,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.Plantizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoFire;
 
-public class EntityCryptid extends EntityMob implements EntityNoFire {
+public class EntityCryptid extends EntityMob {
 	public EntityCryptid(final World par1World) {
 		super(par1World);
 		setSize(0.6f, 1.2f);
@@ -46,15 +46,22 @@ public class EntityCryptid extends EntityMob implements EntityNoFire {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(40) == 37) {
+		if (rand.nextInt(40) >= 37) {
 			dropItem(Weaponizer.BaronSword, 1);
 		}
-		if (rand.nextInt(60) == 25) {
+		if (rand.nextInt(60) <= 5) {
 			dropItem(Weaponizer.UnderworldStaff, 1);
 		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsBarathos, 3);
-		}
+        dropItem(Itemizer.CoinsBarathos, 3 + rand.nextInt(3));
+        if (rand.nextInt(200) == 0) {
+            dropItem(Itemizer.UpgradeKitRocky, 1);
+        }
+        if (rand.nextInt(4) == 0) {
+            dropItem(Plantizer.ThornyPlantSeeds, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Itemizer.HiveChunk, 1 + rand.nextInt(3));
+        }
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
 	}
 
@@ -71,18 +78,5 @@ public class EntityCryptid extends EntityMob implements EntityNoFire {
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
 	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		int var1 = MathHelper.floor_double(posX);
-		int var2 = MathHelper.floor_double(posZ);
-		for (var1 = 0; var1 < 4; ++var1) {
-			var2 = MathHelper.floor_double(posX + (var1 % 2 * 2 - 1) * 0.25f);
-			final int var3 = MathHelper.floor_double(posY);
-			final int var4 = MathHelper.floor_double(posZ + (var1 / 2 % 2 * 2 - 1) * 0.25f);
-			if (worldObj.getBlock(var2, var3 - 1, var4) == Blockizer.BarathosHellstone && worldObj.getBlock(var2, var3, var4) == Blocks.air) {
-				worldObj.setBlock(var2, var3, var4, Blocks.fire);
-			}
-		}
-	}
 }
+

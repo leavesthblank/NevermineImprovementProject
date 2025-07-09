@@ -11,7 +11,6 @@ import net.nevermine.block.modelblocks.animated.AnimatedModelBlockEntityRenderer
 import net.nevermine.block.modelblocks.banner.BannerEntityRenderer;
 import net.nevermine.block.modelblocks.statue.StatueEntityRenderer;
 import net.nevermine.block.modelblocks.utility.UtilityBlockEntityRenderer;
-import net.nevermine.event.creature.CreatureInfoEvent;
 import net.nevermine.event.player.ClientTicker;
 import net.nevermine.event.player.KeyPressEvent;
 import net.nevermine.event.recoil.RecoilClientTick;
@@ -42,10 +41,8 @@ public class ClientProxy extends CommonProxy {
 		nevermine.addEventBus(new ScopeSniper());
 		nevermine.addEventBus(new MobScreen());
 		nevermine.addEventBus(new HelmetScreen());
-		nevermine.addEventBus(new CreatureInfoEvent());
 		nevermine.postFMLEvent(new ClientTicker());
 		SkillShowBinding.init();
-		CreatureInfoBinding.init();
 		SkillNameBinding.init();
 		LoginNoticeBinding.init();
 		ExpeditionBinding.init();

@@ -7,6 +7,8 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.Plantizer;
 import net.nevermine.mob.ai.EntityAIFlying;
 
 public class EntityTharafly extends EntityAIFlying {
@@ -29,6 +31,17 @@ public class EntityTharafly extends EntityAIFlying {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
+        dropItem(Itemizer.CoinsBarathos, 3 + rand.nextInt(3));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(200) == 0) {
+            dropItem(Itemizer.UpgradeKitRocky, 1);
+        }
+        if (rand.nextInt(4) == 0) {
+            dropItem(Plantizer.ThornyPlantSeeds, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(3) == 0) {
+            dropItem(Itemizer.HiveChunk, 1 + rand.nextInt(3));
+        }
 	}
 
 	public boolean getCanSpawnHere() {

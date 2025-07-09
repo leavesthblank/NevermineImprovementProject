@@ -12,6 +12,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.SpecialBlockizer;
+import net.nevermine.izer.equipment.Armorizer;
+import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntityVoidwalker extends EntityMob {
 	public EntityVoidwalker(final World par1World) {
@@ -53,11 +55,23 @@ public class EntityVoidwalker extends EntityMob {
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
 	}
 
-	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(12) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.VoidBanner), 1);
-		}
-	}
+    protected void dropFewItems(final boolean par1, final int par2) {
+        if (rand.nextInt(8) > 0) {
+            dropItem(Armorizer.VoidBoots, 1);
+        }
+        if (rand.nextInt(8) == 0) {
+            dropItem(Weaponizer.VoidBow, 1);
+        }
+        if (rand.nextInt(8) > 0) {
+            dropItem(Armorizer.VoidChestplate, 1);
+        }
+        if (rand.nextInt(8) > 0) {
+            dropItem(Armorizer.VoidHelmet, 1);
+        }
+        if (rand.nextInt(8) > 0) {
+            dropItem(Armorizer.VoidLeggings, 1);
+        }
+    }
 
 	public boolean attackEntityAsMob(final Entity par1) {
 		if (super.attackEntityAsMob(par1)) {

@@ -6,13 +6,11 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.assist.AddPackets;
 import net.nevermine.gui.MobHitPacket;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntityGrillface extends EntityMob {
@@ -46,45 +44,22 @@ public class EntityGrillface extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(35) == 5) {
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsGreckon, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitHaunted, 1);
+        }
+        if (rand.nextInt(10) == 4) {
+            dropItem(Itemizer.Ghoulasm, 1);
+        }
+		if (rand.nextInt(35) < 3) {
 			dropItem(Weaponizer.GhastBlaster, 1);
 		}
-		if (rand.nextInt(7) == 2) {
-			dropItem(dropBanner(), 1);
-		}
-		if (rand.nextInt(200) == 135) {
-			dropItem(Itemizer.UpgradeKitHaunted, 1);
-		}
-		if (rand.nextInt(20) == 17) {
-			dropItem(Itemizer.RealmstoneDustopia, 2);
-		}
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.GhoulBanner);
-	}
-
-	protected Entity findPlayerToAttack() {
+    protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return (entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null;
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 20.0);
-		if (var1 == null || var1.getDistanceToEntity(this) > 20.0f) {
-			return;
-		}
-		if (rand.nextInt(400) == 34) {
-			if (!worldObj.isRemote) {
-				setPosition(var1.posX, var1.posY, var1.posZ);
-			}
-			playSound("nevermine:GrillfaceAppear", 0.85f, 1.0f);
-			if (!worldObj.isRemote && var1 instanceof EntityPlayerMP) {
-				AddPackets.network.sendTo(new MobHitPacket(20, 4), (EntityPlayerMP)var1);
-			}
-		}
 	}
 
 	public void applyEntityAttributes() {

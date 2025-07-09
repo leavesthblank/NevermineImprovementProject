@@ -40,20 +40,6 @@ public class EntityPoseido extends EntityMob {
 		if (rand.nextInt(30) == 25) {
 			dropItem(Itemizer.RealmstoneFragment1, 1);
 		}
-		if (rand.nextInt(4) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.FragmentBanner), 1);
-		}
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		for (final EntityPlayer e : (List<EntityPlayer>)worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(7.0, 7.0, 7.0))) {
-
-			if (e.capabilities.isCreativeMode)
-				continue;
-
-			e.addVelocity(motionX * 1.5, motionY * 0.5 + 0.1, motionZ * 1.0);
-		}
 	}
 
 	protected Entity findPlayerToAttack() {

@@ -7,15 +7,12 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.izer.SpecialBlockizer;
-import net.nevermine.mob.placement.EntityNoRange;
 import net.nevermine.projectiles.enemy.EntityDestructorShot;
 
-public class EntityDestructor extends EntityMob implements IRangedAttackMob, EntityNoRange {
+public class EntityDestructor extends EntityMob implements IRangedAttackMob{
 	private EntityAIArrowAttack aiArrowAttack;
 
 	public EntityDestructor(final World par1World) {
@@ -44,11 +41,7 @@ public class EntityDestructor extends EntityMob implements IRangedAttackMob, Ent
 		return true;
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.FungalBanner);
-	}
-
-	protected boolean isValidLightLevel() {
+    protected boolean isValidLightLevel() {
 		return true;
 	}
 

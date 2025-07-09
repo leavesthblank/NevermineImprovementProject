@@ -45,7 +45,14 @@ public class EntityStalker extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsDustopia, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitDarkly, 1);
+        }
+        if (rand.nextInt(5) == 0) {
+            dropItem(Itemizer.PrimordialSkull, 1 + rand.nextInt(3));
+        }
 	}
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
@@ -59,27 +66,5 @@ public class EntityStalker extends EntityMob {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.3);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(60.0);
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 64.0);
-		if (var1 == null || var1.capabilities.isCreativeMode) {
-			return;
-		}
-
-		final Vec3 var2 = var1.getLook(1.0f).normalize();
-		Vec3 var3 = Vec3.createVectorHelper(posX - var1.posX, boundingBox.minY + height / 2.0f - var1.posY + var1.getEyeHeight() / 2, posZ - var1.posZ);
-		final double var4 = var3.lengthVector();
-		var3 = var3.normalize();
-		final double var5 = var2.dotProduct(var3);
-		if (var5 > 0.96 - 0.025 / var4 && var1.canEntityBeSeen(this)) {
-			motionX = 0.0;
-			motionY = 0.0;
-			motionZ = 0.0;
-			if (!worldObj.isRemote && var1 instanceof EntityPlayerMP) {
-				AddPackets.network.sendTo(new MobHitPacket(30, 3), (EntityPlayerMP)var1);
-			}
-		}
 	}
 }

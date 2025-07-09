@@ -14,10 +14,9 @@ import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoFire;
 import net.nevermine.projectiles.enemy.EntityMagicBallWither;
 
-public class EntityWitherWizard extends EntityMob implements IRangedAttackMob, EntityNoFire {
+public class EntityWitherWizard extends EntityMob implements IRangedAttackMob {
 	private EntityAIArrowAttack aiArrowAttack;
 
 	public EntityWitherWizard(final World par1World) {

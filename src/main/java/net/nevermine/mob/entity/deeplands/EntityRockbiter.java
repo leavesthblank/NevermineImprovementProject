@@ -5,11 +5,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 
 public class EntityRockbiter extends EntityMob {
 	public EntityRockbiter(final World par1World) {
@@ -42,26 +40,21 @@ public class EntityRockbiter extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(4) == 3) {
-			dropItem(Itemizer.RockBones, 1);
-		}
-		if (rand.nextInt(100) == 35) {
-			dropItem(Itemizer.UpgradeKitPredator, 1);
-		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsDeeplands, 2);
-		}
-		if (rand.nextInt(7) == 2) {
-			dropItem(dropBanner(), 1);
-		}
+        dropItem(Itemizer.RockBones, rand.nextInt(4));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitPredator, 1);
+        }
+        if (rand.nextInt(40) == 16) {
+            dropItem(Itemizer.BoulderDash, 1);
+        }
+        dropItem(Itemizer.CoinsDeeplands, rand.nextInt(8));
+        if (rand.nextInt(40) == 16) {
+            dropItem(Itemizer.UnchargedStone, 1);
+        }
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.DeepBanner);
-	}
-
-	protected Entity findPlayerToAttack() {
+    protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return (entityPlayer != null && canEntityBeSeen(entityPlayer)) ? entityPlayer : null;
 	}

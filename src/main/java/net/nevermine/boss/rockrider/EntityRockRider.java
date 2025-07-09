@@ -21,13 +21,12 @@ import net.nevermine.boss.EntityBoss;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoRange;
 
 import java.util.List;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityRockRider extends EntityMob implements EntityNoRange, EntityBoss {
+public class EntityRockRider extends EntityMob implements EntityBoss {
 	public static int protType = 1;
 	private int protTimer;
 	private int musictick;
@@ -265,7 +264,7 @@ public class EntityRockRider extends EntityMob implements EntityNoRange, EntityB
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(2500, Hunter);
 		}
 	}

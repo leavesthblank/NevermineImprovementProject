@@ -6,6 +6,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -13,6 +15,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.equipment.Weaponizer;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
@@ -38,14 +41,6 @@ public class EntityMerkyre extends EntityMob{
 		playSound("mob.pig.step", 0.55f, 1.0f);
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(1500.0f, Hunter);
-		}
-	}
-
 	public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
@@ -55,11 +50,23 @@ public class EntityMerkyre extends EntityMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-
-		if (rand.nextInt(5) == 3) {
-			dropItem(Itemizer.PrimordialSkull, 1);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsDustopia, rand.nextInt(8));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitDarkly, 1);
+        }
+        if (rand.nextInt(5) <= 1) {
+            dropItem(Itemizer.PrimordialSkull, 1 + rand.nextInt(3));
+        }
+        if (rand.nextInt(40)==0){
+            dropItem(Weaponizer.DarkDestroyer,1);
+        }
+        if (rand.nextInt(6)==0){
+            dropItem(Items.coal,1+ rand.nextInt(2));
+        }
+        if (rand.nextInt(8) == 0) {
+            dropItem(new ItemStack(Items.dye,1,0).getItem(), 1+rand.nextInt(3));
+        }
 	}
 
 	protected Entity findPlayerToAttack() {

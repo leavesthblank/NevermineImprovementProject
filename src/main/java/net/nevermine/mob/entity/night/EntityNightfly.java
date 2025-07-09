@@ -35,16 +35,9 @@ public class EntityNightfly extends EntityAIFlying {
 		setSize(1.0f, 1.0f);
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.EnergyBanner);
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
 		if (rand.nextInt(2) == 0) {
 			dropItem(Itemizer.CopperCoin, 2 + rand.nextInt(3));
-		}
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
 		}
 	}
 

@@ -60,16 +60,17 @@ public class EntityCherryBlaster extends EntityMob implements IRangedAttackMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(15) == 3) {
+		if (rand.nextInt(15) <= 3) {
 			dropItem(Itemizer.SourPop, 1);
 		}
-		if (rand.nextInt(3) == 1) {
-			dropItem(Itemizer.CoinsCandyland, 2);
-		}
-		if (rand.nextInt(70) == 31) {
+        dropItem(Itemizer.CopperCoin, 3 + rand.nextInt(5));
+        dropItem(Itemizer.CoinsCandyland, rand.nextInt(8));
+		if (rand.nextInt(70) <= 6) {
 			dropItem(Weaponizer.CaramelCarver, 1);
 		}
-		dropItem(Itemizer.CopperCoin, 3);
+        if (rand.nextInt(15) == 1) {
+            dropItem(Itemizer.SourGummy, 1);
+        }
 	}
 
 	protected void entityInit() {

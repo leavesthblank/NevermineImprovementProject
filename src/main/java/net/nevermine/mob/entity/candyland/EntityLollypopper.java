@@ -42,11 +42,34 @@ public class EntityLollypopper extends EntityMob {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		worldObj.createExplosion(this, posX, posY, posZ, 3.0f, false);
+        dropItem(Itemizer.CoinsCandyland, rand.nextInt(8));
+        if (rand.nextInt(15) <= 3) {
+            dropItem(Itemizer.SpearmintCandy, 1);
+        }
+        if (rand.nextInt(15) <= 3) {
+            dropItem(Itemizer.PeppermintCandy, 1);
+        }
+        if (rand.nextInt(15) <= 3) {
+            dropItem(Itemizer.GingerbreadCookie, 1);
+        }
+        if (rand.nextInt(15) <= 3) {
+            dropItem(Itemizer.GingerbreadWing, 1);
+        }
+        if (rand.nextInt(15) <= 3) {
+            dropItem(Itemizer.SourPop, 1);
+        }
+        if (rand.nextInt(15) <= 3) {
+            dropItem(Itemizer.SourCandy, 1);
+        }
+        if (rand.nextInt(15) <= 3) {
+            dropItem(Itemizer.CandyCane, 1);
+        }
+        if (rand.nextInt(15) <= 3) {
+            dropItem(Itemizer.CandyCorn, 1);
+        }
+        if (rand.nextInt(15) <= 3) {
+            dropItem(Itemizer.SourGummy, 1);
+        }
 	}
 
 	public void onLivingUpdate() {

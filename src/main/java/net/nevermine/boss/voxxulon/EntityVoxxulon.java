@@ -15,14 +15,13 @@ import net.nevermine.boss.EntityBoss;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoRange;
 import net.nevermine.projectiles.staff.EntityMeteorFall;
 
 import java.util.List;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityVoxxulon extends EntityMob implements EntityNoRange, EntityBoss {
+public class EntityVoxxulon extends EntityMob implements EntityBoss {
 	private int musicTick;
 
 	public EntityVoxxulon(final World par1World) {
@@ -57,7 +56,7 @@ public class EntityVoxxulon extends EntityMob implements EntityNoRange, EntityBo
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(3200, Hunter);
 		}
 	}

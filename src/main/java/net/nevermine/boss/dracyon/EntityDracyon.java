@@ -135,7 +135,7 @@ public class EntityDracyon extends EntityAIFlying implements EntityBoss {
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(10000, Hunter);
 		}
 	}

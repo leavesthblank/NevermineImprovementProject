@@ -10,9 +10,8 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.mob.placement.EntityNoMelee;
 
-public class EntitySphinx extends EntityMob implements EntityNoMelee {
+public class EntitySphinx extends EntityMob {
 	public EntitySphinx(final World par1World) {
 		super(par1World);
 		setSize(1.0f, 0.75f);
@@ -54,10 +53,5 @@ public class EntitySphinx extends EntityMob implements EntityNoMelee {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.1);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return (par1DamageSource.isProjectile() || entity instanceof EntityArrow || entity instanceof EntityThrowable || par1DamageSource.isMagicDamage()) && super.attackEntityFrom(par1DamageSource, par2);
 	}
 }

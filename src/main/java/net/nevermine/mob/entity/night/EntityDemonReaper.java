@@ -5,7 +5,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -13,7 +12,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.structures.vanilla.LunarPortalStructure;
 
 public class EntityDemonReaper extends EntityMob {
@@ -34,27 +32,16 @@ public class EntityDemonReaper extends EntityMob {
 		return "nevermine:ReaperHit";
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.EnergyBanner);
-	}
-
-	public boolean getCanSpawnHere() {
+    public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && isValidLightLevel() && rand.nextInt(5) == 2 && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox) && !worldObj.isDaytime();
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.GoldCoin, 1 + rand.nextInt(2));
-		dropItem(dropBanner(), 1);
 	}
 
     public void onDeath(final DamageSource var1) {
         super.onDeath(var1);
-        if (!worldObj.isRemote && rand.nextInt(100) == 0 ) {
-            final int posx = MathHelper.floor_double(posX);
-            final int posz = MathHelper.floor_double(posZ);
-            final int posy = MathHelper.floor_double(posY);
-            new LunarPortalStructure().generate(worldObj, worldObj.rand, posx, posy, posz);
-        }
     }
 
 	protected boolean isValidLightLevel() {

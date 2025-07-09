@@ -5,20 +5,14 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagString;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.assist.ItemUtil;
 import net.nevermine.container.PlayerContainer;
-import net.nevermine.mob.entity.night.EntityHeadlessHunter;
-import net.nevermine.mob.entity.overworld.EntityHeadlessDestroyer;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -55,27 +49,6 @@ public class liveDieEvent {
 
 			if (evt.source instanceof EntityDamageSource) {
 				Entity mob = evt.source.getSourceOfDamage();
-
-				if (mob instanceof EntityHeadlessHunter) {
-					if (r.nextInt(100) < 5) {
-						ItemStack headStack = new ItemStack(Items.skull, 1, 3);
-						headStack.setTagCompound(new NBTTagCompound());
-						headStack.getTagCompound().setTag("SkullOwner", new NBTTagString(pl.getGameProfile().getName()));
-
-						EntityItem playerHead = new EntityItem(pl.worldObj, pl.posX, pl.posY, pl.posZ, headStack);
-						pl.worldObj.spawnEntityInWorld(playerHead);
-					}
-				}
-				else if (mob instanceof EntityHeadlessDestroyer) {
-					if (r.nextInt(100) < 10) {
-						ItemStack headStack = new ItemStack(Items.skull, 1, 3);
-						headStack.setTagCompound(new NBTTagCompound());
-						headStack.getTagCompound().setTag("SkullOwner", new NBTTagString(pl.getGameProfile().getName()));
-
-						EntityItem playerHead = new EntityItem(pl.worldObj, pl.posX, pl.posY, pl.posZ, headStack);
-						pl.worldObj.spawnEntityInWorld(playerHead);
-					}
-				}
 			}
 
 			if (!evt.entity.worldObj.isRemote && !MinecraftServer.getServer().worldServerForDimension(evt.entity.worldObj.provider.dimensionId).getGameRules().getGameRuleBooleanValue("keepInventory")) {

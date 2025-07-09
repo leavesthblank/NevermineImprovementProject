@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -44,15 +45,15 @@ public class EntityCandyCorny extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(15) == 3) {
+		if (rand.nextInt(15) <= 3) {
 			dropItem(Itemizer.CandyCorn, 1);
 		}
-		if (rand.nextInt(3) == 1) {
-			dropItem(Itemizer.CoinsCandyland, 2);
-		}
-		if (rand.nextInt(75) == 31) {
+		if (rand.nextInt(75) <= 7) {
 			dropItem(Weaponizer.SweetTooth, 1);
 		}
+        if (rand.nextInt(15) == 1) {
+            dropItem(Itemizer.SourGummy, 1);
+        }
 		if (rand.nextInt(4) == 3) {
 			dropItem(Item.getItemFromBlock(Blockizer.ChocolateBlock), 4);
 		}
@@ -62,10 +63,8 @@ public class EntityCandyCorny extends EntityMob {
 		else if (rand.nextInt(4) == 2) {
 			dropItem(Item.getItemFromBlock(Blockizer.ChocolateBlockWhite), 4);
 		}
-		dropItem(Itemizer.CopperCoin, 3);
-		if (rand.nextInt(7) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.CandyBanner), 1);
-		}
+		dropItem(Itemizer.CopperCoin, 3 + rand.nextInt(5));
+        dropItem(Itemizer.CoinsCandyland, rand.nextInt(8));
 	}
 
 	public void onLivingUpdate() {

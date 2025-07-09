@@ -13,9 +13,8 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.mob.placement.EntityNoFire;
 
-public class EntityHellspot extends EntityMob implements EntityNoFire {
+public class EntityHellspot extends EntityMob {
 	public EntityHellspot(final World par1World) {
 		super(par1World);
 		setSize(0.97f, 1.2f);

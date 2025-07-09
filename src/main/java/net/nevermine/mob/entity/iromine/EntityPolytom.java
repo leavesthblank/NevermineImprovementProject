@@ -53,13 +53,14 @@ public class EntityPolytom extends EntityFlying implements IMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CoinsIromine, 1);
-		}
-		if (rand.nextInt(30) == 25) {
+		if (rand.nextInt(30) >= 27) {
 			dropItem(Weaponizer.IroMiner, 1);
 		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsIromine, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitGolden, 1);
+        }
 	}
 
 	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {

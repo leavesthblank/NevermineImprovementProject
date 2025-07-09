@@ -8,9 +8,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.*;
 
-public class EntityRuneTemplarYellow extends EntityMob implements EntityNoRange, EntityNoBows, EntityNoMelee, EntityNoMagic, EntityNoFire, EntityNoExplosions, EntityObject {
+public class EntityRuneTemplarYellow extends EntityMob {
 	public EntityRuneTemplarYellow(final World par1World) {
 		super(par1World);
 		setSize(1.79f, 2.2f);

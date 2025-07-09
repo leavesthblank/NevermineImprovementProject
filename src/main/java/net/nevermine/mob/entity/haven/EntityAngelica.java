@@ -32,10 +32,17 @@ public class EntityAngelica extends EntityAIFlying {
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(2) == 0) {
-			dropItem(Itemizer.CoinsHaven, 1);
-		}
-		if (rand.nextInt(60) == 37) {
+        dropItem(Itemizer.CoinsHaven, rand.nextInt(8));
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.VoliantHeart, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.HeavyBoulder, 1);
+        }
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLight, 1);
+        }
+		if (rand.nextInt(60) >= 57) {
 			dropItem(Weaponizer.Gravitator, 1);
 		}
 	}

@@ -15,14 +15,13 @@ import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.boss.EntityBoss;
 import net.nevermine.container.PlayerContainer;
-import net.nevermine.mob.placement.EntityNoExplosions;
 import net.nevermine.projectiles.enemy.EntityBaronessShot;
 
 import java.util.List;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityBaroness extends EntityMob implements EntityBoss, IRangedAttackMob, EntityNoExplosions {
+public class EntityBaroness extends EntityMob implements EntityBoss, IRangedAttackMob {
 
 	private int musicTick = 1;
 	private int placetick = 150;
@@ -159,7 +158,7 @@ public class EntityBaroness extends EntityMob implements EntityBoss, IRangedAtta
 
 					PlayerContainer cont = PlayerContainer.getProperties(p);
 
-					if (cont.getLevel(Hunter) >= 30)
+
 						cont.addExperience(3000, Hunter);
 				}
 	}

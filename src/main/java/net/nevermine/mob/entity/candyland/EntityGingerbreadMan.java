@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -41,20 +42,30 @@ public class EntityGingerbreadMan extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(15) == 3) {
+		if (rand.nextInt(15) <= 3) {
 			dropItem(Itemizer.GingerbreadCookie, 1);
 		}
-		if (rand.nextInt(3) == 1) {
-			dropItem(Itemizer.CoinsCandyland, 2);
-		}
 		dropItem(Item.getItemFromBlock(Blockizer.Gingerbread), 4);
-		if (rand.nextInt(200) == 35) {
+		if (rand.nextInt(200) <= 15) {
 			dropItem(Weaponizer.GingerBlaster, 1);
 		}
-		if (rand.nextInt(5) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.GingerbreadBanner), 1);
-		}
-		dropItem(Itemizer.CopperCoin, 3);
+        if (rand.nextInt(70) <= 6) {
+            dropItem(Weaponizer.CaramelCarver, 1);
+        }
+        if (rand.nextInt(70) <= 11) {
+            dropItem(Items.sugar, 1+rand.nextInt(3));
+        }
+        if (rand.nextInt(100) <= 4) {
+            dropItem(Items.cake, 1);
+        }
+        if (rand.nextInt(15) == 1) {
+            dropItem(Itemizer.SourGummy, 1);
+        }
+        if (rand.nextInt(10) == 4) {
+            dropItem(Items.cookie, 1);
+        }
+        dropItem(Itemizer.CopperCoin, 3 + rand.nextInt(5));
+        dropItem(Itemizer.CoinsCandyland, rand.nextInt(8));
 	}
 
 	public void onLivingUpdate() {

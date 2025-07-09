@@ -202,7 +202,7 @@ public class BlockExtractionDevice extends Block {
                                     break;
                                 }
                                 if(player.dimension==ConfigurationHelper.greckon){
-                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RuniumChunkCharged,4))){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.DarklyPowder,2))){
                                         player.dropItem(Itemizer.DarklyPowder,2);
                                     }
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ghoulasm,2))){
@@ -278,6 +278,33 @@ public class BlockExtractionDevice extends Block {
                                     if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.HiveChunk,2))){
                                         player.dropItem(Itemizer.HiveChunk,2);
                                     }
+                                    break;
+                                }
+                                if(player.dimension==ConfigurationHelper.precasia) {
+                                    if (r.nextInt(10) == 0)
+                                        if (!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.IngotSkeletal, 2))) {
+                                            player.dropItem(Itemizer.IngotSkeletal, 2);
+                                        }
+                                    if (r.nextInt(3) == 0)
+                                        if (!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.SkullboneFragment, 4))) {
+                                            player.dropItem(Itemizer.SkullboneFragment, 4);
+                                        }
+                                    if (r.nextInt(3) == 0)
+                                        if (!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.ChestboneFragment, 4))) {
+                                            player.dropItem(Itemizer.ChestboneFragment, 4);
+                                        }
+                                    if (r.nextInt(3) == 0)
+                                        if (!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.LegboneFragment, 4))) {
+                                            player.dropItem(Itemizer.LegboneFragment, 4);
+                                        }
+                                    if (r.nextInt(3) == 0)
+                                        if (!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.FootboneFragment, 4))) {
+                                            player.dropItem(Itemizer.FootboneFragment, 4);
+                                        }
+                                    if (r.nextInt(3) == 0)
+                                        if (!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ivory, 4))) {
+                                            player.dropItem(Itemizer.Ivory, 4);
+                                        }
                                     break;
                                 }
 							case 4:
@@ -497,7 +524,7 @@ public class BlockExtractionDevice extends Block {
                                     break;
                                 }
                                 if(player.dimension==ConfigurationHelper.greckon){
-                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.RuniumChunkCharged,4))){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.DarklyPowder,2))){
                                         player.dropItem(Itemizer.DarklyPowder,2);
                                     }
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ghoulasm,2))){
@@ -555,7 +582,7 @@ public class BlockExtractionDevice extends Block {
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsWhite,4))){
                                         player.dropItem(Itemizer.CrystalsWhite,4);
                                     }
-                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsRed))){
+                                    if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsRed,4))){
                                         player.dropItem(Itemizer.CrystalsRed,4);
                                     }
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsBlue,4))){
@@ -564,7 +591,7 @@ public class BlockExtractionDevice extends Block {
                                     if (r.nextInt(3)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalsPurple,4))){
                                         player.dropItem(Itemizer.CrystalsPurple,4);
                                     }
-                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.Ghoulasm,2))){
+                                    if (r.nextInt(6)==0)if(!player.inventory.addItemStackToInventory(new ItemStack(Itemizer.CrystalBox,1))){
                                         player.dropItem(Itemizer.CrystalBox,1);
                                     }
                                     break;

@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.Plantizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntitySquasher extends EntityMob {
@@ -44,19 +45,20 @@ public class EntitySquasher extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(50) == 15) {
+		if (rand.nextInt(50) <= 2) {
 			dropItem(Weaponizer.Gardener, 1);
 		}
-		if (rand.nextInt(20) == 3) {
-			dropItem(Itemizer.RealmstoneVoxPonds, 2);
-		}
-		if (rand.nextInt(100) == 13) {
-			dropItem(Itemizer.UpgradeKitFloro, 1);
-		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsGardencia, 2);
-		}
+		dropItem(Itemizer.CoinsGardencia, rand.nextInt(8));
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(200) == 13) {
+            dropItem(Itemizer.UpgradeKitFloro, 1);
+        }
+        if (rand.nextInt(8) == 0) {
+            dropItem(Itemizer.NatureMelonSlice, 1 + rand.nextInt(2));
+        }
+        if (rand.nextInt(6) == 0) {
+            dropItem(Plantizer.ChiliSeeds, 1 + rand.nextInt(3));
+        }
 	}
 
 	public void onLivingUpdate() {

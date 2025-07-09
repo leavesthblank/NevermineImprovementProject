@@ -45,13 +45,17 @@ public class EntityInmateY extends EntityMob {
 		if (rand.nextInt(25) == 3) {
 			dropItem(Itemizer.UnchargedOrb, 1);
 		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.CoinsLunalus, 2);
-		}
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-		if (rand.nextInt(7) == 2) {
-			dropItem(dropBanner(), 1);
-		}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsLunalus, rand.nextInt(8));
+        if (rand.nextInt(200) == 35) {
+            dropItem(Itemizer.UpgradeKitLunar, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.Orbulon, 1);
+        }
+        if (rand.nextInt(40) == 0) {
+            dropItem(Itemizer.ObservingEye, 1);
+        }
 	}
 
 	private Item dropBanner() {

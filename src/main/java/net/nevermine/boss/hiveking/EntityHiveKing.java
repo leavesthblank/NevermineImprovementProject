@@ -87,7 +87,6 @@ public class EntityHiveKing extends EntityMob implements EntityBoss {
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
 				cont.addExperience(4000, Hunter);
 		}
 	}

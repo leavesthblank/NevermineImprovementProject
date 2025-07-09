@@ -40,11 +40,11 @@ public class EntityStoreKeeper extends EntityNevermineVillager {
 	public void addRecipies(final MerchantRecipeList list) {
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 40, 1), new ItemStack(Itemizer.SludgeParasite, 2), new ItemStack(Weaponizer.VoxCannon, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 40, 1), new ItemStack(Itemizer.ToxicLump, 2), new ItemStack(Weaponizer.PoisonPlunger, 1)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 40, 1), new ItemStack(Itemizer.DoomStone, 2), new ItemStack(Weaponizer.GasBlaster, 1)));
+		list.add(new RestockedRecipe(new ItemStack(Itemizer.GoldCoin, 40, 1), new ItemStack(Itemizer.SludgeParasite, 2), new ItemStack(Weaponizer.GasBlaster, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.LunaverCoin, 3, 1), new ItemStack(Itemizer.SludgeParasite, 2), new ItemStack(Weaponizer.SludgeSniper, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.LunaverCoin, 3, 1), new ItemStack(Itemizer.ToxicLump, 2), new ItemStack(Weaponizer.NoxiousStaff, 1)));
 		list.add(new RestockedRecipe(new ItemStack(Itemizer.LunaverCoin, 3, 1), new ItemStack(Itemizer.ToxicLump, 2), new ItemStack(Weaponizer.ToxinBow, 1)));
-		list.add(new RestockedRecipe(new ItemStack(Itemizer.LunaverCoin, 3, 1), new ItemStack(Itemizer.DoomStone, 2), new ItemStack(Weaponizer.VileVanquisher, 1)));
+		list.add(new RestockedRecipe(new ItemStack(Itemizer.LunaverCoin, 3, 1), new ItemStack(Itemizer.SludgeParasite, 2), new ItemStack(Weaponizer.VileVanquisher, 1)));
 	}
 
 	@Override

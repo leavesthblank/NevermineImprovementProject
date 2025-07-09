@@ -55,6 +55,7 @@ public class EntityHalycon extends EntityAnimal {
 				dropItem(Itemizer.HalyconBeefRaw, 2);
 			}
 		}
+        dropItem(Items.leather,rand.nextInt(3));
 		super.onDeath(var1);
 	}
 

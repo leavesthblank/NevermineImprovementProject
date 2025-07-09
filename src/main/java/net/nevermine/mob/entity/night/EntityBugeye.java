@@ -7,7 +7,6 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
@@ -15,7 +14,6 @@ import net.minecraft.world.World;
 import net.nevermine.assist.AddPackets;
 import net.nevermine.gui.MobHitPacket;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.structures.vanilla.LunarPortalStructure;
 
 public class EntityBugeye extends EntityMob {
@@ -36,23 +34,13 @@ public class EntityBugeye extends EntityMob {
 		return "nevermine:BugeyeHit";
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.EnergyBanner);
-	}
-
-	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
+    protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("mob.pig.step", 1.0f, 1.0f);
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
 		if (rand.nextInt(2) == 0) {
 			dropItem(Itemizer.CopperCoin, 2 + rand.nextInt(3));
-		}
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
-		}
-		if (rand.nextInt(10) == 5) {
-			dropItem(Itemizer.RealmstoneMysterium, 1);
 		}
 	}
 

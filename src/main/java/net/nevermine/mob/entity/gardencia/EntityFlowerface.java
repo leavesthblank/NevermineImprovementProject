@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.Plantizer;
 
 import static net.nevermine.container.PlayerContainer.Deities.Selyan;
 
@@ -61,19 +62,27 @@ public class EntityFlowerface extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsGardencia, rand.nextInt(8));
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        if (rand.nextInt(200) == 13) {
+            dropItem(Itemizer.UpgradeKitFloro, 1);
+        }
+        if (rand.nextInt(8) == 0) {
+            dropItem(Itemizer.NatureMelonSlice, 1 + rand.nextInt(2));
+        }
+        if (rand.nextInt(6) == 0) {
+            dropItem(Plantizer.ChiliSeeds, 1 + rand.nextInt(3));
+        }
 
-		if (rand.nextInt(40) == 17) {
+		if (rand.nextInt(6) == 0) {
 			dropItem(Itemizer.SmallPedalRed, 1);
 		}
-
-		if (rand.nextInt(40) == 17) {
-			dropItem(Itemizer.RealmstoneAncientCavern, 2);
-		}
-
-		if (rand.nextInt(20) == 3) {
-			dropItem(Itemizer.RealmstoneVoxPonds, 2);
-		}
+        if (rand.nextInt(6) == 0) {
+            dropItem(Itemizer.SmallPedalBlue, 1);
+        }
+        if (rand.nextInt(6) == 0) {
+            dropItem(Itemizer.SmallPedalPurple, 1);
+        }
 
 	}
 

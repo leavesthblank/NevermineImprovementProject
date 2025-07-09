@@ -14,12 +14,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.mob.placement.EntityNoBows;
-import net.nevermine.mob.placement.EntityNoRange;
 
 import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
-public class EntityGoalby extends EntityMob implements EntityNoRange, EntityNoBows {
+public class EntityGoalby extends EntityMob {
 	public EntityGoalby(final World par1World) {
 		super(par1World);
 		setSize(1.2f, 2.5f);
@@ -42,9 +40,7 @@ public class EntityGoalby extends EntityMob implements EntityNoRange, EntityNoBo
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(15) == 2) {
-			dropItem(Itemizer.RealmstoneHaven, 2);
-		}
+
 	}
 
 	protected boolean isValidLightLevel() {
@@ -67,28 +63,5 @@ public class EntityGoalby extends EntityMob implements EntityNoRange, EntityNoBo
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.7);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(10.0f, Hunter);
-		}
-	}
-
-	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {
-		final Entity entity = par1DamageSource.getSourceOfDamage();
-		return !par1DamageSource.isProjectile() && !(entity instanceof EntityArrow) && !(entity instanceof EntityThrowable) && super.attackEntityFrom(par1DamageSource, par2);
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		final EntityPlayer var1 = worldObj.getClosestVulnerablePlayerToEntity(this, 10.0);
-
-		if (var1 == null || var1.capabilities.isCreativeMode || var1.getDistanceToEntity(this) > 10.0f) {
-			return;
-		}
-
-		var1.addPotionEffect(new PotionEffect(Potion.weakness.id, 45, 4));
 	}
 }

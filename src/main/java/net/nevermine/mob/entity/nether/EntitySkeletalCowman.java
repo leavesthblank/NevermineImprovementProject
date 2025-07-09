@@ -10,15 +10,12 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
-import net.nevermine.mob.placement.EntityNoFire;
 
-public class EntitySkeletalCowman extends EntityMob implements IRangedAttackMob, EntityNoFire {
+public class EntitySkeletalCowman extends EntityMob implements IRangedAttackMob {
 	private static final ItemStack defaultHeldItem;
 
 	public EntitySkeletalCowman(final World par1World) {
@@ -55,14 +52,7 @@ public class EntitySkeletalCowman extends EntityMob implements IRangedAttackMob,
 		return "nevermine:SkeletalCowmanHit";
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.NetherBanner);
-	}
-
-	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
-		}
+    protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
 	}
 

@@ -160,7 +160,7 @@ public class EntityKingBamBamBam extends EntityMob implements IRangedAttackMob, 
 
 			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)d.getEntity());
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(3000, Hunter);
 		}
 

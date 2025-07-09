@@ -5,10 +5,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.container.PlayerContainer;
+import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
@@ -38,19 +41,26 @@ public class EntityCaneBug extends EntityMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 3+rand.nextInt());
-        dropItem(Itemizer.CoinsCandyland, rand.nextInt(2));
-		if (rand.nextInt(15) == 3) {
+        dropItem(Itemizer.CopperCoin, 3 +rand.nextInt(5));
+        dropItem(Itemizer.CoinsCandyland, rand.nextInt(8));
+		if (rand.nextInt(15) <= 3) {
 			dropItem(Itemizer.CandyCane, 1);
 		}
-
-		if (rand.nextInt(3) == 1) {
-			dropItem(Itemizer.CoinsCandyland, 2);
-		}
-
 		if (rand.nextInt(10) == 0) {
 			dropItem(Weaponizer.CandyStaff, 1);
 		}
+        if (rand.nextInt(100) <= 12) {
+            dropItem(Item.getItemFromBlock(Blockizer.CandylandRedCandy), 8 + rand.nextInt(15));
+        }
+        if (rand.nextInt(100) <= 12) {
+            dropItem(Item.getItemFromBlock(Blockizer.CandylandGreenCandy), 8 + rand.nextInt(15));
+        }
+        if (rand.nextInt(100) <= 4) {
+            dropItem(Items.cake, 1);
+        }
+        if (rand.nextInt(15) == 1) {
+            dropItem(Itemizer.SourGummy, 1);
+        }
 	}
 
 	public void onDeath(final DamageSource var1) {

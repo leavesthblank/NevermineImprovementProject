@@ -38,23 +38,20 @@ public class EntityMotherVoidwalker extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(8) == 0) {
+		if (rand.nextInt(8) > 0) {
 			dropItem(Armorizer.VoidBoots, 1);
 		}
 		if (rand.nextInt(8) == 0) {
 			dropItem(Weaponizer.VoidBow, 1);
 		}
-		if (rand.nextInt(8) == 3) {
+		if (rand.nextInt(8) > 0) {
 			dropItem(Armorizer.VoidChestplate, 1);
 		}
-		if (rand.nextInt(8) == 5) {
+		if (rand.nextInt(8) > 0) {
 			dropItem(Armorizer.VoidHelmet, 1);
 		}
-		if (rand.nextInt(8) == 2) {
+		if (rand.nextInt(8) > 0) {
 			dropItem(Armorizer.VoidLeggings, 1);
-		}
-		if (rand.nextInt(5) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.VoidBanner), 1);
 		}
 	}
 

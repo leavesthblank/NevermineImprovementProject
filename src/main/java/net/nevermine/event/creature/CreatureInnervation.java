@@ -5,17 +5,12 @@ import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.container.PlayerContainer;
-import net.nevermine.item.weapon.sword.SwordInterface;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.npc.auxil.EntityBloodlust;
-import net.nevermine.projectiles.HardProjectile;
 import net.nevermine.skill.innervation.innervationHelper;
 
 import java.util.Random;
@@ -67,27 +62,6 @@ public class CreatureInnervation {
 	}
 
 	@SubscribeEvent
-	public void damageLimitEvent(final LivingHurtEvent e) {
-		if (e.ammount != 0.0f && ConfigurationHelper.limitation == 1 && e.source.getEntity() != null) {
-			if (e.source.getEntity() instanceof EntityPlayer && !e.source.isProjectile()) {
-				if (((EntityPlayer)e.source.getEntity()).getHeldItem() != null && !e.source.isMagicDamage() && !(((EntityPlayer)e.source.getEntity()).getHeldItem().getItem() instanceof SwordInterface)) {
-					if (((EntityPlayer)e.source.getEntity()).isPotionActive(Potion.damageBoost)) {
-						if (e.ammount > 50.0f) {
-							e.ammount = 50.0f;
-						}
-					}
-					else if (e.ammount > 25.0f) {
-						e.ammount = 25.0f;
-					}
-				}
-			}
-			else if (!(e.source.getSourceOfDamage() instanceof HardProjectile) && e.ammount > 25.0f) {
-				e.ammount = 25.0f;
-			}
-		}
-	}
-
-	@SubscribeEvent
 	public void onPlayerInnervationDodge(final LivingHurtEvent e) {
 		if (!e.entity.worldObj.isRemote && e.entity instanceof EntityPlayer && e.source != DamageSource.outOfWorld && e.source != DamageSource.starve) {
 			final int lvl = PlayerContainer.getProperties((EntityPlayer)e.entity).getLevel(Innervation);
@@ -102,16 +76,6 @@ public class CreatureInnervation {
 
 				e.entity.worldObj.playSoundAtEntity(e.entity, "nevermine:MagickeFire", 1.0f, 1.0f);
 			}
-		}
-	}
-
-	@SubscribeEvent
-	public void onPlayerDoingDamageEvent(final LivingHurtEvent e) {
-		if (e.source.getEntity() instanceof EntityPlayer && !e.source.isProjectile() && !e.source.isMagicDamage() && !e.source.getEntity().worldObj.isRemote && rand.nextInt(30) == 15) {
-			final EntityBloodlust var2 = new EntityBloodlust(e.entity.worldObj);
-
-			var2.setLocationAndAngles(e.entity.posX, e.entity.posY, e.entity.posZ, rand.nextFloat() * 360.0f, 0.0f);
-			e.entity.worldObj.spawnEntityInWorld(var2);
 		}
 	}
 

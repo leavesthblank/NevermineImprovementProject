@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
+import net.nevermine.izer.Plantizer;
 
 public class EntityCoratee extends EntityMob {
 	public EntityCoratee(final World par1World) {
@@ -40,8 +41,42 @@ public class EntityCoratee extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
-	}
+        dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
+        dropItem(Itemizer.CoinsLborean, rand.nextInt(8));
+        if (rand.nextInt(200) == 0) {
+            dropItem(Itemizer.UpgradeKitSeaside, 1);
+        }
+        if (rand.nextInt(12) == 0) {
+            dropItem(Plantizer.BubbleBerrySeeds, 1);
+        }
+        if (rand.nextInt(15) == 0) {
+            dropItem(Itemizer.PureCoralStone, 1);
+        }
+        if (rand.nextInt(15) == 0) {
+            dropItem(Itemizer.PureRainStone, 1);
+        }
+        if (rand.nextInt(15) == 0) {
+            dropItem(Itemizer.PureWaterStone, 1);
+        }
+        if (rand.nextInt(70) == 43) {
+            dropItem(Itemizer.CoralArchergunWaterlogged, 1);
+        }
+        if (rand.nextInt(70) == 5) {
+            dropItem(Itemizer.CoralCannonWaterlogged, 1);
+        }
+        if (rand.nextInt(70) == 16) {
+            dropItem(Itemizer.ReeferWaterlogged, 1);
+        }
+        if (rand.nextInt(70) == 5) {
+            dropItem(Itemizer.AquaCannonWaterlogged, 1);
+        }
+        if (rand.nextInt(70) == 5) {
+            dropItem(Itemizer.CoralCloggerWaterlogged, 1);
+        }
+        if (rand.nextInt(10) == 0) {
+            dropItem(Itemizer.CoralStone, 1);
+        }
+    }
 
 	protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);

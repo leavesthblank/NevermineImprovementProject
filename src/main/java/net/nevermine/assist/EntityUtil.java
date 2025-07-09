@@ -16,8 +16,6 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.nevermine.boss.EntityBoss;
 import net.nevermine.boss.cavern.CavernBoss;
-import net.nevermine.mob.placement.EntityNoRange;
-import net.nevermine.mob.placement.EntitySpecialRange;
 
 public class EntityUtil {
 	public static int getPercentageOfMaxHealth(EntityLivingBase entity) {
@@ -44,7 +42,7 @@ public class EntityUtil {
 	}
 
 	public static boolean shootEntity(final Entity targ, final EntityLivingBase shooter, final EntityThrowable projectile, final float dmg) {
-		if (targ == null || targ instanceof EntityNoRange || targ.isEntityInvulnerable())
+		if (targ == null || targ.isEntityInvulnerable())
 			return false;
 
 		EntityLivingBase target;
@@ -62,9 +60,6 @@ public class EntityUtil {
 		else {
 			return false;
 		}
-
-		if (target instanceof EntitySpecialRange && !((EntitySpecialRange)target).canDamage(projectile, target, shooter, dmg))
-			return false;
 
 			if (shooter instanceof EntityPlayer) {
 				if (((EntityPlayer)shooter).capabilities.isCreativeMode) {

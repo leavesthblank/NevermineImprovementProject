@@ -43,15 +43,7 @@ public class EntityConstructTerror extends EntityFlying implements IMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(3) == 2) {
-			dropItem(Itemizer.CoinsCrystevia, 2);
-		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.GemstonesGreen, 3);
-		}
-		if (rand.nextInt(6) == 3) {
-			dropItem(Item.getItemFromBlock(SpecialBlockizer.CrystalBanner), 1);
-		}
+        dropItem(Itemizer.GemstonesGreen, rand.nextInt(4));
 	}
 
 	public boolean getCanSpawnHere() {

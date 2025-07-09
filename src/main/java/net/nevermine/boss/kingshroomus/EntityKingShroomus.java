@@ -68,7 +68,7 @@ public class EntityKingShroomus extends EntityMob implements IRangedAttackMob, E
 
 			PlayerContainer cont = PlayerContainer.getProperties(p);
 
-			if (cont.getLevel(Hunter) >= 30)
+
 				cont.addExperience(1000, Hunter);
 		}
 	}
