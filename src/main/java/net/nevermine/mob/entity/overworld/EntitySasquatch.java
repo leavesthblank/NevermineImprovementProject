@@ -36,7 +36,7 @@ public class EntitySasquatch extends EntityMob {
 		if (rand.nextInt(6) == 1) {
 			dropItem(Plantizer.TeaSeeds, 1);
 		}
-		if (rand.nextInt(50) == 25) {
+		if (rand.nextInt(50) >= 25) {
 			dropItem(Weaponizer.BrownBlaster, 1);
 		}
 	}

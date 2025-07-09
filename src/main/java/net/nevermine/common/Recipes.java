@@ -787,5 +787,6 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(Itemizer.GingerbreadWing, 2), new Object[]{"   ", "XZY", " XZ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,3),'Z', Items.wheat});
         GameRegistry.addRecipe(new ItemStack(Itemizer.GingerbreadWing, 2), new Object[]{"   ", "YZX", "ZX ", 'X', Items.sugar, 'Y', new ItemStack(Items.dye,1,3),'Z', Items.wheat});
         GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.ShroomStone, 1), new Object[]{Itemizer.HavenShrooms,Blockizer.StoneMysterium});
+        GameRegistry.addShapelessRecipe(new ItemStack(Itemizer.WornBook, 1), new Object[]{Items.book,Blockizer.AncientRock});
     }
 }

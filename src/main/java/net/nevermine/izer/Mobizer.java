@@ -122,51 +122,48 @@ public class Mobizer {
                     EntityRegistry.addSpawn(EntityFakePigman.class, 20, 0, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                     EntityRegistry.addSpawn(EntityFlamewalker.class, 20, 0, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                     EntityRegistry.addSpawn(EntityHellcat.class, 20, 0, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                    EntityRegistry.addSpawn(EntityScrubby.class, 20, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                 } else if (overworldBiome(biome)) {
                     if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.MOUNTAIN)) {
-                        EntityRegistry.addSpawn(EntityGoalby.class, 60, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityMagicke.class, 60, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityGrunt.class, 20, 0, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityStoneGiant.class, 6, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityStoneGiant.class, 1, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                     }
                     if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SNOWY)) {
-                        EntityRegistry.addSpawn(EntityHunch.class, 70, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityYeti.class, 70, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityPolarUrsa.class, 70, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntitySnowCharger.class, 70, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityHunch.class, 7, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityYeti.class, 7, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityPolarUrsa.class, 7, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntitySnowCharger.class, 7, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                         EntityRegistry.addSpawn(EntityIceGiant.class, 7, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                     }
                     if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SANDY)) {
-                        EntityRegistry.addSpawn(EntitySandGolem.class, 30, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntitySphinx.class, 30, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityFurlion.class, 30, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityWickett.class, 30, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityDesertCharger.class, 30, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntitySandGiant.class, 3, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntitySandGolem.class, 3, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntitySphinx.class, 3, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityFurlion.class, 3, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityWickett.class, 3, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityDesertCharger.class, 3, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntitySandGiant.class, 1, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                     }
                     if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SAVANNA)) {
-                        EntityRegistry.addSpawn(EntityRammerhead.class, 75, 2, 4, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityChimera.class, 75, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityElkanyne.class, 75, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityBoneback.class, 75, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityRammerhead.class, 7, 2, 4, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityChimera.class, 7, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityElkanyne.class, 7, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityBoneback.class, 7, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                     }
                     if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.JUNGLE)) {
-                        EntityRegistry.addSpawn(EntityBushBaby.class, 70, 2, 3, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityStinger.class, 70, 2, 3, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityBushBaby.class, 7, 2, 3, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityStinger.class, 7, 2, 3, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                     }
                     if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SWAMP)) {
-                        EntityRegistry.addSpawn(EntityChomper.class, 70, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityHag.class, 70, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntitySwampCharger.class, 70, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityFishix.class, 70, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntitySkipper.class, 30, 1, 1, EnumCreatureType.waterCreature, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityChomper.class, 7, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityHag.class, 7, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntitySwampCharger.class, 7, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityFishix.class, 7, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntitySkipper.class, 3, 1, 1, EnumCreatureType.waterCreature, new BiomeGenBase[]{biome});
                     }
                     if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.CONIFEROUS) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SNOWY)) {
-                        EntityRegistry.addSpawn(EntityBlackUrsa.class, 70, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityHidingFungi.class, 40, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityNatura.class, 70, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntitySkolle.class, 15, 0, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityLeafyGiant.class, 7, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityBlackUrsa.class, 7, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityHidingFungi.class, 4, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityNatura.class, 7, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityLeafyGiant.class, 1, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                     }
                     if ((BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.PLAINS) || BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.HILLS) || BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.FOREST)) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SNOWY) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.CONIFEROUS) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SAVANNA) && !BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.SANDY)) {
                         EntityRegistry.addSpawn(EntityBugeye.class, 20, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
@@ -186,50 +183,44 @@ public class Mobizer {
                         EntityRegistry.addSpawn(EntityNightfly.class, 20, 1, 2, EnumCreatureType.monster, new BiomeGenBase[] {biome});
                         if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.PLAINS)) {
                             EntityRegistry.addSpawn(EntityHorndron.class, 5, 0, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                            EntityRegistry.addSpawn(EntityWarclops.class, 5, 0, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                             EntityRegistry.addSpawn(EntityAncientGolem.class, 5, 0, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                         }
                     }
                     if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.MESA)) {
-                        EntityRegistry.addSpawn(EntityMuckopede.class, 50, 3, 4, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                        EntityRegistry.addSpawn(EntityHillCharger.class, 50, 3, 4, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityMuckopede.class, 5, 3, 4, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                        EntityRegistry.addSpawn(EntityHillCharger.class, 5, 3, 4, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                     }
                     if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.OCEAN)) {
                         EntityRegistry.addSpawn(EntityPincher.class, 5, 0, 1, EnumCreatureType.waterCreature, new BiomeGenBase[]{biome});
                     }
                     if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.BEACH)) {
-                        EntityRegistry.addSpawn(EntitySeaTroll.class, 20, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.beach});
-                        EntityRegistry.addSpawn(EntitySeaCharger.class, 20, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.beach});
-                        EntityRegistry.addSpawn(EntitySpinux.class, 20, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.beach});
+                        EntityRegistry.addSpawn(EntitySeaTroll.class, 2, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.beach});
+                        EntityRegistry.addSpawn(EntitySeaCharger.class, 2, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.beach});
+                        EntityRegistry.addSpawn(EntitySpinux.class, 2, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.beach});
                         EntityRegistry.addSpawn(EntityTrollTrader.class, 1, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{BiomeGenBase.beach});
                     }
-                    EntityRegistry.addSpawn(EntityUrka.class, 20, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{DimensionOrganizer.Dustopia,DimensionOrganizer.DustopiaPlains});
+
                     EntityRegistry.addSpawn(EntityDemonReaper.class, 1, 0, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityClown.class, 20, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{DimensionOrganizer.Celeve});
-                    EntityRegistry.addSpawn(EntityNightWatcher.class, 35, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntitySkellox.class, 35, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityScrubby.class, 35, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityFacelessRunner.class, 65, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityShadow.class, 65, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityGhost.class, 65, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityVoidwalker.class, 65, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityVoidCharger.class, 65, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityMotherVoidwalker.class, 65, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityTrickster.class, 40, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityEverbeast.class, 5, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityDarkBeast.class, 35, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                    EntityRegistry.addSpawn(EntityShadow.class, 6, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                    EntityRegistry.addSpawn(EntityGhost.class, 6, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                    EntityRegistry.addSpawn(EntityVoidwalker.class, 6, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                    EntityRegistry.addSpawn(EntityVoidCharger.class, 6, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                    EntityRegistry.addSpawn(EntityMotherVoidwalker.class, 6, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                    EntityRegistry.addSpawn(EntityTrickster.class, 4, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                    EntityRegistry.addSpawn(EntityEverbeast.class, 1, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                     EntityRegistry.addSpawn(EntityBombCarrier.class, 1, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityTerrestrial.class, 5, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityNightReaper.class, 35, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                    EntityRegistry.addSpawn(EntityAnemia.class, 35, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{DimensionOrganizer.Abyss,DimensionOrganizer.AbyssEye,DimensionOrganizer.AbyssShadow});
-                    EntityRegistry.addSpawn(EntityHost.class, 40, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{DimensionOrganizer.Creeponia});
-                    EntityRegistry.addSpawn(EntityWoodGiant.class, 3, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                    EntityRegistry.addSpawn(EntityNightReaper.class, 3, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                    EntityRegistry.addSpawn(EntityWoodGiant.class, 1, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                 }
             }
+            EntityRegistry.addSpawn(EntityNightWatcher.class, 20, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{DimensionOrganizer.Voxponds});
+            EntityRegistry.addSpawn(EntityClown.class, 20, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{DimensionOrganizer.Celeve});
+            EntityRegistry.addSpawn(EntityUrka.class, 20, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{DimensionOrganizer.Dustopia,DimensionOrganizer.DustopiaPlains});
+            EntityRegistry.addSpawn(EntityAnemia.class, 35, 1, 2, EnumCreatureType.monster, new BiomeGenBase[]{DimensionOrganizer.Abyss,DimensionOrganizer.AbyssEye,DimensionOrganizer.AbyssShadow});
+            EntityRegistry.addSpawn(EntityHost.class, 40, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{DimensionOrganizer.Creeponia});
             EntityRegistry.registerModEntity(EntityHunch.class, "Hunch", 0, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityYeti.class, "Yeti", 6, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityEnt.class, "Ent", 1, nevermine.instance, 128, 1, true);
-            EntityRegistry.registerModEntity(EntityFacelessRunner.class, "FacelessRunner", 2, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityShade.class, "Shade", 3, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityShadow.class, "Shadow", 4, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityRammerhead.class, "Rammerhead", 5, nevermine.instance, 128, 1, true);
@@ -314,7 +305,6 @@ public class Mobizer {
             EntityRegistry.addSpawn(EntitySpinoledon.class, 20, 0, 1, EnumCreatureType.monster, new BiomeGenBase[0]);
             EntityRegistry.registerModEntity(EntityCyclops.class, "Cyclops", 49, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityScrubby.class, "Scrubby", 67, nevermine.instance, 128, 1, true);
-            EntityRegistry.registerModEntity(EntitySkellox.class, "Skellox", 68, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityVoidwalker.class, "VoidWalker", 70, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityMotherVoidwalker.class, "MotherVoidWalker", 71, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityTrickster.class, "Trickster", 72, nevermine.instance, 128, 1, true);
@@ -371,7 +361,6 @@ public class Mobizer {
             EntityRegistry.registerModEntity(EntityUrka.class, "Urka", 109, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityBlackUrsa.class, "Ursa", 110, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityBombCarrier.class, "BombCarrier", 111, nevermine.instance, 128, 1, true);
-            EntityRegistry.registerModEntity(EntityDarkBeast.class, "DarkBeast", 112, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityNightWatcher.class, "NightWatcher", 113, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityCorby.class, "Corby", 115, nevermine.instance, 128, 1, true);
             EntityRegistry.addSpawn(EntityCorby.class, 10, 0, 1, EnumCreatureType.monster, new BiomeGenBase[0]);
@@ -612,7 +601,6 @@ public class Mobizer {
             EntityRegistry.registerModEntity(EntityLottomanDustopia.class, "LottomanDustopia", 256, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityNightReaper.class, "NightReaper", 257, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityDemonReaper.class, "DemonReaper", 258, nevermine.instance, 128, 1, true);
-            EntityRegistry.registerModEntity(EntityTerrestrial.class, "Terrestrial", 259, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntitySpikeback.class, "Spikeback", 260, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityRammerhorn.class, "Rammerhorn", 261, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityPlateosaur.class, "Plateosaur", 262, nevermine.instance, 128, 1, true);
@@ -766,9 +754,7 @@ public class Mobizer {
             EntityRegistry.registerModEntity(EntityBlissard.class, "Blissard", 544, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityHorndron.class, "Horndron", 545, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityGrunt.class, "Grunt", 546, nevermine.instance, 128, 1, true);
-            EntityRegistry.registerModEntity(EntitySkolle.class, "Skolle", 547, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityMagicke.class, "Magicke", 548, nevermine.instance, 128, 1, true);
-            EntityRegistry.registerModEntity(EntityWarclops.class, "Warclops", 549, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityWickett.class, "Wickett", 550, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityFurlion.class, "Furlion", 551, nevermine.instance, 128, 1, true);
             EntityRegistry.registerModEntity(EntityNatura.class, "Natura", 552, nevermine.instance, 128, 1, true);

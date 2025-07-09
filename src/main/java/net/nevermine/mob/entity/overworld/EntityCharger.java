@@ -34,9 +34,7 @@ public class EntityCharger extends EntityMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(3) == 1) {
-			dropItem(Items.feather, 4);
-		}
+        dropItem(Items.feather, rand.nextInt(5));
 	}
 
 	public boolean getCanSpawnHere() {

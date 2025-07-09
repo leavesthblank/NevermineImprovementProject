@@ -7,12 +7,10 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.projectiles.enemy.EntityMagicBallSeaTroll;
 
@@ -54,18 +52,11 @@ public class EntitySeaTroll extends EntityMob implements IRangedAttackMob {
 		return true;
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.SeaBanner);
-	}
-
-	protected void dropFewItems(final boolean par1, final int par2) {
+    protected void dropFewItems(final boolean par1, final int par2) {
 		if (rand.nextInt(20) == 0) {
 			dropItem(Weaponizer.DartGun, 1);
 		}
 		dropItem(Itemizer.WaterRune, 2 + rand.nextInt(3));
-		if (rand.nextInt(7) == 0) {
-			dropItem(dropBanner(), 1);
-		}
 	}
 
 	public void onLivingUpdate() {

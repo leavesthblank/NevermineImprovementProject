@@ -44,15 +44,11 @@ public class EntityChimera extends EntityMob{
 
 		if (!worldObj.isRemote) {
 			if (var1.isFireDamage() || isBurning()) {
-				dropItem(Itemizer.ChimeraChopCooked, 2);
+				dropItem(Itemizer.ChimeraChopCooked, rand.nextInt(4));
 			}
 			else {
-				dropItem(Itemizer.ChimeraChopRaw, 2);
+				dropItem(Itemizer.ChimeraChopRaw, rand.nextInt(4));
 			}
-		}
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(16.0f, Hunter);
 		}
 	}
 
@@ -70,7 +66,7 @@ public class EntityChimera extends EntityMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(125) == 15) {
+		if (rand.nextInt(25) >= 18) {
 			dropItem(Weaponizer.HeadHunter, 1);
 		}
 	}

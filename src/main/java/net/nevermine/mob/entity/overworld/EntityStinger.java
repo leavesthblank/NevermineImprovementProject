@@ -41,9 +41,6 @@ public class EntityStinger extends EntityAIFlying {
 		if (rand.nextInt(15) == 0) {
 			dropItem(Weaponizer.TangleStaff, 1);
 		}
-		if (rand.nextInt(5) == 4) {
-			dropItem(Itemizer.RealmstonePrecasia, 2);
-		}
 	}
 
 	public boolean getCanSpawnHere() {

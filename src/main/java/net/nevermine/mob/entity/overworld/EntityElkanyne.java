@@ -36,16 +36,8 @@ public class EntityElkanyne extends EntityMob{
 		playSound("mob.pig.step", 1.0f, 1.0f);
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(16.0f, Hunter);
-		}
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(15) == 0) {
+		if (rand.nextInt(5) == 0) {
 			dropItem(Weaponizer.Stampede, 1);
 		}
 	}

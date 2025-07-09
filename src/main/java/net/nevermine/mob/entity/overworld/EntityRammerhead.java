@@ -45,14 +45,6 @@ public class EntityRammerhead extends EntityMob{
 		return true;
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(26.0f, Hunter);
-		}
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
 		if (rand.nextInt(4) == 3) {
 			dropItem(Itemizer.RammerheadHide, 1);

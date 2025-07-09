@@ -169,7 +169,6 @@ public class MobRenders {
 	public static void init() {
 		RenderingRegistry.registerEntityRenderingHandler(EntityHunch.class, new RenderHunch(new modelHunch(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnt.class, new RenderEnt(new modelEnt(), 1.3f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityFacelessRunner.class, new RenderFacelessRunner(new modelFacelessRunner(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityShade.class, new RenderShade(new modelShade(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityShadow.class, new RenderShadow(new modelShadow(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityRammerhead.class, new RenderRammerhead(new modelRammerhead(), 0.5f));
@@ -233,11 +232,9 @@ public class MobRenders {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlackUrsa.class, new RenderUrsa(new modelUrsa(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBombCarrier.class, new RenderBombCarrier(new modelBombCarrier(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFakeTnt.class, new RenderTNTPrimed());
-		RenderingRegistry.registerEntityRenderingHandler(EntityDarkBeast.class, new RenderDarkBeast(new modelDarkbeast(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEverbeast.class, new RenderEverbeast(new modelEverbeast(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityNightWatcher.class, new RenderNightWatcher(new modelNightWatcher(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityScrubby.class, new RenderScrubby(new modelScrubby(), 0.5f));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySkellox.class, new RenderSkellox(new modelSkellox(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityVoidwalker.class, new RenderVoidwalker(new modelVoidwalker(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMotherVoidwalker.class, new RenderMotherVoidwalker(new modelMotherVoidwalker(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTrickster.class, new RenderTrickster(new modelTrickster(), 0.5f));
@@ -301,7 +298,6 @@ public class MobRenders {
 		RenderingRegistry.registerEntityRenderingHandler(EntityLottomanRunandor.class, new RenderLottomanRunandor(new modelLottoman(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDestructor.class, new RenderDestructor(new modelDestructor(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityEnderCarrier.class, new RenderEnderCarrier(new modelEnderCarrier(), 0.5f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityTerrestrial.class, new RenderTerrestrial(new modelTerrestrial(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDawnlight.class, new RenderDawnlight(new modelDawnlight(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityNightReaper.class, new RenderNightReaper(new modelNightReaper(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDemonReaper.class, new RenderDemonReaper(new modelNightReaper(), 0.5f));
@@ -535,10 +531,8 @@ public class MobRenders {
 		RenderingRegistry.registerEntityRenderingHandler(EntityCraggy.class, new RenderCraggy(new modelCraggy(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityShaddy.class, new RenderShaddy(new modelShaddy(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHorndron.class, new RenderHorndron(new modelHorndron(), 0.5f));
-		RenderingRegistry.registerEntityRenderingHandler(EntitySkolle.class, new RenderSkolle(new modelSkolle(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrunt.class, new RenderGrunt(new modelGrunt(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMagicke.class, new RenderMagicke(new modelMagicke(), 0.5f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityWarclops.class, new RenderWarclops(new modelWarclops(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAncientGolem.class, new RenderAncientGolem(new modelAncientGolem(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFurlion.class, new RenderFurlion(new modelFurlion(), 0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityWickett.class, new RenderWickett(new modelWickett(), 0.5f));

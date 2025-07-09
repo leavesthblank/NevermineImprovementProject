@@ -43,9 +43,6 @@ public class EntityBushBaby extends EntityMob {
 		if (rand.nextInt(30) == 13) {
 			dropItem(Weaponizer.GravityBlaster, 1);
 		}
-		if (rand.nextInt(2) == 1) {
-			dropItem(Itemizer.RealmstonePrecasia, 2);
-		}
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
 	}
 

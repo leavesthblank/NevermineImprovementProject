@@ -36,22 +36,8 @@ public class EntityNightWatcher extends EntityMob {
 		return "nevermine:NightWatcherHit";
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(15.0f, Hunter);
-		}
-        if (!worldObj.isRemote && rand.nextInt(60) == 0 ) {
-            final int posx = MathHelper.floor_double(posX);
-            final int posz = MathHelper.floor_double(posZ);
-            final int posy = MathHelper.floor_double(posY);
-            new LunarPortalStructure().generate(worldObj, worldObj.rand, posx, posy, posz);
-        }
-	}
-
 	public boolean getCanSpawnHere() {
-		return worldObj.getCurrentMoonPhaseFactor() == 1.0 && !worldObj.isDaytime() && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
+		return !worldObj.isDaytime() && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
 	protected boolean isValidLightLevel() {
@@ -91,15 +77,5 @@ public class EntityNightWatcher extends EntityMob {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.3);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(90.0);
-	}
-
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		for (final EntityPlayer e : (List<EntityPlayer>)worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(6.0, 6.0, 6.0))) {
-			if (e.capabilities.isCreativeMode)
-				continue;
-
-			e.addPotionEffect(new PotionEffect(Potion.blindness.id, 65, 1));
-		}
 	}
 }

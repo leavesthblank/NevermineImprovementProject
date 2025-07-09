@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.projectiles.enemy.EntityClownShot;
 
@@ -34,9 +35,15 @@ public class EntityClown extends EntityMob implements IRangedAttackMob {
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(25) >= 6) {
+		if (rand.nextInt(25) >= 22) {
 			dropItem(Weaponizer.ConfettiCannon, 1);
 		}
+        dropItem(Itemizer.CoinCircus, rand.nextInt(6));
+        dropItem(Itemizer.CoinsCeleve, rand.nextInt(8));
+        dropItem(Itemizer.CopperCoin,rand.nextInt(4));
+        if (rand.nextInt(200) == 135) {
+            dropItem(Itemizer.UpgradeKitClown, 1);
+        }
 	}
 
 	public boolean getCanSpawnHere() {

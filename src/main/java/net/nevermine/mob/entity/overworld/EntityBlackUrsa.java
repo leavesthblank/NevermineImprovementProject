@@ -48,10 +48,10 @@ public class EntityBlackUrsa extends EntityMob {
 	public void onDeath(final DamageSource var1) {
 		if (!worldObj.isRemote) {
 			if (var1.isFireDamage() || isBurning()) {
-				dropItem(Itemizer.UrsaCooked, 2);
+				dropItem(Itemizer.UrsaCooked, rand.nextInt(6));
 			}
 			else {
-				dropItem(Itemizer.UrsaRaw, 2);
+				dropItem(Itemizer.UrsaRaw, rand.nextInt(6));
 			}
 		}
 		super.onDeath(var1);
@@ -103,10 +103,10 @@ public class EntityBlackUrsa extends EntityMob {
 
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(8.0);
+		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0);
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(52.0);
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.3);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.45);
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(90.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(35.0);
 	}
 }

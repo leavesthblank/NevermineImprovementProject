@@ -1,4 +1,4 @@
-package net.nevermine.mob.entity.night;
+package net.nevermine.mob.entity.nether;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -8,18 +8,11 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.mob.ai.EntityAIHop;
-import net.nevermine.structures.vanilla.LunarPortalStructure;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityScrubby extends EntityMob {
 	public EntityScrubby(final World par1World) {
@@ -40,7 +33,7 @@ public class EntityScrubby extends EntityMob {
 	}
 
 	public boolean getCanSpawnHere() {
-		return !worldObj.isDaytime() && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
+		return worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
 	protected boolean isValidLightLevel() {
@@ -49,34 +42,16 @@ public class EntityScrubby extends EntityMob {
 
 	public void onDeath(final DamageSource var1) {
 		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(15.0f, Hunter);
-		}
-        if (!worldObj.isRemote && rand.nextInt(60) == 0 ) {
-                final int posx = MathHelper.floor_double(posX);
-                final int posz = MathHelper.floor_double(posZ);
-                final int posy = MathHelper.floor_double(posY);
-                new LunarPortalStructure().generate(worldObj, worldObj.rand, posx, posy, posz);
-        }
 	}
 
-	private Item dropBanner() {
-		return Item.getItemFromBlock(SpecialBlockizer.SoulBanner);
-	}
-
-	protected void dropFewItems(final boolean par1, final int par2) {
+    protected void dropFewItems(final boolean par1, final int par2) {
 		dropItem(Itemizer.CopperCoin, 5 + rand.nextInt(10));
 
-		if (rand.nextBoolean()) {
-			dropItem(Itemizer.Moonstone, 1);
-		}
-
-		if (rand.nextInt(10) == 0) {
+		if (rand.nextInt(40) == 0) {
 			dropItem(Weaponizer.HotShot, 1);
 		}
 
-		if (rand.nextInt(50) == 41) {
+		if (rand.nextInt(20) == 1) {
 			dropItem(Weaponizer.MoonShiner, 1);
 		}
 	}

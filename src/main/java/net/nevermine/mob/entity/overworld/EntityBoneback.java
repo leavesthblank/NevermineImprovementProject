@@ -36,14 +36,6 @@ public class EntityBoneback extends EntityMob{
 		playSound("nevermine:VeryHeavyStep", 1.25f, 1.0f);
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(24.0f, Hunter);
-		}
-	}
-
 	public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
@@ -58,7 +50,7 @@ public class EntityBoneback extends EntityMob{
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
-		dropItem(Items.bone, 4);
+		dropItem(Items.bone, 4 + rand.nextInt(3));
 	}
 
 	public void applyEntityAttributes() {
