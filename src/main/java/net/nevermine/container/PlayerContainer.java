@@ -8,7 +8,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
 public class PlayerContainer implements IExtendedEntityProperties {
-	private final EntityPlayer player;
 
 	public int runicCounter = 600;
 	public int rosidCounter = 300;
@@ -20,36 +19,12 @@ public class PlayerContainer implements IExtendedEntityProperties {
 	public int knightCounter = 1;
 
 	public PlayerContainer(final EntityPlayer pl) {
-		player = pl;
 	}
 
 	public void saveNBTData(final NBTTagCompound n) {
-		saveNBTPortalReturnData(n);
-	}
-
-	public void saveNBTPortalReturnData(NBTTagCompound baseTag) {
-		final NBTTagCompound tag = baseTag.getCompoundTag("PlayerPersisted");
-
-		final NBTTagCompound portalTag = new NBTTagCompound();
-
-		portalTag.setDouble("posX", portalReturnLocation.x);
-		portalTag.setDouble("posY", portalReturnLocation.y);
-		portalTag.setDouble("posZ", portalReturnLocation.z);
-
-		tag.setTag("PortalReturnLoc", portalTag);
-		baseTag.setTag("PlayerPersisted", tag);
-		player.getEntityData().setTag("PlayerPersisted", tag);
 	}
 
 	public void loadNBTData(final NBTTagCompound n) {
-		final NBTTagCompound tag = n.getCompoundTag("PlayerPersisted");
-
-		if (tag.hasKey("PortalReturnLoc")) {
-			NBTTagCompound portalTag = tag.getCompoundTag("PortalReturnLoc");
-			portalReturnLocation = new PortalCoordinatesContainer(portalTag.getDouble("posX"), portalTag.getDouble("posY"), portalTag.getDouble("posZ"));
-		}
-
-		player.getEntityData().setTag("PlayerPersisted", tag);
 	}
 
 	@SubscribeEvent

@@ -50,13 +50,10 @@ public class LunarPortalStructure extends WorldGenerator {
 		world.setBlock(i + 3, j + 7, k + 3, Blockizer.GrassLunasole);
 		world.setBlock(i + 3, j + 7, k + 4, Blockizer.GrassLunasole);
 		world.setBlock(i + 3, j + 8, k + 2, Blockizer.LunarBricks);
-		world.setBlock(i + 3, j + 8, k + 3, Blockizer.lunalusPortal);
 		world.setBlock(i + 3, j + 8, k + 4, Blockizer.LunarBricks);
 		world.setBlock(i + 3, j + 9, k + 2, Blockizer.LunarBricks);
-		world.setBlock(i + 3, j + 9, k + 3, Blockizer.lunalusPortal);
 		world.setBlock(i + 3, j + 9, k + 4, Blockizer.LunarBricks);
 		world.setBlock(i + 3, j + 10, k + 2, Blockizer.LunarBricks);
-		world.setBlock(i + 3, j + 10, k + 3, Blockizer.lunalusPortal);
 		world.setBlock(i + 3, j + 10, k + 4, Blockizer.LunarBricks);
 		world.setBlock(i + 3, j + 11, k + 2, Blockizer.LunarBricks);
 		world.setBlock(i + 3, j + 11, k + 3, Blockizer.LunarBricks);

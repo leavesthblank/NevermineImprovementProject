@@ -12,9 +12,6 @@ public class CommonProxy {
 	public void displayHelmetScreen(final boolean on, final int screen, final EntityPlayer player) {
 	}
 
-	public void recoilTicking(final float recoil) {
-	}
-
 	public void RenderInformation() {
 	}
 

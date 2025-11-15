@@ -10,28 +10,6 @@ import net.nevermine.block.generation.grass.*;
 import net.nevermine.block.generation.plant.*;
 import net.nevermine.block.generation.structure.*;
 import net.nevermine.block.generation.wood.*;
-import net.nevermine.dimension.abyss.BlockAbyssPortal;
-import net.nevermine.dimension.barathos.BlockBarathosPortal;
-import net.nevermine.dimension.candyland.BlockCandylandPortal;
-import net.nevermine.dimension.celeve.BlockCelevePortal;
-import net.nevermine.dimension.creeponia.BlockCreeponiaPortal;
-import net.nevermine.dimension.crystevia.BlockCrysteviaPortal;
-import net.nevermine.dimension.deeplands.BlockDeeplandsPortal;
-import net.nevermine.dimension.dustopia.BlockDustopiaPortal;
-import net.nevermine.dimension.gardencia.BlockGardenciaPortal;
-import net.nevermine.dimension.greckon.BlockGreckonPortal;
-import net.nevermine.dimension.haven.BlockHavenPortal;
-import net.nevermine.dimension.immortallis.BlockImmortallisPortal;
-import net.nevermine.dimension.iromine.BlockIrominePortal;
-import net.nevermine.dimension.labricon.BlockLabriconPortal;
-import net.nevermine.dimension.lborean.BlockBoreanPortal;
-import net.nevermine.dimension.lelyetia.BlockLelyetiaPortal;
-import net.nevermine.dimension.lunalus.BlockLunalusPortal;
-import net.nevermine.dimension.mysterium.BlockMysteriumPortal;
-import net.nevermine.dimension.precasia.BlockPrecasiaPortal;
-import net.nevermine.dimension.runandor.BlockRunandorPortal;
-import net.nevermine.dimension.shyrelands.BlockShyrelandsPortal;
-import net.nevermine.dimension.voxponds.BlockVoxpondsPortal;
 
 public class Blockizer {
 	private final static String oreDictWood = "logWood";
@@ -51,10 +29,6 @@ public class Blockizer {
 	public static Block LeavesBlood = new Leaves().setName("leavesBlood");
 	public static Block WoodShadow = new WoodShadow(Material.wood).setBlockName("WoodShadow");
 	public static Block WoodBlood = new WoodBlood(Material.wood).setBlockName("WoodBlood");
-	public static Block abyssPortal = new BlockAbyssPortal();
-	public static Block havenPortal = new BlockHavenPortal();
-	public static Block precasiaPortal = new BlockPrecasiaPortal();
-	public static Block mysteriumPortal = new BlockMysteriumPortal();
 	public static Block blockAcid = new BlockAcid().setBlockName("acidBlock").setBlockTextureName("nevermine:slugAcid");
 	public static Block Crate = new BasicDecoration(Material.wood).setName("crate");
 	public static Block Crystallanium = new Crystallanium(Material.glass).setBlockName("Crystallanium").setBlockTextureName("nevermine:crystallanium");
@@ -221,7 +195,6 @@ public class Blockizer {
 	public static Block OreLyon = new OreBlock().setName("oreLyon");
 	public static Block WoodIromine = new WoodIro(Material.wood).setBlockName("WoodIromine");
 	public static Block GrassIromine = new GrassIromine(Material.grass).setBlockName("GrassIromine");
-	public static Block irominePortal = new BlockIrominePortal();
 	public static Block DirtLunalyte = new GeneratedBlock(Material.ground).setName("dirtLunalyte").setStepSound(new Block.SoundType("gravel", 1.0f, 1.0f));
 	public static Block DirtLunasole = new GeneratedBlock(Material.ground).setName("dirtLunasole").setStepSound(new Block.SoundType("gravel", 1.0f, 1.0f));
 	public static Block GrassLunalyte = new GrassLunalyte(Material.grass).setBlockName("GrassLunalyte");
@@ -231,7 +204,6 @@ public class Blockizer {
 	public static Block WoodLunide = new WoodLunide(Material.wood).setBlockName("WoodLunide");
 	public static Block Lunalip = new BlockGenLunarPlant(Material.grass).setName("lunaLip");
 	public static Block Luntar = new BlockGenLunarPlant(Material.grass).setName("luntar");
-	public static Block lunalusPortal = new BlockLunalusPortal();
 	public static Block DeepCrystal = new LampBlock().setName("deepCrystal");
 	public static Block DeepRock = new BlockForagingStone(Material.rock).setName("deeplandsRock");
 	public static Block Deepcase = new DeepCase(Material.rock).setBlockName("DeepCase").setBlockTextureName("nevermine:oreDeepcase");
@@ -250,7 +222,6 @@ public class Blockizer {
 	public static Block Daileers = new BlockGenericPlant(Material.vine).setName("daileers");
 	public static Block GardenGrass = new BlockGenericPlant(Material.vine).setTallPlant().setName("gardenGrass");
 	public static Block GrassGardencia = new GrassGardencia(Material.grass).setBlockName("GrassGardencia");
-	public static Block gardenciaPortal = new BlockGardenciaPortal();
 	public static Block DirtGreckon = new GeneratedBlock(Material.ground).setName("dirtGreckon").setStepSound(new Block.SoundType("gravel", 1.0f, 1.0f));
 	public static Block StoneGreckon = new BlockForagingStone(Material.rock).setName("stoneGreckon");
 	public static Block OreGhastly = new OreBlock().setName("oreGhastly");
@@ -264,7 +235,6 @@ public class Blockizer {
 	public static Block HauntedWoodRedEyes = new HauntedWoodSpecials(Material.wood, "HauntedWoodRedEyes").setBlockName("HauntedWoodRedEyes");
 	public static Block HauntedWoodLargeEye = new HauntedWoodSpecials(Material.wood, "HauntedWoodLargeEye").setBlockName("HauntedWoodLargeEye");
 	public static Block HauntedLeavesGhouls = new HauntedEyeLeaves(Material.wood, "HauntedLeavesGhouls").setBlockName("HauntedLeavesGhouls");
-	public static Block greckonPortal = new BlockGreckonPortal();
 	public static Block DirtDustopia = new GeneratedBlock(Material.ground).setName("dirtDustopia").setStepSound(new Block.SoundType("gravel", 1.0f, 1.0f));
 	public static Block StoneDustopia = new BlockForagingStone(Material.rock).setName("stoneDustopia");
 	public static Block DawnBush = new BlockGenericPlant(Material.vine).setName("dawnBush");
@@ -275,7 +245,6 @@ public class Blockizer {
 	public static Block DawnGrassTop = new BlockGenericPlant(Material.vine).setName("dawngrassTop");
 	public static Block DawnwoodBars = new BlockGenericPlant(Material.wood).setTallPlant().setName("barsDawnwood");
 	public static Block DawnwoodPlanks = new GeneratedBlock(Material.wood).setName("planksDawnwood");
-	public static Block dustopiaPortal = new BlockDustopiaPortal();
 	public static Block LunarCreationTable = new LunarCreationTable(Material.rock).setCreativeTab(Itemizer.TablesTab).setBlockName("LunarCreationTable");
 	public static Block LunarPad = new LunarPad(Material.rock).setBlockName("LunarPad");
 	public static Block LunarPillar = new LunarPillar(Material.rock).setBlockName("LunarPillar");
@@ -298,9 +267,7 @@ public class Blockizer {
 	public static Block GrassBorean = new GrassBorean(Material.grass).setBlockName("GrassBorean");
 	public static Block GrassToxic = new GrassToxic(Material.grass).setBlockName("GrassToxic");
 	public static Block ToxicWaste = new ToxicWaste(Material.sponge).setBlockName("ToxicWaste").setBlockTextureName("nevermine:toxicWaste");
-	public static Block boreanPortal = new BlockBoreanPortal();
 	public static Block BurealStocks = new BlockGenericPlant(Material.vine).setName("burealStocks");
-	public static Block voxpondsPortal = new BlockVoxpondsPortal();
 	public static Block LampDustopian = new LampBlock().setName("dustopianLampOn");
 	public static Block DustopianLampOff = new BaseLampOff(Material.rock).setBlockName("DustopianLampOff").setBlockTextureName("nevermine:dustopianLampOff");
 	public static Block PrimordialShrine = new PrimordialShrine(Material.rock).setBlockName("PrimordialShrine");
@@ -310,7 +277,6 @@ public class Blockizer {
 	public static Block RunicLeaves = new BlockClear().setName("runicLeaves");
 	public static Block WoodRunic = new WoodRunic(Material.wood).setBlockName("woodRunic");
 	public static Block GrassRunic = new GrassRunic(Material.grass).setBlockName("GrassRunic");
-	public static Block overgrowthPortal = new BlockRunandorPortal();
 	public static Block RunicBush = new BlockGenericPlant(Material.vine).setName("runicBush");
 	public static Block RuneBulbs = new BlockGenericPlant(Material.vine).setName("runeBulbs");
 	public static Block Magias = new BlockGenericPlant(Material.vine).setName("magias");
@@ -323,7 +289,6 @@ public class Blockizer {
 	public static Block BaronGround = new GeneratedBlock(Material.rock).setName("baronGround");
 	public static Block BaronStone = new BlockForagingStone(Material.rock).setName("baronStone");
 	public static Block BaronGlass = new BlockClear().setName("baronGlass");
-	public static Block barathosPortal = new BlockBarathosPortal();
 	public static Block OreVarsium = new OreBlock().setName("oreVarsium");
 	public static Block OreElecanium = new OreBlock().setName("oreElecanium");
 	public static Block OreBaronyte = new OreBlock().setName("oreBaronyte");
@@ -332,7 +297,6 @@ public class Blockizer {
 	public static Block DarkBrickFace = new GeneratedBlock(Material.rock).setName("animated/DarkBrickFace");
 	public static Block LunarGlass = new BlockUnbreakableClear().setName("lunarGlass");
 	public static Block LunarEnrichmentTable = new LunarEnrichmentTable(Material.rock).setCreativeTab(Itemizer.TablesTab).setBlockName("LunarEnrichmentTable");
-	public static Block deeplandsPortal = new BlockDeeplandsPortal();
 	public static Block BlackMushroom = new GeneratedBlock(Material.gourd).setName("mushroomBlack");
 	public static Block BlackMushroomStem = new GeneratedBlock(Material.gourd).setName("mushroomStemBlack");
 	public static Block DeepGrass = new BlockGenericPlant(Material.vine).setName("deepGrass");
@@ -448,7 +412,6 @@ public class Blockizer {
 	public static Block Irotops = new BlockGenIroPlant(Material.grass).setName("irotops");
 	public static Block Lurchians = new BlockGenIroPlant(Material.grass).setName("lurchians");
 	public static Block SpawnerNightwing = new BlockSpawner("nevermine.Nightwing").setName("spawnerNightwing");
-	public static Block labriconPortal = new BlockLabriconPortal();
 	public static Block LeavesChurry = new Leaves().setName("leavesChurry");
 	public static Block LeavesAchony = new Leaves().setName("leavesAchony");
 	public static Block LelyetianCore = new Leaves().setName("lelyetianCore");
@@ -459,7 +422,6 @@ public class Blockizer {
 	public static Block WoodChurry = new WoodChurry(Material.wood).setBlockName("woodChurry");
 	public static Block GrassLelyetiaUp = new GrassLelyetiaUp(Material.grass).setBlockName("GrassLelyetiaUp");
 	public static Block GrassLelyetiaDown = new GrassLelyetiaDown(Material.grass).setBlockName("GrassLelyetiaDown");
-	public static Block lelyetiaPortal = new BlockLelyetiaPortal();
 	public static Block AncientRock = new GeneratedBlock(Material.rock).setName("ancientRock");
 	public static Block CarvedRune1 = new CarvedRunicBlockBase(Material.iron, "carvedRune1").setCreativeTab(Itemizer.GenerationTab).setBlockName("carvedRune1");
 	public static Block CarvedRune2 = new CarvedRunicBlockBase(Material.iron, "carvedRune2").setCreativeTab(Itemizer.GenerationTab).setBlockName("carvedRune2");
@@ -528,7 +490,6 @@ public class Blockizer {
 	public static Block HeatLamp_15 = new HeatLamp().setName("heatLamp_15");
 	public static Block DirtCeleve = new GeneratedBlock(Material.ground).setName("dirtCeleve");
 	public static Block GrassCeleve = new GrassCeleve(Material.grass).setBlockName("GrassCeleve");
-	public static Block celevePortal = new BlockCelevePortal();
 	public static Block CelevusRed = new Leaves().setName("celevusRed");
 	public static Block CelevusGreen = new Leaves().setName("celevusGreen");
 	public static Block CelevusBlue = new Leaves().setName("celevusBlue");
@@ -550,7 +511,6 @@ public class Blockizer {
 	public static Block CrystalRed = new BlockCrystal(Material.glass).setName("crystalRed");
 	public static Block CrystalPurple = new BlockCrystal(Material.glass).setName("crystalPurple");
 	public static Block CrysteviaRock = new BlockForagingStone(Material.rock).setName("crysteviaRock");
-	public static Block crysteviaPortal = new BlockCrysteviaPortal();
 	public static Block oreCrystalPurple = new OreBlock().setName("oreCrystalPurple");
 	public static Block oreCrystalBlue = new OreBlock().setName("oreCrystalBlue");
 	public static Block oreCrystalGreen = new OreBlock().setName("oreCrystalGreen");
@@ -631,7 +591,6 @@ public class Blockizer {
 	public static Block CrystalExtensionShrine = new CrystalExtensionShrine(Material.rock).setCreativeTab(Itemizer.TablesTab).setBlockName("CrystalExtensionShrine").setBlockTextureName("nevermine:crystalExtensionShrine");
 	public static Block DirtCandyland = new GeneratedBlock(Material.ground).setName("dirtCandyland");
 	public static Block GrassCandyland = new GrassCandyland(Material.grass).setBlockName("GrassCandyland");
-	public static Block candylandPortal = new BlockCandylandPortal();
 	public static Block CandyCane = new BlockCrystal(Material.glass).setName("candyCane");
 	public static Block SpearmentRed = new BlockCrystal(Material.glass).setName("spearmentRed");
 	public static Block SpearmentGreen = new BlockCrystal(Material.glass).setName("spearmentGreen");
@@ -702,7 +661,6 @@ public class Blockizer {
 	public static Block LeavesCreep = new Leaves().setName("leavesCreep");
 	public static Block GrassCreeponia = new GrassCreeponia(Material.grass).setBlockName("GrassCreeponia");
 	public static Block WoodCreep = new WoodCreep(Material.wood).setBlockName("woodCreep");
-	public static Block creeponiaPortal = new BlockCreeponiaPortal();
 	public static Block CreepStone = new BlockForagingStone(Material.rock).setName("stoneCreep");
 	public static Block UnstableStone = new BlockForagingStone(Material.rock).setName("stoneUnstable");
 	public static Block PrimedStone = new BlockForagingStone(Material.rock).setName("stonePrimed");
@@ -741,7 +699,6 @@ public class Blockizer {
 	public static Block iProgressor7 = new IProgressor(Material.rock).setName("progressorImmortallis7").setBlockTextureName("nevermine:progressorImmortallis");
 	public static Block iProgressor8 = new IProgressor(Material.rock).setName("progressorImmortallis8").setBlockTextureName("nevermine:progressorImmortallis");
 	public static Block iProgressor9 = new IProgressor(Material.rock).setName("progressorImmortallis9").setBlockTextureName("nevermine:progressorImmortallis");
-	public static Block immortallisPortal = new BlockImmortallisPortal();
 	public static Block ArchaicLadder = new BlockUnbreakableLadder(Material.iron).setName("archaicLadder");
 	public static Block SpawnerZarg = new BlockSpawner("nevermine.Zarg").setName("spawnerZarg");
 	public static Block SpawnerZorp = new BlockSpawner("nevermine.Zorp").setName("spawnerZorp");
@@ -824,8 +781,6 @@ public class Blockizer {
 	public static Block ShyreLeaves = new ClearLeaves().setName("leavesShyre");
 	public static Block ShyreLeavesB = new ClearLeaves().setName("leavesShyreBright");
 	public static Block ShyreCloud = new BlockClearPass(Material.glass).setName("shyreCloud");
-
-	public static BlockShyrelandsPortal shyrelandsPortal = new BlockShyrelandsPortal();
 
 	public static Block ShyreStock = new BlockGenericPlant(Material.grass).setTallPlant().isBidirectional().setName("shyreStock");
 	public static Block ShyreCapUp = new BlockGenericPlant(Material.grass).setTallPlant().setChildPlant(Blockizer.ShyreStock).setName("shyreCapUp");

@@ -25,7 +25,6 @@ import net.nevermine.block.modelblocks.animated.TileEntityAnimatedModelBlock;
 import net.nevermine.block.modelblocks.banner.TileEntityBanner;
 import net.nevermine.block.modelblocks.statue.TileEntityStatue;
 import net.nevermine.block.modelblocks.utility.TileEntityUtilityBlock;
-import net.nevermine.dimension.WorldGen;
 import net.nevermine.event.player.Ticker;
 import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Dimensionizer;
@@ -80,7 +79,6 @@ public class nevermine {
     @EventHandler
     public void load(FMLInitializationEvent event) {
         postFMLEvent(new Ticker());
-        GameRegistry.registerWorldGenerator(new WorldGen(), 5000);
         Mobizer.init();
         Blockizer.oreDictInit();
 

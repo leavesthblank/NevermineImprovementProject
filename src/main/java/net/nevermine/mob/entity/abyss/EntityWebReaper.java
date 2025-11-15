@@ -13,7 +13,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.dimension.DimensionOrganizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.projectiles.enemy.EntityMagicBall;
