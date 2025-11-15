@@ -8,7 +8,6 @@ import net.nevermine.event.player.liveDieEvent;
 import net.nevermine.event.player.worldJoin;
 import net.nevermine.event.resource.*;
 import net.nevermine.resource.boss.bossBarTickHandler;
-import net.nevermine.resource.energy.energyTickHandler;
 
 public class AddBusses {
 	public static void init() {
@@ -29,7 +28,6 @@ public class AddBusses {
 		nevermine.addSpecialEventBus(new liveDieEvent());
 		nevermine.postForgeEvent(new liveDieEvent());
 		nevermine.addEventBus(new HarvestingTracker());
-		nevermine.addSpecialEventBus(new energyTickHandler());
 		nevermine.addSpecialEventBus(new bossBarTickHandler());
 	}
 }

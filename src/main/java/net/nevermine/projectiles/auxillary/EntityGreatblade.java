@@ -16,7 +16,6 @@ import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.assist.EntityUtil;
 import net.nevermine.minion.entity.EntityRosid;
 import net.nevermine.projectiles.energy.EntityWitherPierce;
-import net.nevermine.resource.energy.energyHelper;
 
 import java.util.List;
 
@@ -110,10 +109,6 @@ public class EntityGreatblade extends EntityThrowable {
 				case 7:
 					if (EntityUtil.getPercentageOfMaxHealth(attacker) < 50)
 						attacker.setHealth(attacker.getHealth() + 1.0f);
-					break;
-				case 9:
-					if (attacker instanceof EntityPlayer && EntityUtil.getPercentageOfMaxHealth(attacker) < 33)
-						energyHelper.getProperties((EntityPlayer)attacker).regen(60.0f);
 					break;
 				case 10:
 					if (rand.nextInt(20) == 0)

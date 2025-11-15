@@ -8,11 +8,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import net.nevermine.assist.AddPackets;
 import net.nevermine.assist.ArmorUtil;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.event.player.Ticker;
-import net.nevermine.event.recoil.RecoilMessage;
 import net.nevermine.izer.Itemizer;
 
 import java.util.Random;
@@ -113,9 +111,6 @@ public abstract class BaseGun extends Item {
 				fireGun(world, stack, player, mult, consumeAmmo);
 				stack.damageItem(1, player);
 				stack.getTagCompound().setLong("lastShotTime", Ticker.tick + (long)(rof * mult));
-			}
-			if (player instanceof EntityPlayerMP) {
-				AddPackets.network.sendTo(new RecoilMessage(recoil * modify), (EntityPlayerMP)player);
 			}
 		}
 		if (player instanceof EntityPlayerMP) {

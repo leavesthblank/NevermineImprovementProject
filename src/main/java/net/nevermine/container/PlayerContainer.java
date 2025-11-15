@@ -19,8 +19,6 @@ public class PlayerContainer implements IExtendedEntityProperties {
 	public int omniCounter = 120;
 	public int knightCounter = 1;
 
-	private PortalCoordinatesContainer portalReturnLocation = new PortalCoordinatesContainer(0, 0, 0);
-
 	public PlayerContainer(final EntityPlayer pl) {
 		player = pl;
 	}
@@ -52,14 +50,6 @@ public class PlayerContainer implements IExtendedEntityProperties {
 		}
 
 		player.getEntityData().setTag("PlayerPersisted", tag);
-	}
-
-	public void setPortalReturnLocation(final PortalCoordinatesContainer loc) {
-		portalReturnLocation = loc;
-	}
-
-	public PortalCoordinatesContainer getPortalReturnLocation() {
-		return portalReturnLocation;
 	}
 
 	@SubscribeEvent

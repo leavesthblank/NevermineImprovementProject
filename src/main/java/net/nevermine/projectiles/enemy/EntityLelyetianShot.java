@@ -5,13 +5,11 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.nevermine.fx.trail.OrangeTrail;
-import net.nevermine.resource.energy.energyHelper;
 
 public class EntityLelyetianShot extends EntityThrowable {
 	private float damage;
@@ -42,9 +40,6 @@ public class EntityLelyetianShot extends EntityThrowable {
 	protected void onImpact(final MovingObjectPosition movingobjectposition) {
 		if (movingobjectposition.entityHit instanceof EntityLivingBase) {
 			movingobjectposition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), damage);
-			if (movingobjectposition.entityHit instanceof EntityPlayer) {
-				energyHelper.getProperties((EntityPlayer)movingobjectposition.entityHit).removeBarValue(50.0f);
-			}
 		}
 		if (!worldObj.isRemote) {
 			setDead();

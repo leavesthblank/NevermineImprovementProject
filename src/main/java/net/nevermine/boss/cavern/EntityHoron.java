@@ -14,7 +14,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.resource.energy.energyHelper;
 
 public class EntityHoron extends EntityMob implements CavernBoss {
 	public EntityHoron(final World par1World) {
@@ -90,16 +89,6 @@ public class EntityHoron extends EntityMob implements CavernBoss {
 		getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.3);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(3000.0);
-	}
-
-	public boolean attackEntityAsMob(final Entity par1) {
-		if (super.attackEntityAsMob(par1)) {
-			if (par1 instanceof EntityPlayer) {
-				energyHelper.getProperties((EntityPlayer)par1).removeBarValue(60.0f);
-			}
-			return true;
-		}
-		return false;
 	}
 
 	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {

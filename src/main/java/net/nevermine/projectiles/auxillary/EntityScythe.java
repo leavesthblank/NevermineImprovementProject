@@ -8,7 +8,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.nevermine.assist.ConfigurationHelper;
-import net.nevermine.resource.energy.energyHelper;
 
 public class EntityScythe extends EntityThrowable {
 	private float damage;
@@ -56,8 +55,6 @@ public class EntityScythe extends EntityThrowable {
 				}
 			}
 			if (play != null) {
-				if (!play.capabilities.isCreativeMode)
-					energyHelper.getProperties(play).removeBarValue(15.0f);
 
 				if (play.getHeldItem() != null) {
 					play.getHeldItem().damageItem(1, play);

@@ -17,12 +17,7 @@ public class HoronRoom extends WorldGenerator {
 		world.setBlock(i + 0, j + 0, k + 6, Blockizer.AncientTileRed);
 		world.setBlock(i + 0, j + 0, k + 7, Blockizer.AncientTileRed);
 		world.setBlock(i + 0, j + 0, k + 8, Blockizer.AncientTileRed);
-		/*if (!world.isRemote) {
-			final EntityHoron var2 = new EntityHoron(world);
-			var2.setLocationAndAngles((double)(i + 3), (double)(j + 3), (double)(k + 3), rand.nextFloat() * 360.0f, 0.0f);
-			world.spawnEntityInWorld((Entity)var2);
-		}*/
-		world.setBlock(i + 0, j + 0, k + 9, Blockizer.AncientTileRed);
+        world.setBlock(i + 0, j + 0, k + 9, Blockizer.AncientTileRed);
 		world.setBlock(i + 0, j + 0, k + 10, Blockizer.AncientTileRed);
 		world.setBlock(i + 0, j + 0, k + 11, Blockizer.AncientTileRed);
 		world.setBlock(i + 0, j + 0, k + 12, Blockizer.AncientTileRed);

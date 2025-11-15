@@ -230,12 +230,7 @@ public class ConiferonRoom extends WorldGenerator {
 		world.setBlock(i + 0, j + 7, k + 16, Blockizer.AncientTileRed);
 		world.setBlock(i + 0, j + 7, k + 17, Blockizer.AncientTileBlack);
 		world.setBlock(i + 0, j + 7, k + 18, Blockizer.AncientTileBlack);
-		/*if (!world.isRemote) {
-			final EntityConiferon var2 = new EntityConiferon(world);
-			var2.setLocationAndAngles((double)(i + 5), (double)(j + 3), (double)(k + 5), rand.nextFloat() * 360.0f, 0.0f);
-			world.spawnEntityInWorld(var2);
-		}*/
-		world.setBlock(i + 0, j + 7, k + 19, Blockizer.AncientTileRed);
+        world.setBlock(i + 0, j + 7, k + 19, Blockizer.AncientTileRed);
 		world.setBlock(i + 0, j + 7, k + 20, Blockizer.AncientTileBlack);
 		world.setBlock(i + 0, j + 7, k + 21, Blockizer.AncientTileBlack);
 		world.setBlock(i + 0, j + 7, k + 22, Blockizer.AncientTileRed);

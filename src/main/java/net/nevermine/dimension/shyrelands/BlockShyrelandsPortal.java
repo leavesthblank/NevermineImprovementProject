@@ -16,8 +16,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.nevermine.block.functional.AdventPortalBlock;
-import net.nevermine.container.PlayerContainer;
-import net.nevermine.container.PortalCoordinatesContainer;
 import net.nevermine.fx.portal.EntityIrominePortalFX;
 import net.nevermine.izer.Blockizer;
 
@@ -59,11 +57,6 @@ public class BlockShyrelandsPortal extends Block implements AdventPortalBlock {
 				thePlayer.timeUntilPortal = 10;
 			}
 			else if (thePlayer.dimension != dim) {
-				if (thePlayer.dimension == 0) {
-					PortalCoordinatesContainer coords = new PortalCoordinatesContainer(thePlayer.posX, thePlayer.posY, thePlayer.posZ);
-
-					PlayerContainer.getProperties(thePlayer).setPortalReturnLocation(coords);
-				}
 
 				thePlayer.timeUntilPortal = 10;
 				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, dim, new TeleporterShyrelands(thePlayer.mcServer.worldServerForDimension(dim)));

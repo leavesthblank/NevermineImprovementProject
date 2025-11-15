@@ -31,7 +31,6 @@ import net.nevermine.minion.entity.EntityOrbling;
 import net.nevermine.minion.entity.EntityRosid;
 import net.nevermine.projectiles.auxillary.EntityElementalArrow;
 import net.nevermine.projectiles.cannon.EntityGrenadeShot;
-import net.nevermine.resource.energy.energyHelper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -151,12 +150,8 @@ public class ArmorEffects {
 							if (s.isExplosion())
 								e.setCanceled(true);
 						}
-
-						if (ArmorUtil.isRunationArmor(boots, legs, body, helmet) && (s.isProjectile() || s.damageType.equals("thrown") || s.damageType.equals("mob")))
-							energyHelper.getProperties(player).regen(20.0f);
-
 						if (ArmorUtil.isElecanyteArmor(boots, legs, body, helmet) && (s.isProjectile() || s.damageType.equals("thrown") || s.damageType.equals("mob"))) {
-							if (!player.worldObj.isRemote && energyHelper.getProperties(player).useBar(25.0f))
+							if (!player.worldObj.isRemote)
 								e.ammount *= 0.4f;
 						}
 
@@ -381,7 +376,7 @@ public class ArmorEffects {
 
 					}
 
-					if (ArmorUtil.isInfusionArmor(boots, legs, body, helmet) && pl.getHealth() < pl.getMaxHealth() && energyHelper.getProperties(pl).useBar(5.0f)) {
+					if (ArmorUtil.isInfusionArmor(boots, legs, body, helmet) && pl.getHealth() < pl.getMaxHealth()) {
 						if (pl instanceof EntityPlayerMP)
 							AddPackets.network.sendTo(new HealthMessage(pl.getHealth() + 0.5f), (EntityPlayerMP)pl);
 

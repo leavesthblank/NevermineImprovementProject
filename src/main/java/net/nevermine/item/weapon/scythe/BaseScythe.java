@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 import net.nevermine.event.player.Ticker;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.resource.energy.energyHelper;
 
 import java.util.Random;
 
@@ -47,7 +46,7 @@ public abstract class BaseScythe extends Item {
 		if (!stack.hasTagCompound()) {
 			stack.setTagCompound(new NBTTagCompound());
 		}
-		if (!player.worldObj.isRemote && Ticker.tick >= stack.getTagCompound().getLong("lastShotTime") && player instanceof EntityPlayer && energyHelper.getProperties((EntityPlayer)player).getBarValue() >= 15.0f) {
+		if (!player.worldObj.isRemote && Ticker.tick >= stack.getTagCompound().getLong("lastShotTime") && player instanceof EntityPlayer) {
 			fireScythe(player.worldObj, stack, (EntityPlayer)player);
 			stack.getTagCompound().setLong("lastShotTime", (long)(Ticker.tick + 14));
 		}

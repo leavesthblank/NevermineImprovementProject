@@ -18,11 +18,6 @@ public class PenumbraRoom extends WorldGenerator {
 		world.setBlock(i + 0, j + 0, k + 6, Blockizer.AncientTileRed);
 		world.setBlock(i + 0, j + 0, k + 7, Blockizer.AncientTileRed);
 		world.setBlock(i + 0, j + 0, k + 8, Blockizer.AncientTileRed);
-		/*if (!world.isRemote) {
-			final EntityPenumbra var2 = new EntityPenumbra(world);
-			var2.setLocationAndAngles((double)(i + 5), (double)(j + 3), (double)(k + 5), rand.nextFloat() * 360.0f, 0.0f);
-			world.spawnEntityInWorld((Entity)var2);
-		}*/
 		world.setBlock(i + 0, j + 0, k + 9, Blockizer.AncientTileRed);
 		world.setBlock(i + 0, j + 0, k + 10, Blockizer.AncientTileRed);
 		world.setBlock(i + 0, j + 0, k + 11, Blockizer.AncientTileRed);

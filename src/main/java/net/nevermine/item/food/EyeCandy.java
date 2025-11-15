@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.resource.energy.energyHelper;
 
 import java.util.List;
 
@@ -23,7 +22,6 @@ public class EyeCandy extends ItemFood {
 		super.onEaten(item, world, player);
 
 		if (!world.isRemote) {
-			energyHelper.getProperties(player).regen(10f);
             player.heal(3.0f);
 		}
 

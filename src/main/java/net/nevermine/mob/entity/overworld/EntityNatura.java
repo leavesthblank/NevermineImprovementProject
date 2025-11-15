@@ -11,7 +11,6 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.resource.energy.energyHelper;
 
 public class EntityNatura extends EntityMob {
 	public EntityNatura(final World par1World) {
@@ -58,7 +57,6 @@ public class EntityNatura extends EntityMob {
 			if (par1 instanceof EntityLivingBase) {
 				heal(15.0f);
 				if (par1 instanceof EntityPlayer) {
-					energyHelper.getProperties((EntityPlayer)par1).removeBarValue(50.0f);
 					((EntityPlayer)par1).addChatMessage(StringUtil.getLocale("message.mob.natura.attack"));
 				}
 			}

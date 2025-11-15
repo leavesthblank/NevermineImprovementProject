@@ -13,7 +13,6 @@ import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.event.player.Ticker;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.resource.energy.energyHelper;
 
 import java.util.Random;
 
@@ -85,7 +84,7 @@ public abstract class BaseEnergy extends Item {
 			else {
 				newcost = (int)(Energycost * multi);
 			}
-			if (player.capabilities.isCreativeMode || energyHelper.getProperties(player).useBar(newcost)) {
+			if (player.capabilities.isCreativeMode) {
 				if (sound != null) {
 					player.worldObj.playSoundAtEntity(player, "nevermine:" + sound, 1.0f, 1.0f);
 				}

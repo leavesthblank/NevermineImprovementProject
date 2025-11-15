@@ -60,12 +60,6 @@ public class BlockVoxpondsPortal extends Block implements AdventPortalBlock {
 				thePlayer.timeUntilPortal = 10;
 			}
 			else if (thePlayer.dimension != dim) {
-				if (thePlayer.dimension == 0) {
-					PortalCoordinatesContainer coords = new PortalCoordinatesContainer(thePlayer.posX, thePlayer.posY, thePlayer.posZ);
-
-					PlayerContainer.getProperties(thePlayer).setPortalReturnLocation(coords);
-				}
-
 				thePlayer.timeUntilPortal = 10;
 				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, dim, new TeleporterVoxponds(thePlayer.mcServer.worldServerForDimension(dim)));
 			}

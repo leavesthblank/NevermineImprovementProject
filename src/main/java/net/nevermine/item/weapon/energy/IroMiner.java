@@ -20,7 +20,6 @@ public class IroMiner extends BaseEnergy {
 	private String sound;
 	private int rof;
 	private int Energycost;
-	private int newcost;
 
 	public IroMiner(final int consumeChance, final String effect, final int uses, final int fireRate, final int cost) {
 		super(consumeChance, effect, uses, fireRate, cost);
@@ -43,27 +42,6 @@ public class IroMiner extends BaseEnergy {
 			player.velocityChanged = true;
 		}
 	}
-
-	/*@Override
-	public ItemStack onItemRightClick(final ItemStack stack, final World world, final EntityPlayer player) {
-		if (Ticker.tick >= canShootTick) {
-			if (ArmorUtil.isGhoulishArmor(player)) {
-				newcost = Energycost / 2 + Energycost % 2;
-			}
-			else {
-				newcost = Energycost;
-			}
-			if (player.capabilities.isCreativeMode || energyHelper.getProperties(player).useBar(newcost)) {
-				player.worldObj.playSoundAtEntity(player, "nevermine:" + sound, 1.0f, 1.0f);
-				fireAncient(world, stack, player);
-			}
-		}
-		if (canShootTick >= 100000) {
-			canShootTick = 0;
-		}
-		return stack;
-	}*/
-
 	@SideOnly(Side.CLIENT)
 	public void addInformation(final ItemStack stack, final EntityPlayer player, final List list, final boolean bool) {
 		list.add(StringUtil.getColourLocaleStringWithArguments("items.description.damage.ranged", EnumChatFormatting.DARK_RED, Integer.toString((int)dmg)));

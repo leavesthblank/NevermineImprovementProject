@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.resource.energy.energyHelper;
 
 import java.util.List;
 
@@ -19,7 +18,6 @@ public class TabletEnergy extends BaseTablet {
 
 	@Override
 	public void useTablet(final World world, final ItemStack stack, final EntityPlayer var3) {
-		energyHelper.getProperties(var3).setBarValue(200.0f);
 	}
 
 	@SideOnly(Side.CLIENT)

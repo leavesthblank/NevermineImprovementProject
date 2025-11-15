@@ -42,20 +42,6 @@ public class TeleporterVoxponds extends Teleporter {
 					placeInExistingPortal(par1Entity, par2, par4, par6, par8);
 				}
 			}
-			else {
-				PortalCoordinatesContainer coords = PlayerContainer.getProperties((EntityPlayer)par1Entity).getPortalReturnLocation();
-
-				if (coords.y != 0) {
-					par1Entity.setLocationAndAngles(coords.x, coords.y, coords.z, par1Entity.rotationYaw, 0.0f);
-				}
-				else {
-					par1Entity.setLocationAndAngles(par1Entity.posX, worldServerInstance.getTopSolidOrLiquidBlock((int)par1Entity.posX, (int)par1Entity.posZ), par1Entity.posZ, par1Entity.rotationYaw, 0);
-				}
-
-				par1Entity.motionZ = 0.0;
-				par1Entity.motionY = 0.0;
-				par1Entity.motionX = 0.0;
-			}
 		}
 	}
 

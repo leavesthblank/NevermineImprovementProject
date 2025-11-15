@@ -15,7 +15,6 @@ import net.nevermine.assist.ArmorUtil;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.resource.energy.energyHelper;
 
 import java.util.Random;
 
@@ -70,7 +69,7 @@ public abstract class BaseEnergyRapid extends ItemSword {
 			else {
 				newcost = (int)(Energycost * multi);
 			}
-			if (!player.worldObj.isRemote && (player.capabilities.isCreativeMode || energyHelper.getProperties(player).useBar(newcost))) {
+			if (!player.worldObj.isRemote && (player.capabilities.isCreativeMode)) {
 				if (EnchantmentHelper.getEnchantmentLevel(ConfigurationHelper.erecharge, stack) == 2) {
 					multi = 0.6f;
 				}
