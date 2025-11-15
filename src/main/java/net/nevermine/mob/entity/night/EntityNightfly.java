@@ -5,16 +5,12 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.mob.ai.EntityAIFlying;
-import net.nevermine.structures.vanilla.LunarPortalStructure;
 
 public class EntityNightfly extends EntityAIFlying {
 	private ChunkCoordinates currentFlightTarget;
@@ -131,14 +127,4 @@ public class EntityNightfly extends EntityAIFlying {
 		if (!isDead)
 			attackEntityAsMob(par1EntityPlayer);
 	}
-
-    public void onDeath(final DamageSource var1) {
-        super.onDeath(var1);
-        if (!worldObj.isRemote && rand.nextInt(100) == 0 ) {
-            final int posx = MathHelper.floor_double(posX);
-            final int posz = MathHelper.floor_double(posZ);
-            final int posy = MathHelper.floor_double(posY);
-            new LunarPortalStructure().generate(worldObj, worldObj.rand, posx, posy, posz);
-        }
-    }
 }

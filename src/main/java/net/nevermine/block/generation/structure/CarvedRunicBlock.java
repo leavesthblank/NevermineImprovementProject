@@ -118,12 +118,6 @@ public class CarvedRunicBlock extends BlockDirectional {
 				sound = "nevermine:NaturePortal";
 				portal = Blockizer.lelyetiaPortal;
 				break;
-			case "item.RealmstoneAncientCavern":
-				key = Itemizer.RealmstoneAncientCavern;
-				msg = StringUtil.getColourLocale("message.feedback.teleporterFrame.ancientCavern", EnumChatFormatting.LIGHT_PURPLE);
-				sound = "nevermine:AncientCavernPortal";
-				portal = Blockizer.ancientcavernPortal;
-				break;
 			case "item.RealmstoneBarathos":
 				key = Itemizer.RealmstoneBarathos;
 				msg = StringUtil.getColourLocale("message.feedback.teleporterFrame.barathos", EnumChatFormatting.LIGHT_PURPLE);

@@ -11,7 +11,6 @@ import net.nevermine.item.ItemRune;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.minion.entity.EntityHiveSoldier;
-import net.nevermine.resource.creation.creationHelper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -41,7 +40,7 @@ public class HiveStaff extends BaseStaff {
 	public void fireStaff(final World world, final ItemStack stack, final EntityPlayer player) {
 		player.worldObj.playSoundAtEntity(player, "nevermine:Shadowstaff", 1.0f, 1.0f);
 
-		if (!world.isRemote && (player.capabilities.isCreativeMode || creationHelper.getProperties(player).useBar(600.0f))) {
+		if (!world.isRemote && player.capabilities.isCreativeMode) {
 			final EntityHiveSoldier var4 = new EntityHiveSoldier(player.worldObj);
 
 			var4.setLocationAndAngles(player.posX, player.posY, player.posZ, player.rotationYaw, player.rotationPitch);

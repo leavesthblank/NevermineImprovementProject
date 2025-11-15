@@ -6,16 +6,10 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-
-import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityJawe extends EntityMob {
 	private int counter;
@@ -50,13 +44,6 @@ public class EntityJawe extends EntityMob {
 
 	protected boolean isValidLightLevel() {
 		return true;
-	}
-
-	public void onDeath(final DamageSource src) {
-		super.onDeath(src);
-		if (!worldObj.isRemote && src.getEntity() != null && src.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)src.getEntity()).addExperience(17.0f, Hunter);
-		}
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {

@@ -12,15 +12,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.boss.EntityBoss;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.projectiles.enemy.EntityGuardianProjectileBlue;
 import net.nevermine.projectiles.enemy.EntityGuardianProjectileGreen;
 import net.nevermine.projectiles.enemy.EntityGuardianProjectileRed;
 import net.nevermine.projectiles.enemy.EntityGuardianProjectileYellow;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityGuardianRed extends EntityMob implements IRangedAttackMob, EntityBoss {
 	private EntityAIArrowAttack aiArrowAttack;
@@ -96,17 +93,6 @@ public class EntityGuardianRed extends EntityMob implements IRangedAttackMob, En
 		var2.setThrowableHeading(var3, var4 + var6, var5, 1.6f, 12.0f);
 		playSound("nevermine:GuardianFire", 1.0f, 1.0f / (getRNG().nextFloat() * 0.4f + 0.8f));
 		worldObj.spawnEntityInWorld(var2);
-	}
-
-	public void onDeath(final DamageSource d) {
-		super.onDeath(d);
-
-		if (!worldObj.isRemote && d.getEntity() instanceof EntityPlayer) {
-			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)d.getEntity());
-
-
-				cont.addExperience(1000, Hunter);
-		}
 	}
 
 	public boolean attackEntityFrom(final DamageSource par1DamageSource, final float par2) {

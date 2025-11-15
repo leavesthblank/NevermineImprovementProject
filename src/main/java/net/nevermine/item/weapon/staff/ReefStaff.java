@@ -42,7 +42,7 @@ public class ReefStaff extends BaseStaff {
 
 	@Override
 	public void fireStaff(final World world, final ItemStack stack, final EntityPlayer player) {
-		if (player.dimension == ConfigurationHelper.ancientcavern || player.dimension == ConfigurationHelper.immortallis) {
+		if (player.dimension == ConfigurationHelper.immortallis) {
 			player.addChatMessage(StringUtil.getLocale("message.feedback.item.reefStaff.fail"));
 		}
 		else {

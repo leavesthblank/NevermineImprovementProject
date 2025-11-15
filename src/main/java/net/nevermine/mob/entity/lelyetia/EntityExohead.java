@@ -8,13 +8,9 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityExohead extends EntityMob{
 
@@ -53,13 +49,6 @@ public class EntityExohead extends EntityMob{
         if (rand.nextInt(40) == 15) {
             dropItem(Itemizer.GuardiansEye, 1);
         }
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(850.0f, Hunter);
-		}
 	}
 
 	protected Entity findPlayerToAttack() {

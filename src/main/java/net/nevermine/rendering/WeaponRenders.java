@@ -336,14 +336,6 @@ public class WeaponRenders {
 		MinecraftForgeClient.registerItemRenderer(Weaponizer.EvermightStaff, new StaffRender(1.0f));
 		MinecraftForgeClient.registerItemRenderer(Weaponizer.EverfightStaff, new StaffRender(1.0f));
 		MinecraftForgeClient.registerItemRenderer(Weaponizer.ConcussionStaff, new StaffRender(1.0f));
-		MinecraftForgeClient.registerItemRenderer(Weaponizer.Vulcane, new StaffRender(1.0f));
-		MinecraftForgeClient.registerItemRenderer(Weaponizer.BattleVulcane, new StaffRender(1.0f));
-		MinecraftForgeClient.registerItemRenderer(Weaponizer.EqualityVulcane, new StaffRender(1.0f));
-		MinecraftForgeClient.registerItemRenderer(Weaponizer.FireVulcane, new StaffRender(1.0f));
-		MinecraftForgeClient.registerItemRenderer(Weaponizer.PoisonVulcane, new StaffRender(1.0f));
-		MinecraftForgeClient.registerItemRenderer(Weaponizer.PowerVulcane, new StaffRender(1.0f));
-		MinecraftForgeClient.registerItemRenderer(Weaponizer.WitherVulcane, new StaffRender(1.0f));
-		MinecraftForgeClient.registerItemRenderer(Weaponizer.ImpairmentVulcane, new StaffRender(1.0f));
 
 		MinecraftForgeClient.registerItemRenderer(Weaponizer.KnightsGuard, new GreatbladeRender(1.0F));
 		MinecraftForgeClient.registerItemRenderer(Weaponizer.GodsGreatblade, new GreatbladeRender(1.0F));

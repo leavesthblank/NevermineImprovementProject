@@ -11,7 +11,6 @@ import net.nevermine.block.generation.plant.*;
 import net.nevermine.block.generation.structure.*;
 import net.nevermine.block.generation.wood.*;
 import net.nevermine.dimension.abyss.BlockAbyssPortal;
-import net.nevermine.dimension.ancientcavern.BlockAncientCavernPortal;
 import net.nevermine.dimension.barathos.BlockBarathosPortal;
 import net.nevermine.dimension.candyland.BlockCandylandPortal;
 import net.nevermine.dimension.celeve.BlockCelevePortal;
@@ -476,7 +475,6 @@ public class Blockizer {
 	public static Block AncientLamp = new UnbreakableLamp(Material.rock).setName("lampAncient");
 	public static Block AncientVines = new BlockGenericPlant(Material.vine).setTallPlant().setStonePlant().setDown().setName("ancientVines");
 	public static Block AncientVineCap = new BlockGenericPlant(Material.vine).setTallPlant().setChildPlant(AncientVines).setStonePlant().setDown().setName("ancientVineCap");
-	public static Block ancientcavernPortal = new BlockAncientCavernPortal();
 	public static Block blockOrangeAcid = new BlockOrangeAcid().setBlockName("blockOrangeAcid").setBlockTextureName("nevermine:skyAcid");
 	public static Block SpawnerExohead = new BlockSpawner("nevermine.Exohead").setName("spawnerExohead");
 	public static Block SpawnerRawbone = new BlockSpawner("nevermine.Rawbone").setName("spawnerRawbone");

@@ -9,9 +9,6 @@ import net.nevermine.common.nevermine;
 public class HealthMessage implements IMessage {
 	private float health;
 
-	public HealthMessage() {
-	}
-
 	public HealthMessage(final float val) {
 		health = val;
 	}

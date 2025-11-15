@@ -8,13 +8,8 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
-
-import static net.nevermine.container.PlayerContainer.Deities.Erebon;
 
 public class EntityVisage extends EntityMob {
 	public EntityVisage(final World par1World) {
@@ -36,17 +31,6 @@ public class EntityVisage extends EntityMob {
 
 	protected void func_145780_a(final int p_145780_1_, final int p_145780_2_, final int p_145780_3_, final Block p_145780_4_) {
 		playSound("mob.pig.step", 1.0f, 1.0f);
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)var1.getEntity());
-
-			cont.adjustTribute(Erebon, 4);
-
-				((EntityPlayer)var1.getEntity()).addChatMessage(StringUtil.getLocale("message.feedback.immortallisProgression.evilSpiritsEnd"));
-		}
 	}
 
 	public boolean getCanSpawnHere() {

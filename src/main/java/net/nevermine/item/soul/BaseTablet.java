@@ -8,10 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.resource.soulpower.soulPowerHelper;
-import net.nevermine.skill.anima.animaHelper;
 
 import java.util.List;
 import java.util.Random;
@@ -30,9 +27,8 @@ public abstract class BaseTablet extends Item {
 	}
 
 	public ItemStack onItemRightClick(final ItemStack stack, final World world, final EntityPlayer player) {
-		double newcost = cost * animaHelper.getCostModifier(player);
 
-		if (PlayerContainer.getProperties(player).getLevel(PlayerContainer.Skills.Anima) >= level && !world.isRemote && (player.capabilities.isCreativeMode || soulPowerHelper.getProperties(player).useBar((float)newcost))) {
+		if (!world.isRemote) {
 			useTablet(world, stack, player);
 			player.worldObj.playSoundAtEntity(player, "nevermine:Tablet", 1.0f, 1.0f);
 		}

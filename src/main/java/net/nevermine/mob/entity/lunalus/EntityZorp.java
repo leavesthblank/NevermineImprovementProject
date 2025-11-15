@@ -5,13 +5,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityZorp extends EntityMob{
 	public EntityZorp(final World par1World) {

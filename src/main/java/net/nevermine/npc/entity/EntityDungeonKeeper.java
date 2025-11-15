@@ -6,7 +6,6 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.izer.equipment.Weaponizer;
 
 public class EntityDungeonKeeper extends EntityNevermineVillager {
 	public EntityDungeonKeeper(final World var1) {
@@ -36,7 +35,6 @@ public class EntityDungeonKeeper extends EntityNevermineVillager {
 	@Override
 	public void addRecipies(final MerchantRecipeList var2) {
 		var2.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 10, 1), new ItemStack(Itemizer.StartingCoin, 1)));
-		var2.add(new RestockedRecipe(new ItemStack(Itemizer.SilverCoin, 1, 1), new ItemStack(Weaponizer.Vulcane, 1)));
 	}
 
 	@Override

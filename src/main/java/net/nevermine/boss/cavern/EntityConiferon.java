@@ -14,8 +14,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.nevermine.assist.AddPackets;
 import net.nevermine.boss.EntityBoss;
-import net.nevermine.boss.cavern.holder.EntityHolderConiferon;
-import net.nevermine.container.AncientBossesContainer;
 import net.nevermine.gui.MobHitPacket;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
@@ -94,19 +92,6 @@ public class EntityConiferon extends EntityMob implements EntityBoss, CavernBoss
 
 	public void onDeath(final DamageSource var1) {
 		super.onDeath(var1);
-
-		AncientBossesContainer.killConiferon(this);
-	}
-
-	private void transform() {
-		if (!worldObj.isRemote) {
-			final EntityHolderConiferon var2 = new EntityHolderConiferon(worldObj);
-			var2.setLocationAndAngles(posX, posY, posZ, rotationYaw, rotationPitch);
-			worldObj.spawnEntityInWorld(var2);
-			if (!worldObj.isRemote) {
-				setDead();
-			}
-		}
 	}
 
 	public void applyEntityAttributes() {

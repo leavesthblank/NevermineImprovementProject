@@ -11,14 +11,11 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.boss.EntityBoss;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityOkazor extends EntityMob implements EntityBoss {
 	private int musicTick;
@@ -79,11 +76,6 @@ public class EntityOkazor extends EntityMob implements EntityBoss {
 			for (final EntityPlayer e : (List<EntityPlayer>)p.worldObj.getEntitiesWithinAABB(EntityPlayer.class, p.boundingBox.expand(50.0, 50.0, 50.0))) {
 				e.addChatMessage(StringUtil.getLocaleWithArguments("message.mob.primordialFive.kill", p.getDisplayName()));
 			}
-
-			PlayerContainer cont = PlayerContainer.getProperties(p);
-
-
-				cont.addExperience(40000, Hunter);
 		}
 	}
 

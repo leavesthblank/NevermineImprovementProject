@@ -6,7 +6,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 import net.nevermine.assist.AscensionEnchants;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 
 public class DivineStation extends Block {
@@ -22,8 +21,7 @@ public class DivineStation extends Block {
 
 	public boolean onBlockActivated(final World w, final int x, final int y, final int z, final EntityPlayer p, final int var6, final float var7, final float var8, final float var9) {
 		if (!w.isRemote && !p.isSneaking() && p.getHeldItem() != null && p.getHeldItem().getMaxStackSize() == 1) {
-			PlayerContainer cont = PlayerContainer.getProperties(p);
-			if (cont.getLevel(PlayerContainer.Skills.Augury) >= 20 && p.inventory.consumeInventoryItem(Itemizer.pStoneAmbient)) {
+            if (p.inventory.consumeInventoryItem(Itemizer.pStoneAmbient)) {
 				p.getHeldItem().addEnchantment(AscensionEnchants.Intervention, 1);
 				w.playSoundAtEntity(p, "nevermine:Infusion", 1.85f, 1.0f);
 			}

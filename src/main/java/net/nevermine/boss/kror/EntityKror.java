@@ -6,8 +6,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -16,13 +14,10 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.boss.EntityBoss;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityKror extends EntityMob implements EntityBoss {
 	private int musicTick;
@@ -75,11 +70,6 @@ public class EntityKror extends EntityMob implements EntityBoss {
 			for (final EntityPlayer e : (List<EntityPlayer>)p.worldObj.getEntitiesWithinAABB(EntityPlayer.class, p.boundingBox.expand(50.0, 50.0, 50.0))) {
 				e.addChatMessage(msg);
 			}
-
-			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)d.getEntity());
-
-
-				cont.addExperience(5000, Hunter);
 		}
 	}
 

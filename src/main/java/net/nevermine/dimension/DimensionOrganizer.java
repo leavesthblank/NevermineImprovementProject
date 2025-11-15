@@ -5,7 +5,6 @@ import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.dimension.abyss.biome.BiomeGenAbyss;
 import net.nevermine.dimension.abyss.biome.BiomeGenAbyssEye;
 import net.nevermine.dimension.abyss.biome.BiomeGenAbyssShadow;
-import net.nevermine.dimension.ancientcavern.BiomeGenAncientCavern;
 import net.nevermine.dimension.barathos.biome.BiomeGenBarathos;
 import net.nevermine.dimension.barathos.biome.BiomeGenBaronForest;
 import net.nevermine.dimension.barathos.biome.BiomeGenBaronMaze;
@@ -79,7 +78,6 @@ public class DimensionOrganizer {
 	public static BiomeGenBase Barathos = new BiomeGenBarathos(ConfigurationHelper.barathosB).setHeight(DimensionOrganizer.BarathosHeight).setDisableRain();
 	public static BiomeGenBase Labricon = new BiomeGenLabricon(ConfigurationHelper.labriconB).setHeight(DimensionOrganizer.VoxpondsHeight).setDisableRain();
 	public static BiomeGenBase Lelyetia = new BiomeGenLelyetia(ConfigurationHelper.lelyetiaB).setHeight(DimensionOrganizer.VoxpondsHeight);
-	public static BiomeGenBase AncientCavern = new BiomeGenAncientCavern(ConfigurationHelper.ancientcavernB).setHeight(DimensionOrganizer.VoxpondsHeight).setDisableRain();
 	public static BiomeGenBase Celeve = new BiomeGenCeleve(ConfigurationHelper.celeveB);
 	public static BiomeGenBase Crystevia = new BiomeGenCrystevia(ConfigurationHelper.crysteviaB).setDisableRain();
 	public static BiomeGenBase Candyland = new BiomeGenCandyland(ConfigurationHelper.candylandB).setHeight(DimensionOrganizer.CandylandHeight);

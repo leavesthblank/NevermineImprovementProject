@@ -8,10 +8,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
-
-import static net.nevermine.container.PlayerContainer.Deities.Erebon;
 
 public class EntityUrv extends EntityMob {
 	public EntityUrv(final World par1World) {
@@ -41,18 +37,6 @@ public class EntityUrv extends EntityMob {
 
 	protected boolean isValidLightLevel() {
 		return true;
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)var1.getEntity());
-
-			cont.adjustTribute(Erebon, 4);
-
-			if (cont.getTribute(Erebon) == 200)
-				((EntityPlayer)var1.getEntity()).addChatMessage(StringUtil.getLocale("message.feedback.immortallisProgression.evilSpiritsEnd"));
-		}
 	}
 
 	public boolean attackEntityAsMob(final Entity par1Entity) {

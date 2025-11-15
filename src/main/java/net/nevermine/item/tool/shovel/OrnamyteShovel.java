@@ -8,18 +8,12 @@ import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.item.tool.ExtractionTool;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Toolizer;
 
 import java.util.List;
 
-public class OrnamyteShovel extends ItemSpade implements ExtractionTool {
-
-	@Override
-	public int getLevelReq() {
-		return 65;
-	}
+public class OrnamyteShovel extends ItemSpade{
 
 	public OrnamyteShovel(final Item.ToolMaterial p_i45353_1_) {
 		super(p_i45353_1_);

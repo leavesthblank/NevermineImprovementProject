@@ -10,7 +10,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -26,24 +25,18 @@ import net.nevermine.assist.*;
 import net.nevermine.container.PlayerContainer;
 import net.nevermine.event.player.HealthMessage;
 import net.nevermine.item.ItemRune;
-import net.nevermine.item.weapon.vulcane.BaseVulcane;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.minion.entity.EntityOrbling;
 import net.nevermine.minion.entity.EntityRosid;
 import net.nevermine.projectiles.auxillary.EntityElementalArrow;
 import net.nevermine.projectiles.cannon.EntityGrenadeShot;
-import net.nevermine.resource.creation.creationHelper;
 import net.nevermine.resource.energy.energyHelper;
-import net.nevermine.resource.rage.rageHelper;
-import net.nevermine.resource.soulpower.soulPowerHelper;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class ArmorEffects {
 	public static final String[] isImmuneToFire;
@@ -264,19 +257,6 @@ public class ArmorEffects {
 							mob.attackEntityFrom(DamageSource.causeIndirectMagicDamage(mob, player), 0.0f);
 							e.ammount *= 1.5;
 						}
-
-
-
-			if (!player.worldObj.isRemote && (s.getSourceOfDamage() instanceof EntityMob || s.getEntity() instanceof EntityMob) && rand.nextInt(10) == 2) {
-				adventPl.beginRevenge();
-
-				if (s.getSourceOfDamage() instanceof EntityMob) {
-					adventPl.setRevengeTarget((EntityMob)s.getSourceOfDamage());
-				}
-				else {
-					adventPl.setRevengeTarget((EntityMob)s.getEntity());
-				}
-			}
 		}
 	}
 
@@ -340,6 +320,8 @@ public class ArmorEffects {
 					if (ArmorUtil.isPredatiousArmor(boots, legs, body, helmet) && s.getSourceOfDamage() instanceof EntityElementalArrow)
 						e.ammount *= 1.7;
 
+					if (ArmorUtil.isLyndamyteArmor(boots, legs, body, helmet) && !s.isProjectile() && !s.isMagicDamage())
+						e.ammount *= 1.1;
 		}
 	}
 
@@ -363,19 +345,6 @@ public class ArmorEffects {
 		final Item sniper = weildedItem != null ? weildedItem.getItem() : null;
 
 		pl.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.0);
-
-					if (ArmorUtil.isVulcanismArmor(boots, legs, body, helmet) && adventPl.revengeActive()) {
-						InventoryPlayer invent = pl.inventory;
-
-						for (int i = 0; i <= Math.max(pl.inventory.currentItem, 8); i++) {
-							ItemStack stack = invent.getStackInSlot(i);
-
-							if (stack != null && stack.getItem() instanceof BaseVulcane) {
-								stack.getItem().onItemRightClick(stack, pl.worldObj, pl);
-							}
-						}
-					}
-
 					if (ArmorUtil.isAlacrityArmor(boots, legs, body, helmet)) {
 						pl.addPotionEffect(new PotionEffect(8, -1, 4));
 					}
@@ -418,19 +387,9 @@ public class ArmorEffects {
 
 						pl.setHealth(pl.getHealth() + 0.5f);
 					}
-
-					if (ArmorUtil.isAuguryArmor(boots, legs, body, helmet)) {
-						soulPowerHelper.getProperties(pl).regen(1.5f);
-					}
-
 					if (ArmorUtil.isVitalityArmor(boots, legs, body, helmet)) {
 						pl.addPotionEffect(new PotionEffect(Potion.digSpeed.id, -1, 5));
 					}
-
-					if (ArmorUtil.isCreationArmor(boots, legs, body, helmet)) {
-						creationHelper.getProperties(pl).regen(1.5f);
-					}
-
 					if (ArmorUtil.isHunterArmor(boots, legs, body, helmet)) {
 						if (pl.isPotionActive(Potion.jump.id))
 							pl.removePotionEffect(Potion.jump.id);
@@ -490,18 +449,6 @@ public class ArmorEffects {
                             }
                             if (legs == Armorizer.HydrangicLeggings)
                                 stackLegs.damageItem(30, pl);
-						}
-					}
-
-					if (ArmorUtil.isThermalArmor(boots, legs, body, helmet)) {
-						rageHelper.getProperties(pl).regen(0.2f);
-
-						if (adventPl.battlebornCounter > 0)
-							--adventPl.battlebornCounter;
-
-						if (EntityUtil.getPercentageOfMaxHealth(pl) < 30 && adventPl.battlebornCounter <= 0) {
-							rageHelper.getProperties(pl).setBarValue(200.0f);
-							adventPl.battlebornCounter = 300;
 						}
 					}
 

@@ -10,16 +10,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.mob.entity.lborean.EntityAmphibiyte;
 import net.nevermine.mob.entity.overworld.*;
-import net.nevermine.skill.hauling.haulingHelper;
 
 import java.util.List;
 import java.util.Random;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hauling;
 
 public class CrystalBox extends Item {
 	Random rand = new Random();
@@ -32,9 +28,7 @@ public class CrystalBox extends Item {
 		if (world.isRemote)
 			return true;
 
-		PlayerContainer cont = PlayerContainer.getProperties(player);
-
-		if (rand.nextInt(10) == 0) {
+        if (rand.nextInt(10) == 0) {
 			Entity entity = null;
 			switch (rand.nextInt(5)) {
 				case 0:
@@ -60,26 +54,8 @@ public class CrystalBox extends Item {
 			world.spawnEntityInWorld(entity);
 		}
 		else {
-			int choice = haulingHelper.getSkillCrystalPossibilities(PlayerContainer.getProperties(player).getLevel(Hauling));
-			ItemStack crystal = null;
-			if (choice == 1) {
-				crystal = new ItemStack(Itemizer.SkillCrystalSmall);
-			}
-			else if (choice == 2) {
-				crystal = new ItemStack(Itemizer.SkillCrystalMedium);
-			}
-			else if (choice == 3) {
-				crystal = new ItemStack(Itemizer.SkillCrystalLarge);
-			}
-			else {
-				crystal = new ItemStack(Itemizer.SkillCrystalGiant);
-			}
-
-			if (!player.inventory.addItemStackToInventory(crystal))
-				player.entityDropItem(crystal, 0f);
 		}
 
-		cont.addExperience((cont.getExpRequired(Hauling) / haulingHelper.getExpDenominator(cont.getLevel(Hauling))) * 2, Hauling);
 		--stack.stackSize;
 
 		if (player instanceof EntityPlayerMP)

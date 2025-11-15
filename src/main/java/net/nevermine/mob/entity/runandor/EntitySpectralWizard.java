@@ -7,16 +7,12 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.projectiles.enemy.EntitySpectralShot;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntitySpectralWizard extends EntityMob implements IRangedAttackMob{
 	private EntityAIArrowAttack aiArrowAttack;
@@ -63,13 +59,6 @@ public class EntitySpectralWizard extends EntityMob implements IRangedAttackMob{
         if (rand.nextInt(6) == 1) {
             dropItem(Itemizer.StrikeRune, 2+rand.nextInt(4));
         }
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(2600.0f, Hunter);
-		}
 	}
 
 	protected boolean isValidLightLevel() {

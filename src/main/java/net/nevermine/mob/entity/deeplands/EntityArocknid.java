@@ -8,14 +8,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityArocknid extends EntityMob{
 	public EntityArocknid(final World par1World) {
@@ -23,12 +19,6 @@ public class EntityArocknid extends EntityMob{
 		setSize(2.5f, 1.5f);
 	}
 
-    public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(700.0f, Hunter);
-		}
-	}
 
 	protected String getLivingSound() {
 		return "nevermine:CaveBugLiving";

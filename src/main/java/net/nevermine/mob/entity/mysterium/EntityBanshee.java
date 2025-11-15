@@ -7,12 +7,8 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityBanshee extends EntityMob{
 
@@ -31,13 +27,6 @@ public class EntityBanshee extends EntityMob{
 
 	protected String getHurtSound() {
 		return "nevermine:BansheeHit";
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(60.0f, Hunter);
-		}
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {

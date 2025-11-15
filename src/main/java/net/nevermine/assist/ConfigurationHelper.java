@@ -24,7 +24,6 @@ public class ConfigurationHelper {
 	public static int dustopia;
 	public static int labricon;
 	public static int lelyetia;
-	public static int ancientcavern;
 	public static int celeve;
 	public static int crystevia;
 	public static int candyland;
@@ -39,7 +38,6 @@ public class ConfigurationHelper {
 	public static int gardenciaB;
 	public static int deeplandsB;
 	public static int greckonB;
-	public static int ancientcavernB;
 	public static int lboreanB;
 	public static int runandorB;
 	public static int barathosB;
@@ -54,22 +52,9 @@ public class ConfigurationHelper {
 	public static int immortallisB;
 	public static int shyrelands;
 	public static int shyrelandsB;
-	public static int creationBarX;
-	public static int creationBarY;
-	public static int soulBarX;
-	public static int soulBarY;
 	public static int ancientBarX;
 	public static int ancientBarY;
-	public static int rageBarX;
-	public static int rageBarY;
-	public static int tributeBarX;
-	public static int tributeBarY;
-	public static int revengeX;
-	public static int revengeY;
 	public static int dataW1;
-	public static int dataW2;
-	public static int dataW3;
-	public static int dataW4;
 	public static int econtrol;
 	public static int eshell;
 	public static int erecharge;
@@ -80,38 +65,6 @@ public class ConfigurationHelper {
 	public static int ewindfury;
 	public static int eslice;
 	public static int eintervention;
-	public static int foragingX;
-	public static int foragingY;
-	public static int infusionX;
-	public static int infusionY;
-	public static int auguryX;
-	public static int auguryY;
-	public static int hunterX;
-	public static int hunterY;
-	public static int runationX;
-	public static int runationY;
-	public static int robberyX;
-	public static int robberyY;
-	public static int creationskillX;
-	public static int creationskillY;
-	public static int innervationX;
-	public static int innervationY;
-	public static int animaX;
-	public static int animaY;
-	public static int extractionX;
-	public static int extractionY;
-	public static int expeditionX;
-	public static int expeditionY;
-	public static int vulcanismX;
-	public static int vulcanismY;
-	public static int butcheryX;
-	public static int butcheryY;
-	public static int hermetismX;
-	public static int hermetismY;
-	public static int loggingX;
-	public static int loggingY;
-	public static int haulingX;
-	public static int haulingY;
 
 	public static int precasiaTall, precasiaDesert, precasiaField;
 	public static int abyssEye, abyssShadow;
@@ -148,7 +101,6 @@ public class ConfigurationHelper {
 		voxponds = cfg.get("Dimension", "Voxponds ID", 20).getInt();
 		labricon = cfg.get("Dimension", "Labricon ID", 23).getInt();
 		lelyetia = cfg.get("Dimension", "Lelyetia ID", 24).getInt();
-		ancientcavern = cfg.get("Dimension", "Ancient Cavern ID", 25).getInt();
 		celeve = cfg.get("Dimension", "Celeve ID", 26).getInt();
 		crystevia = cfg.get("Dimension", "Crystevia ID", 27).getInt();
 		candyland = cfg.get("Dimension", "Candyland ID", 28).getInt();
@@ -170,7 +122,6 @@ public class ConfigurationHelper {
 		voxpondsB = cfg.get("Biome", "Voxponds Biome ID", 85).getInt();
 		labriconB = cfg.get("Biome", "Labricon Biome ID", 88).getInt();
 		lelyetiaB = cfg.get("Biome", "Lelyetia Biome ID", 89).getInt();
-		ancientcavernB = cfg.get("Biome", "Ancient Cavern Biome ID", 90).getInt();
 		celeveB = cfg.get("Biome", "Celeve Biome ID", 91).getInt();
 		crysteviaB = cfg.get("Biome", "Crystevia Biome ID", 92).getInt();
 		candylandB = cfg.get("Biome", "Candyland Biome ID", 93).getInt();
@@ -222,22 +173,9 @@ public class ConfigurationHelper {
 	}
 
 	public static void miscInit() {
-		creationBarY = cfg.get("Bar", "CreationBarY", 2).getInt();
-		creationBarX = cfg.get("Bar", "CreationBarX", 50).getInt();
 		ancientBarY = cfg.get("Bar", "EnergyBarY", 2).getInt();
 		ancientBarX = cfg.get("Bar", "EnergyBarX", 75).getInt();
-		soulBarY = cfg.get("Bar", "SoulBarY", 2).getInt();
-		soulBarX = cfg.get("Bar", "SoulBarX", 25).getInt();
-		rageBarY = cfg.get("Bar", "RageBarY", 2).getInt();
-		rageBarX = cfg.get("Bar", "RageBarX", 125).getInt();
-		tributeBarY = cfg.get("Bar", "TributeBarY", 2).getInt();
-		tributeBarX = cfg.get("Bar", "TributeBarX", 100).getInt();
-		revengeY = cfg.get("Vulcanism", "VulcanismIconY", 2).getInt();
-		revengeX = cfg.get("Vulcanism", "VulcanismIconX", 150).getInt();
 		dataW1 = cfg.get("DataWatcher", "EnergyValue", 27).getInt();
-		dataW2 = cfg.get("DataWatcher", "Thermal", 28).getInt();
-		dataW3 = cfg.get("DataWatcher", "SoulValue", 29).getInt();
-		dataW4 = cfg.get("DataWatcher", "CreationValue", 30).getInt();
 		econtrol = cfg.get("Enchantment", "Control", 100).getInt();
 		eshell = cfg.get("Enchantment", "Shell", 101).getInt();
 		erecharge = cfg.get("Enchantment", "Recharge", 102).getInt();
@@ -248,38 +186,6 @@ public class ConfigurationHelper {
 		ewindfury = cfg.get("Enchantment", "Windfury", 107).getInt();
 		eslice = cfg.get("Enchantment", "Slice", 108).getInt();
 		eintervention = cfg.get("Enchantment", "Intervention", 109).getInt();
-		hunterY = cfg.get("Skill", "HunterY", 30).getInt();
-		hunterX = cfg.get("Skill", "HunterX", 28).getInt();
-		auguryY = cfg.get("Skill", "AuguryY", 30).getInt();
-		auguryX = cfg.get("Skill", "AuguryX", 80).getInt();
-		foragingY = cfg.get("Skill", "ForagingY", 30).getInt();
-		foragingX = cfg.get("Skill", "ForagingX", 106).getInt();
-		infusionY = cfg.get("Skill", "InfusionY", 30).getInt();
-		infusionX = cfg.get("Skill", "InfusionX", 132).getInt();
-		creationskillY = cfg.get("Skill", "CreationSkillY", 30).getInt();
-		creationskillX = cfg.get("Skill", "CreationSkillX", 54).getInt();
-		runationY = cfg.get("Skill", "RunationY", 30).getInt();
-		runationX = cfg.get("Skill", "RunationX", 158).getInt();
-		robberyY = cfg.get("Skill", "RobberyY", 30).getInt();
-		robberyX = cfg.get("Skill", "RobberyX", 184).getInt();
-		innervationY = cfg.get("Skill", "InnervationY", 30).getInt();
-		innervationX = cfg.get("Skill", "InnervationX", 210).getInt();
-		animaY = cfg.get("Skill", "AnimaY", 65).getInt();
-		animaX = cfg.get("Skill", "AnimaX", 28).getInt();
-		extractionY = cfg.get("Skill", "ExtractionY", 65).getInt();
-		extractionX = cfg.get("Skill", "ExtractionX", 54).getInt();
-		expeditionY = cfg.get("Skill", "ExpeditionY", 65).getInt();
-		expeditionX = cfg.get("Skill", "ExpeditionX", 80).getInt();
-		vulcanismY = cfg.get("Skill", "VulcanismY", 65).getInt();
-		vulcanismX = cfg.get("Skill", "VulcanismX", 106).getInt();
-		loggingY = cfg.get("Skill", "LoggingY", 65).getInt();
-		loggingX = cfg.get("Skill", "LoggingX", 132).getInt();
-		hermetismY = cfg.get("Skill", "HermetismY", 65).getInt();
-		hermetismX = cfg.get("Skill", "HermetismX", 158).getInt();
-		butcheryY = cfg.get("Skill", "ButcheryY", 65).getInt();
-		butcheryX = cfg.get("Skill", "ButcheryX", 184).getInt();
-		haulingY = cfg.get("Skill", "HaulingY", 65).getInt();
-		haulingX = cfg.get("Skill", "HaulingX", 210).getInt();
 	}
 
 	public static int getConfig(final String name) {

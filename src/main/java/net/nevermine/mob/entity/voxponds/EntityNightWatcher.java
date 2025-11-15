@@ -5,18 +5,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.structures.vanilla.LunarPortalStructure;
-
-import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityNightWatcher extends EntityMob {
 	public EntityNightWatcher(final World par1World) {

@@ -10,14 +10,10 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityMerkyre extends EntityMob{
     public EntityMerkyre(final World par1World) {

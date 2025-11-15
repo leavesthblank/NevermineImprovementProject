@@ -8,18 +8,12 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.item.tool.ExtractionTool;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Toolizer;
 
 import java.util.List;
 
-public class OrnamytePickaxe extends ItemPickaxe implements ExtractionTool {
-
-	@Override
-	public int getLevelReq() {
-		return 65;
-	}
+public class OrnamytePickaxe extends ItemPickaxe{
 
 	public OrnamytePickaxe(final Item.ToolMaterial p_i45347_1_) {
 		super(p_i45347_1_);

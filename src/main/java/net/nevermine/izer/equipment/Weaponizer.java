@@ -24,7 +24,6 @@ import net.nevermine.item.weapon.staff.*;
 import net.nevermine.item.weapon.sticky.*;
 import net.nevermine.item.weapon.sword.*;
 import net.nevermine.item.weapon.throwable.*;
-import net.nevermine.item.weapon.vulcane.*;
 import net.nevermine.izer.Itemizer;
 
 public class Weaponizer {
@@ -39,7 +38,6 @@ public class Weaponizer {
 	public static CreativeTabs SnipersTab = new SnipersTab(CreativeTabs.getNextID(), "SnipersTab");
 	public static CreativeTabs ScythesTab = new ScythesTab(CreativeTabs.getNextID(), "ScythesTab");
 	public static CreativeTabs ThrowablesTab = new ThrowablesTab(CreativeTabs.getNextID(), "ThrowablesTab");
-	public static CreativeTabs VulcanesTab = new VulcanesTab(CreativeTabs.getNextID(), "VulcanesTab");
 
 	public static Item.ToolMaterial Amethyst = EnumHelper.addToolMaterial("AMETHYST", 4, 1200, 4.0f, 4.0f, 10);
 	public static Item.ToolMaterial Rosite = EnumHelper.addToolMaterial("ROSITE", 4, 2000, 4.0f, 5.0f, 10);
@@ -417,14 +415,6 @@ public class Weaponizer {
 	public static Item DualSight = new DualSight(101, "Sniper", 1200, 15, Itemizer.MetalPellet).setRecoil(30.0f).setUnlocalizedName("DualSight").setTextureName("nevermine:dualSight");
 	public static Item BoomBoom = new BoomBoom(101, "ShadowBlaster", 1000, 40, Weaponizer.Grenade).setRecoil(10.0f).setUnlocalizedName("BoomBoom").setTextureName("nevermine:boomBoom");
 	public static Item BangBang = ShoeFlinger;
-	public static Item Vulcane = new Vulcane("Vulcane", 1000, 25.0f, 1).setUnlocalizedName("Vulcane").setTextureName("nevermine:vulcane");
-	public static Item BattleVulcane = new BattleVulcane("Vulcane", 1000, 50.0f, 80).setUnlocalizedName("BattleVulcane").setTextureName("nevermine:battleVulcane");
-	public static Item EqualityVulcane = new EqualityVulcane("Vulcane", 1000, 25.0f, 65).setUnlocalizedName("EqualityVulcane").setTextureName("nevermine:equalityVulcane");
-	public static Item FireVulcane = new FireVulcane("Vulcane", 1000, 25.0f, 10).setUnlocalizedName("FireVulcane").setTextureName("nevermine:fireVulcane");
-	public static Item ImpairmentVulcane = new ImpairmentVulcane("Vulcane", 1000, 25.0f, 20).setUnlocalizedName("ImpairmentVulcane").setTextureName("nevermine:impairmentVulcane");
-	public static Item PoisonVulcane = new PoisonVulcane("Vulcane", 1000, 25.0f, 30).setUnlocalizedName("PoisonVulcane").setTextureName("nevermine:poisonVulcane");
-	public static Item PowerVulcane = new PowerVulcane("Vulcane", 1000, 25.0f, 40).setUnlocalizedName("PowerVulcane").setTextureName("nevermine:powerVulcane");
-	public static Item WitherVulcane = new WitherVulcane("Vulcane", 1000, 25.0f, 50).setUnlocalizedName("WitherVulcane").setTextureName("nevermine:witheringVulcane");
 
 	public static Item ShyreBlaster = new ShyreBlaster(101, "BigBlast", 1200, 30, Itemizer.CannonBall).setRecoil(12.0F).setUnlocalizedName("ShyreBlaster").setTextureName("nevermine:shyreBlaster");
 	public static Item SoulDrainer = new SoulDrainer(101, "DrainGun", 2000, 16, 30).setUnlocalizedName("SoulDrainer").setTextureName("nevermine:soulDrainer");

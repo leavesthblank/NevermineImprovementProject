@@ -5,10 +5,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.resource.rage.rageHelper;
 
 import java.util.List;
 
@@ -16,16 +14,6 @@ public class FieryChops extends ItemFood {
 	public FieryChops() {
 		super(8, 0.95f, true);
 		setCreativeTab(Itemizer.MiscTab);
-	}
-
-	public ItemStack onEaten(final ItemStack item, final World world, final EntityPlayer player) {
-		super.onEaten(item, world, player);
-
-		if (!world.isRemote) {
-			rageHelper.getProperties(player).regen(20);
-		}
-
-		return item;
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -8,12 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.assist.ConfigurationHelper;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.Plantizer;
-
-import static net.nevermine.container.PlayerContainer.Deities.Selyan;
 
 public class EntityFlowerface extends EntityMob {
 	public EntityFlowerface(final World par1World) {
@@ -39,10 +35,6 @@ public class EntityFlowerface extends EntityMob {
 
 	public void onDeath(final DamageSource var1) {
 		super.onDeath(var1);
-
-		if (dimension == ConfigurationHelper.ancientcavern && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).adjustTribute(Selyan, 8);
-		}
 	}
 
 	public void onLivingUpdate() {
@@ -54,7 +46,7 @@ public class EntityFlowerface extends EntityMob {
 	}
 
 	public boolean getCanSpawnHere() {
-		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && (dimension == ConfigurationHelper.ancientcavern || posY > 66.0) && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
+		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
 	}
 
 	protected boolean isValidLightLevel() {

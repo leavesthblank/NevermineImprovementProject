@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.resource.creation.creationHelper;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class TabletCreation extends BaseTablet {
 
 	@Override
 	public void useTablet(final World world, final ItemStack stack, final EntityPlayer var3) {
-		creationHelper.getProperties(var3).setBarValue(creationHelper.getProperties(var3).getMax());
+
 	}
 
 	@SideOnly(Side.CLIENT)

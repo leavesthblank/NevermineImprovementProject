@@ -3,7 +3,6 @@ package net.nevermine.izer;
 import net.minecraftforge.common.DimensionManager;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.dimension.abyss.WorldProviderAB;
-import net.nevermine.dimension.ancientcavern.WorldProviderAcv;
 import net.nevermine.dimension.barathos.WorldProviderBt;
 import net.nevermine.dimension.candyland.WorldProviderCd;
 import net.nevermine.dimension.celeve.WorldProviderCl;
@@ -43,7 +42,6 @@ public class Dimensionizer {
 	public static int barathosId = ConfigurationHelper.barathos;
 	public static int labriconId = ConfigurationHelper.labricon;
 	public static int lelyetiaId = ConfigurationHelper.lelyetia;
-	public static int ancientcavernId = ConfigurationHelper.ancientcavern;
 	public static int celeveId = ConfigurationHelper.celeve;
 	public static int crysteviaId = ConfigurationHelper.crystevia;
 	public static int candylandId = ConfigurationHelper.candyland;
@@ -84,8 +82,6 @@ public class Dimensionizer {
 		DimensionManager.registerDimension(Dimensionizer.labriconId, Dimensionizer.labriconId);
 		DimensionManager.registerProviderType(Dimensionizer.lelyetiaId, WorldProviderLl.class, false);
 		DimensionManager.registerDimension(Dimensionizer.lelyetiaId, Dimensionizer.lelyetiaId);
-		DimensionManager.registerProviderType(Dimensionizer.ancientcavernId, WorldProviderAcv.class, false);
-		DimensionManager.registerDimension(Dimensionizer.ancientcavernId, Dimensionizer.ancientcavernId);
 		DimensionManager.registerProviderType(Dimensionizer.celeveId, WorldProviderCl.class, false);
 		DimensionManager.registerDimension(Dimensionizer.celeveId, Dimensionizer.celeveId);
 		DimensionManager.registerProviderType(Dimensionizer.crysteviaId, WorldProviderCr.class, false);

@@ -11,19 +11,14 @@ import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.Plantizer;
-import net.nevermine.skill.innervation.innervationHelper;
 
 import java.util.Random;
 
-import static net.nevermine.container.PlayerContainer.Skills.Innervation;
-
 public class CreatureInnervation {
 	private Random rand;
-	private int pick;
 
 	public CreatureInnervation() {
 		rand = new Random();
@@ -39,12 +34,9 @@ public class CreatureInnervation {
 	@SubscribeEvent
 	public void heartToss(final ItemTossEvent e) {
 		if (!e.player.worldObj.isRemote && e.entityItem.getEntityItem().getItem() == Itemizer.HeartStone) {
-			PlayerContainer cont = PlayerContainer.getProperties(e.player);
-
 			for (int i = 0; i < e.entityItem.getEntityItem().stackSize; i++) {
-				cont.addExperience(cont.getExpRequired(Innervation) / innervationHelper.getExpDenominator(cont.getLevel(Innervation)), Innervation);
+				e.player.heal(20);
 			}
-
 			e.entityItem.setDead();
 			e.player.worldObj.playSoundAtEntity(e.player, "nevermine:HeartPickup", 2.85f, 1.0f);
 		}
@@ -53,13 +45,7 @@ public class CreatureInnervation {
 	@SubscribeEvent
 	public void heartPickup(final PlayerEvent.ItemPickupEvent e) {
 		if (!e.player.worldObj.isRemote && e.pickedUp.getEntityItem().getItem() == Itemizer.HeartStone) {
-			PlayerContainer cont = PlayerContainer.getProperties(e.player);
-
-			while (e.player.inventory.consumeInventoryItem(Itemizer.HeartStone)) {
-				cont.addExperience(cont.getExpRequired(Innervation) / innervationHelper.getExpDenominator(cont.getLevel(Innervation)), Innervation);
-			}
-
-			e.player.heal(innervationHelper.getHeartstoneHealAmount(cont.getLevel(Innervation)));
+			e.player.heal(20);
 			e.pickedUp.setDead();
 			e.player.worldObj.playSoundAtEntity(e.player, "nevermine:HeartPickup", 2.85f, 1.0f);
 		}
@@ -68,14 +54,13 @@ public class CreatureInnervation {
 	@SubscribeEvent
 	public void onPlayerInnervationDodge(final LivingHurtEvent e) {
 		if (!e.entity.worldObj.isRemote && e.entity instanceof EntityPlayer && e.source != DamageSource.outOfWorld && e.source != DamageSource.starve) {
-			final int lvl = PlayerContainer.getProperties((EntityPlayer)e.entity).getLevel(Innervation);
 
-			if (innervationHelper.tryDodge(lvl)) {
+            if (rand.nextInt(4) == 0) {
 				if (rand.nextBoolean()) {
 					e.setCanceled(true);
 				}
 				else {
-					((EntityLivingBase)e.entity).heal(innervationHelper.getDodgeHealAmount(lvl));
+					((EntityLivingBase)e.entity).heal(4.0f);
 				}
 
 				e.entity.worldObj.playSoundAtEntity(e.entity, "nevermine:MagickeFire", 1.0f, 1.0f);

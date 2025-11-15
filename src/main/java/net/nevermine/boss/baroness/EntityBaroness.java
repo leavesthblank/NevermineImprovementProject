@@ -14,12 +14,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.boss.EntityBoss;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.projectiles.enemy.EntityBaronessShot;
 
 import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityBaroness extends EntityMob implements EntityBoss, IRangedAttackMob {
 
@@ -155,11 +152,6 @@ public class EntityBaroness extends EntityMob implements EntityBoss, IRangedAtta
 
 					for (EntityPlayer e : (List<EntityPlayer>)p.worldObj.getEntitiesWithinAABB(EntityPlayer.class, p.boundingBox.expand(50, 50, 50)))
 						e.addChatMessage(message);
-
-					PlayerContainer cont = PlayerContainer.getProperties(p);
-
-
-						cont.addExperience(3000, Hunter);
 				}
 	}
 

@@ -16,7 +16,6 @@ import net.minecraft.world.World;
 import net.nevermine.assist.AddPackets;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.boss.EntityBoss;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.gui.MobHitPacket;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
@@ -24,8 +23,6 @@ import net.nevermine.mob.ai.EntityAIFlying;
 import net.nevermine.projectiles.enemy.EntitySpectralShot;
 
 import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityDracyon extends EntityAIFlying implements EntityBoss {
 	private ChunkCoordinates currentFlightTarget;
@@ -132,11 +129,6 @@ public class EntityDracyon extends EntityAIFlying implements EntityBoss {
 			for (final EntityPlayer e : (List<EntityPlayer>)p.worldObj.getEntitiesWithinAABB(EntityPlayer.class, p.boundingBox.expand(50.0, 50.0, 50.0))) {
 				e.addChatMessage(msg);
 			}
-
-			PlayerContainer cont = PlayerContainer.getProperties(p);
-
-
-				cont.addExperience(10000, Hunter);
 		}
 	}
 

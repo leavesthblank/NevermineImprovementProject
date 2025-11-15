@@ -373,10 +373,6 @@ public class Itemizer {
 	public static final Item Ironback = new AquaticFood(8, 0.8f, 9.0f).setUnlocalizedName("Ironback").setTextureName("nevermine:ironback");
 	public static final Item Rainbowfish = new AquaticFood(9, 0.85f, 10.0f).setUnlocalizedName("Rainbowfish").setTextureName("nevermine:rainbowfish");
 	public static final Item Razorfish = new AquaticFood(10, 0.85f, 10.0f).setUnlocalizedName("Razorfish").setTextureName("nevermine:razorfish");
-	public static final Item SkillCrystalSmall = new SkillCrystal(15).setUnlocalizedName("SkillCrystalSmall").setTextureName("nevermine:skillCrystalSmall");
-	public static final Item SkillCrystalMedium = new SkillCrystal(12).setUnlocalizedName("SkillCrystalMedium").setTextureName("nevermine:skillCrystalMedium");
-	public static final Item SkillCrystalLarge = new SkillCrystal(8).setUnlocalizedName("SkillCrystalLarge").setTextureName("nevermine:skillCrystalLarge");
-	public static final Item SkillCrystalGiant = new SkillCrystal(4).setUnlocalizedName("SkillCrystalGiant").setTextureName("nevermine:skillCrystalGiant");
 	public static final Item TreasureBox = new TreasureBox().setUnlocalizedName("TreasureBox").setTextureName("nevermine:treasureBox");
 	public static final Item RuneBox = new RuneBox().setUnlocalizedName("RuneBox").setTextureName("nevermine:runeBox");
 	public static final Item FishCase = new FishCase().setUnlocalizedName("FishCase").setTextureName("nevermine:fishCase");

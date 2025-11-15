@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 
 import java.util.List;
@@ -26,7 +25,6 @@ public class ReturnCrystal extends ItemFood {
 
 			if (!world.isRemote) {
 				player.setPositionAndUpdate(0.0, 20.0, 0.0);
-				PlayerContainer.getProperties(player).resetAllTribute();
 			}
 
 			player.inventory.consumeInventoryItem(Itemizer.ProgressCoin1);

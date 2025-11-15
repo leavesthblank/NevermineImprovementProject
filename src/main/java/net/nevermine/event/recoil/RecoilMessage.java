@@ -9,9 +9,6 @@ import net.nevermine.common.nevermine;
 public class RecoilMessage implements IMessage {
 	private float rec;
 
-	public RecoilMessage() {
-	}
-
 	public RecoilMessage(final float recoil) {
 		rec = recoil;
 	}

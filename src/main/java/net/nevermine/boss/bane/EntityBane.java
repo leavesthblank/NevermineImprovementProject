@@ -15,13 +15,10 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.boss.EntityBoss;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
 import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityBane extends EntityMob implements EntityBoss {
 	private int musicTick;
@@ -63,11 +60,6 @@ public class EntityBane extends EntityMob implements EntityBoss {
 			for (final EntityBaneClone e : (List<EntityBaneClone>)p.worldObj.getEntitiesWithinAABB(EntityBaneClone.class, p.boundingBox.expand(30, 30, 30))) {
 				e.setDead();;
 			}
-
-			PlayerContainer cont = PlayerContainer.getProperties(p);
-
-
-				cont.addExperience(5000.0f, Hunter);
 		}
 	}
 

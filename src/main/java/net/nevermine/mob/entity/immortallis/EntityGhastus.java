@@ -5,15 +5,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
 
 import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Deities.Erebon;
 
 public class EntityGhastus extends EntityMob {
 	public EntityGhastus(final World par1World) {
@@ -39,18 +34,6 @@ public class EntityGhastus extends EntityMob {
 
 	public boolean getCanSpawnHere() {
 		return worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)var1.getEntity());
-
-			cont.adjustTribute(Erebon, 4);
-
-			if (cont.getTribute(Erebon) == 200)
-				((EntityPlayer)var1.getEntity()).addChatMessage(StringUtil.getLocale("message.feedback.immortallisProgression.evilSpiritsEnd"));
-		}
 	}
 
 	protected boolean isValidLightLevel() {

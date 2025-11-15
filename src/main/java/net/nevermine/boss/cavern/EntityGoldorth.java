@@ -9,8 +9,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.nevermine.boss.cavern.holder.EntityHolderGoldorth;
-import net.nevermine.container.AncientBossesContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
@@ -45,19 +43,6 @@ public class EntityGoldorth extends EntityMob implements CavernBoss {
 
 	public void onDeath(final DamageSource var1) {
 		super.onDeath(var1);
-
-		AncientBossesContainer.killGoldorth(this);
-	}
-
-	private void transform() {
-		if (!worldObj.isRemote) {
-			final EntityHolderGoldorth var2 = new EntityHolderGoldorth(worldObj);
-			var2.setLocationAndAngles(posX, posY, posZ, rotationYaw, rotationPitch);
-			worldObj.spawnEntityInWorld(var2);
-			if (!worldObj.isRemote) {
-				setDead();
-			}
-		}
 	}
 
 	public boolean getCanSpawnHere() {

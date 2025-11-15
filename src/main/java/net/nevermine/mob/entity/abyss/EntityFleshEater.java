@@ -9,13 +9,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityFleshEater extends EntityMob{
 	public EntityFleshEater(final World par1World) {
@@ -35,12 +31,6 @@ public class EntityFleshEater extends EntityMob{
 		return "nevermine:FleshEaterHit";
 	}
 
-	public void onDeath(final DamageSource src) {
-		super.onDeath(src);
-		if (!worldObj.isRemote && src.getEntity() != null && src.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)src.getEntity()).addExperience(120.0f, Hunter);
-		}
-	}
 
 	protected Entity findPlayerToAttack() {
 		final EntityPlayer entityPlayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);

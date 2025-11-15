@@ -8,16 +8,12 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.assist.EntityUtil;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.izer.equipment.Weaponizer;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityLivingFungi extends EntityMob {
 	public EntityLivingFungi(final World par1World) {

@@ -14,13 +14,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.block.generation.OreBlock;
-import net.nevermine.item.tool.ExtractionTool;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Toolizer;
 
 import java.util.List;
 
-public class Gemcracker extends ItemPickaxe implements ExtractionTool {
+public class Gemcracker extends ItemPickaxe{
 	public Gemcracker(Item.ToolMaterial p_i45347_1_) {
 		super(p_i45347_1_);
 
@@ -39,10 +38,6 @@ public class Gemcracker extends ItemPickaxe implements ExtractionTool {
 		}
 
 		return true;
-	}
-
-	public int getLevelReq() {
-		return 45;
 	}
 
 	@SideOnly(Side.CLIENT)

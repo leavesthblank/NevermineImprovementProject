@@ -11,16 +11,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.mob.entity.lborean.EntityAmphibiyte;
 import net.nevermine.mob.entity.overworld.*;
-import net.nevermine.skill.hauling.haulingHelper;
 
 import java.util.List;
 import java.util.Random;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hauling;
 
 public class FishCase extends Item {
 	Random rand = new Random();
@@ -33,9 +29,7 @@ public class FishCase extends Item {
 		if (world.isRemote)
 			return true;
 
-		PlayerContainer cont = PlayerContainer.getProperties(player);
-
-		if (rand.nextInt(10) == 0) {
+        if (rand.nextInt(10) == 0) {
 			Entity entity = null;
 			switch (rand.nextInt(5)) {
 				case 0:
@@ -63,7 +57,7 @@ public class FishCase extends Item {
 		else {
 			ItemStack loot = null;
 
-			switch (rand.nextInt(haulingHelper.getFishCasePossibilities(cont.getLevel(Hauling)))) {
+			switch (rand.nextInt(16)) {
 				case 0:
 					if (rand.nextBoolean()) {
 						loot = new ItemStack(Itemizer.FingerFish, 8);
@@ -125,7 +119,6 @@ public class FishCase extends Item {
 				player.entityDropItem(loot, 0f);
 		}
 
-		cont.addExperience(cont.getExpRequired(Hauling) / haulingHelper.getExpDenominator(cont.getLevel(Hauling)), Hauling);
 		--stack.stackSize;
 
 		if (player instanceof EntityPlayerMP)

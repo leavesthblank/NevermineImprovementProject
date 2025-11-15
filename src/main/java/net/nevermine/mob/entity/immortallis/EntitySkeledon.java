@@ -7,13 +7,8 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
-
-import static net.nevermine.container.PlayerContainer.Deities.Erebon;
 
 public class EntitySkeledon extends EntityMob {
 	private int cloakTick;
@@ -58,19 +53,6 @@ public class EntitySkeledon extends EntityMob {
 			playSound("nevermine:SkeledonCharge", 1.0f, 1.0f / (getRNG().nextFloat() * 0.4f + 0.8f));
 			motionX *= 1.5;
 			motionZ *= 1.5;
-		}
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)var1.getEntity());
-
-			if (cont.getTribute(Erebon) < 100)
-				cont.adjustTribute(Erebon, 4);
-
-			if (cont.getTribute(Erebon) >= 100)
-				((EntityPlayer)var1.getEntity()).addChatMessage(StringUtil.getLocale("message.feedback.immortallisProgression.skeletalSpiritsEnd"));
 		}
 	}
 

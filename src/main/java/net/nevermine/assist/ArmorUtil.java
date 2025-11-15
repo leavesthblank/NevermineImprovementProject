@@ -14,10 +14,6 @@ public class ArmorUtil {
 		return boots == Armorizer.AmethindBoots || legs == Armorizer.AmethindLeggings | chest == Armorizer.AmethindChestplate || helmet==Armorizer.AmethindHelmet;
 	}
 
-	public static boolean isAnimaArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
-		return boots == Armorizer.AnimaBoots || legs == Armorizer.AnimaLeggings | chest == Armorizer.AnimaChestplate || helmet==Armorizer.AnimaHelmet;
-	}
-
 	public static boolean isArchaicArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
 		return boots == Armorizer.ArchaicBoots || legs == Armorizer.ArchaicLeggings | chest == Armorizer.ArchaicChestplate || helmet==Armorizer.ArchaicHelmet;
 	}
@@ -38,10 +34,6 @@ public class ArmorUtil {
 		return boots == Armorizer.BoreicBoots || legs == Armorizer.BoreicLeggings | chest == Armorizer.BoreicChestplate || helmet==Armorizer.BoreicHelmet;
 	}
 
-	public static boolean isButcheryArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
-		return boots == Armorizer.ButcheryBoots || legs == Armorizer.ButcheryLeggings | chest == Armorizer.ButcheryChestplate || helmet==Armorizer.ButcheryHelmet;
-	}
-
 	public static boolean isCandyArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
 		return boots == Armorizer.CandyBoots || legs == Armorizer.CandyLeggings | chest == Armorizer.CandyChestplate || helmet==Armorizer.CandyHelmet;
 	}
@@ -56,10 +48,6 @@ public class ArmorUtil {
 
 	public static boolean isCrystallisArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
 		return boots == Armorizer.CrystallisBoots || legs == Armorizer.CrystallisLeggings | chest == Armorizer.CrystallisChestplate || helmet==Armorizer.CrystallisHelmet;
-	}
-
-	public static boolean isDemonicArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
-		return boots == Armorizer.DemonicBoots || legs == Armorizer.DemonicLeggings | chest == Armorizer.DemonicChestplate || helmet==Armorizer.DemonicHelmet;
 	}
 
 	public static boolean isElecanyteArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
@@ -82,10 +70,6 @@ public class ArmorUtil {
 		return boots == Armorizer.ExplosiveBoots || legs == Armorizer.ExplosiveLeggings | chest == Armorizer.ExplosiveChestplate || helmet==Armorizer.ExplosiveHelmet;
 	}
 
-	public static boolean isForagingArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
-		return boots == Armorizer.ForagingBoots || legs == Armorizer.ForagingLeggings | chest == Armorizer.ForagingChestplate || helmet==Armorizer.ForagingHelmet;
-	}
-
 	public static boolean isFungalArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
 		return boots == Armorizer.FungalBoots || legs == Armorizer.FungalLeggings | chest == Armorizer.FungalChestplate || helmet==Armorizer.FungalHelmet;
 	}
@@ -104,10 +88,6 @@ public class ArmorUtil {
 
 	public static boolean isHazmatArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
 		return boots == Armorizer.HazmatBoots || legs == Armorizer.HazmatLeggings | chest == Armorizer.HazmatChestplate || helmet==Armorizer.HazmatHelmet;
-	}
-
-	public static boolean isHermetismArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
-		return boots == Armorizer.HermetismBoots || legs == Armorizer.HermetismLeggings | chest == Armorizer.HermetismChestplate || helmet==Armorizer.HermetismHelmet;
 	}
 
 	public static boolean isHunterArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
@@ -136,10 +116,6 @@ public class ArmorUtil {
 
 	public static boolean isInnervationArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
 		return boots == Armorizer.InnervationBoots || legs == Armorizer.InnervationLeggings | chest == Armorizer.InnervationChestplate || helmet==Armorizer.InnervationHelmet;
-	}
-
-	public static boolean isLoggingArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
-		return boots == Armorizer.LoggingBoots || legs == Armorizer.LoggingLeggings | chest == Armorizer.LoggingChestplate || helmet==Armorizer.LoggingHelmet;
 	}
 
 	public static boolean isLunarArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
@@ -230,10 +206,6 @@ public class ArmorUtil {
 		return boots == Armorizer.SubterraneanBoots || legs == Armorizer.SubterraneanLeggings | chest == Armorizer.SubterraneanChestplate ||helmet==Armorizer.SubterraneanHelmet;
 	}
 
-	public static boolean isThermalArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
-		return boots == Armorizer.ThermalBoots || legs == Armorizer.ThermalLeggings | chest == Armorizer.ThermalChestplate || helmet==Armorizer.ThermalHelmet;
-	}
-
 	public static boolean isUtopianArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
 		return boots == Armorizer.UtopianBoots || legs == Armorizer.UtopianLeggings | chest == Armorizer.UtopianChestplate || helmet==Armorizer.UtopianHelmet;
 	}
@@ -244,10 +216,6 @@ public class ArmorUtil {
 
 	public static boolean isVoidArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
 		return boots == Armorizer.VoidBoots || legs == Armorizer.VoidLeggings | chest == Armorizer.VoidChestplate || helmet==Armorizer.VoidHelmet;
-	}
-
-	public static boolean isVulcanismArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {
-		return boots == Armorizer.VulcanismBoots || legs == Armorizer.VulcanismLeggings | chest == Armorizer.VulcanismChestplate || helmet==Armorizer.VulcanismHelmet;
 	}
 
 	public static boolean isWeakenArmor(final Item boots, final Item legs, final Item chest, final Item helmet) {

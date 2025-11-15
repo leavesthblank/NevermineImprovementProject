@@ -4,11 +4,9 @@ import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.EntityDamageSource;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.assist.ItemUtil;
@@ -16,12 +14,10 @@ import net.nevermine.container.PlayerContainer;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.UUID;
 
 public class liveDieEvent {
 	private static HashMap<UUID, HashSet<ItemStack>> respawnItems = new HashMap<UUID, HashSet<ItemStack>>();
-	Random r = new Random();
 
 	@SubscribeEvent
 	public void onPlayerRespawn(final PlayerEvent.PlayerRespawnEvent evt) {
@@ -44,14 +40,9 @@ public class liveDieEvent {
 			EntityPlayer pl = (EntityPlayer)evt.entity;
 			PlayerContainer advPl = PlayerContainer.getProperties(pl);
 
-			advPl.resetAllTribute();
 			advPl.saveNBTData(pl.getEntityData());
 
-			if (evt.source instanceof EntityDamageSource) {
-				Entity mob = evt.source.getSourceOfDamage();
-			}
-
-			if (!evt.entity.worldObj.isRemote && !MinecraftServer.getServer().worldServerForDimension(evt.entity.worldObj.provider.dimensionId).getGameRules().getGameRuleBooleanValue("keepInventory")) {
+            if (!evt.entity.worldObj.isRemote && !MinecraftServer.getServer().worldServerForDimension(evt.entity.worldObj.provider.dimensionId).getGameRules().getGameRuleBooleanValue("keepInventory")) {
 				HashSet<ItemStack> stacks = new HashSet<ItemStack>();
 
 				for (int i = 0; i < 36; i++) {

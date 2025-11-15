@@ -5,18 +5,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.izer.equipment.Weaponizer;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityZarg extends EntityMob{
 
@@ -89,14 +84,6 @@ public class EntityZarg extends EntityMob{
 			final EntityFakeZorp var2 = new EntityFakeZorp(worldObj);
 			var2.setLocationAndAngles(entityToAttack.posX, entityToAttack.posY, entityToAttack.posZ, rand.nextFloat() * 360.0f, 0.0f);
 			worldObj.spawnEntityInWorld(var2);
-		}
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(890.0f, Hunter);
 		}
 	}
 

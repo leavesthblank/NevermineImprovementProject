@@ -4,21 +4,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.assist.AddPackets;
-import net.nevermine.container.PlayerContainer;
-import net.nevermine.gui.MobHitPacket;
 import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityFacelessFloater extends EntityMob {
 	public EntityFacelessFloater(final World par1World) {

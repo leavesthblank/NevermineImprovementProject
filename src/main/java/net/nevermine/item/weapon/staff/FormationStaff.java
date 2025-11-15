@@ -46,7 +46,7 @@ public class FormationStaff extends BaseStaff {
 		player.worldObj.playSoundAtEntity(player, "nevermine:FormationStaff", 1.0f, 1.0f);
 		int count = 0;
 
-		if (player.dimension != ConfigurationHelper.ancientcavern && player.dimension != ConfigurationHelper.immortallis && player.dimension != ConfigurationHelper.labricon) {
+		if (player.dimension != ConfigurationHelper.immortallis && player.dimension != ConfigurationHelper.labricon) {
 			for (int i = (int)(player.posX - 4.0); i < (int)(player.posX + 8.0); ++i) {
 				for (int j = (int)(player.posY - 4.0); j < (int)(player.posY + 8.0); ++j) {
 					for (int k = (int)(player.posZ - 4.0); k < (int)(player.posZ + 8.0); ++k) {

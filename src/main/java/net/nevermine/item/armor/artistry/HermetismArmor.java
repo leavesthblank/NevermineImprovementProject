@@ -8,20 +8,12 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
 
 import java.util.List;
 
-import static net.nevermine.container.PlayerContainer.Skills.Hermetism;
-
-public class HermetismArmor extends ItemArmor implements ArtistryArmor {
-
-	@Override
-	public PlayerContainer.Skills getAssociatedSkill() {
-		return Hermetism;
-	}
+public class HermetismArmor extends ItemArmor{
 
 	public HermetismArmor(final ItemArmor.ArmorMaterial p_i45325_1_, final int p_i45325_2_, final int p_i45325_3_) {
 		super(p_i45325_1_, p_i45325_2_, p_i45325_3_);

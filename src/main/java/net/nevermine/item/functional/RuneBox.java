@@ -15,12 +15,9 @@ import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.mob.entity.lborean.EntityAmphibiyte;
 import net.nevermine.mob.entity.overworld.*;
-import net.nevermine.skill.hauling.haulingHelper;
 
 import java.util.List;
 import java.util.Random;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hauling;
 
 public class RuneBox extends Item {
 	Random rand = new Random();
@@ -61,13 +58,11 @@ public class RuneBox extends Item {
 			world.spawnEntityInWorld(entity);
 		}
 		else {
-			for (ItemStack st : ItemUtil.getRandomRunes(haulingHelper.getRunesLootCount(cont.getLevel(Hauling)))) {
+			for (ItemStack st : ItemUtil.getRandomRunes(80)) {
 				if (!player.inventory.addItemStackToInventory(st))
 					player.entityDropItem(st, 0f);
 			}
 		}
-
-		cont.addExperience(cont.getExpRequired(Hauling) / haulingHelper.getExpDenominator(cont.getLevel(Hauling)), Hauling);
 		--stack.stackSize;
 
 		if (player instanceof EntityPlayerMP)

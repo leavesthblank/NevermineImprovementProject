@@ -12,19 +12,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.item.tool.ExtractionTool;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Toolizer;
 
 import java.util.List;
 import java.util.Random;
 
-public class EnergisticPickaxe extends ItemPickaxe implements ExtractionTool {
-
-	@Override
-	public int getLevelReq() {
-		return 70;
-	}
+public class EnergisticPickaxe extends ItemPickaxe{
 
 	public EnergisticPickaxe(final Item.ToolMaterial p_i45347_1_) {
 		super(p_i45347_1_);

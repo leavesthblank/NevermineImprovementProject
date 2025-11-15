@@ -9,7 +9,6 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.nevermine.fx.circular.CyanCircular;
-import net.nevermine.resource.soulpower.soulPowerHelper;
 
 public class EntityLuxonStickler extends EntityThrowable {
 	private float damage;
@@ -42,7 +41,6 @@ public class EntityLuxonStickler extends EntityThrowable {
 		++age;
 		if (!worldObj.isRemote) {
 			if (entity != null) {
-				soulPowerHelper.getProperties((EntityPlayer)getThrower()).regen(1.0f);
 				setLocationAndAngles(entity.posX, entity.posY, entity.posZ, 0.0f, 360.0f);
 			}
 			else {

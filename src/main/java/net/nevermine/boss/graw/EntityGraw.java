@@ -2,13 +2,11 @@ package net.nevermine.boss.graw;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
@@ -18,15 +16,11 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.boss.EntityBoss;
-import net.nevermine.container.PlayerContainer;
-import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.projectiles.enemy.EntityGrawShot;
 
 import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityGraw extends EntityFlying implements IMob, EntityBoss {
 	public int courseChangeCooldown;
@@ -64,9 +58,6 @@ public class EntityGraw extends EntityFlying implements IMob, EntityBoss {
 			for (final EntityPlayer e : (List<EntityPlayer>)p.worldObj.getEntitiesWithinAABB(EntityPlayer.class, p.boundingBox.expand(50.0, 50.0, 50.0))) {
 				e.addChatMessage(msg);
 			}
-
-			PlayerContainer cont = PlayerContainer.getProperties(p);
-				cont.addExperience(5000.0f, Hunter);
 		}
 	}
 

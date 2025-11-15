@@ -11,13 +11,10 @@ import net.minecraft.world.World;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.boss.corallus.EntityCorallus;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.Plantizer;
 
 import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityAmphibiyte extends EntityMob{
 	private int angerLevel;
@@ -162,12 +159,7 @@ public class EntityAmphibiyte extends EntityMob{
 
 	public void onDeath(final DamageSource d) {
 		super.onDeath(d);
-
-		if (d.getEntity() != null && !worldObj.isRemote && d.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)d.getEntity()).addExperience(25.0f, Hunter);
-		}
-
-		if (rand.nextInt(50) == 32 && worldObj.provider.dimensionId != ConfigurationHelper.immortallis && worldObj.provider.dimensionId != ConfigurationHelper.ancientcavern) {
+		if (rand.nextInt(50) == 32 && worldObj.provider.dimensionId != ConfigurationHelper.immortallis) {
 			if (!worldObj.isRemote) {
 				final EntityCorallus var2 = new EntityCorallus(worldObj);
 				var2.setLocationAndAngles(posX, posY + 7.0, posZ, rand.nextFloat() * 360.0f, 0.0f);

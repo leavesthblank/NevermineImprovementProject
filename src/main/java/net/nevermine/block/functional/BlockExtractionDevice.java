@@ -18,17 +18,12 @@ import net.minecraft.world.World;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.assist.ItemUtil;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Blockizer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Armorizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.skill.extraction.extractionHelper;
 
 import java.util.Random;
-
-import static net.nevermine.container.PlayerContainer.Deities.Pluton;
-import static net.nevermine.container.PlayerContainer.Skills.Extraction;
 
 public class BlockExtractionDevice extends Block {
 	private boolean active;
@@ -97,22 +92,12 @@ public class BlockExtractionDevice extends Block {
 	}
 
 	public boolean onBlockActivated(final World w, final int x, final int y, final int z, final EntityPlayer player, final int side, final float subX, final float subY, final float subZ) {
-		if (!active || w.isRemote)
+        if (!active || w.isRemote)
 			return false;
 
 		if (player.getHeldItem() != null && (player.getHeldItem().getItem() == Itemizer.StoneBowl || player.getHeldItem().getItem() == Itemizer.DiamondBowl)) {
 			Random r = new Random();
-
-					PlayerContainer cont = PlayerContainer.getProperties(player);
-
-					if (extractionHelper.isExtractionFail(cont.getLevel(Extraction))) {
-						player.addChatMessage(StringUtil.getLocale("message.feedback.extraction.none"));
-                        player.dropItem(Item.getItemFromBlock(Blocks.obsidian), 1);
-						w.setBlock(x, y + 1, z, Blocks.air);
-						return true;
-					}
-					else {
-						int loot = extractionHelper.getLootPick(cont.getLevel(Extraction));
+						int loot = r.nextInt(22);
                         player.dropItem(Item.getItemFromBlock(Blocks.obsidian), 1);
                         if(r.nextInt(400)==0) {
                             if (!player.inventory.addItemStackToInventory(new ItemStack(Blockizer.CarvedRune1, 1)))
@@ -814,11 +799,6 @@ public class BlockExtractionDevice extends Block {
 							default:
 								break;
 						}
-
-						if (player.dimension == 0)
-							cont.adjustTribute(Pluton, 2);
-
-						cont.addExperience(cont.getExpRequired(Extraction) / extractionHelper.getExpDenominator(cont.getLevel(Extraction)), Extraction);
 						w.playSoundAtEntity(player, "nevermine:FiltrationLava", 5.85f, 1.0f);
 					}
 
@@ -826,9 +806,6 @@ public class BlockExtractionDevice extends Block {
 
 					if (player instanceof EntityPlayerMP)
 						((EntityPlayerMP)player).sendContainerToPlayer(player.inventoryContainer);
-
-
-			}
 
 			return true;
 		}

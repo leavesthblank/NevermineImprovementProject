@@ -11,16 +11,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.mob.entity.lborean.EntityAmphibiyte;
 import net.nevermine.mob.entity.overworld.*;
-import net.nevermine.skill.hauling.haulingHelper;
 
 import java.util.List;
 import java.util.Random;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hauling;
 
 public class TreasureBox extends Item {
 	Random rand = new Random();
@@ -33,9 +29,7 @@ public class TreasureBox extends Item {
 		if (world.isRemote)
 			return true;
 
-		PlayerContainer cont = PlayerContainer.getProperties(player);
-
-		if (rand.nextInt(10) == 0) {
+        if (rand.nextInt(10) == 0) {
 			Entity entity = null;
 			switch (rand.nextInt(5)) {
 				case 0:
@@ -67,7 +61,7 @@ public class TreasureBox extends Item {
 				loot = new ItemStack(Itemizer.OldBoot);
 			}
 			else {
-				for (int i = 0; i < haulingHelper.getTreasureBoxRolls(cont.getLevel(Hauling)); i++) {
+				for (int i = 0; i < 18; i++) {
 					switch (rand.nextInt(30)) {
 						case 0:
 						case 1:
@@ -133,7 +127,6 @@ public class TreasureBox extends Item {
 				player.entityDropItem(loot, 0f);
 		}
 
-		cont.addExperience((cont.getExpRequired(Hauling) / haulingHelper.getExpDenominator(cont.getLevel(Hauling))) * 3, Hauling);
 		--stack.stackSize;
 
 		if (player instanceof EntityPlayerMP)

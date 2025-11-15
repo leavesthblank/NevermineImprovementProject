@@ -11,12 +11,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.assist.ConfigurationHelper;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-
-import static net.nevermine.container.PlayerContainer.Deities.Erebon;
 
 public class EntityBloodsucker extends EntityMob {
 	public EntityBloodsucker(final World par1World) {
@@ -88,10 +84,6 @@ public class EntityBloodsucker extends EntityMob {
 
 	public void onDeath(final DamageSource var1) {
 		super.onDeath(var1);
-
-		if (dimension == ConfigurationHelper.ancientcavern && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).adjustTribute(Erebon, 8);
-		}
 	}
 
 	public boolean attackEntityAsMob(final Entity par1) {

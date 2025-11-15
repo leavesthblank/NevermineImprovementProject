@@ -9,10 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.BonemealEvent;
-import net.nevermine.container.PlayerContainer;
-import net.nevermine.skill.anima.animaHelper;
-
-import static net.nevermine.container.PlayerContainer.Skills.Anima;
 
 public class FragmentedAnimaStone extends Item {
 	public boolean onItemUse(final ItemStack stack, final EntityPlayer player, final World world, final int x, final int y, final int z, final int cnt, final float f1, final float f2, final float f3) {
@@ -20,10 +16,8 @@ public class FragmentedAnimaStone extends Item {
 			return false;
 
 		if (applyBonemeal(stack, world, x, y, z, player)) {
-			PlayerContainer cont = PlayerContainer.getProperties(player);
 
 			if (!world.isRemote) {
-				cont.addExperience(cont.getExpRequired(Anima) / animaHelper.getExpDenominator(cont.getLevel(Anima)), Anima);
 				world.playAuxSFX(2005, x, y, z, 0);
 			}
 

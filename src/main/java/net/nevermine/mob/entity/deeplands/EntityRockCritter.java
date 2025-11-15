@@ -8,11 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.assist.ConfigurationHelper;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-
-import static net.nevermine.container.PlayerContainer.Deities.Pluton;
 
 public class EntityRockCritter extends EntityMob {
 	public EntityRockCritter(final World par1World) {
@@ -38,10 +34,6 @@ public class EntityRockCritter extends EntityMob {
 
 	public void onDeath(final DamageSource var1) {
 		super.onDeath(var1);
-
-		if (dimension == ConfigurationHelper.ancientcavern && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).adjustTribute(Pluton, 8);
-		}
 	}
 
 	public boolean getCanSpawnHere() {

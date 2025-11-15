@@ -5,14 +5,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
-import net.nevermine.izer.Itemizer;
-
-import static net.nevermine.container.PlayerContainer.Deities.Pluton;
 
 public class EntityGoldum extends EntityMob {
 	public EntityGoldum(final World par1World) {
@@ -42,18 +36,6 @@ public class EntityGoldum extends EntityMob {
 
 	protected boolean isValidLightLevel() {
 		return true;
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() instanceof EntityPlayer) {
-			final EntityPlayer p = (EntityPlayer)var1.getEntity();
-
-			if (PlayerContainer.getProperties(p).getTribute(Pluton) < 100 && !p.inventory.hasItem(Itemizer.ImpureGold)) {
-				p.inventory.addItemStackToInventory(new ItemStack(Itemizer.ImpureGold));
-			}
-		}
 	}
 
 	protected boolean isAIEnabled() {

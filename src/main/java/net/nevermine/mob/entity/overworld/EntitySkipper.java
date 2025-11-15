@@ -9,11 +9,8 @@ import net.minecraft.init.Items;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 
 import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntitySkipper extends EntityMob{
 	private int angerLevel;
@@ -114,14 +111,6 @@ public class EntitySkipper extends EntityMob{
 		}
 
 		return super.attackEntityFrom(var1, (float)var2);
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(20.0f, Hunter);
-		}
 	}
 
 	private void becomeAngryAt(final Entity var1) {

@@ -10,10 +10,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.boss.EntityBoss;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.SpecialBlockizer;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityHarkos extends EntityMob implements EntityBoss {
 	private int musicTick;
@@ -42,13 +39,6 @@ public class EntityHarkos extends EntityMob implements EntityBoss {
 
 	public void onDeath(final DamageSource var1) {
 		super.onDeath(var1);
-		if (var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer cont = PlayerContainer.getProperties((EntityPlayer)var1.getEntity());
-
-
-				cont.addExperience(800, Hunter);
-		}
-
 		transform();
 	}
 

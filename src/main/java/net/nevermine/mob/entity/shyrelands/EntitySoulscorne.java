@@ -5,30 +5,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
-
 public class EntitySoulscorne extends EntityMob{
-	private int count = 0;
-	private int timer = 0;
 
 	public EntitySoulscorne(World par1World) {
 		super(par1World);
 		setSize(0.6F, 1.9F);
-	}
-
-	public void onDeath(DamageSource src) {
-		super.onDeath(src);
-
-		if (!worldObj.isRemote && src.getEntity() != null && src.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)src.getEntity()).addExperience(120.0f, Hunter);
-		}
 	}
 
 	protected void dropFewItems(boolean par1, int par2) {

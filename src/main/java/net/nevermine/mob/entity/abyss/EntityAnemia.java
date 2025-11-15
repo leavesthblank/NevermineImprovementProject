@@ -13,12 +13,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.projectiles.enemy.EntityAnemiaShot;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityAnemia extends EntityFlying implements IMob {
 	public int courseChangeCooldown;
@@ -44,15 +41,8 @@ public class EntityAnemia extends EntityFlying implements IMob {
 		return dataWatcher.getWatchableObjectByte(16) != 0;
 	}
 
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (!worldObj.isRemote && var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(15.0f, Hunter);
-		}
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
-		if (rand.nextInt(40) >= 25) {
+		if (rand.nextInt(40) >= 37) {
 			dropItem(Weaponizer.Stormer, 1);
 		}
         dropItem(Itemizer.CoinsAbyss, rand.nextInt(8));

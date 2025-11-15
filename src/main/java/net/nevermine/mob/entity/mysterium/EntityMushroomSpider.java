@@ -10,13 +10,9 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityMushroomSpider extends EntityMob{
 
@@ -35,14 +31,6 @@ public class EntityMushroomSpider extends EntityMob{
 
 	protected String getHurtSound() {
 		return "nevermine:NightmareSpiderHit";
-	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-
-		if (var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(700.0f, Hunter);
-		}
 	}
 
 	protected Entity findPlayerToAttack() {

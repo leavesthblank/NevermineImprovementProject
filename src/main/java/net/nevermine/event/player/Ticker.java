@@ -27,25 +27,9 @@ public class Ticker {
 		}
 	}
 
-	@SubscribeEvent
-	public void onPlayerTick(final TickEvent.PlayerTickEvent e) {
-		if (e.phase == END) {
-			PlayerContainer.getProperties(e.player).tickPlayer();
-		}
-	}
-
 	public static void scheduleRequiredTask(Runnable run, int time, TimeUnit unit) {
 		scheduler.schedule(run, time, unit);
 		scheduledTasks.add(run);
 	}
 
-	public static void scheduleTask(Runnable run, int time, TimeUnit unit) {
-		scheduler.schedule(run, time, unit);
-	}
-
-	public static void serverShutdownTasks() {
-		for (Runnable task : scheduledTasks) {
-			task.run();
-		}
-	}
 }

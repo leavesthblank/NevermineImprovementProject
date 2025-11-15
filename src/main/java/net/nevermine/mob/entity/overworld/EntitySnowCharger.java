@@ -9,7 +9,6 @@ import net.minecraft.init.Items;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import net.nevermine.resource.rage.rageHelper;
 
 public class EntitySnowCharger extends EntityMob {
 	public EntitySnowCharger(final World par1World) {
@@ -148,15 +147,5 @@ public class EntitySnowCharger extends EntityMob {
 
 	public float getAIMoveSpeed() {
 		return 1.5f;
-	}
-
-	public boolean attackEntityAsMob(final Entity par1) {
-		if (super.attackEntityAsMob(par1)) {
-			if (par1 instanceof EntityPlayer) {
-				rageHelper.getProperties((EntityPlayer)par1).removeBarValue(30.0f);
-			}
-			return true;
-		}
-		return false;
 	}
 }

@@ -24,7 +24,7 @@ public class Rosidons extends ItemFood {
 	public ItemStack onEaten(final ItemStack item, final World world, final EntityPlayer player) {
 		super.onEaten(item, world, player);
 
-		if (player.dimension == ConfigurationHelper.ancientcavern || player.dimension == ConfigurationHelper.immortallis || player.dimension == ConfigurationHelper.labricon) {
+		if (player.dimension == ConfigurationHelper.immortallis || player.dimension == ConfigurationHelper.labricon) {
 			if (!world.isRemote) {
 				player.addChatMessage(StringUtil.getLocale("message.feedback.item.rosidons.fail"));
 			}

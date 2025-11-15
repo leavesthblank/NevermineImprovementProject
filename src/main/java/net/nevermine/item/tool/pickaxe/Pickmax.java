@@ -15,17 +15,12 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.world.BlockEvent;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.item.tool.ExtractionTool;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Toolizer;
 
 import java.util.List;
-import java.util.Random;
 
-public class Pickmax extends ItemPickaxe implements ExtractionTool {
-	private int count;
-	private Random rand = new Random();
-
+public class Pickmax extends ItemPickaxe{
 	public Pickmax(Item.ToolMaterial p_i45347_1_) {
 		super(p_i45347_1_);
 
@@ -34,10 +29,6 @@ public class Pickmax extends ItemPickaxe implements ExtractionTool {
 
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
 		return Itemizer.IngotRosite == par2ItemStack.getItem() ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
-	}
-
-	public int getLevelReq() {
-		return 90;
 	}
 
 	public boolean onBlockDestroyed(ItemStack item, World world, Block block, int x, int y, int z, EntityLivingBase harvester) {

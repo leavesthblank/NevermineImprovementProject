@@ -13,19 +13,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.item.tool.ExtractionTool;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Toolizer;
 
 import java.util.List;
 import java.util.Random;
 
-public class OccultAxe extends ItemAxe implements ExtractionTool {
-
-	@Override
-	public int getLevelReq() {
-		return 75;
-	}
+public class OccultAxe extends ItemAxe{
 
 	public OccultAxe(final Item.ToolMaterial p_i45327_1_) {
 		super(p_i45327_1_);

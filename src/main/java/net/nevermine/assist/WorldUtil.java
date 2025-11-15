@@ -3,28 +3,8 @@ package net.nevermine.assist;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
-
-import static net.nevermine.assist.ConfigurationHelper.*;
-import static net.nevermine.container.PlayerContainer.Deities.*;
 
 public class WorldUtil {
-	public static PlayerContainer.Deities getWorldDeity(int id) {
-		if (id == -1 || id == abyss || id == greckon || id == voxponds || id == dustopia || id == creeponia) {
-			return Erebon;
-		}
-		else if (id == haven || id == runandor || id == candyland || id == shyrelands) {
-			return Luxon;
-		}
-		else if (id == precasia || id == mysterium || id == gardencia || id == lborean || id == lelyetia) {
-			return Selyan;
-		}
-		else if (id == iromine || id == lunalus || id == deeplands || id == barathos || id == celeve || id == crystevia) {
-			return Pluton;
-		}
-
-		return null;
-	}
 
 	public static int getTrueWorldHeight(World world, int x, int z) {
 		Block bl;

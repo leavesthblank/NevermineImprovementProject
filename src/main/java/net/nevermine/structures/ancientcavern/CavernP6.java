@@ -2531,15 +2531,6 @@ public class CavernP6 extends WorldGenerator {
 		world.setBlock(i + 37, j + 1, k + 38, Blockizer.AncientTileRed);
 		world.setBlock(i + 37, j + 3, k + 38, Blockizer.AncientTileRed);
 		world.setBlock(i + 37, j + 4, k + 38, Blockizer.AncientTileRed);
-		world.setBlock(i + 36, j + 2, k + 38, Blockizer.ancientcavernPortal);
-		world.setBlock(i + 36, j + 3, k + 38, Blockizer.ancientcavernPortal);
-		world.setBlock(i + 36, j + 4, k + 38, Blockizer.ancientcavernPortal);
-		world.setBlock(i + 35, j + 3, k + 38, Blockizer.ancientcavernPortal);
-		world.setBlock(i + 35, j + 4, k + 38, Blockizer.ancientcavernPortal);
-		world.setBlock(i + 35, j + 2, k + 38, Blockizer.ancientcavernPortal);
-		world.setBlock(i + 34, j + 2, k + 38, Blockizer.ancientcavernPortal);
-		world.setBlock(i + 34, j + 3, k + 38, Blockizer.ancientcavernPortal);
-		world.setBlock(i + 34, j + 4, k + 38, Blockizer.ancientcavernPortal);
 		return true;
 	}
 }

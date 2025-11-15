@@ -56,6 +56,9 @@ public class EntitySeaTroll extends EntityMob implements IRangedAttackMob {
 		if (rand.nextInt(20) == 0) {
 			dropItem(Weaponizer.DartGun, 1);
 		}
+		if (rand.nextInt(10) == 5) {
+			dropItem(Weaponizer.WaterStaff, 1);
+		}
 		dropItem(Itemizer.WaterRune, 2 + rand.nextInt(3));
 	}
 

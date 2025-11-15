@@ -11,13 +11,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.nevermine.assist.StringUtil;
 import net.nevermine.boss.EntityBoss;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.projectiles.enemy.EntityMechFall;
 import net.nevermine.projectiles.enemy.EntityMechShot;
 
 import java.util.List;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityMechBot extends EntityMob implements EntityBoss {
 	private int musictick = 6;
@@ -151,11 +148,6 @@ public class EntityMechBot extends EntityMob implements EntityBoss {
 			for (EntityPlayer e : (List<EntityPlayer>)p.worldObj.getEntitiesWithinAABB(EntityPlayer.class, p.boundingBox.expand(50.0, 50.0, 50.0))) {
 				e.addChatMessage(msg);
 			}
-
-			PlayerContainer cont = PlayerContainer.getProperties(p);
-
-
-				cont.addExperience(3000, Hunter);
 		}
 	}
 }

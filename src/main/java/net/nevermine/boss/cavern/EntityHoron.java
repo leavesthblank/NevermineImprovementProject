@@ -12,13 +12,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import net.nevermine.boss.cavern.holder.EntityHolderHoron;
-import net.nevermine.container.AncientBossesContainer;
 import net.nevermine.izer.SpecialBlockizer;
 import net.nevermine.izer.equipment.Weaponizer;
-import net.nevermine.resource.creation.creationHelper;
 import net.nevermine.resource.energy.energyHelper;
-import net.nevermine.resource.soulpower.soulPowerHelper;
 
 public class EntityHoron extends EntityMob implements CavernBoss {
 	public EntityHoron(final World par1World) {
@@ -44,19 +40,6 @@ public class EntityHoron extends EntityMob implements CavernBoss {
 
 	public void onDeath(final DamageSource var1) {
 		super.onDeath(var1);
-
-		AncientBossesContainer.killHoron(this);
-	}
-
-	private void transform() {
-		if (!worldObj.isRemote) {
-			final EntityHolderHoron var2 = new EntityHolderHoron(worldObj);
-			var2.setLocationAndAngles(posX, posY, posZ, rotationYaw, rotationPitch);
-			worldObj.spawnEntityInWorld(var2);
-			if (!worldObj.isRemote) {
-				setDead();
-			}
-		}
 	}
 
 	protected void dropFewItems(final boolean par1, final int par2) {
@@ -113,8 +96,6 @@ public class EntityHoron extends EntityMob implements CavernBoss {
 		if (super.attackEntityAsMob(par1)) {
 			if (par1 instanceof EntityPlayer) {
 				energyHelper.getProperties((EntityPlayer)par1).removeBarValue(60.0f);
-				creationHelper.getProperties((EntityPlayer)par1).removeBarValue(600.0f);
-				soulPowerHelper.getProperties((EntityPlayer)par1).removeBarValue(2000.0f);
 			}
 			return true;
 		}

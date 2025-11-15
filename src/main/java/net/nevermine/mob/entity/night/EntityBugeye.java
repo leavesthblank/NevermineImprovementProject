@@ -7,14 +7,11 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.nevermine.assist.AddPackets;
 import net.nevermine.gui.MobHitPacket;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.structures.vanilla.LunarPortalStructure;
 
 public class EntityBugeye extends EntityMob {
 	public EntityBugeye(final World par1World) {
@@ -43,16 +40,6 @@ public class EntityBugeye extends EntityMob {
 			dropItem(Itemizer.CopperCoin, 2 + rand.nextInt(3));
 		}
 	}
-
-    public void onDeath(final DamageSource var1) {
-        super.onDeath(var1);
-        if (!worldObj.isRemote && rand.nextInt(100) == 0 ) {
-            final int posx = MathHelper.floor_double(posX);
-            final int posz = MathHelper.floor_double(posZ);
-            final int posy = MathHelper.floor_double(posY);
-            new LunarPortalStructure().generate(worldObj, worldObj.rand, posx, posy, posz);
-        }
-    }
 
 	public boolean attackEntityAsMob(final Entity par1) {
 		if (super.attackEntityAsMob(par1)) {

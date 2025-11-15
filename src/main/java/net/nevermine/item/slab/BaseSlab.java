@@ -10,16 +10,12 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import net.nevermine.assist.ArmorUtil;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
-import net.nevermine.resource.creation.creationHelper;
-import net.nevermine.skill.creation.creationSkillHelper;
 
 import java.util.List;
 import java.util.Random;
-
-import static net.nevermine.container.PlayerContainer.Skills.Creation;
 
 public abstract class BaseSlab extends Item {
 	private int cost;
@@ -33,7 +29,7 @@ public abstract class BaseSlab extends Item {
 	}
 
 	public ItemStack onItemRightClick(final ItemStack stack, final World world, final EntityPlayer player) {
-		if (!world.isRemote && PlayerContainer.getProperties(player).getLevel(Creation) >= level && (player.capabilities.isCreativeMode || (creationHelper.getProperties(player).useBar(cost) && player.inventory.consumeInventoryItem(this)))) {
+		if (!world.isRemote && (player.capabilities.isCreativeMode || player.inventory.consumeInventoryItem(this))) {
 			useSlab(world, stack, player);
 			player.worldObj.playSoundAtEntity(player, "nevermine:Slab", 1.0f, 1.0f);
 		}
@@ -43,8 +39,22 @@ public abstract class BaseSlab extends Item {
 
 	public abstract void useSlab(final World p0, final ItemStack p1, final EntityPlayer p2);
 
+	public static boolean isWearingArmour(EntityPlayer pl) {
+		final ItemStack stackBoots = pl.inventory.armorItemInSlot(0);
+		final ItemStack stackLegs = pl.inventory.armorItemInSlot(1);
+		final ItemStack stackBody = pl.inventory.armorItemInSlot(2);
+		final ItemStack stackHelmet = pl.inventory.armorItemInSlot(3);
+
+		final Item boots = stackBoots != null ? stackBoots.getItem() : null;
+		final Item legs = stackLegs != null ? stackLegs.getItem() : null;
+		final Item body = stackBody != null ? stackBody.getItem() : null;
+		final Item helmet = stackHelmet != null ? stackHelmet.getItem() : null;
+
+		return ArmorUtil.isCreationArmor(boots, legs, body, helmet);
+	}
+
 	public void addBuff(final EntityTameable min, final EntityPlayer p) {
-		if (creationSkillHelper.isWearingArmour(p)) {
+		if (isWearingArmour(p)) {
 			final int pick = new Random().nextInt(4);
 
 			if (pick == 1) {

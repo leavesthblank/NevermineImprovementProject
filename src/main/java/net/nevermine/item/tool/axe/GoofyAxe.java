@@ -8,18 +8,12 @@ import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.nevermine.assist.StringUtil;
-import net.nevermine.item.tool.ExtractionTool;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Toolizer;
 
 import java.util.List;
 
-public class GoofyAxe extends ItemAxe implements ExtractionTool {
-
-	@Override
-	public int getLevelReq() {
-		return 85;
-	}
+public class GoofyAxe extends ItemAxe{
 
 	public GoofyAxe(final Item.ToolMaterial p_i45327_1_) {
 		super(p_i45327_1_);

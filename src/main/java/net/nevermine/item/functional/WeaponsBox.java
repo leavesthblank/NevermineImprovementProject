@@ -15,12 +15,9 @@ import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.mob.entity.lborean.EntityAmphibiyte;
 import net.nevermine.mob.entity.overworld.*;
-import net.nevermine.skill.hauling.haulingHelper;
 
 import java.util.List;
 import java.util.Random;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hauling;
 
 public class WeaponsBox extends Item {
 	Random rand = new Random();
@@ -62,32 +59,31 @@ public class WeaponsBox extends Item {
 		}
 		else {
 			ItemStack lootStack = null;
-			final int lvl = cont.getLevel(Hauling);
 
-			switch (rand.nextInt(8)) {
+            switch (rand.nextInt(8)) {
 				case 0:
-					lootStack = new ItemStack(Weaponizer.GooBall, lvl < 50 ? 16 : 32);
+					lootStack = new ItemStack(Weaponizer.GooBall,32);
 					break;
 				case 1:
-					lootStack = new ItemStack(Weaponizer.Vulkram, lvl < 50 ? 16 : 32);
+					lootStack = new ItemStack(Weaponizer.Vulkram,32);
 					break;
 				case 2:
-					lootStack = new ItemStack(Weaponizer.HellFire, lvl < 50 ? 16 : 32);
+					lootStack = new ItemStack(Weaponizer.HellFire,32);
 					break;
 				case 3:
-					lootStack = new ItemStack(Weaponizer.Chakram, lvl < 50 ? 16 : 32);
+					lootStack = new ItemStack(Weaponizer.Chakram,32);
 					break;
 				case 4:
-					lootStack = new ItemStack(Itemizer.CannonBall, lvl < 50 ? 32 : 64);
+					lootStack = new ItemStack(Itemizer.CannonBall,64);
 					break;
 				case 5:
-					lootStack = new ItemStack(Itemizer.MetalPellet, lvl < 50 ? 32 : 64);
+					lootStack = new ItemStack(Itemizer.MetalPellet,64);
 					break;
 				case 6:
-					lootStack = new ItemStack(Itemizer.MetalSlug, lvl < 50 ? 32 : 64);
+					lootStack = new ItemStack(Itemizer.MetalSlug,64);
 					break;
 				case 7:
-					lootStack = new ItemStack(Itemizer.ElementalArrow, lvl < 50 ? 32 : 64);
+					lootStack = new ItemStack(Itemizer.ElementalArrow,64);
 					break;
 				default:
 					break;
@@ -97,7 +93,6 @@ public class WeaponsBox extends Item {
 				player.entityDropItem(lootStack, 0f);
 		}
 
-		cont.addExperience((cont.getExpRequired(Hauling) / haulingHelper.getExpDenominator(cont.getLevel(Hauling))) * 1.5f, Hauling);
 		--stack.stackSize;
 
 		if (player instanceof EntityPlayerMP)

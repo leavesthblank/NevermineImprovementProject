@@ -9,7 +9,6 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.nevermine.assist.ConfigurationHelper;
 import net.nevermine.resource.energy.energyHelper;
-import net.nevermine.resource.soulpower.soulPowerHelper;
 
 public class EntityScythe extends EntityThrowable {
 	private float damage;
@@ -70,10 +69,6 @@ public class EntityScythe extends EntityThrowable {
 
 				if (effect == 2) {
 					movingobjectposition.entityHit.setFire(10);
-				}
-
-				if (effect == 3) {
-					soulPowerHelper.getProperties(play).regen(200.0f);
 				}
 			}
 		}

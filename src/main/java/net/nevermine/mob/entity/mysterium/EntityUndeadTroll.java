@@ -7,16 +7,12 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.nevermine.container.PlayerContainer;
 import net.nevermine.izer.Itemizer;
 import net.nevermine.izer.equipment.Weaponizer;
 import net.nevermine.projectiles.enemy.EntitySurgeBlue;
 import net.nevermine.projectiles.enemy.EntitySurgeRed;
-
-import static net.nevermine.container.PlayerContainer.Skills.Hunter;
 
 public class EntityUndeadTroll extends EntityMob implements IRangedAttackMob {
 	private EntityAIArrowAttack aiArrowAttack;
@@ -35,14 +31,6 @@ public class EntityUndeadTroll extends EntityMob implements IRangedAttackMob {
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 		setSize(0.6f, 2.3f);
 	}
-
-	public void onDeath(final DamageSource var1) {
-		super.onDeath(var1);
-		if (var1.getEntity() != null && var1.getEntity() instanceof EntityPlayer) {
-			PlayerContainer.getProperties((EntityPlayer)var1.getEntity()).addExperience(80.0f, Hunter);
-		}
-	}
-
 	protected void dropFewItems(final boolean par1, final int par2) {
         if (rand.nextInt(10) == 0) {
             dropItem(Itemizer.HavenShrooms, 1 + rand.nextInt(3));

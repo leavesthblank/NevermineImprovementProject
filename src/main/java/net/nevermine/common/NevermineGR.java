@@ -1211,14 +1211,6 @@ public class NevermineGR {
 		GameRegistry.registerItem(Itemizer.ReturnCrystal, "ReturnCrystal");
 		GameRegistry.registerItem(Itemizer.DungeonTokens, "DungeonTokens");
 		GameRegistry.registerItem(Weaponizer.BoomBoom, "BoomBoom");
-		GameRegistry.registerItem(Weaponizer.Vulcane, "Vulcane");
-		GameRegistry.registerItem(Weaponizer.BattleVulcane, "BattleVulcane");
-		GameRegistry.registerItem(Weaponizer.EqualityVulcane, "EqualityVulcane");
-		GameRegistry.registerItem(Weaponizer.FireVulcane, "FireVulcane");
-		GameRegistry.registerItem(Weaponizer.PoisonVulcane, "PoisonVulcane");
-		GameRegistry.registerItem(Weaponizer.PowerVulcane, "PowerVulcane");
-		GameRegistry.registerItem(Weaponizer.WitherVulcane, "WitherVulcane");
-		GameRegistry.registerItem(Weaponizer.ImpairmentVulcane, "ImpairmentVulcane");
 		GameRegistry.registerItem(Weaponizer.CreepifiedSword, "CreepifiedSword");
 		GameRegistry.registerItem(Weaponizer.VulcammerSword, "VulcammerSword");
 		GameRegistry.registerItem(Itemizer.AugmentFire, "AugmentFire");
@@ -1299,10 +1291,6 @@ public class NevermineGR {
 		GameRegistry.registerItem(Itemizer.Ironback, "Ironback");
 		GameRegistry.registerItem(Itemizer.Rainbowfish, "Rainbowfish");
 		GameRegistry.registerItem(Itemizer.Razorfish, "Razorfish");
-		GameRegistry.registerItem(Itemizer.SkillCrystalSmall, "SkillCrystalSmall");
-		GameRegistry.registerItem(Itemizer.SkillCrystalMedium, "SkillCrystalMedium");
-		GameRegistry.registerItem(Itemizer.SkillCrystalLarge, "SkillCrystalLarge");
-		GameRegistry.registerItem(Itemizer.SkillCrystalGiant, "SkillCrystalGiant");
 		GameRegistry.registerItem(Itemizer.TreasureBox, "TreasureBox");
 		GameRegistry.registerItem(Itemizer.RuneBox, "RuneBox");
 		GameRegistry.registerItem(Itemizer.FishCase, "FishCase");

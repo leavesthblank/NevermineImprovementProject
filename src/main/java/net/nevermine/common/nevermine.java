@@ -7,8 +7,6 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerStartedEvent;
-import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import java.util.Arrays;
 import java.util.Random;
@@ -27,7 +25,6 @@ import net.nevermine.block.modelblocks.animated.TileEntityAnimatedModelBlock;
 import net.nevermine.block.modelblocks.banner.TileEntityBanner;
 import net.nevermine.block.modelblocks.statue.TileEntityStatue;
 import net.nevermine.block.modelblocks.utility.TileEntityUtilityBlock;
-import net.nevermine.container.AncientBossesContainer;
 import net.nevermine.dimension.WorldGen;
 import net.nevermine.event.player.Ticker;
 import net.nevermine.izer.Blockizer;
@@ -112,9 +109,4 @@ public class nevermine {
         MinecraftForge.EVENT_BUS.register(o);
     }
 
-    @EventHandler
-    public void serverStopping(FMLServerStoppingEvent event) {
-        Ticker.serverShutdownTasks();
-        AncientBossesContainer.unloadAllBosses();
-    }
 }

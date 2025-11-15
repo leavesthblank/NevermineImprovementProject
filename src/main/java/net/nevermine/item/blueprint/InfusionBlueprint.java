@@ -26,7 +26,7 @@ public class InfusionBlueprint extends Item {
 	}
 
 	public boolean onItemUse(final ItemStack par1ItemStack, final EntityPlayer player, final World world, final int par4, final int par5, final int par6, final int par7, final float par8, final float par9, final float par10) {
-		if (!world.isRemote && world.provider.dimensionId != ConfigurationHelper.ancientcavern && world.provider.dimensionId != ConfigurationHelper.immortallis) {
+		if (!world.isRemote && world.provider.dimensionId != ConfigurationHelper.immortallis) {
 			final int posx = MathHelper.floor_double(player.posX);
 			final int posz = MathHelper.floor_double(player.posZ);
 			final int posy = MathHelper.floor_double(player.posY);
