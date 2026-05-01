@@ -1,9 +1,8 @@
-# An example mod using RetroFuturaGradle
+# Nevermine Improvement Project
 
-See [build.gradle.kts](build.gradle.kts) and [settings.gradle.kts](settings.gradle.kts) for the buildscript.
-When in doubt, refer to the javadocs on RFG classes (you should be able to navigate to them in IntelliJ while working on the gradle scripts) and the Gradle User Guide.
+An improvement project of Nevermine(Advent of Ascension)
 
-## Setting up the dev workspace (optional, done automatically if you build or run)
+## Changes to original mod
 ```
   Linux: ./gradlew setupDecompWorkspace
 Windows: ./gradlew.bat setupDecompWorkspace
